@@ -9,8 +9,6 @@
 #ifndef __LerningCPart1__KSCheckValueAndPrint__
 #define __LerningCPart1__KSCheckValueAndPrint__
 
-#include <stdio.h>
-
 typedef enum {
     kKSParentTypeUndefined = 0,
     kKSParentTypeMama,
@@ -18,6 +16,6 @@ typedef enum {
     kKSParentTypeMamaPapa
 } KSParentType;
 
-extern KSParentType KSCheckValueAndPrint(int value);
+extern KSParentType KSCheckingOfTheParentType(int value);
 
 #endif /* defined(__LerningCPart1__KSCheckValueAndPrint__) */

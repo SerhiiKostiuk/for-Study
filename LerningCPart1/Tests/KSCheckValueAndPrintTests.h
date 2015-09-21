@@ -9,6 +9,6 @@
 #ifndef KSCheckValueAndPrintTests_h
 #define KSCheckValueAndPrintTests_h
 
-#include <stdio.h>
+extern void KSFulfillCheckingOfTheParentTypeTests();
 
 #endif /* KSCheckValueAndPrintTests_h */

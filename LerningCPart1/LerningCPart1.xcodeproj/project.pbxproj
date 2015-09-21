@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C51C97E71BAC3E5000E3E84A /* KSDataTypesTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C51C97E51BAC3E5000E3E84A /* KSDataTypesTests.c */; settings = {ASSET_TAGS = (); }; };
 		C54280B81BAAB5B100B856C7 /* KSCheckValueAndPrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C54280B61BAAB5B100B856C7 /* KSCheckValueAndPrintTests.c */; settings = {ASSET_TAGS = (); }; };
 		C5D205941BAA0327003C2465 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C5D205931BAA0327003C2465 /* main.c */; };
 		C5D205A01BAA068F003C2465 /* KSCheckValueAndPrint.c in Sources */ = {isa = PBXBuildFile; fileRef = C5D2059E1BAA068F003C2465 /* KSCheckValueAndPrint.c */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C51C97E51BAC3E5000E3E84A /* KSDataTypesTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSDataTypesTests.c; sourceTree = "<group>"; };
+		C51C97E61BAC3E5000E3E84A /* KSDataTypesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDataTypesTests.h; sourceTree = "<group>"; };
 		C54280B61BAAB5B100B856C7 /* KSCheckValueAndPrintTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSCheckValueAndPrintTests.c; sourceTree = "<group>"; };
 		C54280B71BAAB5B100B856C7 /* KSCheckValueAndPrintTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCheckValueAndPrintTests.h; sourceTree = "<group>"; };
 		C5D205901BAA0327003C2465 /* LerningCPart1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LerningCPart1; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +88,8 @@
 			children = (
 				C54280B61BAAB5B100B856C7 /* KSCheckValueAndPrintTests.c */,
 				C54280B71BAAB5B100B856C7 /* KSCheckValueAndPrintTests.h */,
+				C51C97E51BAC3E5000E3E84A /* KSDataTypesTests.c */,
+				C51C97E61BAC3E5000E3E84A /* KSDataTypesTests.h */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -132,7 +137,7 @@
 		C5D205881BAA0327003C2465 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Serg Bla";
 				TargetAttributes = {
 					C5D2058F1BAA0327003C2465 = {
@@ -165,6 +170,7 @@
 				C5D205A01BAA068F003C2465 /* KSCheckValueAndPrint.c in Sources */,
 				C5D205941BAA0327003C2465 /* main.c in Sources */,
 				C54280B81BAAB5B100B856C7 /* KSCheckValueAndPrintTests.c in Sources */,
+				C51C97E71BAC3E5000E3E84A /* KSDataTypesTests.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +197,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;

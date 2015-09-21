@@ -8,16 +8,14 @@
 
 #include <stdio.h>
 #include "KSCheckValueAndPrint.h"
-#include "KSDataTypes.h"
+#include "KSDataTypesTests.h"
 #include "KSCheckValueAndPrintTests.h"
+
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
-    KSCheckValueAndPrint;
     
-    KSSizeOfDataTypes (char);
-    KSSizeOfDataTypes (int);
-    KSSizeOfDataTypes (float);
-    KSSizeOfDataTypes (double);
+    KSPrintSizeOfDataTypes();
+    
+    KSFulfillCheckingOfTheParentTypeTests();
+
     return 0;
 }
