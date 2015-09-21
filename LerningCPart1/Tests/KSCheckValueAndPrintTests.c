@@ -56,9 +56,9 @@ void KSCheckingOfTheParentTypeMamaPapa() {
     assert(result != kKSParentTypeMamaPapa);
 }
 
-// Function test with using loop with 1000 itetation
+// Function test with using loop with 1000 iteration
 void KSCheckingOfTheParentTypeTests(){
-    for (int calculate =0; calculate < 1000; calculate++) {
+    for (int calculate = 0; calculate < 1000; calculate++) {
         
         // Definition of local variable
         int currentCalculate = calculate;

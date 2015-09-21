@@ -14,20 +14,20 @@
 const int kKSMamaValue = 3;
 const int kKSPapaValue = 5;
 
-KSParentType KSCheckingOfTheParentType(int value){
+KSParentType KSCheckingOfTheParentType(int value) {
     KSParentType result = kKSParentTypeUndefined;
     
     if (0 == value){
         return result;
     }
     
-    if (0 == value % kKSMamaValue ) {
+    if (0 == value % kKSMamaValue) {
         result = kKSParentTypeMama;
         printf("mama");
     }
     
     if (0 == value % kKSPapaValue) {
-        result =(kKSParentTypeMama ==result) ? kKSParentTypeMamaPapa : kKSParentTypePapa;
+        result = (kKSParentTypeMama == result) ? kKSParentTypeMamaPapa : kKSParentTypePapa;
         printf("papa");
     }
     
