@@ -10,12 +10,14 @@
 #include "KSCheckValueAndPrint.h"
 #include "KSDataTypesTests.h"
 #include "KSCheckValueAndPrintTests.h"
-
+#include "KSPrimitiveTypeTests.h"
 int main(int argc, const char * argv[]) {
     
     KSPrintSizeOfDataTypes();
     
     KSFulfillCheckingOfTheParentTypeTests();
+    
+    KSPrimitiveTypeTests();
 
     return 0;
 }
