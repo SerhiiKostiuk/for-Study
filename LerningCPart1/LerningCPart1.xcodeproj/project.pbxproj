@@ -30,6 +30,7 @@
 		C51C97E61BAC3E5000E3E84A /* KSDataTypesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDataTypesTests.h; sourceTree = "<group>"; };
 		C54280B61BAAB5B100B856C7 /* KSCheckValueAndPrintTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSCheckValueAndPrintTests.c; sourceTree = "<group>"; };
 		C54280B71BAAB5B100B856C7 /* KSCheckValueAndPrintTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCheckValueAndPrintTests.h; sourceTree = "<group>"; };
+		C595C2B81BB2CA6E004AF1D7 /* KSMethodOfGeneratingAPrimitiveType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMethodOfGeneratingAPrimitiveType.h; sourceTree = "<group>"; };
 		C5D205901BAA0327003C2465 /* LerningCPart1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LerningCPart1; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D205931BAA0327003C2465 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		C5D2059E1BAA068F003C2465 /* KSCheckValueAndPrint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSCheckValueAndPrint.c; sourceTree = "<group>"; };
@@ -48,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C595C2B71BB2C9D9004AF1D7 /* KSMethodOfGeneratingAPrimitiveType */ = {
+			isa = PBXGroup;
+			children = (
+				C595C2B81BB2CA6E004AF1D7 /* KSMethodOfGeneratingAPrimitiveType.h */,
+			);
+			path = KSMethodOfGeneratingAPrimitiveType;
+			sourceTree = "<group>";
+		};
 		C5D205871BAA0327003C2465 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +86,7 @@
 		C5D2059A1BAA0459003C2465 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C595C2B71BB2C9D9004AF1D7 /* KSMethodOfGeneratingAPrimitiveType */,
 				C5D2059D1BAA04B6003C2465 /* KSDataTypes */,
 				C5D2059C1BAA048A003C2465 /* KSCheckValueAndPrint */,
 			);

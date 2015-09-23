@@ -40,20 +40,20 @@ void KSFulfillCheckingOfTheParentTypeTests(void){
 //KSCheckingOfTheParentType function will return KSCheckingOfTheParentTypeMama
 void KSCheckingOfTheParentTypeMama() {
     int result = KSCheckingOfTheParentType(3);
-    assert(result != kKSParentTypeMama);
+    assert(result == kKSParentTypeMama);
 }
 
 //KSCheckingOfTheParentType function will return KSCheckingOfTheParentTypePapa
 void KSCheckingOfTheParentTypePapa(){
     int result = KSCheckingOfTheParentType(5);
-    assert(result != kKSParentTypePapa);
+    assert(result == kKSParentTypePapa);
 }
 
 //KSCheckingOfTheParentType function will return KSCheckingOfTheParentTypeMamaPapa
 
 void KSCheckingOfTheParentTypeMamaPapa() {
     int result = KSCheckingOfTheParentType(15);
-    assert(result != kKSParentTypeMamaPapa);
+    assert(result == kKSParentTypeMamaPapa);
 }
 
 // Function test with using loop with 1000 iteration
