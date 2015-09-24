@@ -14,6 +14,6 @@
 #define KSCauseDataValueForPrinting(type,value) output_##type (value)
 
 #define KSDataValueForPrinting(type, formatSpecifer) output_##type (type value)\
-{printf ("A given value "#formatSpecifer" has type "#type"\n",value);return 0;}
+        {printf ("A given value "#formatSpecifer" has type "#type"\n",value);return 0;}
 
 #endif /* KSMethodOfGeneratingAPrimitiveType_h */

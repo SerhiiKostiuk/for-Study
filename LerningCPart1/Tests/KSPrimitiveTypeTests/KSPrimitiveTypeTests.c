@@ -19,16 +19,16 @@ KSMacrosThatGeneratingValueOfPrimitiveType(float);
 #pragma mark Public Implementations
 
 void KSPrimitiveTypeTests(){
-    KSCauseDataValueForPrinting (int, 21);
-    KSCauseDataValueForPrinting (char, 'j');
-    KSCauseDataValueForPrinting (float, 3.14);
+    KSCauseDataValueForPrinting(int, 21);
+    KSCauseDataValueForPrinting(char, 'j');
+    KSCauseDataValueForPrinting(float, 3.14);
 }
 
 #pragma mark -
 #pragma mark Private Implementations
 
-KSDataValueForPrinting (int,%d);
-KSDataValueForPrinting (char,%c);
-KSDataValueForPrinting (float,%.3f);
+KSDataValueForPrinting(int,%d);
+KSDataValueForPrinting(char,%c);
+KSDataValueForPrinting(float,%.3f);
 
 
