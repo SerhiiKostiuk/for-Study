@@ -11,6 +11,8 @@
 #include "KSDataTypesTests.h"
 #include "KSCheckValueAndPrintTests.h"
 #include "KSPrimitiveTypeTests.h"
+#include "KSTypeRepresentationInBinary.h"
+
 int main(int argc, const char * argv[]) {
     
     KSPrintSizeOfDataTypes();
@@ -19,5 +21,7 @@ int main(int argc, const char * argv[]) {
     
     KSPrimitiveTypeTests();
 
+    KSPRintTheTypeInBinaryForm(5);
+    
     return 0;
 }

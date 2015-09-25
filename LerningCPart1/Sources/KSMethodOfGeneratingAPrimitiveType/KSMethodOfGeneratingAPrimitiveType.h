@@ -9,11 +9,11 @@
 #ifndef KSMethodOfGeneratingAPrimitiveType_h
 #define KSMethodOfGeneratingAPrimitiveType_h
 
-#define KSMacrosThatGeneratingValueOfPrimitiveType(type) output_##type (type)
+#define KSMacrosThatGeneratingValueOfPrimitiveType(type)int output_##type (type)
 
 #define KSCauseDataValueForPrinting(type,value) output_##type (value)
 
-#define KSDataValueForPrinting(type, formatSpecifer) output_##type (type value)\
+#define KSDataValueForPrinting(type, formatSpecifer)int output_##type (type value)\
         {printf ("A given value "#formatSpecifer" has type "#type"\n",value);return 0;}
 
 #endif /* KSMethodOfGeneratingAPrimitiveType_h */
