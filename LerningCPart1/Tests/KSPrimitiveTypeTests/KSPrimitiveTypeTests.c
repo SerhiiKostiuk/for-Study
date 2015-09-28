@@ -5,7 +5,7 @@
 //  Created by Serg Bla on 23.09.15.
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
-
+#include <stdio.h>
 #include "KSPrimitiveTypeTests.h"
 
 #pragma mark -

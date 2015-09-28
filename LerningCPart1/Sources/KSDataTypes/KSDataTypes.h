@@ -11,6 +11,6 @@
 
 #include <stdio.h>
 
-#define KSSizeOfDataTypes(type) printf("Size of type "#type" =%lu\n",sizeof(type) )
+#define KSSizeOfDataTypes(type) printf("Size of type "#type" =%lu\n",sizeof(type) )\
 
 #endif

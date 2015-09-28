@@ -12,16 +12,25 @@
 #include "KSCheckValueAndPrintTests.h"
 #include "KSPrimitiveTypeTests.h"
 #include "KSTypeRepresentationInBinary.h"
+#include "KSStructureTests.h"
+
+#define executeTest(testName) printf (#testName " started...\n");\
+printf("\n");\
+testName();\
+printf(#testName " finished\n");\
+printf("\n");
 
 int main(int argc, const char * argv[]) {
     
-    KSPrintSizeOfDataTypes();
+    executeTest(KSPrintSizeOfDataTypes);
     
-    KSFulfillCheckingOfTheParentTypeTests();
+    executeTest(KSFulfillCheckingOfTheParentTypeTests);
     
-    KSPrimitiveTypeTests();
+    executeTest(KSPrimitiveTypeTests);
 
     KSPRintTheTypeInBinaryForm(5);
+    executeTest(KSStructureTests);
     
+ 
     return 0;
 }

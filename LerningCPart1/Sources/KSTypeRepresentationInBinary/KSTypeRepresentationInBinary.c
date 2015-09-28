@@ -9,14 +9,17 @@
 #include "KSTypeRepresentationInBinary.h"
 
 void KSPRintTheTypeInBinaryForm (int nameOfType){
+//    int amountOfTheBit = sizeof(nameOfType)<<1;
+//    printf("%d\n", amountOfTheBit);
     
-    for (int amountOfTheBit = sizeof(nameOfType)<<1; amountOfTheBit !=0; amountOfTheBit--) {
+    for (int amountOfTheBit = sizeof(nameOfType)<<1; amountOfTheBit != 0; amountOfTheBit--) {
         
-        if (((nameOfType >> (amountOfTheBit - 1))& 1)!=0) {
+        if (((nameOfType >> (amountOfTheBit - 1)) & 1) != 0) {
             
           printf("1");
             
-        } else printf("0");
+        } else
+            printf("0");
         
-    } printf("\n");
+    } printf("\n\n");
 }
