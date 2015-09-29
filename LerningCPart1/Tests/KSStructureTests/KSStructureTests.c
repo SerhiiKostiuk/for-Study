@@ -56,8 +56,8 @@ void KSStructureOffsetofTests(void){
     KSOutputFunctionForTheFirstStructureOffsetofTests(variableBool6);
     
     KSMember_size(TheThirdStructure, variableLongLong);
+    
     KSOffsetofFunction(TheSecondStructure, variableShort1);
-   // printf("%lu\n",member_size(TheThirdStructure, boolFlags));
-   // KSOutputFunctionForTheThirdStructureOffsetofTests(variableBool3);
+   
 
 }
