@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-#include "KSCheckValueAndPrint.h"
+
 #include "KSDataTypesTests.h"
 #include "KSCheckValueAndPrintTests.h"
 #include "KSPrimitiveTypeTests.h"
