@@ -9,5 +9,5 @@
 #ifndef KSTypeRepresentationInBinary_h
 #define KSTypeRepresentationInBinary_h
 
-void KSPRintTheTypeInBinaryForm(int nameOfType);
+void KSPrintTheTypeInBinaryForm(short value);
 #endif /* KSTypeRepresentationInBinary_h */

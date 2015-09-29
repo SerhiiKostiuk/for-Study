@@ -8,18 +8,51 @@
 #include <stdio.h>
 #include "KSTypeRepresentationInBinary.h"
 
-void KSPRintTheTypeInBinaryForm (int nameOfType){
-//    int amountOfTheBit = sizeof(nameOfType)<<1;
-//    printf("%d\n", amountOfTheBit);
+#pragma mark -
+#pragma Private Declarations
+
+static const int kKSCountOfBit = 8;
+static const int kKSTheLowerBitMask = 1;
+
+static
+void KSOutputDataFieldOfSize(void *data, size_t size);
+
+static
+void KSOutputByte(uint8_t value);
+
+#pragma mark -
+#pragma Public Implementations
+
+void KSPrintTheTypeInBinaryForm (short value){
+
+    KSOutputDataFieldOfSize(&value, sizeof(value));
+    printf("\n\n");
+}
+
+#pragma mark -
+#pragma Private Implementations
+
+void KSOutputDataFieldOfSize(void *data, size_t size){
+//    for (size_t index = 0; index < size; index++) {
+//        if (index) {
+//            printf(" ");
+//        }
+//        
+//        uint8_t byte = *((uint8_t *)data +index);
+//        KSOutputByte(byte);
+//    }
+//    printf("\n");
     
-    for (int amountOfTheBit = sizeof(nameOfType)<<1; amountOfTheBit != 0; amountOfTheBit--) {
-        
-        if (((nameOfType >> (amountOfTheBit - 1)) & 1) != 0) {
-            
-          printf("1");
-            
-        } else
-            printf("0");
-        
-    } printf("\n\n");
+    while (size) {
+        size--;
+        KSOutputByte(((uint8_t *)data)[size]);
+        printf(" ");
+    }
+}
+
+void KSOutputByte(uint8_t value) {
+    
+    for (int bitIndex = sizeof(value) * kKSCountOfBit; bitIndex !=0; bitIndex--) {
+        printf("%d",((value >> (bitIndex - 1))& kKSTheLowerBitMask));
+    }
 }

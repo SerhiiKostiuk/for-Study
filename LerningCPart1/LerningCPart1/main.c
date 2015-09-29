@@ -28,7 +28,8 @@ int main(int argc, const char * argv[]) {
     
     executeTest(KSPrimitiveTypeTests);
 
-    KSPRintTheTypeInBinaryForm(5);
+    KSPrintTheTypeInBinaryForm(10230);
+    
     executeTest(KSStructureTests);
     
  

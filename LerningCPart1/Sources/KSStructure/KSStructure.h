@@ -31,45 +31,46 @@ typedef struct  {
     
 } TheFirstStructure;
 
-//
-//typedef struct {
-//    long long variableLongLong;
-//    double variableDouble;
-//    float variableFloat;
-//    int variableInt;
-//    short variableShort1;
-//    short variableShort2;
-//    short variableShort3;
-//    char *variableStringPointer;
-//    bool variableBool1;
-//    bool variableBool2;
-//    bool variableBool3;
-//    bool variableBool4;
-//    bool variableBool5;
-//    bool variableBool6;
-//    
-//} TheSecondStructure;
-//
-//typedef struct {
-//    long long variableLongLong;
-//    double variableDouble;
-//    float variableFloat;
-//    int variableInt;
-//    short variableShort1;
-//    short variableShort2;
-//    short variableShort3;
-//    char *variableStringPointer;
-//    union {
-//    bool variableBool1;
-//    bool variableBool2;
-//    bool variableBool3;
-//    bool variableBool4;
-//    bool variableBool5;
-//    bool variableBool6;
-//    };
-//    
-//} TheThirdStructure;
-//
+
+typedef struct {
+    char *variableStringPointer;
+    long long variableLongLong;
+    double variableDouble;
+    float variableFloat;
+    int variableInt;
+    short variableShort1;
+    short variableShort2;
+    short variableShort3;
+    bool variableBool1;
+    bool variableBool2;
+    bool variableBool3;
+    bool variableBool4;
+    bool variableBool5;
+    bool variableBool6;
+    
+} TheSecondStructure;
+
+typedef struct {
+    char *variableStringPointer;
+    long long variableLongLong;
+    double variableDouble;
+    float variableFloat;
+    int variableInt;
+    short variableShort1;
+    short variableShort2;
+    short variableShort3;
+    union {
+        struct {
+        bool variableBool1 : 1;
+        bool variableBool2 : 1;
+        bool variableBool3 : 1;
+        bool variableBool4 : 1;
+        bool variableBool5 : 1;
+        bool variableBool6 : 1;
+        }boolFlags;
+};
+} TheThirdStructure;
+
 
 
 
