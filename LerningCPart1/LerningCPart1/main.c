@@ -12,6 +12,7 @@
 #include "KSCheckValueAndPrintTests.h"
 #include "KSPrimitiveTypeTests.h"
 #include "KSTypeRepresentationInBinary.h"
+#include "KSTypeRepresentationInBinaryTests.h"
 #include "KSStructureTests.h"
 
 #define executeTest(testName) printf (#testName " started...\n");\
@@ -30,7 +31,7 @@ int main(int argc, const char * argv[]) {
     
     executeTest(KSStructureTests);
 
-    KSOutputDataFieldOfSize(123, 134, 3445);
+   executeTest(KSTypeRepresentationInBinaryTests);
     
  
     

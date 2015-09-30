@@ -9,6 +9,8 @@
 #ifndef KSTypeRepresentationInBinary_h
 #define KSTypeRepresentationInBinary_h
 
+#include <stdio.h>
+
 typedef enum{
     KSLittleEndian = 0,
     KsBigEndian = 1,

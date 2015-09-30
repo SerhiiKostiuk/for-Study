@@ -9,6 +9,9 @@
 #ifndef KSTypeRepresentationInBinaryTests_h
 #define KSTypeRepresentationInBinaryTests_h
 
-#include <stdio.h>
+
+
+extern
+void KSTypeRepresentationInBinaryTests(void);
 
 #endif /* KSTypeRepresentationInBinaryTests_h */
