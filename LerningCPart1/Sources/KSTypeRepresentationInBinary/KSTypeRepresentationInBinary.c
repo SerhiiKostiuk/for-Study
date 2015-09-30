@@ -14,8 +14,8 @@
 static const int kKSCountOfBit = 8;
 static const int kKSTheLowerBitMask = 1;
 
-static
-void KSOutputDataFieldOfSize(void *data, size_t size);
+//static
+//void KSOutputDataFieldOfSize();
 
 static
 void KSOutputByte(uint8_t value);
@@ -23,25 +23,17 @@ void KSOutputByte(uint8_t value);
 #pragma mark -
 #pragma Public Implementations
 
-void KSPrintTheTypeInBinaryForm (short value){
-
-    KSOutputDataFieldOfSize(&value, sizeof(value));
-    printf("\n\n");
-}
-
-#pragma mark -
-#pragma Private Implementations
-
-void KSOutputDataFieldOfSize(void *data, size_t size){
-//    for (size_t index = 0; index < size; index++) {
-//        if (index) {
-//            printf(" ");
-//        }
-//        
-//        uint8_t byte = *((uint8_t *)data +index);
-//        KSOutputByte(byte);
-//    }
-//    printf("\n");
+void KSOutputDataFieldOfSize(void *data, size_t size, KSTypeOfEndian endianType){
+    if (endianType == KSLittleEndian) {
+        
+        for (size_t index = 0; index < size; index++) {
+            if (index) {
+                printf(" ");
+            }
+        uint8_t byte = *((uint8_t *)data + index);
+        KSOutputByte(byte);
+        }
+    } else if (endianType == KsBigEndian){
     
     while (size) {
         size--;
@@ -49,10 +41,19 @@ void KSOutputDataFieldOfSize(void *data, size_t size){
         printf(" ");
     }
 }
+    printf("\n\n");
+}
+
+#pragma mark -
+#pragma Private Implementations
+
 
 void KSOutputByte(uint8_t value) {
     
     for (int bitIndex = sizeof(value) * kKSCountOfBit; bitIndex !=0; bitIndex--) {
         printf("%d",((value >> (bitIndex - 1))& kKSTheLowerBitMask));
+        if (0 == (bitIndex % kKSCountOfBit)-1) {
+            printf(" ");
+        }
     }
 }

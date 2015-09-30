@@ -27,10 +27,12 @@ int main(int argc, const char * argv[]) {
     executeTest(KSFulfillCheckingOfTheParentTypeTests);
     
     executeTest(KSPrimitiveTypeTests);
-
-    KSPrintTheTypeInBinaryForm(10230);
     
     executeTest(KSStructureTests);
+
+    KSOutputDataFieldOfSize(123, 134, 3445);
+    
+ 
     
  
     return 0;

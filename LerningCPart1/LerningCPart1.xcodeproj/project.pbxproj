@@ -13,6 +13,7 @@
 		C595C2BD1BB2CF05004AF1D7 /* KSCheckValueAndPrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C595C2BB1BB2CF05004AF1D7 /* KSCheckValueAndPrintTests.c */; settings = {ASSET_TAGS = (); }; };
 		C595C2C11BB2D0A2004AF1D7 /* KSPrimitiveTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C595C2BF1BB2D0A2004AF1D7 /* KSPrimitiveTypeTests.c */; settings = {ASSET_TAGS = (); }; };
 		C5A76E061BB54560003602C6 /* KSTypeRepresentationInBinary.c in Sources */ = {isa = PBXBuildFile; fileRef = C5A76E041BB54560003602C6 /* KSTypeRepresentationInBinary.c */; settings = {ASSET_TAGS = (); }; };
+		C5CA32DA1BBC10B200373CCC /* KSTypeRepresentationInBinaryTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5CA32D81BBC10B200373CCC /* KSTypeRepresentationInBinaryTests.c */; settings = {ASSET_TAGS = (); }; };
 		C5D205941BAA0327003C2465 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C5D205931BAA0327003C2465 /* main.c */; };
 		C5D205A01BAA068F003C2465 /* KSCheckValueAndPrint.c in Sources */ = {isa = PBXBuildFile; fileRef = C5D2059E1BAA068F003C2465 /* KSCheckValueAndPrint.c */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,8 @@
 		C595C2C01BB2D0A2004AF1D7 /* KSPrimitiveTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPrimitiveTypeTests.h; sourceTree = "<group>"; };
 		C5A76E041BB54560003602C6 /* KSTypeRepresentationInBinary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSTypeRepresentationInBinary.c; sourceTree = "<group>"; };
 		C5A76E051BB54560003602C6 /* KSTypeRepresentationInBinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTypeRepresentationInBinary.h; sourceTree = "<group>"; };
+		C5CA32D81BBC10B200373CCC /* KSTypeRepresentationInBinaryTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSTypeRepresentationInBinaryTests.c; sourceTree = "<group>"; };
+		C5CA32D91BBC10B200373CCC /* KSTypeRepresentationInBinaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTypeRepresentationInBinaryTests.h; sourceTree = "<group>"; };
 		C5D205901BAA0327003C2465 /* LerningCPart1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LerningCPart1; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D205931BAA0327003C2465 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		C5D2059E1BAA068F003C2465 /* KSCheckValueAndPrint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSCheckValueAndPrint.c; sourceTree = "<group>"; };
@@ -123,6 +126,15 @@
 			path = KSTypeRepresentationInBinary;
 			sourceTree = "<group>";
 		};
+		C5CA32D71BBC107200373CCC /* KSTypeRepresentationInBinaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5CA32D81BBC10B200373CCC /* KSTypeRepresentationInBinaryTests.c */,
+				C5CA32D91BBC10B200373CCC /* KSTypeRepresentationInBinaryTests.h */,
+			);
+			path = KSTypeRepresentationInBinaryTests;
+			sourceTree = "<group>";
+		};
 		C5D205871BAA0327003C2465 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				C548180C1BB949360082E8AE /* KSStructureTests */,
+				C5CA32D71BBC107200373CCC /* KSTypeRepresentationInBinaryTests */,
 				C595C2BA1BB2CE5F004AF1D7 /* KSDataTypesTests */,
 				C595C2B91BB2CE52004AF1D7 /* KSCheckValueAndPrintTests */,
 				C595C2BE1BB2D032004AF1D7 /* KSPrimitiveTypeTests */,
@@ -251,6 +264,7 @@
 				C5D205941BAA0327003C2465 /* main.c in Sources */,
 				C54F4C9C1BB93B060017D519 /* KSStructure.c in Sources */,
 				C548180F1BB949680082E8AE /* KSStructureTests.c in Sources */,
+				C5CA32DA1BBC10B200373CCC /* KSTypeRepresentationInBinaryTests.c in Sources */,
 				C595C2C11BB2D0A2004AF1D7 /* KSPrimitiveTypeTests.c in Sources */,
 				C51C97E71BAC3E5000E3E84A /* KSDataTypesTests.c in Sources */,
 			);
