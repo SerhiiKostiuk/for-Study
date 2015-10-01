@@ -33,31 +33,29 @@ void KSStructureTests(void){
 
 void KSStructureSizeofTests(void){
     
-    printf("The weight of structure 1 = %lu\n",sizeof(TheFirstStructure));
-    printf("The weight of structure 2 = %lu\n",sizeof(TheSecondStructure));
-    printf("The weight of structure 3 = %lu\n\n",sizeof(TheThirdStructure));
+    KSOutputFunctionForTheStructureSizeofTests(TheFirstStructure);
+    KSOutputFunctionForTheStructureSizeofTests(TheSecondStructure);
+    KSOutputFunctionForTheStructureSizeofTests(TheThirdStructure);
+   
+    KSMember_size(TheThirdStructure, boolFlags);
+
 }
 
 void KSStructureOffsetofTests(void){
    
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableInt);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableLongLong);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableBool2);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableFloat);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableShort1);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableBool1);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableDouble);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableBool3);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableShort2);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableStringPointer);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableBool4);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableShort3);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableBool5);
-    KSOutputFunctionForTheFirstStructureOffsetofTests(variableBool6);
-    
-    KSMember_size(TheThirdStructure, variableLongLong);
-    
-    KSOffsetofFunction(TheSecondStructure, variableShort1);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableInt);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableLongLong);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool2);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableFloat);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableShort1);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool1);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableDouble);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool3);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableShort2);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableStringPointer);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool4);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableShort3);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool5);
+    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool6);
    
-
 }

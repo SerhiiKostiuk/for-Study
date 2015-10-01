@@ -24,7 +24,7 @@ void KSOutputByte(uint8_t value);
 #pragma Public Implementations
 
 void KSOutputDataFieldOfSize(void *data, size_t size, KSTypeOfEndian endianType){
- //   printf("Bits %p is: \n",data);
+ 
     if (endianType == KSLittleEndian) {
         
         for (size_t index = 0; index < size; index++) {
@@ -53,8 +53,9 @@ void KSOutputByte(uint8_t value) {
     
     for (int bitIndex = sizeof(value) * kKSCountOfBit; bitIndex !=0; bitIndex--) {
         printf("%d",((value >> (bitIndex - 1))& kKSTheLowerBitMask));
-        if (0 == (bitIndex % kKSCountOfBit)-1) {
-            printf(" ");
+        
+            if (0 == (bitIndex % kKSCountOfBit)-1) {
+                printf(" ");
+            }
         }
     }
-}

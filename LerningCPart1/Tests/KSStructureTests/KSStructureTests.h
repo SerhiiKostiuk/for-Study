@@ -11,14 +11,14 @@
 
 #include <stdio.h>
 
-#define KSOutputFunctionForTheFirstStructureOffsetofTests(nameOfElement) \
-printf(""#nameOfElement" = %lu\n\n",offsetof(TheFirstStructure,nameOfElement))
+#define KSOutputFunctionForTheStructureOffsetofTests(structure, nameOfElement) \
+printf(""#nameOfElement" = %lu\n\n",offsetof(structure,nameOfElement))
 
-//#define KSOutputFunctionForTheThirdStructureOffsetofTests(nameOfElement) \
-//printf("v = %lu\n",offsetof(TheThirdStructure,nameOfElement))
+#define KSOutputFunctionForTheStructureSizeofTests(structure) \
+printf("The weight of "#structure" = %lu\n", sizeof(structure))
 
 #define KSMember_size(type, member) printf(""#member" has = %lu bytes \n",sizeof(((type ){0}).member))
-#define KSOffsetofFunction(type, member) printf(""#member" has = %lu \n",((size_t) &((type *)0)->member))
+//#define KSOffsetofFunction(type, member) printf(""#member" has = %lu \n",((size_t) &((type *)0)->member))
 
 extern
 void KSStructureTests(void);

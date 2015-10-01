@@ -67,7 +67,8 @@ typedef struct {
         bool variableBool4 : 1;
         bool variableBool5 : 1;
         bool variableBool6 : 1;
-        }boolFlags;
+        };
+        char boolFlags;
 };
 } TheThirdStructure;
 

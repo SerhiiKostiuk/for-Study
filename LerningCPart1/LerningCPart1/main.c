@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
     
     executeTest(KSStructureTests);
 
-   executeTest(KSTypeRepresentationInBinaryTests);
+    executeTest(KSTypeRepresentationInBinaryTests);
     
  
     
