@@ -36,9 +36,9 @@ KSTypeOfEndian KSDetectOfTheEndianType(void){
     kEndianTypeRecognizer endianRecognizer;
     endianRecognizer.data = 1;
         if (1 == endianRecognizer.isLittleEndian) {
-            endianType = KSLittleEndian;
+            endianType = kKSLittleEndian;
         }else if (1 == endianRecognizer.isBigEndian){
-            endianType = KsBigEndian;
+            endianType = kKSBigEndian;
         }
     return endianType;
 };
@@ -52,10 +52,10 @@ void KSPrintingBytesOfTheIntValue(void){
     KSTypeOfEndian endianType = 0;
     KSTypeOfEndian theFlagOfEndianType = KSDetectOfTheEndianType();
     
-        if (theFlagOfEndianType == KSLittleEndian) {
-            endianType = KSLittleEndian;
-        }else if (theFlagOfEndianType == KsBigEndian){
-            endianType = KsBigEndian;
+        if (theFlagOfEndianType == kKSLittleEndian) {
+            endianType = kKSLittleEndian;
+        }else if (theFlagOfEndianType == kKSBigEndian){
+            endianType = kKSBigEndian;
         }
     KSOutputDataFieldOfSize (data, sizeOfTheValue, endianType);
     

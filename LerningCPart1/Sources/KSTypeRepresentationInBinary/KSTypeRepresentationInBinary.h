@@ -12,8 +12,8 @@
 #include <stdio.h>
 
 typedef enum{
-    KSLittleEndian = 0,
-    KsBigEndian = 1,
+    kKSLittleEndian = 0,
+    kKSBigEndian = 1,
 } KSTypeOfEndian;
 
 typedef union {
