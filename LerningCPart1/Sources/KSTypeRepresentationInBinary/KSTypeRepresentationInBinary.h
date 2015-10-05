@@ -25,5 +25,6 @@ typedef union {
         };
     } kEndianTypeRecognizer;
 
+extern
 void KSOutputDataFieldOfSize(void *data, size_t size, KSTypeOfEndian endianType);
 #endif /* KSTypeRepresentationInBinary_h */

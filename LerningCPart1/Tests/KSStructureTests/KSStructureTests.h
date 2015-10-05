@@ -17,7 +17,7 @@ printf(""#nameOfElement" = %lu\n\n",offsetof(structure,nameOfElement))
 #define KSOutputFunctionForTheStructureSizeofTests(structure) \
 printf("The weight of "#structure" = %lu\n", sizeof(structure))
 
-#define KSMember_size(type, member) printf(""#member" has = %lu bytes \n",sizeof(((type ){0}).member))
+#define KSMemberSize(type, member) printf(""#member" has = %lu bytes \n\n",sizeof(((type ){0}).member))
 //#define KSOffsetofFunction(type, member) printf(""#member" has = %lu \n",((size_t) &((type *)0)->member))
 
 extern

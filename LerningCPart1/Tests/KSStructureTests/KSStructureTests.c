@@ -36,8 +36,7 @@ void KSStructureSizeofTests(void){
     KSOutputFunctionForTheStructureSizeofTests(TheFirstStructure);
     KSOutputFunctionForTheStructureSizeofTests(TheSecondStructure);
     KSOutputFunctionForTheStructureSizeofTests(TheThirdStructure);
-   
-    KSMember_size(TheThirdStructure, boolFlags);
+    KSMemberSize(TheThirdStructure, boolFlags);
 
 }
 
