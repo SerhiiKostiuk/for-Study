@@ -7,50 +7,58 @@
 //
 
 #include <stdbool.h>
+#include <stdlib.h>
+#include <assert.h>
 #include "KSObjectStructureHuman.h"
+
+#define KSReturnObjectFieldOrValue(object, fieldName, nullValue)\
+return NULL != object ? object->fieldName : nullValue
 
 #pragma mark -
 #pragma mark Private Declarations
-typedef  struct  {
-    char *name;
-    uint8_t age;
-    char *sex;
-    bool isMarried;
-    int kids[20];
-    char *pointerOnPartner;
-    char *pointerOnParents;
-} KSObjectStructureHuman;
+
 
 #pragma mark -
-#pragma mark Public Implementations
-
-KSObjectStructureHuman *KSObjectStructureHumanCreate(void);
-void _KSObjectStructureHumanDeallocate(KSObjectStructureHuman *KSHuman);
-
-char *KSObjectStructureHumanName (KSObjectStructureHuman *KSHuman);
-void KSObjectStructureHumanSetName (KSObjectStructureHuman *KSHuman, char *name);
-
-uint8_t KSObjectStructureHumanAge (KSObjectStructureHuman *KSHuman);
-void KSObjectStructureHumanSetAge (KSObjectStructureHuman *KSHuman, uint8_t age);
-
-char *KSObjectStructureHumanSex (KSObjectStructureHuman *KSHuman);
-void KSObjectStructureHumanSetSex (KSObjectStructureHuman *KSHuman, char *sex);
-
-bool KSObjectStructureHumanIsMarried (KSObjectStructureHuman *KSHuman);
-void KSObjectStructureHumanSetMarried (KSObjectStructureHuman *KSHuman, bool isMarried);
-
-int KSObjectStructureHumanKids (KSObjectStructureHuman *KSHuman);
-void KSObjectStructureHumanSetKids (KSObjectStructureHuman *KSHuman, int kids);
-
-char KSObjectStructureHumanPointerOnPartner (KSObjectStructureHuman *KSHuman);
-void KSObjectStructureHumanSetPointerOnPartner (KSObjectStructureHuman *KSHuman, char *pointerOnPartner);
-
-char KSObjectStructureHumanPointerOnParents (KSObjectStructureHuman *KSHuman);
-void KSObjectStructureHumanSetPointerOnParents (KSObjectStructureHuman *KSHuman, char *pointerOnParents);
+#pragma mark Private Implementations
 
 
+KSHuman *KSHumanCreate(void){
+    KSHuman *KSObject = malloc(sizeof(KSHuman));
+    assert(KSObject !=NULL);
+    return KSObject;
+}
 
+char *KSHumanName(KSHuman *KSObject){
+    KSReturnObjectFieldOrValue(KSObject,_name,NULL);
+}
 
+void KSHumanSetName (KSHuman *KSObject, char *_name){
+    KSObject->_name = _name;
+}
+
+char *KSHumanPointerOnPartner (KSHuman *KSObject){
+    KSReturnObjectFieldOrValue(KSObject, _pointerOnPartner, NULL);
+}
+
+void KSHumanSetPointerOnPartner (KSHuman *KSObject, char *_pointerOnPartner){
+    KSObject->_pointerOnPartner = _pointerOnPartner;
+}
+
+char *KSHumanPointerOnMother (KSHuman *KSObject){
+    KSReturnObjectFieldOrValue(KSObject, _pointerOnMother, NULL);
+}
+
+void KSHumanSetPointerOnMother (KSHuman *KSObject, char *_pointerOnMother){
+    KSObject->_pointerOnMother = _pointerOnMother;
+}
+
+char *KSHumanPointerOnFather (KSHuman *KSObject){
+    KSReturnObjectFieldOrValue(KSObject, _pointerOnFather, NULL);
+}
+
+void KSSetPointerOnFather (KSHuman *KSObject, char *_pointerOnFather){
+    KSObject->_pointerOnFather = _pointerOnFather;
+}
 
 
 
