@@ -11,22 +11,15 @@
 
 #include <stdio.h>
 
+
 typedef enum {
+    KSHumanGenderUndefiened,
     KSHumanGenderMale,
     KSHumanGenderFemale
-} _KSHumanGender;
+} KSHumanGenderType;
 
-typedef  struct  {
-    char *_name;
-    char *_pointerOnPartner;
-    char *_pointerOnMother;
-    char *_pointerOnFather;
-    char *_kids[20];
-    int _kidsCount;
-    uint8_t _age;
-    char _KSHumanGender;
-    bool _isMarried;
-} KSHuman;
+typedef struct KSHuman KSHuman;
+
 
 
 KSHuman *KSHumanCreate(void);
@@ -35,28 +28,32 @@ void _KSHumanDeallocate(KSHuman *KSObject);
 char *KSHumanName (KSHuman *KSObject);
 void KSHumanSetName (KSHuman *KSObject, char *_name);
 
-char *KSHumanPointerOnPartner (KSHuman *KSObject);
-void KSHumanSetPointerOnPartner (KSHuman *KSObject, char *_pointerOnPartner);
+KSHuman *KSHumanPartner (KSHuman *KSObject);
+void KSHumanSetPartner (KSHuman *KSObject, KSHuman *_partner);
 
-char *KSHumanPointerOnMother (KSHuman *KSObject);
-void KSHumanSetPointerOnMother (KSHuman *KSObject, char *_pointerOnMother);
+KSHuman *KSHumanMother (KSHuman *KSObject);
+void KSHumanSetMother (KSHuman *KSObject, KSHuman *_mother);
 
-char *KSHumanPointerOnFather (KSHuman *KSObject);
-void KSSetPointerOnFather (KSHuman *KSObject, char *_pointerOnFather);
+KSHuman *KSHumanFather (KSHuman *KSObject);
+void KSHumanSetFather (KSHuman *KSObject, KSHuman *_father);
 
+KSHuman *KSHumanKids (KSHuman *KSObject);
+void KSHumanSetKids (KSHuman *KSObject, KSHuman *_kids);
 
+uint8_t KSHumanKidsCount (KSHuman *KSObject);
+void KSHumanSetKidsCount (KSHuman *KSObject, uint8_t _kidsCount);
 
 uint8_t KSHumanAge (KSHuman *KSObject);
 void KSHumanSetAge (KSHuman *KSObject, uint8_t _age);
 
-char KSHumanGender (KSHuman *KSObject);
-void KSHumanSetGender (KSHuman *KSObject, char _KSHumanGender);
+KSHumanGenderType KSHumanGender (KSHuman *KSObject);
+void KSHumanSetGender (KSHuman *KSObject, KSHumanGenderType gender);
 
 bool KSHumanIsMarried (KSHuman *KSObject);
-void KSHumanSetMarried (KSHuman *KSObject, bool _isMarried);
 
-int KSHumanKids (KSHuman *KSObject);
-//void KSObjectStructureHumanSetKids (KSHuman *KSObject, int kids);//ненужно
+void KSHumanSetMarry (KSHuman *KSObject, KSHuman *_partner);
+
+void KSHumanSetDivorce (KSHuman *KSObject, KSHuman *_partner);
 
 
 
