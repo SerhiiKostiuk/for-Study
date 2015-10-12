@@ -16,15 +16,6 @@ typedef enum{
     kKSBigEndian = 1,
 } KSTypeOfEndian;
 
-typedef union {
-    uint16_t data;
-
-    struct {
-        uint8_t isLittleEndian;
-        uint8_t isBigEndian;
-        };
-    } kEndianTypeRecognizer;
-
 extern
 void KSOutputDataFieldOfSize(void *data, size_t size, KSTypeOfEndian endianType);
 #endif /* KSTypeRepresentationInBinary_h */

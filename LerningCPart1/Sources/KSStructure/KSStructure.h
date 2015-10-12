@@ -29,7 +29,7 @@ typedef struct  {
     bool variableBool5;
     bool variableBool6;
     
-} TheFirstStructure;
+} KSRandomStructure;
 
 
 typedef struct {
@@ -48,7 +48,7 @@ typedef struct {
     bool variableBool5;
     bool variableBool6;
     
-} TheSecondStructure;
+} KSCompactStructure;
 
 typedef struct {
     char *variableStringPointer;
@@ -61,16 +61,16 @@ typedef struct {
     short variableShort3;
     union {
         struct {
-        bool variableBool1 : 1;
-        bool variableBool2 : 1;
-        bool variableBool3 : 1;
-        bool variableBool4 : 1;
-        bool variableBool5 : 1;
-        bool variableBool6 : 1;
+            bool variableBool1 : 1;
+            bool variableBool2 : 1;
+            bool variableBool3 : 1;
+            bool variableBool4 : 1;
+            bool variableBool5 : 1;
+            bool variableBool6 : 1;
         };
         char boolFlags;
-};
-} TheThirdStructure;
+    };
+} KSStructureWithUnion;
 
 
 

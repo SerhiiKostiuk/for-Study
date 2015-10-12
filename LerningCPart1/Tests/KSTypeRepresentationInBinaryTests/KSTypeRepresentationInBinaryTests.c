@@ -16,7 +16,7 @@ static
 void KSPrintingBytesOfTheIntValue(void);
 
 static
-KSTypeOfEndian KSDetectOfTheEndianType(void);
+KSTypeOfEndian KSCurentEndianType(void);
 
 #pragma mark -
 #pragma mark Public Implementations
@@ -31,34 +31,29 @@ void KSTypeRepresentationInBinaryTests(void){
 
 //Detecting of the endian type
 
-KSTypeOfEndian KSDetectOfTheEndianType(void){
-    KSTypeOfEndian endianType = 0;
-    kEndianTypeRecognizer endianRecognizer;
+KSTypeOfEndian KSCurentEndianType(void){
+    union {
+        uint16_t data;
+        struct {
+            uint8_t isLittleEndian;
+            uint8_t isBigEndian;
+        };
+    } endianRecognizer;
+    
     endianRecognizer.data = 1;
-        if (1 == endianRecognizer.isLittleEndian) {
-            endianType = kKSLittleEndian;
-        }else if (1 == endianRecognizer.isBigEndian){
-            endianType = kKSBigEndian;
-        }
-    return endianType;
+    
+    return endianRecognizer.isLittleEndian ? kKSLittleEndian : kKSBigEndian;
 };
 
 //Perform test for 'int'
 //This function should print data with 4 bytes size
 void KSPrintingBytesOfTheIntValue(void){
     int value = 255;
-    void *data = &value;
-    size_t sizeOfTheValue = sizeof(value);
-    KSTypeOfEndian endianType = 0;
-    KSTypeOfEndian theFlagOfEndianType = KSDetectOfTheEndianType();
+    KSTypeOfEndian endianType = (kKSBigEndian == KSCurentEndianType() ? kKSBigEndian : kKSLittleEndian) ;
+    KSTypeOfEndian EndianType = (kKSLittleEndian == KSCurentEndianType() ? kKSBigEndian : kKSLittleEndian);
+    KSOutputDataFieldOfSize (&value, sizeof(value), endianType);
+    KSOutputDataFieldOfSize (&value, sizeof(value), EndianType);
     
-        if (theFlagOfEndianType == kKSLittleEndian) {
-            endianType = kKSLittleEndian;
-        }else if (theFlagOfEndianType == kKSBigEndian){
-            endianType = kKSBigEndian;
-        }
-    KSOutputDataFieldOfSize (data, sizeOfTheValue, endianType);
+    printf("is %d in decimal.\n\n",value);
     
-    printf("is %d in decimal and has adress: %p \n\n",value , data);
-    
-        }
+}

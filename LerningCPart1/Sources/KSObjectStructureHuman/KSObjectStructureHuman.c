@@ -1,5 +1,5 @@
 //
-//  KSObjectStructureHuman.c
+//  objectStructureHuman.c
 //  LerningCPart1
 //
 //  Created by Serg Bla on 02.10.15.
@@ -18,144 +18,141 @@ return NULL != object ? object->fieldName : nullValue
 #pragma mark -
 #pragma mark Private Declarations
 
-const uint8_t kKSKidsLimit =20;
-
-struct KSHuman {
-    uint64_t _referenceCount;
-    char *_name;
-    KSHuman *_partner;
-    KSHuman *_mother;
-    KSHuman *_father;
-    KSHuman *_kids[kKSKidsLimit];
-    uint8_t _kidsCount;
-    uint8_t _age;
-    KSHumanGenderType _gender;
-    bool _isMarried;
-};
-
-
-void KSObjectRetain (KSHuman *KSObject){
-    if (KSObject) {
-        KSObject->_referenceCount++;
+void KSObjectRetain (KSHuman *object){
+    if (object) {
+        object->_referenceCount++;
     }
 }
 
-void KSObjectRealese (KSHuman *KSObject){
-    if (NULL != KSObject) {
-        if (0 == --(KSObject->_referenceCount)) {
-            _KSHumanDeallocate(KSObject);
+void KSObjectRealese (KSHuman *object){
+    if (NULL != object) {
+        if (0 == --(object->_referenceCount)) {
+            _KSHumanDeallocate(object);
         }
     }
 }
 #pragma mark -
 #pragma mark Private Implementations
 
-
 KSHuman *KSHumanCreate(void){
-    KSHuman *KSObject = calloc(1,sizeof(KSHuman));
-    assert(KSObject != NULL);
-    return KSObject;
-}
-
-void _KSHumanDeallocate(KSHuman *KSObject){
-    KSHumanSetName(KSObject,NULL);
-    KSHumanSetPartner(KSObject,NULL);
-    KSHumanSetMother(KSObject,NULL);
-    KSHumanSetFather(KSObject,NULL);
-   // KSHumanSetKids (KSObject,NULL);
+    KSHuman *person = calloc(1,sizeof(KSHuman));
+    assert(NULL != person);
     
-    free(KSObject);
-}
-
-char *KSHumanName(KSHuman *KSObject){
-    KSReturnObjectFieldOrValue(KSObject,_name,NULL);
-}
-
-void KSHumanSetName (KSHuman *KSObject, char *_name){
-    if (NULL != KSObject) {
-        if (NULL != KSObject->_name) {
-            free(KSObject->_name);
-            KSObject->_name = NULL;
-        }
-        if (_name) {
-            KSObject->_name = strdup(_name);
-        }
-    }
-}
-
-KSHuman *KSHumanPartner (KSHuman *KSObject){
-    KSReturnObjectFieldOrValue(KSObject, _partner, NULL);
-}
-
-void KSHumanSetPartner (KSHuman *KSObject, KSHuman *_partner){
-    if (NULL != KSObject && KSObject->_partner != _partner) {
-        KSObjectRealese(KSObject->_partner);
-        
-    KSObject->_partner = _partner;
-    KSObjectRetain(_partner);
-}
-}
-
-KSHuman *KSHumanMother (KSHuman *KSObject){
-    KSReturnObjectFieldOrValue(KSObject, _mother, NULL);
-}
-
-void KSHumanSetMother (KSHuman *KSObject, KSHuman *_mother){
-    if (NULL != KSObject && KSObject->_mother != _mother) {
-        KSObjectRealese(KSObject->_mother);
-        
-      KSObject->_mother = _mother;
-        KSObjectRetain(_mother);
-    }
+    KSHumanSetGender(person, KSHumanGenderUndefiened);
+    KSHumanSetAge(person, 1);
     
+    return person;
 }
 
-KSHuman *KSHumanFather (KSHuman *KSObject){
-    KSReturnObjectFieldOrValue(KSObject, _father, NULL);
+KSHuman *KSHumanCreateByDefault(KSHumanGenderType gender, char *name, uint8_t age){
+    KSHuman *person = calloc(1,sizeof(KSHuman));
+    assert(person != NULL);
+    
+    KSHumanSetGender(person,gender);
+    KSHumanSetName(person, name);
+    KSHumanSetAge(person, age);
+    
+    return person;
 }
 
-void KSHumanSetFather (KSHuman *KSObject, KSHuman *_father){
-    if (NULL != KSObject && KSObject->_father != _father) {
-        KSObjectRealese(KSObject->_father);
-        
-        KSObject->_father = _father;
-        KSObjectRetain(_father);
+void _KSHumanDeallocate(KSHuman *object){
+    KSHumanSetName(object,NULL);
+    KSHumanSetPartner(object,NULL);
+    KSHumanSetMother(object,NULL);
+    KSHumanSetFather(object,NULL);
+    
+    free(object);
+}
+
+char *KSHumanName(KSHuman *object){
+    KSReturnObjectFieldOrValue(object,_name,NULL);
+}
+
+void KSHumanSetName (KSHuman *object, char *name){
+    if (NULL != object) {
+        if (NULL != object->_name) {
+            free(object->_name);
+            object->_name = NULL;
+        }
+        if (name) {
+            object->_name = strdup(name);
+        }
     }
-   
 }
 
-KSHumanGenderType KSHumanGender (KSHuman *KSObject){
-    KSReturnObjectFieldOrValue(KSObject, _gender, KSHumanGenderUndefiened);
+KSHuman *KSHumanPartner (KSHuman *object){
+    KSReturnObjectFieldOrValue(object, _partner, NULL);
 }
 
-void KSHumanSetGender (KSHuman *KSObject, KSHumanGenderType gender){
-    if (NULL != KSObject) {
-        KSObject->_gender = gender;
+void KSHumanSetPartner (KSHuman *object, KSHuman *partner){
+    if (NULL != object && object->_partner != partner) {
+        KSObjectRealese(object->_partner);
+        object->_partner = partner;
+        KSObjectRetain(partner);
     }
 }
 
-KSHuman *KSHumanKids (KSHuman *KSObject){
-    return *(NULL != KSObject ? KSObject->_kids : NULL);
+KSHuman *KSHumanMother (KSHuman *object){
+    KSReturnObjectFieldOrValue(object, _mother, NULL);
 }
 
-
-uint8_t KSHumanKidsCount (KSHuman *KSObject){
-    KSReturnObjectFieldOrValue(KSObject, _kidsCount, 0);
+void KSHumanSetMother (KSHuman *object, KSHuman *mother){
+    if (NULL != object && object->_mother != mother) {
+        KSObjectRealese(object->_mother);
+        object->_mother = mother;
+        KSObjectRetain(mother);
+    }
 }
 
-bool KSHumanIsMarried (KSHuman *KSObject){
-    return NULL != KSObject && NULL != KSObject->_partner;
+KSHuman *KSHumanFather (KSHuman *object){
+    KSReturnObjectFieldOrValue(object, _father, NULL);
 }
 
-//void KSHumanSetMarry (KSHuman *KSObject, KSHuman *_partner){
-//    if (NULL != KSObject && NULL != _partner){
-//        KSHumanSetDivorce(KSObject, _partner);
-//    
-//        KSHumanSetPartner(KSObject, _partner);
-//        KSHumanSetPartner(_partner, KSObject);
-//    }
+void KSHumanSetFather (KSHuman *object, KSHuman *father){
+    if (NULL != object && object->_father != father) {
+        KSObjectRealese(object->_father);
+        object->_father = father;
+        KSObjectRetain(father);
+    }
+}
+
+KSHumanGenderType KSHumanGender (KSHuman *object){
+    KSReturnObjectFieldOrValue(object, _gender, KSHumanGenderUndefiened);
+}
+
+void KSHumanSetGender (KSHuman *object, KSHumanGenderType gender){
+    if (NULL != object) {
+        object->_gender = gender;
+    }
+}
+
+//KSHuman **KSHumanKids (KSHuman *object){
+//    return NULL != object ? object->_kids : NULL;
 //}
-//
-//void KSHumanSetDivorce (KSHuman *KSObject, KSHuman *_partner){
-//    
-//}
+
+uint8_t KSHumanKidsCount (KSHuman *object){
+    KSReturnObjectFieldOrValue(object, _kidsCount, 0);
+}
+
+uint8_t KSHumanAge (KSHuman *object){
+    KSReturnObjectFieldOrValue(object, _age, 0);
+}
+
+void KSHumanSetAge (KSHuman *object, uint8_t age){
+    if (NULL != object) {
+        object->_age = age;
+    }
+}
+
+void KSHumanSetDivorce (KSHuman *object, KSHuman *partner){
+    if (NULL != object && NULL != object->_partner) {
+        KSObjectRealese(object->_partner);
+    }
+}
+
+void KSHumanSetMarry (KSHuman *object, KSHuman *partner){
+    if (NULL != object && NULL != object->_partner){
+        KSHumanSetDivorce(object, partner);
+    }
+    KSHumanSetPartner(object, partner);
+}

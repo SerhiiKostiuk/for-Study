@@ -33,28 +33,54 @@ void KSStructureTests(void){
 
 void KSStructureSizeofTests(void){
     
-    KSOutputFunctionForTheStructureSizeofTests(TheFirstStructure);
-    KSOutputFunctionForTheStructureSizeofTests(TheSecondStructure);
-    KSOutputFunctionForTheStructureSizeofTests(TheThirdStructure);
-    KSMemberSize(TheThirdStructure, boolFlags);
+    KSOutputFunctionForTheStructureSizeofTests(KSRandomStructure);
+    KSOutputFunctionForTheStructureSizeofTests(KSCompactStructure);
+    KSOutputFunctionForTheStructureSizeofTests(KSStructureWithUnion);
+    KSMemberSize(KSStructureWithUnion, boolFlags);
 
 }
 
 void KSStructureOffsetofTests(void){
-   
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableInt);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableLongLong);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool2);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableFloat);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableShort1);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool1);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableDouble);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool3);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableShort2);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableStringPointer);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool4);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableShort3);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool5);
-    KSOutputFunctionForTheStructureOffsetofTests(TheFirstStructure, variableBool6);
-   
+    
+    printf("OffSetof Tests of KSRandomStructure \n\n");
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableInt);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableLongLong);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableBool2);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableFloat);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableShort1);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableBool1);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableDouble);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableBool3);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableShort2);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableStringPointer);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableBool4);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableShort3);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableBool5);
+    KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableBool6);
+    printf("OffSetof Tests of KSCompactStructure \n\n");
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableStringPointer);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableLongLong);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableDouble);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableFloat);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableInt);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableShort1);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableShort2);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableShort3);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableBool1);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableBool2);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableBool3);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableBool4);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableBool5);
+    KSOutputFunctionForTheStructureOffsetofTests(KSCompactStructure, variableBool6);
+    printf("OffSetof Tests of KSStructureWithUnion \n\n");
+    KSOutputFunctionForTheStructureOffsetofTests(KSStructureWithUnion, variableStringPointer);
+    KSOutputFunctionForTheStructureOffsetofTests(KSStructureWithUnion, variableLongLong);
+    KSOutputFunctionForTheStructureOffsetofTests(KSStructureWithUnion, variableDouble);
+    KSOutputFunctionForTheStructureOffsetofTests(KSStructureWithUnion, variableFloat);
+    KSOutputFunctionForTheStructureOffsetofTests(KSStructureWithUnion, variableInt);
+    KSOutputFunctionForTheStructureOffsetofTests(KSStructureWithUnion, variableShort1);
+    KSOutputFunctionForTheStructureOffsetofTests(KSStructureWithUnion, variableShort2);
+    KSOutputFunctionForTheStructureOffsetofTests(KSStructureWithUnion, variableShort3);
+    KSOutputFunctionForTheStructureOffsetofTests(KSStructureWithUnion, boolFlags);
+    
 }
