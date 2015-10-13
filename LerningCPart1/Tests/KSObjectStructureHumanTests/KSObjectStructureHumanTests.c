@@ -32,14 +32,15 @@ void KSHumanTests(void){
     printf("Kids Count is :%d\n",person->_kidsCount);
 //      after person gender was set to male
 //            object must have male gender
-    KSHumanSetGender(person, KSHumanGenderMale);
+ //   KSHumanSetGender(person, KSHumanGenderMale);
     printf("Person gender is %d\n\n",person->_gender);
     
     
     char *femaleName = "Masha";
     // After female was created
-    KSHuman *woman = KSHumanCreateByDefault(KSHumanGenderFemale, femaleName, 23);
+    KSHuman *woman = KSHumanCreateWithParameters(KSHumanGenderFemale, femaleName, 23);
     
+    assert(femaleName != KSHumanName(woman));
     printf("Human name is %s\n", woman->_name);
     printf("Human age is %d\n", woman->_age);
     //      female must not be NULL
@@ -55,12 +56,22 @@ void KSHumanTests(void){
     printf("Kids Count is :%d\n",woman->_kidsCount);
     //      after person gender was set to male
     //            female must have male gender
-    KSHumanSetGender(woman, KSHumanGenderFemale);
+ //   KSHumanSetGender(woman, KSHumanGenderFemale);
     printf("Woman gender is %d\n",woman->_gender);
     
 // After person was married with female
 //       person and female must have partners
     KSHumanSetMarry(person, woman);
-    printf("Marry is %d\n",person->_partner);
+ 
+   // KSHumanSetDivorce(woman);
+    
+    char *kidName = "Petya";
+    
+    KSHuman *kid = KSHumanCreateKidWithParameters(KSHumanGenderMale, woman, person, kidName);
+    
+    printf("Child mother %p\n",kid->_mother);
+    printf("%d\n", KSHumanKidsCount(woman));
+
+    
     
 }

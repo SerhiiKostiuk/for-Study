@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 static
-const uint8_t kKSKidsLimit =20;
+const uint8_t kKSKidsLimit = 20;
 
 typedef enum {
     KSHumanGenderUndefiened,
@@ -35,42 +35,52 @@ struct KSHuman {
     KSHumanGenderType _gender;
 };
 
-
-
+extern
 KSHuman *KSHumanCreate(void);
-KSHuman *KSHumanCreateByDefault(KSHumanGenderType gender, char *name, uint8_t age);
+
+extern
+KSHuman *KSHumanCreateWithParameters(KSHumanGenderType gender, char *name, uint8_t age);
+
+extern
+KSHuman *KSHumanCreateKidWithParameters(KSHumanGenderType gender, KSHuman *mother, KSHuman *father, char *name);
+
+extern
 void _KSHumanDeallocate(KSHuman *object);
 
-char *KSHumanName (KSHuman *object);
-void KSHumanSetName (KSHuman *object, char *_name);
+extern
+char *KSHumanName(KSHuman *object);
 
-KSHuman *KSHumanPartner (KSHuman *object);
-void KSHumanSetPartner (KSHuman *object, KSHuman *partner);
+extern
+void KSHumanSetName(KSHuman *object, char *_name);
 
-KSHuman *KSHumanMother (KSHuman *object);
-void KSHumanSetMother (KSHuman *object, KSHuman *mother);
+extern
+KSHuman *KSHumanPartner(KSHuman *object);
 
-KSHuman *KSHumanFather (KSHuman *object);
-void KSHumanSetFather (KSHuman *object, KSHuman *father);
+extern
+KSHuman *KSHumanMother(KSHuman *object);
 
-KSHuman *KSHumanKids (KSHuman *object);
-void KSHumanSetKids (KSHuman *object, KSHuman *kids);
+extern
+KSHuman *KSHumanFather(KSHuman *object);
 
-uint8_t KSHumanKidsCount (KSHuman *object);
-void KSHumanSetKidsCount (KSHuman *object, uint8_t kidsCount);
+extern
+KSHuman *KSHumanKids(KSHuman *object);
 
-uint8_t KSHumanAge (KSHuman *object);
+extern
+uint8_t KSHumanKidsCount(KSHuman *object);
+
+extern
+uint8_t KSHumanAge(KSHuman *object);
+
+extern
 void KSHumanSetAge (KSHuman *object, uint8_t age);
 
+extern
 KSHumanGenderType KSHumanGender (KSHuman *object);
-void KSHumanSetGender (KSHuman *object, KSHumanGenderType gender);
 
-//bool KSHumanIsMarried (KSHuman *object);
-
+extern
 void KSHumanSetMarry (KSHuman *object, KSHuman *partner);
 
-void KSHumanSetDivorce (KSHuman *object, KSHuman *partner);
-
-
+extern
+void KSHumanSetDivorce (KSHuman *object);
 
 #endif /* objectStructureHuman_h */
