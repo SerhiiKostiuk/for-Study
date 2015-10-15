@@ -27,7 +27,7 @@
 static
 void KSObjectRetain(KSHuman *object);
 
-static
+
 void KSObjectRelease(KSHuman *object);
 
 static
@@ -95,13 +95,26 @@ void KSHumanSetFather(KSHuman *object, KSHuman *father){
 }
 
 KSHumanGenderType KSHumanGender(KSHuman *object){
-    KSReturnObjectFieldOrValue(object, _gender, KSHumanGenderUndefiened);
+    KSReturnObjectFieldOrValue(object, _gender, 0);
 }
 
 void KSHumanSetGender(KSHuman *object, KSHumanGenderType gender){
     if (NULL != object) {
         object->_gender = gender;
     }
+}
+
+KSHuman *KSHumanAddKid (KSHuman *object){
+    
+    for (int childIndex = 0; childIndex < kKSKidsLimit; childIndex++) {
+        
+        if(NULL == object->_kids[childIndex]){
+            object->_kids[childIndex] = KSHumanCreateKidWithParameters;
+            //break;
+        }
+        
+    }
+    return NULL;
 }
 
 //KSHuman **KSHumanKids (KSHuman *object){
@@ -131,11 +144,11 @@ void KSHumanSetDivorce(KSHuman *object){
 void KSHumanSetMarry(KSHuman *object, KSHuman *partner){
     assert(object->_partner == object->_partner);
     
-    if (NULL != object && NULL != object->_partner){
+    if (NULL != object/* && NULL != object->_partner*/){
         KSHumanSetDivorce(object);
     }
     KSHumanSetPartner(partner, object);
-    KSHumanUnsignedSetPartner(partner, object);
+    KSHumanUnsignedSetPartner(object, partner);
 }
 
 
@@ -153,6 +166,9 @@ KSHuman *KSHumanCreateWithParameters(KSHumanGenderType gender, char *name, uint8
     KSHumanSetGender(person,gender);
     KSHumanSetName(person, name);
     KSHumanSetAge(person, age);
+    person->_referenceCount = 1;
+    
+    KSHumanAddKid(person);
     
     return person;
 }
@@ -165,14 +181,15 @@ KSHuman *KSHumanCreateKidWithParameters(KSHumanGenderType gender, KSHuman *mothe
     KSHumanSetMother(person, mother);
     KSHumanSetFather(person, father);
     KSHumanSetName(person, name);
-    
+    person->_referenceCount = 1;
+
     return person;
   
-}
 
+}
 void _KSHumanDeallocate(KSHuman *object){
     KSHumanSetName(object, NULL);
-    KSHumanSetPartner(object, NULL);
+ //   KSHumanSetPartner(object, NULL);
     KSHumanUnsignedSetPartner(object, NULL);
     KSHumanSetMother(object, NULL);
     KSHumanSetFather(object, NULL);

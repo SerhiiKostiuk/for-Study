@@ -48,6 +48,9 @@ extern
 void _KSHumanDeallocate(KSHuman *object);
 
 extern
+void KSObjectRelease(KSHuman *object);
+
+extern
 char *KSHumanName(KSHuman *object);
 
 extern
