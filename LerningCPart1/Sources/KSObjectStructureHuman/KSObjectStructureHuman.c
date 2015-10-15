@@ -104,7 +104,7 @@ void KSHumanSetGender(KSHuman *object, KSHumanGenderType gender){
     }
 }
 
-KSHuman *KSHumanAddKid (KSHuman *object){
+KSHuman *KSHumanAddKid(KSHuman *object){
     
     for (int childIndex = 0; childIndex < kKSKidsLimit; childIndex++) {
         
@@ -142,10 +142,11 @@ void KSHumanSetDivorce(KSHuman *object){
 }
 
 void KSHumanSetMarry(KSHuman *object, KSHuman *partner){
-    assert(object->_partner == object->_partner);
+    assert(object->_partner == object->_partner && KSHumanGender(object) != KSHumanGender(partner));
     
     if (NULL != object/* && NULL != object->_partner*/){
         KSHumanSetDivorce(object);
+        KSHumanSetDivorce(partner);
     }
     KSHumanSetPartner(partner, object);
     KSHumanUnsignedSetPartner(object, partner);

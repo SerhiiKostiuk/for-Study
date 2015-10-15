@@ -63,7 +63,7 @@ void KSHumanTests(void){
 //       person and female must have partners
     KSHumanSetMarry(person, woman);
  
-   // KSHumanSetDivorce(woman);
+
     
     char *kidName = "Petya";
     char *kid1Name = "Tania";
@@ -75,7 +75,8 @@ void KSHumanTests(void){
     printf("%d\n", KSHumanKidsCount(woman));
   //  woman->_kids[2] = kid;
    
-
+    KSHumanSetDivorce(woman);
+    
     KSObjectRelease(person);
     KSObjectRelease(woman);
     KSObjectRelease(kid);
