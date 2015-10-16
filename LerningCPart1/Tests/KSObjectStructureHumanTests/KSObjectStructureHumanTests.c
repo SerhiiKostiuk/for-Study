@@ -70,16 +70,19 @@ void KSHumanTests(void){
     
     KSHuman *kid = KSHumanCreateKidWithParameters(KSHumanGenderMale, woman, person, kidName);
     KSHuman *kid1 = KSHumanCreateKidWithParameters(KSHumanGenderFemale, woman, person, kid1Name);
+    KSHuman *kid2 = KSHumanCreateKidWithParameters(KSHumanGenderMale, woman, person, name);
     
     printf("Child mother %p\n",kid->_mother);
     printf("%d\n", KSHumanKidsCount(woman));
-  //  woman->_kids[2] = kid;
-   
+    
     KSHumanSetDivorce(woman);
     
-    KSObjectRelease(person);
-    KSObjectRelease(woman);
     KSObjectRelease(kid);
     KSObjectRelease(kid1);
+    KSObjectRelease(kid2);
+    KSObjectRelease(person);
+    KSObjectRelease(woman);
+
+    
     
 }

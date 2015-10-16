@@ -15,6 +15,9 @@
 static
 const uint8_t kKSKidsLimit = 20;
 
+static
+const uint8_t kKSPrimaryAge = 1;
+
 typedef enum {
     KSHumanGenderUndefiened,
     KSHumanGenderMale,
