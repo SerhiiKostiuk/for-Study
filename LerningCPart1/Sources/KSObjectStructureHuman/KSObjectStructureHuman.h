@@ -19,9 +19,9 @@ static
 const uint8_t kKSPrimaryAge = 1;
 
 typedef enum {
-    KSHumanGenderUndefiened,
-    KSHumanGenderMale,
-    KSHumanGenderFemale
+    kKSHumanGenderUndefiened,
+    kKSHumanGenderMale,
+    kKSHumanGenderFemale
 } KSHumanGenderType;
 
 typedef struct KSHuman KSHuman;
@@ -78,15 +78,15 @@ extern
 uint8_t KSHumanAge(KSHuman *object);
 
 extern
-void KSHumanSetAge (KSHuman *object, uint8_t age);
+void KSHumanSetAge(KSHuman *object, uint8_t age);
 
 extern
-KSHumanGenderType KSHumanGender (KSHuman *object);
+KSHumanGenderType KSHumanGender(KSHuman *object);
 
 extern
-void KSHumanSetMarry (KSHuman *object, KSHuman *partner);
+void KSHumanSetMarry(KSHuman *object, KSHuman *partner);
 
 extern
-void KSHumanSetDivorce (KSHuman *object);
+void KSHumanSetDivorce(KSHuman *object);
 
 #endif /* objectStructureHuman_h */

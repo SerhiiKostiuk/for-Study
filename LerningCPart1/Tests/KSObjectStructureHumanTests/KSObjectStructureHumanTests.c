@@ -38,7 +38,7 @@ void KSHumanTests(void){
     
     char *femaleName = "Masha";
     // After female was created
-    KSHuman *woman = KSHumanCreateWithParameters(KSHumanGenderFemale, femaleName, 23);
+    KSHuman *woman = KSHumanCreateWithParameters(kKSHumanGenderFemale, femaleName, 23);
     
     assert(femaleName != KSHumanName(woman));
     printf("Woman name is %s\n", KSHumanName(woman));
@@ -68,20 +68,27 @@ void KSHumanTests(void){
     char *kidName = "Petya";
     char *kid1Name = "Tania";
     
-    KSHuman *kid = KSHumanCreateKidWithParameters(KSHumanGenderMale, woman, person, kidName);
-    KSHuman *kid1 = KSHumanCreateKidWithParameters(KSHumanGenderFemale, woman, person, kid1Name);
-    KSHuman *kid2 = KSHumanCreateKidWithParameters(KSHumanGenderMale, woman, person, name);
+    KSHuman *kid = KSHumanCreateKidWithParameters(kKSHumanGenderMale, woman, person, kidName);
+    KSHuman *kid1 = KSHumanCreateKidWithParameters(kKSHumanGenderFemale, woman, person, kid1Name);
+    KSHuman *kid2 = KSHumanCreateKidWithParameters(kKSHumanGenderMale, woman, person, name);
     
     printf("Child mother %p\n",kid->_mother);
     printf("%d\n", KSHumanKidsCount(woman));
     
-    KSHumanSetDivorce(woman);
-    
+   
     KSObjectRelease(kid);
     KSObjectRelease(kid1);
     KSObjectRelease(kid2);
     KSObjectRelease(person);
+    KSHumanSetDivorce(woman);
+    KSHumanSetDivorce(person);
+    
+    printf("%d\n", KSHumanKidsCount(woman));
+    
+
     KSObjectRelease(woman);
+    
+    
 
     
     
