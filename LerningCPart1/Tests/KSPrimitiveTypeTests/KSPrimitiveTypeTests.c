@@ -27,8 +27,8 @@ void KSPrimitiveTypeTests(){
 #pragma mark -
 #pragma mark Private Implementations
 
-KSDataValueForPrinting(int,%d);
-KSDataValueForPrinting(char,%c);
-KSDataValueForPrinting(float,%.3f);
+KSDataValueForPrinting(int, %d);
+KSDataValueForPrinting(char, %c);
+KSDataValueForPrinting(float, %.3f);
 
 

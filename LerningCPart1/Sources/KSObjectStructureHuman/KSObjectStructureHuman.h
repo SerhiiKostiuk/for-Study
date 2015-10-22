@@ -11,9 +11,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "KSObject.h"
 static
-const uint8_t kKSKidsLimit = 20;
+const uint8_t kKSKidsLimit = 4;
 
 static
 const uint8_t kKSPrimaryAge = 1;
@@ -26,8 +26,8 @@ typedef enum {
 
 typedef struct KSHuman KSHuman;
 
-struct KSHuman {
-    uint64_t _referenceCount;
+struct KSHuman { 
+    KSObject _super;
     char *_name;
     KSHuman *_partner;
     KSHuman *_mother;
@@ -48,10 +48,10 @@ extern
 KSHuman *KSHumanCreateKidWithParameters(KSHumanGenderType gender, KSHuman *mother, KSHuman *father, char *name);
 
 extern
-void _KSHumanDeallocate(KSHuman *object);
+void __KSHumanDeallocate(void *object);
 
 extern
-void KSObjectRelease(KSHuman *object);
+void KSHumanRelease(KSHuman *object);
 
 extern
 char *KSHumanName(KSHuman *object);
@@ -88,5 +88,8 @@ void KSHumanSetMarry(KSHuman *object, KSHuman *partner);
 
 extern
 void KSHumanSetDivorce(KSHuman *object);
+
+extern
+void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid);
 
 #endif /* objectStructureHuman_h */

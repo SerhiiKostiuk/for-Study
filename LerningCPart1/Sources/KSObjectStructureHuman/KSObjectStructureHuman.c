@@ -11,17 +11,13 @@
 #include <assert.h>
 #include <string.h>
 #include "KSObjectStructureHuman.h"
+#include "KSObject.h"
 
-#define KSReturnObjectFieldOrValue(object, fieldName, nullValue)\
+#define KSObjectFieldOrValue(object, fieldName, nullValue)\
         NULL != object ? object->fieldName : nullValue
 
 #pragma mark -
 #pragma mark Private Declarations
-
-static
-void KSObjectRetain(KSHuman *object);
-
-void KSObjectRelease(KSHuman *object);
 
 static
 void KSHumanSetPartner(KSHuman *object, KSHuman *partner);
@@ -41,13 +37,13 @@ void KSHumanSetGender(KSHuman *object, KSHumanGenderType gender);
 static
 void KSHumanAddKid(KSHuman *parent, KSHuman *kid);
 
-static
+
 void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid);
 
 #pragma mark -
 #pragma mark Initializations & Dealocation
 
-void _KSHumanDeallocate(KSHuman *object) {
+void __KSHumanDeallocate(void *object) {
     KSHumanSetName(object, NULL);
     KSHumanUnsignedSetPartner(object, NULL);
     KSHumanRemoveKid(object, NULL);
@@ -55,8 +51,7 @@ void _KSHumanDeallocate(KSHuman *object) {
     KSHumanSetFather(object, NULL);
     KSHumanSetDivorce(object);
     
-    
-    free(object);
+    __KSObjectDeallocate(object);
 }
 
 KSHuman *KSHumanCreate(void) {
@@ -64,13 +59,11 @@ KSHuman *KSHumanCreate(void) {
 }
 
 KSHuman *KSHumanCreateWithParameters(KSHumanGenderType gender, char *name, uint8_t age) {
-    KSHuman *person = calloc(1,sizeof(KSHuman));
-    assert(person != NULL);
+    KSHuman *person = KSObjectCreateOfType(KSHuman);
     
     KSHumanSetGender(person,gender);
     KSHumanSetName(person, name);
     KSHumanSetAge(person, age);
-    person->_referenceCount = 1;
     
     return person;
 }
@@ -90,7 +83,7 @@ KSHuman *KSHumanCreateKidWithParameters(KSHumanGenderType gender, KSHuman *mothe
 #pragma mark Accessors
 
 char *KSHumanName(KSHuman *object) {
-    return KSReturnObjectFieldOrValue(object,_name,NULL);
+    return KSObjectFieldOrValue(object,_name,NULL);
 }
 
 void KSHumanSetName(KSHuman *object, char *name) {
@@ -110,7 +103,7 @@ void KSHumanSetName(KSHuman *object, char *name) {
 
 
 KSHuman *KSHumanPartner(KSHuman *object) {
-    return KSReturnObjectFieldOrValue(object, _partner, NULL);
+    return KSObjectFieldOrValue(object, _partner, NULL);
 }
 
 void KSHumanSetPartner(KSHuman *object, KSHuman *partner) {
@@ -128,7 +121,7 @@ void KSHumanUnsignedSetPartner(KSHuman *object, KSHuman *partner) {
 }
 
 KSHuman *KSHumanMother(KSHuman *object) {
-    return KSReturnObjectFieldOrValue(object, _mother, NULL);
+    return KSObjectFieldOrValue(object, _mother, NULL);
 }
 
 void KSHumanSetMother(KSHuman *object, KSHuman *mother) {
@@ -138,7 +131,7 @@ void KSHumanSetMother(KSHuman *object, KSHuman *mother) {
 }
 
 KSHuman *KSHumanFather(KSHuman *object) {
-    return KSReturnObjectFieldOrValue(object, _father, NULL);
+    return KSObjectFieldOrValue(object, _father, NULL);
 }
 
 void KSHumanSetFather(KSHuman *object, KSHuman *father) {
@@ -148,7 +141,7 @@ void KSHumanSetFather(KSHuman *object, KSHuman *father) {
 }
 
 KSHumanGenderType KSHumanGender(KSHuman *object) {
-    return KSReturnObjectFieldOrValue(object, _gender, 0);
+    return KSObjectFieldOrValue(object, _gender, 0);
 }
 
 void KSHumanSetGender(KSHuman *object, KSHumanGenderType gender) {
@@ -158,11 +151,11 @@ void KSHumanSetGender(KSHuman *object, KSHumanGenderType gender) {
 }
 
 uint8_t KSHumanKidsCount(KSHuman *object) {
-    return KSReturnObjectFieldOrValue(object, _kidsCount, 0);
+    return KSObjectFieldOrValue(object, _kidsCount, 0);
 }
 
 uint8_t KSHumanAge(KSHuman *object) {
-    return KSReturnObjectFieldOrValue(object, _age, 0);
+    return KSObjectFieldOrValue(object, _age, 0);
 }
 
 void KSHumanSetAge(KSHuman *object, uint8_t age) {
@@ -228,7 +221,7 @@ void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid) {
         
         if (kid == child) {
             kKSHumanGenderFemale == KSHumanGender(parent)
-                                    ? KSHumanSetMother(child, NULL)
+                                    ? KSHumanSetMother(NULL, child)
                                     : KSHumanSetFather(child, NULL);
             parent->_kids[childIndex] = NULL;
             KSObjectRelease(child);
@@ -236,21 +229,3 @@ void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid) {
         }
     }
 }
-
-#pragma mark -
-#pragma mark Public Implementations
-
-void KSObjectRetain(KSHuman *object) {
-    if (object) {
-        object->_referenceCount++;
-    }
-}
-
-void KSObjectRelease(KSHuman *object) {
-    if (NULL != object) {
-        if (0 == --(object->_referenceCount)) {
-            _KSHumanDeallocate(object);
-        }
-    }
-}
-

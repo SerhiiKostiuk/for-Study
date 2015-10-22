@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 
-typedef enum{
+typedef enum {
     kKSLittleEndian = 0,
     kKSBigEndian = 1,
 } KSTypeOfEndian;

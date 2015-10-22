@@ -23,7 +23,7 @@ void KSOutputByte(uint8_t value);
 #pragma mark -
 #pragma Public Implementations
 
-void KSOutputDataFieldOfSize(void *data, size_t size, KSTypeOfEndian endianType){
+void KSOutputDataFieldOfSize(void *data, size_t size, KSTypeOfEndian endianType) {
     
     if (kKSLittleEndian == endianType) {
         
@@ -34,7 +34,7 @@ void KSOutputDataFieldOfSize(void *data, size_t size, KSTypeOfEndian endianType)
             uint8_t byte = *((uint8_t *)data + index);
             KSOutputByte(byte);
         }
-    } else if (kKSBigEndian == endianType){
+    } else if (kKSBigEndian == endianType) {
         
         while (size) {
             size--;
@@ -52,9 +52,9 @@ void KSOutputDataFieldOfSize(void *data, size_t size, KSTypeOfEndian endianType)
 void KSOutputByte(uint8_t value) {
     
     for (int bitIndex = sizeof(value) * kKSCountOfBit; bitIndex !=0; bitIndex--) {
-        printf("%d",((value >> (bitIndex - 1))& kKSTheLowerBitMask));
+        printf("%d",((value >> (bitIndex - 1)) & kKSTheLowerBitMask));
         
-        if (0 == (bitIndex % kKSCountOfBit)-1) {
+        if (0 == (bitIndex % kKSCountOfBit) - 1) {
             printf(" ");
         }
     }

@@ -21,7 +21,7 @@ KSTypeOfEndian KSCurentEndianType(void);
 #pragma mark -
 #pragma mark Public Implementations
 
-void KSTypeRepresentationInBinaryTests(void){
+void KSTypeRepresentationInBinaryTests(void) {
     
     KSPrintingBytesOfTheIntValue ();
 }
@@ -31,7 +31,7 @@ void KSTypeRepresentationInBinaryTests(void){
 
 //Detecting of the endian type
 
-KSTypeOfEndian KSCurentEndianType(void){
+KSTypeOfEndian KSCurentEndianType(void) {
     union {
         uint16_t data;
         struct {
@@ -47,7 +47,7 @@ KSTypeOfEndian KSCurentEndianType(void){
 
 //Perform test for 'int'
 //This function should print data with 4 bytes size
-void KSPrintingBytesOfTheIntValue(void){
+void KSPrintingBytesOfTheIntValue(void) {
     int value = 255;
     KSTypeOfEndian endianType = (kKSBigEndian == KSCurentEndianType() ? kKSBigEndian : kKSLittleEndian) ;
     KSTypeOfEndian EndianType = (kKSLittleEndian == KSCurentEndianType() ? kKSBigEndian : kKSLittleEndian);

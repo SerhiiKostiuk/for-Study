@@ -27,7 +27,7 @@ void KSCheckingOfTheParentTypeTests(void);
 #pragma mark -
 #pragma mark Public Implementations
 
-void KSFulfillCheckingOfTheParentTypeTests(void){
+void KSFulfillCheckingOfTheParentTypeTests(void) {
     KSCheckingOfTheParentTypeMama();
     KSCheckingOfTheParentTypePapa();
     KSCheckingOfTheParentTypeMamaPapa();
@@ -44,7 +44,7 @@ void KSCheckingOfTheParentTypeMama() {
 }
 
 //KSCheckingOfTheParentType function will return KSCheckingOfTheParentTypePapa
-void KSCheckingOfTheParentTypePapa(){
+void KSCheckingOfTheParentTypePapa() {
     int result = KSCheckingOfTheParentType(5);
     assert(result == kKSParentTypePapa);
 }
@@ -57,7 +57,7 @@ void KSCheckingOfTheParentTypeMamaPapa() {
 }
 
 // Function test with using loop with 1000 iteration
-void KSCheckingOfTheParentTypeTests(){
+void KSCheckingOfTheParentTypeTests() {
     for (int calculate = 0; calculate < 1000; calculate++) {
         
         // Definition of local variable

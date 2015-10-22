@@ -23,7 +23,7 @@ void KSStructureOffsetofTests(void);
 #pragma mark -
 #pragma mark Public Implementations
 
-void KSStructureTests(void){
+void KSStructureTests(void) {
     KSStructureSizeofTests();
     KSStructureOffsetofTests();
 }
@@ -31,7 +31,7 @@ void KSStructureTests(void){
 #pragma mark -
 #pragma mark Private Implementations
 
-void KSStructureSizeofTests(void){
+void KSStructureSizeofTests(void) {
     
     KSOutputFunctionForTheStructureSizeofTests(KSRandomStructure);
     KSOutputFunctionForTheStructureSizeofTests(KSCompactStructure);
@@ -40,7 +40,7 @@ void KSStructureSizeofTests(void){
 
 }
 
-void KSStructureOffsetofTests(void){
+void KSStructureOffsetofTests(void) {
     
     printf("OffSetof Tests of KSRandomStructure \n\n");
     KSOutputFunctionForTheStructureOffsetofTests(KSRandomStructure, variableInt);

@@ -17,7 +17,7 @@ const int kKSPapaValue = 5;
 KSParentType KSCheckingOfTheParentType(int value) {
     KSParentType result = kKSParentTypeUndefined;
     
-    if (0 == value){
+    if (0 == value) {
         return result;
     }
     

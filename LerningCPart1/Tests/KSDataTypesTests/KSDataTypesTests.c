@@ -8,7 +8,7 @@
 #include "KSDataTypes.h"
 #include "KSDataTypesTests.h"
 
-void KSPrintSizeOfDataTypes(){
+void KSPrintSizeOfDataTypes() {
     KSSizeOfDataTypes(char);
     KSSizeOfDataTypes(int);
     KSSizeOfDataTypes(float);

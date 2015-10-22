@@ -11,7 +11,7 @@
 
 
 
-#define KSMacrosThatGeneratingValueOfPrimitiveType(type)int output_##type (type)
+#define KSMacrosThatGeneratingValueOfPrimitiveType(type) int output_##type (type)
 
 #define KSCauseDataValueForPrinting(type,value) output_##type (value)
 

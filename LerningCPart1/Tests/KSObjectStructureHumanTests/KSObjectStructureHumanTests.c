@@ -9,6 +9,7 @@
 
 #include "KSObjectStructureHumanTests.h"
 #include "KSObjectStructureHuman.h"
+#include "KSObject.h"
 
 void KSHumanTests(void){
     
@@ -70,7 +71,6 @@ void KSHumanTests(void){
     
     KSHuman *kid = KSHumanCreateKidWithParameters(kKSHumanGenderMale, woman, person, kidName);
     KSHuman *kid1 = KSHumanCreateKidWithParameters(kKSHumanGenderFemale, woman, person, kid1Name);
-    KSHuman *kid2 = KSHumanCreateKidWithParameters(kKSHumanGenderMale, woman, person, name);
     
     printf("Child mother %p\n",kid->_mother);
     printf("%d\n", KSHumanKidsCount(woman));
@@ -78,16 +78,28 @@ void KSHumanTests(void){
    
     KSObjectRelease(kid);
     KSObjectRelease(kid1);
-    KSObjectRelease(kid2);
-    KSObjectRelease(person);
+    
     KSHumanSetDivorce(woman);
     KSHumanSetDivorce(person);
-    
-    printf("%d\n", KSHumanKidsCount(woman));
-    
 
+  
+  //  KSHumanRemoveKid(woman, kid);
+   // KSObjectRelease(kid);
+
+    printf("%d\n", KSHumanKidsCount(woman));
+    KSObjectRelease(person);
     KSObjectRelease(woman);
     
+    
+    KSObject *object = KSObjectCreateOfType(KSObject);
+    
+    KSObjectRetain(object);
+    
+    KSObjectRelease(object);
+    
+    KSObjectRelease(object);
+    
+    assert(NULL != object);
     
 
     
