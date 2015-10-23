@@ -159,7 +159,7 @@ uint8_t KSHumanAge(KSHuman *object) {
 }
 
 void KSHumanSetAge(KSHuman *object, uint8_t age) {
-    if (NULL != object) {
+    if (NULL != object && object->_age != age) {
         object->_age = age;
     }
 }
@@ -177,7 +177,7 @@ void KSHumanSetMarry(KSHuman *object, KSHuman *partner) {
         KSHumanSetDivorce(object);
         KSHumanSetDivorce(partner);
     }
-    
+#warning identification of gender for human whos master
     KSHumanSetPartner(partner, object);
     KSHumanUnsignedSetPartner(object, partner);
 }
@@ -212,13 +212,6 @@ void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid) {
     
     for (uint8_t childIndex = 0; childIndex < kKSKidsLimit; childIndex++) {
         KSHuman *child = parent->_kids[childIndex];
-        
-//        if (childIndex >kKSKidsLimit-1) {
-//            parent->_kids[childIndex]=0;
-//        }else {
-//            parent->_kids[childIndex]=parent->_kids[childIndex+1];
-//        }
-        
         if (kid == child) {
             kKSHumanGenderFemale == KSHumanGender(parent)
                                     ? KSHumanSetMother(NULL, child)
@@ -226,6 +219,11 @@ void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid) {
             parent->_kids[childIndex] = NULL;
             KSObjectRelease(child);
             parent->_kidsCount--;
+        }
+        uint8_t trash = parent->_kids[0];
+        for (childIndex = 0; childIndex < kKSKidsLimit - 1; childIndex++) {
+            parent->_kids[childIndex] = parent->_kids[childIndex + 1];
+            parent->_kids[kKSKidsLimit - 1] = trash;
         }
     }
 }
