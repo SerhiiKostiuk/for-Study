@@ -15,7 +15,7 @@
 #include "KSTypeRepresentationInBinary.h"
 #include "KSTypeRepresentationInBinaryTests.h"
 #include "KSStructureTests.h"
-#include "KSObjectStructureHumanTests.h"
+#include "KSHumanTests.h"
 
 #define executeTest(testName) printf (#testName " started...\n");\
 printf("\n");\

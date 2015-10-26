@@ -10,18 +10,15 @@
 #define KSObject_h
 
 #include <stdio.h>
+#include "KSMacros.h"
 
-#define KSObjectCreateOfType(type) __KSObjectCreate(sizeof(type), __ ##type ##Deallocate) 
-
-typedef void (*KSObjectDeallocator)(void *object);
+typedef void(*KSObjectDeallocator)(void *object);
 
 typedef struct {
     uint64_t _retainCount;
     KSObjectDeallocator _dealocatorFunctionPointer;
     
 } KSObject;
-
-
 
 extern
 void *__KSObjectCreate(size_t size, KSObjectDeallocator deallocator);

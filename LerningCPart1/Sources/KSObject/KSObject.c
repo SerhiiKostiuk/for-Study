@@ -13,7 +13,7 @@
 #pragma mark -
 #pragma mark Public Implementations
 
-void *__KSObjectCreate(size_t size, KSObjectDeallocator deallocator){
+void *__KSObjectCreate(size_t size, KSObjectDeallocator deallocator) {
     assert(0 != size);
     assert(NULL != deallocator);
     
@@ -27,17 +27,17 @@ void *__KSObjectCreate(size_t size, KSObjectDeallocator deallocator){
     return object;
 }
 
-void __KSObjectDeallocate(void *object){
+void __KSObjectDeallocate(void *object) {
     if (NULL != object) {
         free(object);
     }
 }
 
-uint64_t KSObjectRetainCount(void *object){
+uint64_t KSObjectRetainCount(void *object) {
     return object ? ((KSObject *)object)->_retainCount : 0;
 }
 
-void KSObjectRelease(void *object){
+void KSObjectRelease(void *object) {
     if (NULL != object) {
         
         if (0 == --((KSObject *)object)->_retainCount) {
@@ -48,7 +48,7 @@ void KSObjectRelease(void *object){
     }
 }
 
-void *KSObjectRetain(void *object){
+void *KSObjectRetain(void *object) {
     if (NULL != object) {
         ((KSObject *)object)->_retainCount++;
     }

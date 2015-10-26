@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "KSObject.h"
+#include "KSString.h"
 static
 const uint8_t kKSKidsLimit = 4;
 
@@ -28,7 +28,7 @@ typedef struct KSHuman KSHuman;
 
 struct KSHuman { 
     KSObject _super;
-    char *_name;
+    KSString *_name;
     KSHuman *_partner;
     KSHuman *_mother;
     KSHuman *_father;
@@ -42,10 +42,10 @@ extern
 KSHuman *KSHumanCreate(void);
 
 extern
-KSHuman *KSHumanCreateWithParameters(KSHumanGenderType gender, char *name, uint8_t age);
+KSHuman *KSHumanCreateWithParameters(KSHumanGenderType gender, KSString *name, uint8_t age);
 
 extern
-KSHuman *KSHumanCreateKidWithParameters(KSHumanGenderType gender, KSHuman *mother, KSHuman *father, char *name);
+KSHuman *KSHumanCreateKidWithParameters(KSHumanGenderType gender, KSHuman *mother, KSHuman *father, KSString *name);
 
 extern
 void __KSHumanDeallocate(void *object);
@@ -54,10 +54,10 @@ extern
 void KSHumanRelease(KSHuman *object);
 
 extern
-char *KSHumanName(KSHuman *object);
+KSString *KSHumanName(KSHuman *object);
 
 extern
-void KSHumanSetName(KSHuman *object, char *_name);
+void KSHumanSetName(KSHuman *object, KSString *name);
 
 extern
 KSHuman *KSHumanPartner(KSHuman *object);
