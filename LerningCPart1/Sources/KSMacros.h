@@ -9,17 +9,15 @@
 #ifndef KSMacros_h
 #define KSMacros_h
 
-#define KSObjectCreateOfType(type) __KSObjectCreate(sizeof(type), (KSObjectDeallocator)__ ##type ##Deallocate)
-
-#define KSObjectFieldOrValue(object, fieldName, nullValue)\
+#define KSObjectGetter(object, fieldName, nullValue)\
         NULL != object ? object->fieldName : nullValue
 
-#define KSObjectCheckAndAddedNewValue(object, fieldName, newValue)\
+#define KSObjectAssignSetter(object, fieldName, newValue)\
         if (NULL != object && object->fieldName != newValue) { \
         object->fieldName = newValue;\
         }
 
-#define KSObjectRetainingSetter(object, fieldName, newValue)\
+#define KSObjectRetainSetter(object, fieldName, newValue)\
         if(NULL == object || object->fieldName == newValue) { \
             return; \
         } \

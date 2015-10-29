@@ -66,7 +66,6 @@ void KSHumanTests(void){
     
 // After person was married with female
 //       person and female must have partners
-    KSHumanSetMarry(person, woman);
  
 
     
@@ -85,10 +84,11 @@ void KSHumanTests(void){
     KSObjectRelease(kid);
     KSObjectRelease(kid1);
     KSObjectRelease(kid2);
-    
-    KSHumanSetDivorce(woman);
-    KSHumanSetDivorce(person);
-    KSHumanSetMarry(woman, person);
+    KSHumanMarry(person, woman);
+
+    KSHumanDivorce(woman);
+    KSHumanDivorce(person);
+    KSHumanMarry(woman, person);
    KSHumanRemoveKid(woman, kid1);
    // KSObjectRelease(kid);
 

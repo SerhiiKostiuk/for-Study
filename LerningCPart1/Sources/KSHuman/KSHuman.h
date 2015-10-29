@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "KSString.h"
+#include "KSArray.h"
+
 static
 const uint8_t kKSKidsLimit = 4;
 
@@ -32,7 +34,7 @@ struct KSHuman {
     KSHuman *_partner;
     KSHuman *_mother;
     KSHuman *_father;
-    KSHuman *_kids[kKSKidsLimit];
+    KSArray *_kids;
     uint8_t _kidsCount;
     uint8_t _age;
     KSHumanGenderType _gender;
@@ -84,10 +86,10 @@ extern
 KSHumanGenderType KSHumanGender(KSHuman *object);
 
 extern
-void KSHumanSetMarry(KSHuman *object, KSHuman *partner);
+void KSHumanMarry(KSHuman *object, KSHuman *partner);
 
 extern
-void KSHumanSetDivorce(KSHuman *object);
+void KSHumanDivorce(KSHuman *object);
 
 extern
 void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid);

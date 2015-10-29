@@ -32,7 +32,7 @@ KSString *KSStringCreate(char *value) {
 #pragma mark Accessors
 
 char *KSStringValue(KSString *object) {
-  return KSObjectFieldOrValue(object, _value, NULL);
+  return KSObjectGetter(object, _value, NULL);
 }
 
 void KSStringSetValue(KSString *object, char *value) {

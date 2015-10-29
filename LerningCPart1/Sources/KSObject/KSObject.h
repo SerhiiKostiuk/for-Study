@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "KSMacros.h"
 
+#define KSObjectCreateOfType(type) __KSObjectCreate(sizeof(type), (KSObjectDeallocator)__ ##type ##Deallocate)
+
 typedef void(*KSObjectDeallocator)(void *object);
 
 typedef struct {

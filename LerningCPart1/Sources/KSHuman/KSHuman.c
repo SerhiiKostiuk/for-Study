@@ -23,9 +23,6 @@ static
 void KSHumanSetPartner(KSHuman *object, KSHuman *partner);
 
 static
-void KSHumanUnsignedSetPartner(KSHuman *object, KSHuman *partner);
-
-static
 void KSHumanSetMother(KSHuman *object, KSHuman *mother);
 
 static
@@ -37,19 +34,14 @@ void KSHumanSetGender(KSHuman *object, KSHumanGenderType gender);
 static
 void KSHumanAddKid(KSHuman *parent, KSHuman *kid);
 
-
-void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid);
-
 #pragma mark -
 #pragma mark Initializations & Dealocation
 
 void __KSHumanDeallocate(void *object) {
     KSHumanSetName(object, NULL);
-    KSHumanUnsignedSetPartner(object, NULL);
     KSHumanRemoveKid(object, NULL);
     KSHumanSetMother(object, NULL);
     KSHumanSetFather(object, NULL);
-    KSHumanSetDivorce(object);
     
     __KSObjectDeallocate(object);
 }
@@ -83,15 +75,15 @@ KSHuman *KSHumanCreateKidWithParameters(KSHumanGenderType gender, KSHuman *mothe
 #pragma mark Accessors
 
 KSString *KSHumanName(KSHuman *object) {
-    return KSObjectFieldOrValue(object, _name, NULL);
+    return KSObjectGetter(object, _name, NULL);
 }
 
 void KSHumanSetName(KSHuman *object, KSString *name) {
-    KSObjectRetainingSetter(object, _name, name)
+    KSObjectRetainSetter(object, _name, name)
 }
 
 KSHuman *KSHumanPartner(KSHuman *object) {
-    return KSObjectFieldOrValue(object, _partner, NULL);
+    return KSObjectGetter(object, _partner, NULL);
 }
 
 void KSHumanSetPartner(KSHuman *object, KSHuman *partner) {
@@ -102,71 +94,83 @@ void KSHumanSetPartner(KSHuman *object, KSHuman *partner) {
     }
 }
 
-void KSHumanUnsignedSetPartner(KSHuman *object, KSHuman *partner) {
-    KSObjectCheckAndAddedNewValue(object, _partner, partner)
-}
-
 KSHuman *KSHumanMother(KSHuman *object) {
-    return KSObjectFieldOrValue(object, _mother, NULL);
+    return KSObjectGetter(object, _mother, NULL);
 }
 
 void KSHumanSetMother(KSHuman *object, KSHuman *mother) {
-    KSObjectCheckAndAddedNewValue(object, _mother, mother)
+    KSObjectAssignSetter(object, _mother, mother)
 
 }
 
 KSHuman *KSHumanFather(KSHuman *object) {
-    return KSObjectFieldOrValue(object, _father, NULL);
+    return KSObjectGetter(object, _father, NULL);
 }
 
 void KSHumanSetFather(KSHuman *object, KSHuman *father) {
-    KSObjectCheckAndAddedNewValue(object, _father, father)
+    KSObjectAssignSetter(object, _father, father)
 
 }
 
 KSHumanGenderType KSHumanGender(KSHuman *object) {
-    return KSObjectFieldOrValue(object, _gender, 0);
+    return KSObjectGetter(object, _gender, 0);
 }
 
 void KSHumanSetGender(KSHuman *object, KSHumanGenderType gender) {
-    KSObjectCheckAndAddedNewValue(object, _gender, gender)
+    KSObjectAssignSetter(object, _gender, gender)
 }
 
 uint8_t KSHumanKidsCount(KSHuman *object) {
-    return KSObjectFieldOrValue(object, _kidsCount, 0);
+    return KSObjectGetter(object, _kidsCount, 0);
 }
 
 uint8_t KSHumanAge(KSHuman *object) {
-    return KSObjectFieldOrValue(object, _age, 0);
+    return KSObjectGetter(object, _age, 0);
 }
 
 void KSHumanSetAge(KSHuman *object, uint8_t age) {
-    KSObjectCheckAndAddedNewValue(object, _age, age)
+    KSObjectAssignSetter(object, _age, age)
 
 }
 
-void KSHumanSetDivorce(KSHuman *object) {
+void KSHumanDivorce(KSHuman *object) {
     if (NULL != object && NULL != object->_partner) {
         KSHumanSetPartner(object, NULL);
+        KSHumanSetPartner(object->_partner, NULL);
     }
 }
 
-void KSHumanSetMarry(KSHuman *object, KSHuman *partner) {
-    assert(object->_partner == object->_partner && KSHumanGender(object) != KSHumanGender(partner));
-    
-    if (NULL != object/* && NULL != object->_partner*/) {
-        KSHumanSetDivorce(object);
-        KSHumanSetDivorce(partner);
+void KSHumanMarry(KSHuman *object, KSHuman *partner) {
+    if(NULL == object && KSHumanGender(object) == KSHumanGender(partner)){
+        return;
     }
-//#warning identification of gender for human whos master
-    KSHumanSetPartner(partner, object);
- //   KSHumanUnsignedSetPartner(object, partner);
+    
+    if (NULL != object) {
+        KSHumanDivorce(object);
+        KSHumanDivorce(partner);
+    }
+    KSHuman *headman = NULL;
+    KSHuman *female = NULL;
+
+    if (kKSHumanGenderFemale == KSHumanGender(object)) {
+        female = partner;
+        headman = object;
+    } else {
+        female = object;
+        headman = partner;
+        
+    }
+// kKSHumanGenderMale == KSHumanGender(object) ? KSHumanSetPartner(object, partner) : KSHumanSetPartner(partner, object);
+    KSHumanSetPartner(object, partner);
+//    KSHumanSetPartner(partner, object);
 }
+
 
 #pragma mark -
 #pragma mark Private Implementations
 
 void KSHumanAddKid(KSHuman *parent, KSHuman *kid) {
+    
     if (NULL == kid || NULL == parent) {
         return;
     }
@@ -192,10 +196,10 @@ void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid) {
     }
     
     for (uint8_t childIndex = 0; childIndex < kKSKidsLimit; childIndex++) {
-        KSHuman *child = parent->_kids[childIndex];
+        KSArray *child = parent->_kids[childIndex];
         if (kid == child) {
             kKSHumanGenderFemale == KSHumanGender(parent)
-                                    ? KSHumanSetMother(NULL, child)
+                                    ? KSHumanSetMother(child, NULL)
                                     : KSHumanSetFather(child, NULL);
             parent->_kids[childIndex] = NULL;
             KSObjectRelease(child);
