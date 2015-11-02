@@ -12,8 +12,7 @@
 #include <stdio.h>
 #include "KSObject.h"
 
-
-static const uint8_t kKSArrayLimit = 20;
+static const uint8_t kKSArrayLimit = 5;
 
 typedef struct {
     KSObject _super;
@@ -30,7 +29,7 @@ extern
 uint8_t KSArrayCount(KSArray *object);
 
 extern
-void KSArrayAddElement(KSArray *object, KSArray *element);
+void KSArrayAddElement(KSArray *object, void *element);
 
 extern
 void *KSArrayGetElementByIndex(KSArray *object, uint8_t index);

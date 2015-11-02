@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
+
 #include "KSHuman.h"
 #include "KSObject.h"
 #include "KSMacros.h"
@@ -29,10 +30,15 @@ static
 void KSHumanSetFather(KSHuman *object, KSHuman *father);
 
 static
+void KSHumanSetKid(KSHuman *object, KSArray *array);
+
+static
 void KSHumanSetGender(KSHuman *object, KSHumanGenderType gender);
 
 static
 void KSHumanAddKid(KSHuman *parent, KSHuman *kid);
+
+
 
 #pragma mark -
 #pragma mark Initializations & Dealocation
@@ -52,7 +58,9 @@ KSHuman *KSHumanCreate(void) {
 
 KSHuman *KSHumanCreateWithParameters(KSHumanGenderType gender, KSString *name, uint8_t age) {
     KSHuman *person = KSObjectCreateOfType(KSHuman);
+    KSArray *array = KSArrayCreate();
     
+    KSHumanSetKid(person, array);
     KSHumanSetGender(person,gender);
     KSHumanSetName(person, name);
     KSHumanSetAge(person, age);
@@ -79,7 +87,7 @@ KSString *KSHumanName(KSHuman *object) {
 }
 
 void KSHumanSetName(KSHuman *object, KSString *name) {
-    KSObjectRetainSetter(object, _name, name)
+    KSObjectRetainSetter(object, _name, name);
 }
 
 KSHuman *KSHumanPartner(KSHuman *object) {
@@ -88,9 +96,23 @@ KSHuman *KSHumanPartner(KSHuman *object) {
 
 void KSHumanSetPartner(KSHuman *object, KSHuman *partner) {
     if (NULL != object && object->_partner != partner) {
+        
+        
+        KSHuman *headman = NULL;
+//        KSHuman *female = headman == object ? partner : object;
+        
+        if (kKSHumanGenderMale == KSHumanGender(object)) {
+            headman = object;
+        } else if(kKSHumanGenderMale != KSHumanGender(object)){
+            headman = partner;
+            
+        }
+        
+        
         KSObjectRelease(object->_partner);
         object->_partner = partner;
         KSObjectRetain(partner);
+        
     }
 }
 
@@ -99,7 +121,7 @@ KSHuman *KSHumanMother(KSHuman *object) {
 }
 
 void KSHumanSetMother(KSHuman *object, KSHuman *mother) {
-    KSObjectAssignSetter(object, _mother, mother)
+    KSObjectAssignSetter(object, _mother, mother);
 
 }
 
@@ -108,8 +130,15 @@ KSHuman *KSHumanFather(KSHuman *object) {
 }
 
 void KSHumanSetFather(KSHuman *object, KSHuman *father) {
-    KSObjectAssignSetter(object, _father, father)
+    KSObjectAssignSetter(object, _father, father);
+}
 
+KSArray *KSHumanKid(KSHuman *object){
+    return KSObjectGetter(object, _kids, NULL);
+}
+
+void KSHumanSetKid(KSHuman *object, KSArray *array){
+    KSObjectRetainSetter(object, _kids, array);
 }
 
 KSHumanGenderType KSHumanGender(KSHuman *object) {
@@ -117,7 +146,7 @@ KSHumanGenderType KSHumanGender(KSHuman *object) {
 }
 
 void KSHumanSetGender(KSHuman *object, KSHumanGenderType gender) {
-    KSObjectAssignSetter(object, _gender, gender)
+    KSObjectAssignSetter(object, _gender, gender);
 }
 
 uint8_t KSHumanKidsCount(KSHuman *object) {
@@ -129,7 +158,7 @@ uint8_t KSHumanAge(KSHuman *object) {
 }
 
 void KSHumanSetAge(KSHuman *object, uint8_t age) {
-    KSObjectAssignSetter(object, _age, age)
+    KSObjectAssignSetter(object, _age, age);
 
 }
 
@@ -149,45 +178,33 @@ void KSHumanMarry(KSHuman *object, KSHuman *partner) {
         KSHumanDivorce(object);
         KSHumanDivorce(partner);
     }
-    KSHuman *headman = NULL;
-    KSHuman *female = NULL;
-
-    if (kKSHumanGenderFemale == KSHumanGender(object)) {
-        female = partner;
-        headman = object;
-    } else {
-        female = object;
-        headman = partner;
-        
-    }
+    
 // kKSHumanGenderMale == KSHumanGender(object) ? KSHumanSetPartner(object, partner) : KSHumanSetPartner(partner, object);
     KSHumanSetPartner(object, partner);
-//    KSHumanSetPartner(partner, object);
+    KSHumanSetPartner(partner, object);
 }
-
 
 #pragma mark -
 #pragma mark Private Implementations
 
 void KSHumanAddKid(KSHuman *parent, KSHuman *kid) {
-    
     if (NULL == kid || NULL == parent) {
         return;
     }
     
-    if (NULL != kid) {
-        kKSHumanGenderFemale == KSHumanGender(parent) ? KSHumanSetMother(kid, parent) : KSHumanSetFather(kid, parent);
-        
-        for (uint8_t childIndex = 0; childIndex < kKSKidsLimit; childIndex++) {
-            if(NULL == parent->_kids[childIndex]){
-                parent->_kids[childIndex] = kid;
-                KSObjectRetain(kid);
-                parent->_kidsCount++;
-                
-                return;
-            }
-        }
-    }
+    kKSHumanGenderFemale == KSHumanGender(parent) ? KSHumanSetMother(kid, parent) : KSHumanSetFather(kid, parent);
+    KSArrayAddElement(KSHumanKid(parent), kid);
+    
+//    for (uint8_t childIndex = 0; childIndex < kKSKidsLimit; childIndex++) {
+//        if(NULL == parent->_kids[childIndex]){
+//            parent->_kids[childIndex] = kid;
+//            KSObjectRetain(kid);
+//            parent->_kidsCount++;
+//            
+//            return;
+//        }
+//    }
+    
 }
 
 void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid) {
@@ -195,20 +212,21 @@ void KSHumanRemoveKid(KSHuman *parent, KSHuman *kid) {
         return;
     }
     
-    for (uint8_t childIndex = 0; childIndex < kKSKidsLimit; childIndex++) {
-        KSArray *child = parent->_kids[childIndex];
-        if (kid == child) {
-            kKSHumanGenderFemale == KSHumanGender(parent)
-                                    ? KSHumanSetMother(child, NULL)
-                                    : KSHumanSetFather(child, NULL);
-            parent->_kids[childIndex] = NULL;
-            KSObjectRelease(child);
-            parent->_kidsCount--;
-            
-            for (uint8_t index = childIndex; index < kKSKidsLimit - 1; index++) {
-                parent->_kids[index] = parent->_kids[index + 1];
-            }
-        }
-        parent->_kids[kKSKidsLimit - 1] = NULL;
-    }
+    KSArrayRemoveElement(KSHumanKid(parent),KSHumanKidsCount(parent));
+    kKSHumanGenderFemale == KSHumanGender(parent) ? KSHumanSetMother(kid, NULL) : KSHumanSetFather(kid, NULL);
+    
+//    for (uint8_t childIndex = 0; childIndex < kKSKidsLimit; childIndex++) {
+//        KSHuman *child = parent->_kids[childIndex];
+//        if (kid == child) {
+    
+//            parent->_kids[childIndex] = NULL;
+//            KSObjectRelease(child);
+//            parent->_kidsCount--;
+//            
+//            for (uint8_t index = childIndex; index < kKSKidsLimit - 1; index++) {
+//                parent->_kids[index] = parent->_kids[index + 1];
+//            }
+//        }
+//        parent->_kids[kKSKidsLimit - 1] = NULL;
+//    }
 }

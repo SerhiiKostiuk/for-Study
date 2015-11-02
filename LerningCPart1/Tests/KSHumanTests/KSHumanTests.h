@@ -11,6 +11,6 @@
 
 #include <stdio.h>
 
-void KSHumanTests(void);
+void KSHumanExecuteTests(void);
 
 #endif /* KSObjectStructureHumanTests_h */

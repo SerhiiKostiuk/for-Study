@@ -71,7 +71,7 @@ extern
 KSHuman *KSHumanFather(KSHuman *object);
 
 extern
-KSHuman *KSHumanKids(KSHuman *object);
+KSArray *KSHumanKid(KSHuman *object);
 
 extern
 uint8_t KSHumanKidsCount(KSHuman *object);

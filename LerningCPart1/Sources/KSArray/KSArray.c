@@ -11,19 +11,24 @@
 #include "KSMacros.h"
 
 
-KSArray *KSArrayCreate(void){
-    return KSObjectCreateOfType(KSArray);
-}
+#pragma mark -
+#pragma mark Initializations & Dealocation
 
-
-void __KSArrayDeallocate(KSArray *object){
+void __KSArrayDeallocate(KSArray *object) {
     KSArrayRemoveAllElements(object);
     __KSObjectDeallocate(object);
 }
 
+KSArray *KSArrayCreate(void) {
+    return KSObjectCreateOfType(KSArray);
+}
 
-uint8_t KSArrayCount(KSArray *object){
+#pragma mark -
+#pragma mark Accessors
+
+uint8_t KSArrayCount(KSArray *object) {
     uint8_t elementCount = 0;
+    
     if (NULL != object) {
         for (uint8_t count = 0; count < kKSArrayLimit; count++) {
             if (NULL == object->_array[count]) {
@@ -35,7 +40,7 @@ uint8_t KSArrayCount(KSArray *object){
     return elementCount;
 }
 
-void KSArrayAddElement(KSArray *object, KSArray *element){
+void KSArrayAddElement(KSArray *object, void *element) {
     if (NULL != object && NULL != element) {
         for (uint8_t index = 0; index < kKSArrayLimit; index++) {
             if (NULL == object->_array[index]) {
@@ -48,11 +53,11 @@ void KSArrayAddElement(KSArray *object, KSArray *element){
     }
 }
 
-void *KSArrayGetElementByIndex(KSArray *object, uint8_t index){
+void *KSArrayGetElementByIndex(KSArray *object, uint8_t index) {
     return KSObjectGetter(object, _array[index], NULL);
 }
 
-void KSArrayAddElementByIndex(KSArray *object, KSArray *element, uint8_t index){
+void KSArrayAddElementByIndex(KSArray *object, KSArray *element, uint8_t index) {
     if (NULL != object && NULL != element) {
         object->_array[index] = element;
         
@@ -60,7 +65,7 @@ void KSArrayAddElementByIndex(KSArray *object, KSArray *element, uint8_t index){
     }
 }
 
-void KSArrayRemoveElement(KSArray *object, uint8_t index){
+void KSArrayRemoveElement(KSArray *object, uint8_t index) {
     if (NULL != object ) {
         KSObjectRelease(object->_array[index]);
         object->_array[index] = NULL;
@@ -72,7 +77,7 @@ void KSArrayRemoveElement(KSArray *object, uint8_t index){
 }
 
 
-void KSArrayRemoveAllElements(KSArray *object){
+void KSArrayRemoveAllElements(KSArray *object) {
     if (NULL != object) {
         for (uint8_t index = 0; index < kKSArrayLimit; index++) {
             if (NULL != KSArrayGetElementByIndex(object, index)) {
