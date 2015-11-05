@@ -77,7 +77,7 @@ void KSHumanMariedTests(void){
         assert(NULL != woman);
     
     // After Man and Woman was married
-      KSHumanMarry(man, woman);
+      KSHumanMarry(woman, man);
     
     // Object must have partner
     assert(NULL != KSHumanPartner(man));

@@ -33,6 +33,6 @@ extern
 size_t KSStringLength(KSString *object);
 
 extern
-void KSSringPrint(KSString *object);
+void KSSringPrint(KSString *object); // delete this method
 
 #endif /* KSString_h */

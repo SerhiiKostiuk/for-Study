@@ -15,7 +15,7 @@
 #pragma mark Initializations & Dealocation
 
 void __KSArrayDeallocate(KSArray *object) {
-    KSArrayRemoveAllElements(object);
+    KSArrayRemoveAllObjects(object);
     __KSObjectDeallocate(object);
 }
 
@@ -40,7 +40,7 @@ uint8_t KSArrayCount(KSArray *object) {
     return elementCount;
 }
 
-void KSArrayAddElement(KSArray *object, void *element) {
+void KSArrayAddObject(KSArray *object, void *element) {
     if (NULL != object && NULL != element) {
         for (uint8_t index = 0; index < kKSArrayLimit; index++) {
             if (NULL == object->_array[index]) {
@@ -53,11 +53,11 @@ void KSArrayAddElement(KSArray *object, void *element) {
     }
 }
 
-void *KSArrayGetElementByIndex(KSArray *object, uint8_t index) {
+void *KSArrayGetObjectByIndex(KSArray *object, uint8_t index) {
     return KSObjectGetter(object, _array[index], NULL);
 }
 
-void KSArrayAddElementByIndex(KSArray *object, KSArray *element, uint8_t index) {
+void KSArrayAddObjectByIndex(KSArray *object, KSArray *element, uint8_t index) {
     if (NULL != object && NULL != element) {
         object->_array[index] = element;
         
@@ -65,7 +65,21 @@ void KSArrayAddElementByIndex(KSArray *object, KSArray *element, uint8_t index) 
     }
 }
 
-void KSArrayRemoveElement(KSArray *object, uint8_t index) {
+uint8_t KSArrayIndexOfObject(KSArray *object, void *element){
+    if (NULL == object && NULL == element){
+        return 0;
+    }
+    
+    for (uint8_t index = 0; index < KSArrayCount(object); index++) {
+        if (element == KSArrayGetObjectByIndex(object, index)) {
+            return index;
+        }
+    }
+    return NULL;
+}
+
+
+void KSArrayRemoveObject(KSArray *object, uint8_t index) {
     if (NULL != object ) {
         KSObjectRelease(object->_array[index]);
         object->_array[index] = NULL;
@@ -77,11 +91,11 @@ void KSArrayRemoveElement(KSArray *object, uint8_t index) {
 }
 
 
-void KSArrayRemoveAllElements(KSArray *object) {
+void KSArrayRemoveAllObjects(KSArray *object) {
     if (NULL != object) {
         for (uint8_t index = 0; index < kKSArrayLimit; index++) {
-            if (NULL != KSArrayGetElementByIndex(object, index)) {
-                KSArrayRemoveElement(object, index);
+            if (NULL != KSArrayGetObjectByIndex(object, index)) {
+                KSArrayRemoveObject(object, index);
             }
         }
     }

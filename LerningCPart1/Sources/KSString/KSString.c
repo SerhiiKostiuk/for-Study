@@ -8,6 +8,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <assert.h>
 #include "KSString.h"
 #include "KSMacros.h"
 
@@ -46,7 +47,10 @@ void KSStringSetValue(KSString *object, char *value) {
     }
     
     if (value) {
-        object->_value = strdup(value);
+        char *copiedString = strdup(value);
+        assert(NULL != copiedString);
+        
+        object->_value = copiedString;
     }
 }
 #pragma mark -

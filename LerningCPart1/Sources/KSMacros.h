@@ -25,5 +25,9 @@
         KSObjectRetain(newValue); \
         object->fieldName = newValue;
 
+#define KSReturnIfObjectNULL \
+if (NULL == object) {\
+return;\
+}
 
 #endif /* KSMacros_h */

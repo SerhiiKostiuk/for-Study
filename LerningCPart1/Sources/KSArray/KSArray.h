@@ -29,18 +29,24 @@ extern
 uint8_t KSArrayCount(KSArray *object);
 
 extern
-void KSArrayAddElement(KSArray *object, void *element);
+void KSArrayAddObject(KSArray *object, void *element); //rename "element" to "object"
 
 extern
-void *KSArrayGetElementByIndex(KSArray *object, uint8_t index);
+void *KSArrayGetObjectByIndex(KSArray *object, uint8_t index);
+
+//add arrayIndexOfObject
+extern
+uint8_t KSArrayIndexOfObject(KSArray *object, void *element);
 
 extern
-void KSArrayAddElementByIndex(KSArray *object, KSArray *element, uint8_t index);
+void KSArrayAddObjectByIndex(KSArray *object, KSArray *element, uint8_t index);
+
+//add removeElementAtIndex
 
 extern
-void KSArrayRemoveElement(KSArray *object, uint8_t index);
+void KSArrayRemoveObject(KSArray *object, uint8_t index);
 
 extern
-void KSArrayRemoveAllElements(KSArray *object);
+void KSArrayRemoveAllObjects(KSArray *object);
 
 #endif /* KSArray_h */

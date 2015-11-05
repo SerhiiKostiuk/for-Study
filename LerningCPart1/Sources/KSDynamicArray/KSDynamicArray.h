@@ -14,44 +14,44 @@
 
 typedef struct {
     KSObject _super;
-    void **_elements;
+    void **_objects;
     uint64_t _count;
     uint64_t _allocatedCount;
     
 } KSDynamicArray;
 
 extern
-void __KSDynamicArrayDeallocate(KSDynamicArray *object);
+void __KSDynamicArrayDeallocate(KSDynamicArray *array);
 
 extern
 KSDynamicArray *KSDynamicArrayCreate(void);
 
 extern
-uint64_t KSDynamicArrayCount(KSDynamicArray *object);
+uint64_t KSDynamicArrayCount(KSDynamicArray *array);
 
 extern
-void KSDynamicArrayAddElement(KSDynamicArray *object, void *element);
+void KSDynamicArrayAddObject(KSDynamicArray *array, void *object);
 
 extern
-void KSDynamicArrayRemoveElement(KSDynamicArray *object, void *element);
+void KSDynamicArrayRemoveObject(KSDynamicArray *array, void *object);
 
 extern
-void *KSDynamicArrayGetElementByIndex(KSDynamicArray *object, uint64_t index);
+void *KSDynamicArrayGetObjectByIndex(KSDynamicArray *array, uint64_t index);
 
 extern
-void KSDynamicArraySetElementByIndex(KSDynamicArray *object, void *element, uint64_t index);
+void KSDynamicArraySetObjectByIndex(KSDynamicArray *array, void *object, uint64_t index);
 
 extern
-void KSDynamicArrayRemoveElementByIndex(KSDynamicArray *object, uint64_t index);
+void KSDynamicArrayRemoveObjectByIndex(KSDynamicArray *array, uint64_t index);
 
 extern
-void KSDynamicArrayRemoveAllElements(KSDynamicArray *object);
+void KSDynamicArrayRemoveAllObjects(KSDynamicArray *array);
 
 extern
-uint64_t KSDynamicArrayIndexOfValue(KSDynamicArray *object, void *element);
+uint64_t KSDynamicArrayIndexOfObject(KSDynamicArray *array, void *object);
 
 extern
-uint64_t KSDynamicArrayAllocatedCount(KSDynamicArray *object);
+uint64_t KSDynamicArrayAllocatedCount(KSDynamicArray *array);
 
 
 #endif /* KSDynamicArray_h */
