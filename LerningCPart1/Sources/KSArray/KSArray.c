@@ -10,6 +10,8 @@
 #include "KSObject.h"
 #include "KSMacros.h"
 
+#pragma mark -
+#pragma mark Private Declarations
 
 static
 void KSArrayAddObjectByIndex(KSArray *object, KSArray *element, uint8_t index);
@@ -72,7 +74,7 @@ void KSArrayAddObjectByIndex(KSArray *object, KSArray *element, uint8_t index) {
     }
 }
 
-uint8_t KSArrayIndexOfObject(KSArray *object, void *element){
+uint8_t KSArrayIndexOfObject(KSArray *object, void *element) {
     uint8_t result = object ? kKSArrayLimit : 0;
     
     if (NULL != object && NULL != element){
@@ -87,7 +89,6 @@ uint8_t KSArrayIndexOfObject(KSArray *object, void *element){
     return result;
 }
 
-
 void KSArrayRemoveObject(KSArray *object, uint8_t index) {
     if (NULL != object ) {
         KSObjectRelease(object->_array[index]);
@@ -99,7 +100,7 @@ void KSArrayRemoveObject(KSArray *object, uint8_t index) {
     }
 }
 
-void KSArrayRemoveObjectByIndex(KSArray *object, uint8_t index){
+void KSArrayRemoveObjectByIndex(KSArray *object, uint8_t index) {
     if (NULL != object) {
         if (index < kKSArrayLimit) {
             KSArrayAddObjectByIndex(object, NULL, index);

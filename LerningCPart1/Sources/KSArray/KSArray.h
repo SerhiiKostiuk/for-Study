@@ -29,7 +29,7 @@ extern
 uint8_t KSArrayCount(KSArray *object);
 
 extern
-void KSArrayAddObject(KSArray *object, void *element); //rename "element" to "object"
+void KSArrayAddObject(KSArray *object, void *element);
 
 extern
 void *KSArrayGetObjectByIndex(KSArray *object, uint8_t index);

@@ -51,9 +51,4 @@ void KSDynamicArrayRemoveObject(KSDynamicArray *array, void *object);
 extern
 void KSDynamicArrayRemoveObjectByIndex(KSDynamicArray *array, uint64_t index);
 
-
-
-
-
-
 #endif /* KSDynamicArray_h */

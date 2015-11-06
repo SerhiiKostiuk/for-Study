@@ -39,7 +39,7 @@ static
 uint64_t KSDynamicArrayProposedAllocatedCount(KSDynamicArray * array, uint64_t newCount);
 
 static
-bool KSDynamicArrayShouldResize( KSDynamicArray *array, uint64_t newCount);
+bool KSDynamicArrayShouldResize(KSDynamicArray *array, uint64_t newCount);
 
 static
 void KSDynamicArrayResizeIfNeeded(KSDynamicArray *array, uint64_t newCount);
@@ -128,7 +128,7 @@ void KSDynamicArraySetObjectByIndex(KSDynamicArray *array, void *object, uint64_
 #pragma mark -
 #pragma mark Public Implementations
 
-uint64_t KSDynamicArrayIndexOfObject(KSDynamicArray *array, void *object){
+uint64_t KSDynamicArrayIndexOfObject(KSDynamicArray *array, void *object) {
     uint64_t result = array ? kKSCanNotFindObject : 0;
     
     if (NULL != array && NULL != object) {
@@ -144,11 +144,11 @@ uint64_t KSDynamicArrayIndexOfObject(KSDynamicArray *array, void *object){
     return result;
 }
 
-bool KSDynamicArrayIncludesObject(KSDynamicArray *array, void *object){
+bool KSDynamicArrayIncludesObject(KSDynamicArray *array, void *object) {
     return NULL != array && NULL != object && kKSCanNotFindObject != KSDynamicArrayIndexOfObject(array, object);
 }
 
-void KSDynamicArrayAddObject(KSDynamicArray *array, void *object){
+void KSDynamicArrayAddObject(KSDynamicArray *array, void *object) {
     if (NULL != array && NULL != object) {
         uint64_t count = KSDynamicArrayCount(array);
         
@@ -157,7 +157,7 @@ void KSDynamicArrayAddObject(KSDynamicArray *array, void *object){
     }
 }
 
-void KSDynamicArrayRemoveObject(KSDynamicArray *array, void *object){
+void KSDynamicArrayRemoveObject(KSDynamicArray *array, void *object) {
     if (KSDynamicArrayIncludesObject(array, object)) {
         KSDynamicArrayRemoveObjectByIndex(array, KSDynamicArrayIndexOfObject(array, object));
     }
@@ -187,7 +187,7 @@ void KSDynamicArrayRemoveObjectByIndex(KSDynamicArray *array, uint64_t index) {
 #pragma mark -
 #pragma mark Private Implementations
 
-void KSDynamicArrayRemoveAllObjects(KSDynamicArray *array){
+void KSDynamicArrayRemoveAllObjects(KSDynamicArray *array) {
     if (NULL != array) {
         for (uint64_t index = 0; index < KSDynamicArrayCount(array); index++) {
             KSDynamicArrayRemoveObjectByIndex(array, index);
@@ -222,11 +222,11 @@ uint64_t KSDynamicArrayProposedAllocatedCount(KSDynamicArray * array, uint64_t n
     return proposedAllocatedCount;
 }
 
-bool KSDynamicArrayShouldResize( KSDynamicArray *array, uint64_t newCount){
+bool KSDynamicArrayShouldResize(KSDynamicArray *array, uint64_t newCount) {
     return NULL != array && KSDynamicArrayAllocatedCount(array) != KSDynamicArrayProposedAllocatedCount(array, newCount);
 }
 
-void KSDynamicArrayResizeIfNeeded(KSDynamicArray *array, uint64_t newCount){
+void KSDynamicArrayResizeIfNeeded(KSDynamicArray *array, uint64_t newCount) {
     if (NULL != array && true == KSDynamicArrayShouldResize(array, newCount)) {
         KSDynamicArraySetAllocatedCount(array, KSDynamicArrayProposedAllocatedCount(array, newCount));
     }
