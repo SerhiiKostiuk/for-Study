@@ -11,6 +11,13 @@
 #include "KSMacros.h"
 
 
+static
+void KSArrayAddObjectByIndex(KSArray *object, KSArray *element, uint8_t index);
+
+static
+void KSArrayRemoveAllObjects(KSArray *object);
+
+
 #pragma mark -
 #pragma mark Initializations & Dealocation
 
@@ -66,16 +73,18 @@ void KSArrayAddObjectByIndex(KSArray *object, KSArray *element, uint8_t index) {
 }
 
 uint8_t KSArrayIndexOfObject(KSArray *object, void *element){
-    if (NULL == object && NULL == element){
-        return 0;
-    }
+    uint8_t result = object ? kKSArrayLimit : 0;
     
-    for (uint8_t index = 0; index < KSArrayCount(object); index++) {
-        if (element == KSArrayGetObjectByIndex(object, index)) {
-            return index;
+    if (NULL != object && NULL != element){
+        for (uint8_t index = 0; index < KSArrayCount(object); index++) {
+            if (element == KSArrayGetObjectByIndex(object, index)) {
+                result = index;
+                
+                break;
+            }
         }
     }
-    return NULL;
+    return result;
 }
 
 
@@ -90,6 +99,16 @@ void KSArrayRemoveObject(KSArray *object, uint8_t index) {
     }
 }
 
+void KSArrayRemoveObjectByIndex(KSArray *object, uint8_t index){
+    if (NULL != object) {
+        if (index < kKSArrayLimit) {
+            KSArrayAddObjectByIndex(object, NULL, index);
+            for (uint8_t index = 0 ; index < kKSArrayLimit - 1; index++) {
+                object->_array[index] = object->_array[index + 1];
+            }
+        }
+    }
+}
 
 void KSArrayRemoveAllObjects(KSArray *object) {
     if (NULL != object) {

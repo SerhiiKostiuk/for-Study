@@ -20,10 +20,10 @@ typedef struct {
 } KSArray;
 
 extern
-KSArray *KSArrayCreate(void);
+void __KSArrayDeallocate(KSArray *object);
 
 extern
-void __KSArrayDeallocate(KSArray *object);
+KSArray *KSArrayCreate(void);
 
 extern
 uint8_t KSArrayCount(KSArray *object);
@@ -34,19 +34,13 @@ void KSArrayAddObject(KSArray *object, void *element); //rename "element" to "ob
 extern
 void *KSArrayGetObjectByIndex(KSArray *object, uint8_t index);
 
-//add arrayIndexOfObject
 extern
 uint8_t KSArrayIndexOfObject(KSArray *object, void *element);
 
 extern
-void KSArrayAddObjectByIndex(KSArray *object, KSArray *element, uint8_t index);
-
-//add removeElementAtIndex
+void KSArrayRemoveObjectByIndex(KSArray *object, uint8_t index);
 
 extern
 void KSArrayRemoveObject(KSArray *object, uint8_t index);
-
-extern
-void KSArrayRemoveAllObjects(KSArray *object);
 
 #endif /* KSArray_h */

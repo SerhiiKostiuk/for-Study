@@ -209,14 +209,11 @@ void KSHumanDivorce(KSHuman *object) {
 }
 
 void KSHumanMarry(KSHuman *object, KSHuman *partner) {
-    if(NULL == object && KSHumanGender(object) == KSHumanGender(partner)){
+    if(NULL == object && KSHumanGender(object) == KSHumanGender(partner) && KSHumanPartner(object) == partner){
         return;
     }
-    
-    if (NULL != object) {
-        KSHumanDivorce(object);
-        KSHumanDivorce(partner);
-    }
+    KSHumanDivorce(object); 
+    KSHumanDivorce(partner);
     
     KSHumanSetPartner(object, partner);
 }
