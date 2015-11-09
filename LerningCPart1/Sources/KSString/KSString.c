@@ -59,7 +59,3 @@ void KSStringSetValue(KSString *object, char *value) {
 size_t KSStringLength(KSString *object) {
     return strlen(KSStringValue(object));
 }
-
-void KSSringPrint(KSString *object) {
-    puts(KSStringValue(object));
-}

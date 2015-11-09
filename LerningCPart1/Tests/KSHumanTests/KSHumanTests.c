@@ -64,10 +64,15 @@ void KSHumanCreatingTests(void){
 void KSHumanMariedTests(void){
     KSString *manName = KSStringCreate("Vasia");
     KSString *womanName = KSStringCreate("Masha");
+    KSString *kidName = KSStringCreate("Petyia");
     // Create Human object with male gender and other parameters
     KSHuman *man = KSHumanCreateWithParameters(kKSHumanGenderMale, manName, 23);
     // Create Human object with female gender and other parameters
     KSHuman *woman = KSHumanCreateWithParameters(kKSHumanGenderFemale, womanName, 21);
+    
+    
+    KSObjectRelease(manName);
+    KSObjectRelease(womanName);
     
      // After object man  and object woman was created:
     
@@ -79,9 +84,21 @@ void KSHumanMariedTests(void){
     // After Man and Woman was married
       KSHumanMarry(woman, man);
     
+    KSHuman *kid = KSHumanCreateKidWithParameters(kKSHumanGenderMale, woman, man, kidName);
+
     // Object must have partner
     assert(NULL != KSHumanPartner(man));
     assert(NULL != KSHumanPartner(woman));
+    
+    
+    
+    
+    
+    KSObjectRelease(man);
+    KSObjectRelease(woman);
+    KSObjectRelease(kid);
+    
+    
 
 
 

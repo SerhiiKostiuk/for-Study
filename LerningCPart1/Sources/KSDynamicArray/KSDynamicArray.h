@@ -30,10 +30,7 @@ extern
 uint64_t KSDynamicArrayCount(KSDynamicArray *array);
 
 extern
-uint64_t KSDynamicArrayAllocatedCount(KSDynamicArray *array);
-
-extern
-void *KSDynamicArrayGetObjectByIndex(KSDynamicArray *array, uint64_t index);
+void *KSDynamicArrayObjectAtIndex(KSDynamicArray *array, uint64_t index);
 
 extern
 bool KSDynamicArrayIncludesObject(KSDynamicArray *array, void *object);
@@ -49,6 +46,6 @@ void KSDynamicArrayRemoveObject(KSDynamicArray *array, void *object);
 
 
 extern
-void KSDynamicArrayRemoveObjectByIndex(KSDynamicArray *array, uint64_t index);
+void KSDynamicArrayRemoveObjectAtIndex(KSDynamicArray *array, uint64_t index);
 
 #endif /* KSDynamicArray_h */
