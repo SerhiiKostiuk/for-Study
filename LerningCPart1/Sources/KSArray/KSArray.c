@@ -6,6 +6,7 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 #include <stdlib.h>
+#include <assert.h>
 #include "KSArray.h"
 #include "KSObject.h"
 #include "KSMacros.h"
@@ -68,6 +69,7 @@ void *KSArrayGetObjectByIndex(KSArray *object, uint8_t index) {
 
 void KSArrayAddObjectByIndex(KSArray *object, KSArray *element, uint8_t index) {
     if (NULL != object && NULL != element) {
+        assert(index > KSArrayCount(object));
         object->_array[index] = element;
         
         return;

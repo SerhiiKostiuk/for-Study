@@ -18,7 +18,7 @@ typedef struct {
 } KSString;
 
 extern
-KSString *KSStringCreate(char *value);
+KSString *KSStringCreateWithString(char *value);
 
 extern
 void __KSStringDeallocate(KSString *object);

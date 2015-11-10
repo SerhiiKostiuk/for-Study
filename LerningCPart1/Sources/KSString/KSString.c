@@ -22,7 +22,7 @@ void __KSStringDeallocate(KSString *object) {
 }
 
 
-KSString *KSStringCreate(char *value) {
+KSString *KSStringCreateWithString(char *value) {
     KSString *object = KSObjectCreateOfType(KSString);
     KSStringSetValue(object, value);
     

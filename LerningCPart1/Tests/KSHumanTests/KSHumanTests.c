@@ -34,7 +34,7 @@ void KSHumanExecuteTests(void){
 #pragma mark Private Implementations
 
 void KSHumanCreatingTests(void){
-    KSString *maleName = KSStringCreate("Vasia");
+    KSString *maleName = KSStringCreateWithString("Vasia");
     
 // Create Human object with male gender and other parameters
     KSHuman *male = KSHumanCreateWithParameters(kKSHumanGenderMale, maleName, 23);
@@ -62,9 +62,9 @@ void KSHumanCreatingTests(void){
 }
 
 void KSHumanMariedTests(void){
-    KSString *manName = KSStringCreate("Vasia");
-    KSString *womanName = KSStringCreate("Masha");
-    KSString *kidName = KSStringCreate("Petyia");
+    KSString *manName = KSStringCreateWithString("Vasia");
+    KSString *womanName = KSStringCreateWithString("Masha");
+    KSString *kidName = KSStringCreateWithString("Petyia");
     // Create Human object with male gender and other parameters
     KSHuman *man = KSHumanCreateWithParameters(kKSHumanGenderMale, manName, 23);
     // Create Human object with female gender and other parameters
