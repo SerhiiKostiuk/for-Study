@@ -8,20 +8,20 @@
 //
 
 #include <stdio.h>
-
+#include "KSHumanTests.h"
 #include "KSDataTypesTests.h"
-#include "KSCheckValueAndPrintTests.h"
+#include "KSStructureTests.h"
+#include "KSLinkedListTests.h"
 #include "KSPrimitiveTypeTests.h"
+#include "KSCheckValueAndPrintTests.h"
 #include "KSTypeRepresentationInBinary.h"
 #include "KSTypeRepresentationInBinaryTests.h"
-#include "KSStructureTests.h"
-#include "KSHumanTests.h"
 
 #define executeTest(testName) printf (#testName " started...\n");\
-printf("\n");\
-testName();\
-printf(#testName " finished\n");\
-printf("\n");
+        printf("\n");\
+        testName();\
+        printf(#testName " finished\n");\
+        printf("\n");
 
 int main(int argc, const char * argv[]) {
     
@@ -36,10 +36,8 @@ int main(int argc, const char * argv[]) {
     executeTest(KSTypeRepresentationInBinaryTests);
     
     executeTest(KSHumanExecuteTests);
+    
+    executeTest(KSLinkedListBehaviourTest);
 
-    
- 
-    
- 
     return 0;
 }

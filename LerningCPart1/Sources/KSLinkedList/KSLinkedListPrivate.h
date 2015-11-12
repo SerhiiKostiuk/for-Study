@@ -34,7 +34,7 @@ void KSLinkedListSetMutationsCount(KSLinkedList *list, uint64_t count);
 extern
 KSLinkedListNode *KSLinkedListFindNodeWithContext(KSLinkedList *list,
                                                   KSLinkedListNodeComparisonFunction comparator,
-                                                  KSLinkedListNodeContext context);
+                                                  KSLinkedListNodeContext *context);
 
 extern
 bool KSLinkedListNodeContainsObject(KSLinkedListNode *node, KSLinkedListNodeContext context);

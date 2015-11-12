@@ -11,7 +11,6 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-
 #include "KSObject.h"
 
 typedef struct KSLinkedListEnumerator KSLinkedListEnumerator;
@@ -30,10 +29,10 @@ extern
 void __KSLinkedListEnumeratorDeallocate(void *object);
 
 extern
-KSLinkedListEnumerator *KSLinkedListEnumeratorCreateWithObject(KSLinkedList *list);
+KSLinkedListEnumerator *KSLinkedListEnumeratorCreateWithList(KSLinkedList *list);
 
 extern
-void KSLinkedListEnumeratorNextObject(KSLinkedListEnumerator *enumerator);
+void *KSLinkedListEnumeratorNextObject(KSLinkedListEnumerator *enumerator);
 
 extern
 bool KSLinkedListEnumeratorIsValid(KSLinkedListEnumerator *enumerator);

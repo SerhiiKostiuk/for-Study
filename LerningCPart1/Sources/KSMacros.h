@@ -21,8 +21,8 @@
         if(NULL == object || object->fieldName == newValue) { \
             return; \
         } \
-        KSObjectRelease(object->fieldName); \
         KSObjectRetain(newValue); \
+        KSObjectRelease(object->fieldName); \
         object->fieldName = newValue;
 
 #endif /* KSMacros_h */

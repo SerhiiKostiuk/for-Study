@@ -25,7 +25,7 @@ extern
 void __KSLinkedListNodeDeallocate(void *object);
 
 extern
-KSLinkedListNode *KSLinkedListNodeCreateWithObject(KSObject *object);
+KSLinkedListNode *KSLinkedListNodeCreateWithObject(void *object);
 
 extern
 KSLinkedListNode *KSLinkedListNodeNextNode(KSLinkedListNode *node);
@@ -34,7 +34,7 @@ extern
 void KSLinkedListNodeSetNextNode(KSLinkedListNode *node, KSLinkedListNode *nextNode);
 
 extern
-KSObject *KSLinkedListNodeGetObject(KSLinkedListNode *node);
+KSObject *KSLinkedListNodeObject(KSLinkedListNode *node);
 
 extern
 void KSLinkedListNodeSetObject(KSLinkedListNode *node, void *object); 

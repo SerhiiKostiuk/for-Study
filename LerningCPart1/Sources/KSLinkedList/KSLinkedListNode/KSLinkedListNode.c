@@ -20,7 +20,7 @@ void __KSLinkedListNodeDeallocate(void *object) {
     __KSObjectDeallocate(object);
 }
 
-KSLinkedListNode *KSLinkedListCreateWithObject(void *object) {
+KSLinkedListNode *KSLinkedListNodeCreateWithObject(void *object) {
     KSLinkedListNode *result = KSObjectCreateOfType(KSLinkedListNode);
     KSLinkedListNodeSetObject(result, object);
     
@@ -28,7 +28,7 @@ KSLinkedListNode *KSLinkedListCreateWithObject(void *object) {
 }
 
 #pragma mark -
-#pragma mark Public Implementations
+#pragma mark Accessors
 
 KSLinkedListNode *KSLinkedListNodeNextNode(KSLinkedListNode *node) {
     return KSObjectGetter(node, _newNode, NULL);
@@ -36,11 +36,11 @@ KSLinkedListNode *KSLinkedListNodeNextNode(KSLinkedListNode *node) {
 
 void KSLinkedListNodeSetNextNode(KSLinkedListNode *node, KSLinkedListNode *nextNode) {
     assert(!node || node != nextNode);
-    KSObjectRetainSetter(node, _object, nextNode);
+    KSObjectRetainSetter(node, _newNode, nextNode);
 }
 
 
-KSObject *KSLinkedListNodeGetObject(KSLinkedListNode *node) {
+KSObject *KSLinkedListNodeObject(KSLinkedListNode *node) {
     return KSObjectGetter(node, _object, NULL);
 }
 

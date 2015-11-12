@@ -11,6 +11,7 @@
 		C53295BB1BE3C04D00E5AA81 /* KSDynamicArray.c in Sources */ = {isa = PBXBuildFile; fileRef = C53295B91BE3C04D00E5AA81 /* KSDynamicArray.c */; };
 		C548180F1BB949680082E8AE /* KSStructureTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C548180D1BB949680082E8AE /* KSStructureTests.c */; };
 		C54F4C9C1BB93B060017D519 /* KSStructure.c in Sources */ = {isa = PBXBuildFile; fileRef = C54F4C9A1BB93B060017D519 /* KSStructure.c */; };
+		C57493281BF4C7A700F2F3A4 /* KSLinkedListTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C57493261BF4C7A700F2F3A4 /* KSLinkedListTests.c */; };
 		C595C2BD1BB2CF05004AF1D7 /* KSCheckValueAndPrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C595C2BB1BB2CF05004AF1D7 /* KSCheckValueAndPrintTests.c */; };
 		C595C2C11BB2D0A2004AF1D7 /* KSPrimitiveTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C595C2BF1BB2D0A2004AF1D7 /* KSPrimitiveTypeTests.c */; };
 		C5A76E061BB54560003602C6 /* KSTypeRepresentationInBinary.c in Sources */ = {isa = PBXBuildFile; fileRef = C5A76E041BB54560003602C6 /* KSTypeRepresentationInBinary.c */; };
@@ -48,6 +49,9 @@
 		C548180E1BB949680082E8AE /* KSStructureTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStructureTests.h; sourceTree = "<group>"; };
 		C54F4C9A1BB93B060017D519 /* KSStructure.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStructure.c; sourceTree = "<group>"; };
 		C54F4C9B1BB93B060017D519 /* KSStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStructure.h; sourceTree = "<group>"; };
+		C57493231BF36BC600F2F3A4 /* KSLinkedListEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedListEnumeratorPrivate.h; sourceTree = "<group>"; };
+		C57493261BF4C7A700F2F3A4 /* KSLinkedListTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSLinkedListTests.c; sourceTree = "<group>"; };
+		C57493271BF4C7A700F2F3A4 /* KSLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedListTests.h; sourceTree = "<group>"; };
 		C595C2B81BB2CA6E004AF1D7 /* KSMethodOfGeneratingAPrimitiveType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMethodOfGeneratingAPrimitiveType.h; sourceTree = "<group>"; };
 		C595C2BB1BB2CF05004AF1D7 /* KSCheckValueAndPrintTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSCheckValueAndPrintTests.c; sourceTree = "<group>"; };
 		C595C2BC1BB2CF05004AF1D7 /* KSCheckValueAndPrintTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCheckValueAndPrintTests.h; sourceTree = "<group>"; };
@@ -120,6 +124,15 @@
 			path = KSStructure;
 			sourceTree = "<group>";
 		};
+		C57493241BF4C77600F2F3A4 /* KSLinkedListTests */ = {
+			isa = PBXGroup;
+			children = (
+				C57493261BF4C7A700F2F3A4 /* KSLinkedListTests.c */,
+				C57493271BF4C7A700F2F3A4 /* KSLinkedListTests.h */,
+			);
+			path = KSLinkedListTests;
+			sourceTree = "<group>";
+		};
 		C58F78D61BBEB93000292FAB /* KSHuman */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +198,7 @@
 		C5A87CF71BF21CCB009E94CF /* KSLinkedListEnumerator */ = {
 			isa = PBXGroup;
 			children = (
+				C57493231BF36BC600F2F3A4 /* KSLinkedListEnumeratorPrivate.h */,
 				C5A87CF81BF21CF8009E94CF /* KSLinkedListEnumerator.c */,
 				C5A87CF91BF21CF8009E94CF /* KSLinkedListEnumerator.h */,
 			);
@@ -248,6 +262,7 @@
 		C5D2059B1BAA0475003C2465 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C57493241BF4C77600F2F3A4 /* KSLinkedListTests */,
 				C58F78DA1BBEB96E00292FAB /* KSHumanTests */,
 				C548180C1BB949360082E8AE /* KSStructureTests */,
 				C5CA32D71BBC107200373CCC /* KSTypeRepresentationInBinaryTests */,
@@ -381,6 +396,7 @@
 			files = (
 				C5FC12451BF1F18D00440F8C /* KSLinkedList.c in Sources */,
 				C5A76E061BB54560003602C6 /* KSTypeRepresentationInBinary.c in Sources */,
+				C57493281BF4C7A700F2F3A4 /* KSLinkedListTests.c in Sources */,
 				C595C2BD1BB2CF05004AF1D7 /* KSCheckValueAndPrintTests.c in Sources */,
 				C5D205A01BAA068F003C2465 /* KSCheckValueAndPrint.c in Sources */,
 				C5D205941BAA0327003C2465 /* main.c in Sources */,
