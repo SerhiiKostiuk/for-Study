@@ -87,19 +87,20 @@ void KSLinkedListAddObject(KSLinkedList *list, void *object) {
 void KSLinkedListRemoveObject(KSLinkedList *list, void *object) {
     if (NULL != list && NULL != object) {
         KSLinkedListNodeContext context;
-        KSLinkedListNode *node;
         
         memset(&context, 0, sizeof(context));
         context.object = object;
+        KSLinkedListNode *node = KSLinkedListFindNodeWithContext(list, KSLinkedListNodeContainsObject, &context);
         
-        while (NULL != (node = KSLinkedListFindNodeWithContext(list, KSLinkedListNodeContainsObject, &context)))
-        {
-            if (NULL != node) {
+        while (NULL != node) {
+            if (node == KSLinkedListHead(list)) {
+                KSLinkedListRemoveFirstObject(list);
+            } else {
                 KSLinkedListNodeSetNextNode(context.previousNode, KSLinkedListNodeNextNode(context.node));
-                KSLinkedListSetCount(list, KSLinkedListCount(list) - 1);
+                
             }
-            
         }
+        KSLinkedListSetCount(list, KSLinkedListCount(list) - 1);
     }
 }
 

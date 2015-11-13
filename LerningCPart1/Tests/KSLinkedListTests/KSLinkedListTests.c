@@ -61,6 +61,44 @@ void KSLinkedListObjectTest(void) {
     
     //      list should be empty
     assert(true == KSLinkedListIsEmpty(list));
+    
+    //      list must not contain object
+    assert(false == KSLinkedListContainsObject(list, object));
+    
+    //      object retain count must be 1
+    assert(1 == KSObjectRetainCount(object));
+    
+    // after object was added 15 times
+    for (uint8_t iterator = 0; iterator < 15; iterator++) {
+        KSLinkedListAddObject(list, object);
+    }
+    
+    //      list should not be empty
+    assert(false == KSLinkedListIsEmpty(list));
+    
+    //      list must contain object
+    assert(true == KSLinkedListContainsObject(list, object));
+    
+    //      object retain count must be 16
+    assert(16 == KSObjectRetainCount(object));
+    
+    // after removed first object from list
+    KSLinkedListRemoveFirstObject(list);
+    
+    //      object retain count must be 15
+    assert(15 == KSObjectRetainCount(object));
+    
+    // after deleted all objects
+    KSLinkedListRemoveAllObjects(list);
+    
+    //      object retain count must be 1
+    assert(1 == KSObjectRetainCount(object));
+    
+    //      list should be empty
+    assert(true == KSLinkedListIsEmpty(list));
+    
+    //      list must not contain object
+    assert(false == KSLinkedListContainsObject(list, object));
 
     KSObjectRelease(object);
     KSObjectRelease(list);
