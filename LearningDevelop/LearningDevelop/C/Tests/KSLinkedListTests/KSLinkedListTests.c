@@ -142,7 +142,7 @@ void KSTestRelease(void **objects, const uint64_t count) {
 void KSLikedListWithArrayTest(void) {
     // write a macros
 #define KSMapWithArray(function, array) \
-KSLinkedListWithArrayOfCount(function, (void **)array, sizeof(array) / sizeof(*array));
+    KSLinkedListWithArrayOfCount(function, (void **)array, sizeof(array) / sizeof(*array));
     // after list was created
     KSLinkedList *list = KSObjectCreateOfType(KSLinkedList);
     
