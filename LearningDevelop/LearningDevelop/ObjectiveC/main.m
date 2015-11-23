@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KSCreatureTests.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        [KSCreatureTests KSCreatureBehaviourTests];
+        
     }
     return 0;
 }
- 

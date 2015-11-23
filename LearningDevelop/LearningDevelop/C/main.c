@@ -24,20 +24,20 @@
         printf("\n");
 
 int main(int argc, const char * argv[]) {
-    
-    executeTest(KSPrintSizeOfDataTypes);
-    
-    executeTest(KSFulfillCheckingOfTheParentTypeTests);
-    
-    executeTest(KSPrimitiveTypeTests);
-    
-    executeTest(KSStructureTests);
-
-    executeTest(KSTypeRepresentationInBinaryTests);
-    
-    executeTest(KSHumanExecuteTests);
-    
-    executeTest(KSLinkedListBehaviourTest);
+//    
+//    executeTest(KSPrintSizeOfDataTypes);
+//    
+//    executeTest(KSFulfillCheckingOfTheParentTypeTests);
+//    
+//    executeTest(KSPrimitiveTypeTests);
+//    
+//    executeTest(KSStructureTests);
+//
+//    executeTest(KSTypeRepresentationInBinaryTests);
+//    
+//    executeTest(KSHumanExecuteTests);
+//    
+//   executeTest(KSLinkedListBehaviourTest);
 
     return 0;
 }

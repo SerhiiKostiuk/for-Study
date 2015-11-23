@@ -123,7 +123,7 @@ void KSLinkedListObjectTest(void) {
 
 typedef void (*KSTestFunction) (void **objects, const uint64_t count);
 
-static
+
 void KSLinkedListWithArrayOfCount(KSTestFunction function, void ** objects, const uint64_t count);
 
 void KSTestNotNULL(void **objects, const uint64_t count) {
@@ -139,10 +139,10 @@ void KSTestRelease(void **objects, const uint64_t count) {
 
 }
 
-void KSLikedListWithArrayTest(void) {
-    // write a macros
 #define KSMapWithArray(function, array) \
-    KSLinkedListWithArrayOfCount(function, (void **)array, sizeof(array) / sizeof(*array));
+        KSLinkedListWithArrayOfCount(function, (void **)array, sizeof(array) / sizeof(*array));
+
+void KSLikedListWithArrayTest(void) {
     // after list was created
     KSLinkedList *list = KSObjectCreateOfType(KSLinkedList);
     
@@ -151,9 +151,9 @@ void KSLikedListWithArrayTest(void) {
                             KSObjectCreateOfType(KSString),
                             KSObjectCreateOfType(KSObject)};
     
-    KSMapWithArray(KSTestNotNULL, origin);
-    KSMapWithArray(KSTestRelease, origin);
-    
+//    KSMapWithArray(KSTestNotNULL, origin);
+//    KSMapWithArray(KSTestRelease, origin);
+//    
     KSObjectRelease(list);
 
 
