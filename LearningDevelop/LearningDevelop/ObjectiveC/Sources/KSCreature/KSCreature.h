@@ -7,34 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KSCreatureProtocol.h"
 
-typedef NS_ENUM (NSUInteger, KSCreatureGenderType) {
-    kKSCreatureGenderUndefiened,
-    kKSCreatureGenderMale,
-    kKSCreatureGenderFemale
-};
 
-@interface KSCreature : NSObject
-
-@property (nonatomic, readonly, copy) NSString        *name;
-@property (nonatomic, readonly)       NSSet           *kids;
-@property (nonatomic, readonly) KSCreatureGenderType  gender;
-
-@property (nonatomic, assign) uint8_t    age;
-@property (nonatomic, assign) uint8_t    weight;
+@interface KSCreature : NSObject <KSCreatureProtocol>
 
 + (KSCreature *)creature;
 + (KSCreature *)creatureWithName:(NSString *)name gender:(KSCreatureGenderType)gender;
 
-- (instancetype)initWithName:(NSString *)name gender:(KSCreatureGenderType)gender;
+- (instancetype)initWithName:(NSString *)name gender:(KSCreatureGenderType)gender; //NS_DESIGNATED_INITIALIZER;
 
-- (void)sayHi;
-
-- (void)goFight;
-- (void)goReproduce;
-
-- (void)addKid:(KSCreature *) kid;
-- (void)removeKid:(KSCreature *) kid;
-
+- (void)addKid:(id <KSCreatureProtocol>) kid;
+- (void)removeKid:(id <KSCreatureProtocol>) kid;
 
 @end

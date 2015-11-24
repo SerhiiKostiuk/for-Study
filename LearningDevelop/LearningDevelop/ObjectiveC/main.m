@@ -12,7 +12,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         [KSCreatureTests KSCreatureBehaviourTests];
-        
     }
+    
     return 0;
 }

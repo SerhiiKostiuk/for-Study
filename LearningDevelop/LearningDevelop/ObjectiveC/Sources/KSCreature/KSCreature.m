@@ -6,25 +6,30 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
+#import "KSMan.h"
+#import "KSWoman.h"
 #import "KSCreature.h"
 
 @interface KSCreature ()
 
 @property (nonatomic, readwrite, copy) NSString *name;
 @property (nonatomic, retain) NSMutableSet *mutableKids;
-@property (readwrite) KSCreatureGenderType gender;
+//@property (nonatomic, readwrite) KSCreatureGenderType gender;
 
 @end
 
 @implementation KSCreature
 
 @dynamic kids;
+@synthesize gender =_gender;
+@synthesize age = _age;
+@synthesize weight = _weight;
 
 #pragma mark -
 #pragma mark Class Methods
 
 + (KSCreature *)creature {
-    return [self creatureWithName:(NSString *)nil gender:kKSCreatureGenderUndefiened];
+    return [self creatureWithName:(NSString *)nil gender:kKSCreatureGenderMale];
 }
 
 + (KSCreature *)creatureWithName:(NSString *)name gender:(KSCreatureGenderType)gender {
@@ -45,17 +50,37 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableKids = [[[NSMutableSet alloc] init] autorelease];
+        self.mutableKids = [NSMutableSet set];
     }
     
     return self;
 }
 
++(Class)classForGender:(KSCreatureGenderType)gender {
+    Class result = Nil;
+    
+    switch (gender) {
+        case kKSCreatureGenderMale:
+            result = [KSMan class];
+            break;
+        case kKSCreatureGenderFemale:
+            result = [KSWoman class];
+        default:
+            break;
+    }
+    return result;
+}
+
 - (instancetype)initWithName:(NSString *)name gender:(KSCreatureGenderType)gender {
-    self = [self init];
+    Class objectClass = [[self class] classForGender:gender];
+    
+    assert(Nil != objectClass);
+    [self release];
+    
+    self = [[objectClass alloc] init];    
     if (self) {
+        self.mutableKids = [NSMutableSet set];
         self.name = name;
-        self.gender = gender;
     }
     
     return self;
@@ -80,23 +105,22 @@
     
 }
 
-- (void)goFight {
-    
-}
-
-- (void)goReproduce {
-    
-}
-
-- (void)addKid:(KSCreature *) kid {
-    if ([kid isKindOfClass:[self class]]) {
+- (void)addKid:(id <KSCreatureProtocol>) kid {
+    if ([kid conformsToProtocol:@protocol(KSCreatureProtocol)]) {
         [self.mutableKids addObject:kid];
     }
     
 }
 
-- (void)removeKid:(KSCreature *) kid {
+- (void)removeKid:(id <KSCreatureProtocol>) kid {
     [self.mutableKids removeObject:kid];
+}
+
+#pragma mark-
+#pragma mark KSCreatureProtocol
+
+-(id)performGenderSpecificOperation {
+    return nil;
 }
 
 @end

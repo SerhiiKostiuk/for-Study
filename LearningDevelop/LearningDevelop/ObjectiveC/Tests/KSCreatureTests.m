@@ -6,6 +6,8 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
+#import "KSMan.h"
+#import "KSWoman.h"
 #import "KSCreature.h"
 #import "KSCreatureTests.h"
 
@@ -77,5 +79,8 @@
     
     // all creatures must say Hi
     [creature sayHi];
+    
+    [creature performGenderSpecificOperation];
+    [firstKid performGenderSpecificOperation];
 }
 @end
