@@ -10,6 +10,8 @@
 #import "KSWoman.h"
 #import "KSCreature.h"
 
+static NSMutableDictionary *__genderClasses = nil;
+
 @interface KSCreature ()
 
 @property (nonatomic, readwrite, copy) NSString *name;
@@ -28,14 +30,32 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (KSCreature *)creature {
++ (void)load {
+    [super load];
+    __genderClasses = [NSMutableDictionary dictionaryWithDictionary:@{@(kKSCreatureGenderMale)   : [KSMan class],
+                                                                      @(kKSCreatureGenderFemale) : [KSWoman class]}];
+}
+
++ (instancetype)creature {
     return [self creatureWithName:(NSString *)nil gender:kKSCreatureGenderMale];
 }
 
-+ (KSCreature *)creatureWithName:(NSString *)name gender:(KSCreatureGenderType)gender {
++ (instancetype)creatureWithName:(NSString *)name gender:(KSCreatureGenderType)gender {
     return [[[self alloc] initWithName:name gender:gender] autorelease];
 }
 
++ (NSMutableDictionary *)genderClasses {
+    return __genderClasses;
+}
+
++ (void)registerCreatureClass:(Class)objectClass forGender:(KSCreatureGenderType)gender {
+    NSAssert(nil == objectClass || [objectClass conformsToProtocol:@protocol(KSCreatureProtocol)],
+             @"creature class must conform KSCreatureProtocol");
+    if (objectClass) {
+        NSMutableDictionary *genderClass = [self genderClasses];
+        genderClass[@(gender)] = objectClass;
+    }
+}
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -56,23 +76,24 @@
     return self;
 }
 
-+(Class)classForGender:(KSCreatureGenderType)gender {
-    Class result = Nil;
-    
-    switch (gender) {
-        case kKSCreatureGenderMale:
-            result = [KSMan class];
-            break;
-        case kKSCreatureGenderFemale:
-            result = [KSWoman class];
-        default:
-            break;
-    }
-    return result;
-}
+//+(Class)classForGender:(KSCreatureGenderType)gender {
+//    NSMutableDictionary *genderClasses = [self genderClasses];
+//    Class result = genderClasses[@(gender)];
+//    
+//    switch (gender) {
+//        case kKSCreatureGenderMale:
+//            result = [KSMan class];
+//            break;
+//        case kKSCreatureGenderFemale:
+//            result = [KSWoman class];
+//        default:
+//            break;
+//    }
+//    return result;
+//}
 
 - (instancetype)initWithName:(NSString *)name gender:(KSCreatureGenderType)gender {
-    Class objectClass = [[self class] classForGender:gender];
+    Class objectClass = [[self class] registerCreatureClass:gender];
     
     assert(Nil != objectClass);
     [self release];
