@@ -8,6 +8,6 @@
 
 #import "KSStringCategories.h"
 
-@implementation KSStringCategories : NSObject 
+@implementation NSString (KSStringCategory)
 
 @end

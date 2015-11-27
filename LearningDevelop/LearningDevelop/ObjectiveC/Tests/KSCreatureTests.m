@@ -13,28 +13,51 @@
 
 @implementation KSCreatureTests
 
+#pragma mark -
+#pragma mark Public Implementations
+
 + (void)KSCreatureBehaviourTests {
     [KSCreatureTests KSCreatureAddKidTests];
 }
 
+#pragma mark -
+#pragma mark Private Implementations
 
 + (void)KSCreatureAddKidTests {
     // Create creature with name and male gender
-    KSCreature *creature = [KSCreature creatureWithName:@"James" gender:kKSCreatureGenderMale];
+    id creature = [KSCreature creatureWithName:@"James" gender:kKSCreatureGenderMale];
     
         //after creature was created:
             // creature must not be nil
             assert(nil != creature);
     
+            // creature must be KSMan class
+            assert([KSMan class] == [creature class]);
+    
+            // creature gender must be male
+            assert(kKSCreatureGenderMale == [creature gender]);
+    
+            // creature property kids must be initialized
+            assert([creature kids]);
+    
             // don't have any kids
             assert(0 == [[creature kids]count]);
     
     // Create firstKid with name and female gender
-    KSCreature *firstKid = [KSCreature creatureWithName:@"Julia" gender:kKSCreatureGenderFemale];
+    id firstKid = [KSCreature creatureWithName:@"Julia" gender:kKSCreatureGenderFemale];
     
         //after firstKid was created:
             // firstKid must not be nil
             assert(nil != firstKid);
+    
+            // firstKid must be KSWoman class
+            assert([KSWoman class] == [firstKid class]);
+    
+            // firstKid gender must be female
+            assert(kKSCreatureGenderFemale == [firstKid gender]);
+    
+            // firstKid property kids must be initialized
+            assert([firstKid kids]);
     
             // don't have any kids
             assert(0 == [[firstKid kids]count]);
@@ -45,8 +68,11 @@
     // creature count must be 1
      assert(1 == [[creature kids]count]);
     
+    // creature kids set must contain firstKid
+    assert([[creature kids] containsObject:firstKid]);
+    
     // Create secondKid with name and male gender
-    KSCreature *secondKid = [KSCreature creatureWithName:@"Mark" gender:kKSCreatureGenderMale];
+    id secondKid = [KSCreature creatureWithName:@"Mark" gender:kKSCreatureGenderMale];
     
         //after firstKid was created:
             // firstKid must not be nil
@@ -62,7 +88,7 @@
      assert(2 == [[creature kids] count]);
     
     // Create firstGrandKid with name and male gender
-    KSCreature *firstGrandKid = [KSCreature creatureWithName:@"Elon" gender:kKSCreatureGenderMale];
+    id firstGrandKid = [KSCreature creatureWithName:@"Elon" gender:kKSCreatureGenderMale];
    
         //after firstKid was created:
             // firstKid must not be nil
@@ -73,6 +99,7 @@
     
     // Add firstGrandKid to firstKid kids
     [firstKid addKid:firstGrandKid];
+    
     
     // firstKid count must be 1
     assert(1 == [[firstKid kids]count]);

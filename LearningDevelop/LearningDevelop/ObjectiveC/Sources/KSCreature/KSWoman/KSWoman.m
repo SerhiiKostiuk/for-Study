@@ -7,6 +7,7 @@
 //
 
 #import "KSWoman.h"
+#import "KSCreature.h"
 #import "KSCreatureProtocol.h"
 
 @interface KSWoman ()
@@ -24,11 +25,16 @@
 #pragma mark-
 #pragma mark KSCreatureProtocol
 
--(id)performGenderSpecificOperation {
-    return [self goReproduce];
+- (id)goReproduce {
+    id object = [KSCreature creatureWithName:nil gender:arc4random_uniform(2)];
+    [self addKid:object];
+    
+    return nil;
 }
 
-- (id)goReproduce {
-    return [KSCreature creature];
+-(id)performGenderSpecificOperation {
+    return [self goReproduce];
+    
 }
+
 @end

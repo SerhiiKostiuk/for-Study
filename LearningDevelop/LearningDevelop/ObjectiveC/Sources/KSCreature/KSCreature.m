@@ -10,52 +10,58 @@
 #import "KSWoman.h"
 #import "KSCreature.h"
 
-static NSMutableDictionary *__genderClasses = nil;
-
 @interface KSCreature ()
 
 @property (nonatomic, readwrite, copy) NSString *name;
 @property (nonatomic, retain) NSMutableSet *mutableKids;
-//@property (nonatomic, readwrite) KSCreatureGenderType gender;
+
++ (NSMutableDictionary *)genderClasses;
 
 @end
 
 @implementation KSCreature
 
 @dynamic kids;
-@synthesize gender =_gender;
 @synthesize age = _age;
 @synthesize weight = _weight;
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (void)load {
-    [super load];
-    __genderClasses = [NSMutableDictionary dictionaryWithDictionary:@{@(kKSCreatureGenderMale)   : [KSMan class],
-                                                                      @(kKSCreatureGenderFemale) : [KSWoman class]}];
-}
-
-+ (instancetype)creature {
-    return [self creatureWithName:(NSString *)nil gender:kKSCreatureGenderMale];
-}
-
 + (instancetype)creatureWithName:(NSString *)name gender:(KSCreatureGenderType)gender {
     return [[[self alloc] initWithName:name gender:gender] autorelease];
 }
 
 + (NSMutableDictionary *)genderClasses {
+    static NSMutableDictionary * __genderClasses = nil;
+    
+    if (nil == __genderClasses) {
+        __genderClasses = [NSMutableDictionary dictionaryWithDictionary:@{@(kKSCreatureGenderMale)  : [KSMan class],
+                                                                          @(kKSCreatureGenderFemale): [KSWoman class]}];
+    }
+    
     return __genderClasses;
 }
 
 + (void)registerCreatureClass:(Class)objectClass forGender:(KSCreatureGenderType)gender {
     NSAssert(nil == objectClass || [objectClass conformsToProtocol:@protocol(KSCreatureProtocol)],
              @"creature class must conform KSCreatureProtocol");
+    
     if (objectClass) {
         NSMutableDictionary *genderClass = [self genderClasses];
         genderClass[@(gender)] = objectClass;
     }
 }
+
++(Class)classForGender:(KSCreatureGenderType)gender {
+    NSMutableDictionary *genderClasses = [self genderClasses];
+    Class result = genderClasses[@(gender)];
+    
+    NSAssert(result, @"Creature class doesn't register for gender %lu",(unsigned long) gender);
+    
+    return result;
+}
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -68,6 +74,8 @@ static NSMutableDictionary *__genderClasses = nil;
 }
 
 -(instancetype)init {
+    NSAssert(NO == [[self class] isKindOfClass:[KSCreature class]], @"It's not an instance of KSCreature class");
+    
     self = [super init];
     if (self) {
         self.mutableKids = [NSMutableSet set];
@@ -76,37 +84,19 @@ static NSMutableDictionary *__genderClasses = nil;
     return self;
 }
 
-//+(Class)classForGender:(KSCreatureGenderType)gender {
-//    NSMutableDictionary *genderClasses = [self genderClasses];
-//    Class result = genderClasses[@(gender)];
-//    
-//    switch (gender) {
-//        case kKSCreatureGenderMale:
-//            result = [KSMan class];
-//            break;
-//        case kKSCreatureGenderFemale:
-//            result = [KSWoman class];
-//        default:
-//            break;
-//    }
-//    return result;
-//}
-
 - (instancetype)initWithName:(NSString *)name gender:(KSCreatureGenderType)gender {
-    Class objectClass = [[self class] registerCreatureClass:gender];
+    Class objectClass = [[self class] classForGender:gender];
     
     assert(Nil != objectClass);
     [self release];
     
     self = [[objectClass alloc] init];    
     if (self) {
-        self.mutableKids = [NSMutableSet set];
         self.name = name;
     }
     
     return self;
 }
-
 
 #pragma mark -
 #pragma mark Accesors

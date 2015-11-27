@@ -12,10 +12,9 @@
 
 @interface KSCreature : NSObject <KSCreatureProtocol>
 
-+ (instancetype)creature;
 + (instancetype)creatureWithName:(NSString *)name gender:(KSCreatureGenderType)gender;
 
-- (instancetype)initWithName:(NSString *)name gender:(KSCreatureGenderType)gender; //NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithName:(NSString *)name gender:(KSCreatureGenderType)gender;
 
 - (void)addKid:(id <KSCreatureProtocol>) kid;
 - (void)removeKid:(id <KSCreatureProtocol>) kid;
