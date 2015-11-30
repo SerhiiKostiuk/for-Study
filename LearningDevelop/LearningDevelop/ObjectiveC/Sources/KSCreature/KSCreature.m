@@ -22,6 +22,7 @@
 @implementation KSCreature
 
 @dynamic kids;
+@synthesize gender = _gender;
 @synthesize age = _age;
 @synthesize weight = _weight;
 

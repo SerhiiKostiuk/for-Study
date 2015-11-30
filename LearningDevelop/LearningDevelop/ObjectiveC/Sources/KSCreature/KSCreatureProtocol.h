@@ -19,6 +19,7 @@ typedef NS_ENUM (NSUInteger, KSCreatureGenderType) {
 
 @property (nonatomic, readonly, copy) NSString              *name;
 @property (nonatomic, readonly)       NSSet                 *kids;
+@property (nonatomic, readonly)       KSCreatureGenderType  gender;
 
 @property (nonatomic, assign)         uint8_t    age;
 @property (nonatomic, assign)         uint8_t    weight;

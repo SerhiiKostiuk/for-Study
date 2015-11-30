@@ -10,4 +10,6 @@
 
 @interface NSString (KSStringCategory)
 
++ (instancetype) randomStringWithLength:(NSUInteger) length alphabet:(NSString *) alphabet;
+
 @end

@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KSStringCategoryTests.h"
 #import "KSCreatureTests.h"
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [KSCreatureTests KSCreatureBehaviourTests];
+     //   [KSCreatureTests KSCreatureBehaviourTests];
+        [KSStringCategoryTests stringTests];
+        
     }
     
     return 0;
