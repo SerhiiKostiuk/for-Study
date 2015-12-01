@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C5C1315B1C0C7000006A88A1 /* KSCreatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C1315A1C0C7000006A88A1 /* KSCreatureTests.m */; };
 		C5C1315F1C0C703E006A88A1 /* KSStringCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C1315E1C0C703E006A88A1 /* KSStringCategoryTests.m */; };
+		C5C131621C0DE6A5006A88A1 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C131611C0DE6A5006A88A1 /* KSAlphabet.m */; };
 		C5C314341C04748700AE4D3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C3142C1C04748700AE4D3C /* main.m */; };
 		C5C314351C04748700AE4D3C /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C314301C04748700AE4D3C /* KSCreature.m */; };
 		C5C314781C0474B000AE4D3C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314381C0474B000AE4D3C /* main.c */; };
@@ -62,6 +63,8 @@
 		C5C1315A1C0C7000006A88A1 /* KSCreatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTests.m; sourceTree = "<group>"; };
 		C5C1315D1C0C703E006A88A1 /* KSStringCategoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSStringCategoryTests.h; path = KSStringCategoryTests/KSStringCategoryTests.h; sourceTree = "<group>"; };
 		C5C1315E1C0C703E006A88A1 /* KSStringCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSStringCategoryTests.m; path = KSStringCategoryTests/KSStringCategoryTests.m; sourceTree = "<group>"; };
+		C5C131601C0DE6A5006A88A1 /* KSAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabet.h; sourceTree = "<group>"; };
+		C5C131611C0DE6A5006A88A1 /* KSAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabet.m; sourceTree = "<group>"; };
 		C5C3142C1C04748700AE4D3C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C5C3142F1C04748700AE4D3C /* KSCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreature.h; sourceTree = "<group>"; };
 		C5C314301C04748700AE4D3C /* KSCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreature.m; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 			children = (
 				C5C3149E1C07495900AE4D3C /* KSStringCategories.h */,
 				C5C3149F1C07495900AE4D3C /* KSStringCategories.m */,
+				C5C131601C0DE6A5006A88A1 /* KSAlphabet.h */,
+				C5C131611C0DE6A5006A88A1 /* KSAlphabet.m */,
 			);
 			path = KSStringCategories;
 			sourceTree = "<group>";
@@ -570,6 +575,7 @@
 				C5C314911C048D1D00AE4D3C /* KSMan.m in Sources */,
 				C5C314351C04748700AE4D3C /* KSCreature.m in Sources */,
 				C5C314341C04748700AE4D3C /* main.m in Sources */,
+				C5C131621C0DE6A5006A88A1 /* KSAlphabet.m in Sources */,
 				C5C1315B1C0C7000006A88A1 /* KSCreatureTests.m in Sources */,
 				C5C314941C048D3A00AE4D3C /* KSWoman.m in Sources */,
 				C5C314A41C0873F200AE4D3C /* CategoryForNSObject.m in Sources */,

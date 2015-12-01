@@ -16,18 +16,23 @@
 }
 
 + (void) performStringTests {
-
-    uint16_t length = 16;
-    assert(0 != length);
     
-    NSString *givenString = @"@#$%^&*( Hi Everybody";
-    assert(givenString);
+    NSLog(@"Our random string is %@", [NSString randomString]);
     
-    NSString *randomSrting = [NSString randomStringWithLength:length alphabet:givenString];
-    assert(randomSrting || givenString == randomSrting);
+    NSLog(@"Our random string with length is %@",[NSString randomStringWithLength:11]);
     
-    NSLog(@" Random string is %@", randomSrting);
+    NSLog(@"Our random string with length from alphanumeric alphabet is %@",
+          [NSString randomStringWithLength:11 alphabet:[NSString alphanumericAlphabet]]);
+    
+    NSLog(@"Our random string with length from numeric alphabet is %@",
+          [NSString randomStringWithLength:11 alphabet:[NSString numericAlphabet]]);
+    
+    NSLog(@"Our random string with length from lowercase letters is %@",
+          [NSString randomStringWithLength:11 alphabet:[NSString lowercaseLetters]]);
+    
+    NSLog(@"Our random string with length from uppercase letters is %@",
+          [NSString randomStringWithLength:11 alphabet:[NSString uppercaseLetters]]);
+    
 }
-
 
 @end
