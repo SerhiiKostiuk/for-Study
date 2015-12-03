@@ -10,6 +10,9 @@
 		C5C1315B1C0C7000006A88A1 /* KSCreatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C1315A1C0C7000006A88A1 /* KSCreatureTests.m */; };
 		C5C1315F1C0C703E006A88A1 /* KSStringCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C1315E1C0C703E006A88A1 /* KSStringCategoryTests.m */; };
 		C5C131621C0DE6A5006A88A1 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C131611C0DE6A5006A88A1 /* KSAlphabet.m */; };
+		C5C131661C0F33DC006A88A1 /* KSRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C131651C0F33DC006A88A1 /* KSRangeAlphabet.m */; };
+		C5C131691C0F33F8006A88A1 /* KSClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C131681C0F33F8006A88A1 /* KSClusterAlphabet.m */; };
+		C5C1316C1C0F340E006A88A1 /* KSStringsAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C1316B1C0F340E006A88A1 /* KSStringsAlphabet.m */; };
 		C5C314341C04748700AE4D3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C3142C1C04748700AE4D3C /* main.m */; };
 		C5C314351C04748700AE4D3C /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C314301C04748700AE4D3C /* KSCreature.m */; };
 		C5C314781C0474B000AE4D3C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314381C0474B000AE4D3C /* main.c */; };
@@ -65,6 +68,12 @@
 		C5C1315E1C0C703E006A88A1 /* KSStringCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSStringCategoryTests.m; path = KSStringCategoryTests/KSStringCategoryTests.m; sourceTree = "<group>"; };
 		C5C131601C0DE6A5006A88A1 /* KSAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabet.h; sourceTree = "<group>"; };
 		C5C131611C0DE6A5006A88A1 /* KSAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabet.m; sourceTree = "<group>"; };
+		C5C131641C0F33DC006A88A1 /* KSRangeAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSRangeAlphabet.h; path = Private/KSRangeAlphabet.h; sourceTree = "<group>"; };
+		C5C131651C0F33DC006A88A1 /* KSRangeAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSRangeAlphabet.m; path = Private/KSRangeAlphabet.m; sourceTree = "<group>"; };
+		C5C131671C0F33F8006A88A1 /* KSClusterAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSClusterAlphabet.h; path = Private/KSClusterAlphabet.h; sourceTree = "<group>"; };
+		C5C131681C0F33F8006A88A1 /* KSClusterAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSClusterAlphabet.m; path = Private/KSClusterAlphabet.m; sourceTree = "<group>"; };
+		C5C1316A1C0F340E006A88A1 /* KSStringsAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSStringsAlphabet.h; path = Private/KSStringsAlphabet.h; sourceTree = "<group>"; };
+		C5C1316B1C0F340E006A88A1 /* KSStringsAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSStringsAlphabet.m; path = Private/KSStringsAlphabet.m; sourceTree = "<group>"; };
 		C5C3142C1C04748700AE4D3C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C5C3142F1C04748700AE4D3C /* KSCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreature.h; sourceTree = "<group>"; };
 		C5C314301C04748700AE4D3C /* KSCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreature.m; sourceTree = "<group>"; };
@@ -157,6 +166,19 @@
 				C5C1315E1C0C703E006A88A1 /* KSStringCategoryTests.m */,
 			);
 			name = KSStringCategoryTests;
+			sourceTree = "<group>";
+		};
+		C5C131631C0F33AC006A88A1 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				C5C131641C0F33DC006A88A1 /* KSRangeAlphabet.h */,
+				C5C131651C0F33DC006A88A1 /* KSRangeAlphabet.m */,
+				C5C131671C0F33F8006A88A1 /* KSClusterAlphabet.h */,
+				C5C131681C0F33F8006A88A1 /* KSClusterAlphabet.m */,
+				C5C1316A1C0F340E006A88A1 /* KSStringsAlphabet.h */,
+				C5C1316B1C0F340E006A88A1 /* KSStringsAlphabet.m */,
+			);
+			name = Private;
 			sourceTree = "<group>";
 		};
 		C5C3142B1C04748700AE4D3C /* ObjectiveC */ = {
@@ -448,6 +470,7 @@
 		C5C3149D1C0748D400AE4D3C /* KSStringCategories */ = {
 			isa = PBXGroup;
 			children = (
+				C5C131631C0F33AC006A88A1 /* Private */,
 				C5C3149E1C07495900AE4D3C /* KSStringCategories.h */,
 				C5C3149F1C07495900AE4D3C /* KSStringCategories.m */,
 				C5C131601C0DE6A5006A88A1 /* KSAlphabet.h */,
@@ -570,12 +593,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C131691C0F33F8006A88A1 /* KSClusterAlphabet.m in Sources */,
 				C5C1315F1C0C703E006A88A1 /* KSStringCategoryTests.m in Sources */,
 				C5C314A01C07495900AE4D3C /* KSStringCategories.m in Sources */,
 				C5C314911C048D1D00AE4D3C /* KSMan.m in Sources */,
 				C5C314351C04748700AE4D3C /* KSCreature.m in Sources */,
 				C5C314341C04748700AE4D3C /* main.m in Sources */,
 				C5C131621C0DE6A5006A88A1 /* KSAlphabet.m in Sources */,
+				C5C1316C1C0F340E006A88A1 /* KSStringsAlphabet.m in Sources */,
+				C5C131661C0F33DC006A88A1 /* KSRangeAlphabet.m in Sources */,
 				C5C1315B1C0C7000006A88A1 /* KSCreatureTests.m in Sources */,
 				C5C314941C048D3A00AE4D3C /* KSWoman.m in Sources */,
 				C5C314A41C0873F200AE4D3C /* CategoryForNSObject.m in Sources */,

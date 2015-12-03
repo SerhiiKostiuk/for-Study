@@ -45,8 +45,7 @@
 }
 
 + (void)registerCreatureClass:(Class)objectClass forGender:(KSCreatureGenderType)gender {
-    NSAssert(nil == objectClass || [objectClass conformsToProtocol:@protocol(KSCreatureProtocol)],
-             @"creature class must conform KSCreatureProtocol");
+    NSAssert(nil == objectClass , @"creature is nil");
     
     if (objectClass) {
         NSMutableDictionary *genderClass = [self genderClasses];
@@ -117,14 +116,14 @@
     
 }
 
-- (void)addKid:(id <KSCreatureProtocol>) kid {
-    if ([kid conformsToProtocol:@protocol(KSCreatureProtocol)]) {
+- (void)addKid:(id) kid {
+    if ([kid isKindOfClass:[KSCreature class]]) {
         [self.mutableKids addObject:kid];
     }
     
 }
 
-- (void)removeKid:(id <KSCreatureProtocol>) kid {
+- (void)removeKid:(id) kid {
     [self.mutableKids removeObject:kid];
 }
 

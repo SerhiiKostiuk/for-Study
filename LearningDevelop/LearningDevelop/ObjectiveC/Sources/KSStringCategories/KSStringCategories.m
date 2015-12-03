@@ -8,14 +8,6 @@
 
 #import "KSStringCategories.h"
 
-//@protocol KSStringProtocol <NSObject>
-//
-//- (NSUInteger)count;
-//
-//- (NSString *)symbolAtIndex:(NSUInteger)index;
-//
-//@end
-
 #define KSNumericRange NSMakeRange( '0', '9' - '0' + 1)
 #define KSLowercaseLettersRange NSMakeRange('a', 'z' - 'a' + 1)
 #define KSUppercaseLettersRange NSMakeRange('A', 'Z' - 'A' + 1)
@@ -87,5 +79,18 @@ static const NSUInteger kKSStringDefaultRandomStringWithLength = 32;
     
     return [self stringWithString:string];
 }
+
+- (NSArray *)symbols {
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self length]];
+    NSUInteger length = [self length];
+    
+    for (NSUInteger index = 0; index < length; index++) {
+        unichar resultChar = [self characterAtIndex:index];
+        [result addObject:[NSString stringWithFormat:@"%C",resultChar]];
+    }
+    
+    return [[result copy] autorelease];
+}
+
  
 @end

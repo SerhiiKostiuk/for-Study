@@ -7,6 +7,10 @@
 //
 
 #import "KSAlphabet.h"
+#import "KSRangeAlphabet.h"
+#import "KSClusterAlphabet.h"
+#import "KSStringsAlphabet.h"
+#import "KSStringCategories.h"
 
 @implementation KSAlphabet
 
@@ -14,14 +18,45 @@
 #pragma mark Class Methods
 
 + (instancetype)alphabetWithRange:(NSRange)range {
-    return nil;
+    return [[[KSRangeAlphabet alloc] initWithRange:range] autorelease];
 }
+
 + (instancetype)alphabetWithStrings:(NSArray *)strings {
-    return nil;
+    return [[[KSStringsAlphabet alloc] initWithStrings:strings] autorelease]; 
 }
+
++ (instancetype)alphabetWithAlphabets:(NSArray *)alphabets {
+    return [[[KSClusterAlphabet alloc] initWithAlphabets:alphabets] autorelease];
+}
+
 + (instancetype)alphabetWithSymbols:(NSString *)string {
-    return nil;
+    return [self alphabetWithStrings:[string symbols]];
 }
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)initWithRange:(NSRange)range {
+    [self release];
+    
+    return [[KSRangeAlphabet alloc]initWithRange:range];
+}
+- (instancetype)initWithStrings:(NSArray *)strings {
+    [self release];
+    
+    return [[KSStringsAlphabet alloc]initWithStrings:strings];
+}
+
+- (instancetype)initWithAlphabets:(NSArray *)alphabets {
+    [self release];
+    
+    return [[KSClusterAlphabet alloc] initWithAlphabets:alphabets];
+}
+
+- (instancetype)initWithSymbols:(NSString *)string {
+    return [self initWithStrings:[string symbols]];
+}
+
 
 #pragma mark -
 #pragma mark Public Methods
@@ -33,7 +68,26 @@
     return nil;
 }
 - (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
-    return nil;
+    return [self stringAtIndex:index];
+}
+
+- (NSString *)string {
+    NSMutableString *string = [NSMutableString stringWithCapacity:[self count]];
+    for (NSString *symbol in self) {
+        [string appendString:symbol];
+    }
+    return [[string copy]autorelease];
+}
+
+
+#pragma mark -
+#pragma mark NSFastEnumeration
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id _Nonnull [])stackbuf
+                                    count:(NSUInteger)len
+{
+    return 0;
 }
 
 @end

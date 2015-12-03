@@ -16,7 +16,7 @@
 
 - (instancetype)initWithName:(NSString *)name gender:(KSCreatureGenderType)gender;
 
-- (void)addKid:(id <KSCreatureProtocol>) kid;
-- (void)removeKid:(id <KSCreatureProtocol>) kid;
+- (void)addKid:(id) kid;
+- (void)removeKid:(id) kid;
 
 @end
