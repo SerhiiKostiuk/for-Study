@@ -24,11 +24,11 @@
 		C53F35111C11D896005E1A48 /* KSStringCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F41C11D896005E1A48 /* KSStringCategories.m */; };
 		C53F35121C11D896005E1A48 /* KSStringCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F41C11D896005E1A48 /* KSStringCategories.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C53F35131C11D896005E1A48 /* KSClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F71C11D896005E1A48 /* KSClusterAlphabet.m */; };
-		C53F35141C11D896005E1A48 /* KSClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F71C11D896005E1A48 /* KSClusterAlphabet.m */; };
+		C53F35141C11D896005E1A48 /* KSClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F71C11D896005E1A48 /* KSClusterAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C53F35151C11D896005E1A48 /* KSRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F91C11D896005E1A48 /* KSRangeAlphabet.m */; };
-		C53F35161C11D896005E1A48 /* KSRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F91C11D896005E1A48 /* KSRangeAlphabet.m */; };
+		C53F35161C11D896005E1A48 /* KSRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F91C11D896005E1A48 /* KSRangeAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C53F35171C11D896005E1A48 /* KSStringsAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34FB1C11D896005E1A48 /* KSStringsAlphabet.m */; };
-		C53F35181C11D896005E1A48 /* KSStringsAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34FB1C11D896005E1A48 /* KSStringsAlphabet.m */; };
+		C53F35181C11D896005E1A48 /* KSStringsAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34FB1C11D896005E1A48 /* KSStringsAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C53F35191C11D896005E1A48 /* KSCreatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34FF1C11D896005E1A48 /* KSCreatureTests.m */; };
 		C53F351A1C11D896005E1A48 /* KSCreatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34FF1C11D896005E1A48 /* KSCreatureTests.m */; };
 		C53F351B1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */; };

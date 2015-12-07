@@ -28,13 +28,16 @@
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Public Methods
 
 - (NSUInteger)count {
-    return 0;
+    return self.range.length;
 }
 - (NSString *)stringAtIndex:(NSUInteger)index {
-    return nil;
+    NSRange range = self.range;
+    
+    NSAssert(index < range.length, NSRangeException);
+    return [NSString stringWithFormat:@"%C", (unichar)(range.location + index)];
 }
 - (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
     return [self stringAtIndex:index];

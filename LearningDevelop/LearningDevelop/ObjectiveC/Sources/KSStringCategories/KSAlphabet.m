@@ -6,11 +6,19 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
+#import <math.h>
 #import "KSAlphabet.h"
 #import "KSRangeAlphabet.h"
 #import "KSClusterAlphabet.h"
 #import "KSStringsAlphabet.h"
 #import "KSStringCategories.h"
+
+NSRange KSMakeAlphabetRange(unichar firstValue, unichar secondValue) {
+    unichar minValue = MIN(firstValue, secondValue);
+    unichar maxValue = MAX(firstValue, secondValue);
+    
+    return NSMakeRange(minValue, maxValue - minValue + 1);
+}
 
 @implementation KSAlphabet
 
@@ -85,9 +93,23 @@
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
                                   objects:(id _Nonnull [])stackbuf
-                                    count:(NSUInteger)len
+                                    count:(NSUInteger)resultLength
 {
-    return 0;
+    state->mutationsPtr = (unsigned long *)self;
+    
+    NSUInteger length = MIN(state->state + resultLength, [self count]);
+    resultLength = length - state->state;
+    
+    if (0 != resultLength) {
+        for (NSUInteger index = 0; index < resultLength; index ++) {
+            stackbuf[index] = self[index + state->state];
+        }
+    }
+    
+    state->itemsPtr = stackbuf;
+    state->state += resultLength;
+    
+    return resultLength;
 }
 
 @end

@@ -10,6 +10,9 @@
 
 @interface KSClusterAlphabet : KSAlphabet
 
+@property(nonatomic, readonly) NSArray *alphabets;
+
+
 - (instancetype)initWithAlphabets:(NSArray *)alphabets;
 
 @end

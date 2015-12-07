@@ -14,7 +14,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
      //   [KSCreatureTests KSCreatureBehaviourTests];
-     //   [KSStringCategoryTests stringTests];
+        [KSStringCategoryTests stringTests];
         
     }
     

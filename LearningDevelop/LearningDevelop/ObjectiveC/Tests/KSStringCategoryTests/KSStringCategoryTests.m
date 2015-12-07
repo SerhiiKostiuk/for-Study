@@ -32,6 +32,7 @@
     
     NSLog(@"Our random string with length from uppercase letters is %@",
           [NSString randomStringWithLength:11 alphabet:[NSString uppercaseLetters]]);
+    NSLog(@"%@",[NSString uppercaseLetters]);
     
 }
 

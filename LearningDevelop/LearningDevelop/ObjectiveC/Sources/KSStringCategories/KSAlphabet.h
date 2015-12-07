@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern
+NSRange KSMakeAlphabetRange(unichar firstValue, unichar secondValue);
+
 @interface KSAlphabet : NSObject <NSFastEnumeration>
 
 + (instancetype)alphabetWithRange:(NSRange)range;

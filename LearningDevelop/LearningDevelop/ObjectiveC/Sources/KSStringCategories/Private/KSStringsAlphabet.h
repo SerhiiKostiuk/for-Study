@@ -10,6 +10,8 @@
 
 @interface KSStringsAlphabet : KSAlphabet
 
+@property (nonatomic, readonly) NSArray *strings;
+
 - (instancetype)initWithStrings:(NSArray *)strings;
 
 @end
