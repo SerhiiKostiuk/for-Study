@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		72D6AC03B2AB3C8083238937 /* libPods-ObjectiveCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C6CA6FCBEFDC6F4D3B464F /* libPods-ObjectiveCTests.a */; };
+		C50C9FF81C17001B0074ED2E /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C9FF71C17001B0074ED2E /* KSEnterprise.m */; };
+		C50C9FF91C17001B0074ED2E /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C9FF71C17001B0074ED2E /* KSEnterprise.m */; };
+		C50C9FFC1C1700380074ED2E /* carWashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C9FFB1C1700380074ED2E /* carWashBuilding.m */; };
+		C50C9FFD1C1700380074ED2E /* carWashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C9FFB1C1700380074ED2E /* carWashBuilding.m */; };
+		C50CA0001C1700470074ED2E /* officeBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C9FFF1C1700470074ED2E /* officeBuilding.m */; };
+		C50CA0011C1700470074ED2E /* officeBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C9FFF1C1700470074ED2E /* officeBuilding.m */; };
+		C50CA0071C1714030074ED2E /* car.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0061C1714030074ED2E /* car.m */; };
+		C50CA0081C1714030074ED2E /* car.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0061C1714030074ED2E /* car.m */; };
+		C50CA00F1C17148A0074ED2E /* washer.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA00E1C17148A0074ED2E /* washer.m */; };
+		C50CA0101C17148A0074ED2E /* washer.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA00E1C17148A0074ED2E /* washer.m */; };
+		C50CA0131C1714980074ED2E /* accountant.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0121C1714980074ED2E /* accountant.m */; };
+		C50CA0141C1714980074ED2E /* accountant.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0121C1714980074ED2E /* accountant.m */; };
+		C50CA0171C1714F60074ED2E /* director.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0161C1714F60074ED2E /* director.m */; };
+		C50CA0181C1714F60074ED2E /* director.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0161C1714F60074ED2E /* director.m */; };
+		C50CA01F1C1718C70074ED2E /* employee.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA01E1C1718C70074ED2E /* employee.m */; };
+		C50CA0201C1718C70074ED2E /* employee.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA01E1C1718C70074ED2E /* employee.m */; };
+		C50CA0231C171E810074ED2E /* rooms.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0221C171E810074ED2E /* rooms.m */; };
+		C50CA0241C171E810074ED2E /* rooms.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0221C171E810074ED2E /* rooms.m */; };
 		C50D5C2D1C11DB0D004F2369 /* KSAlphabetSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C50D5C2C1C11DB0D004F2369 /* KSAlphabetSpec.m */; };
 		C53F35051C11D896005E1A48 /* CategoryForNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34E21C11D896005E1A48 /* CategoryForNSObject.m */; };
 		C53F35061C11D896005E1A48 /* CategoryForNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34E21C11D896005E1A48 /* CategoryForNSObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -80,6 +98,24 @@
 		35C6CA6FCBEFDC6F4D3B464F /* libPods-ObjectiveCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjectiveCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		582FFF51163204316694F79C /* Pods-ObjectiveCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectiveCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjectiveCTests/Pods-ObjectiveCTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5EEF0BA80EE1802BB5D3DA18 /* Pods-ObjectiveCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectiveCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjectiveCTests/Pods-ObjectiveCTests.release.xcconfig"; sourceTree = "<group>"; };
+		C50C9FF61C17001B0074ED2E /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
+		C50C9FF71C17001B0074ED2E /* KSEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEnterprise.m; sourceTree = "<group>"; };
+		C50C9FFA1C1700380074ED2E /* carWashBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = carWashBuilding.h; sourceTree = "<group>"; };
+		C50C9FFB1C1700380074ED2E /* carWashBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = carWashBuilding.m; sourceTree = "<group>"; };
+		C50C9FFE1C1700470074ED2E /* officeBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = officeBuilding.h; sourceTree = "<group>"; };
+		C50C9FFF1C1700470074ED2E /* officeBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = officeBuilding.m; sourceTree = "<group>"; };
+		C50CA0051C1714030074ED2E /* car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = car.h; sourceTree = "<group>"; };
+		C50CA0061C1714030074ED2E /* car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = car.m; sourceTree = "<group>"; };
+		C50CA00D1C17148A0074ED2E /* washer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = washer.h; sourceTree = "<group>"; };
+		C50CA00E1C17148A0074ED2E /* washer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = washer.m; sourceTree = "<group>"; };
+		C50CA0111C1714980074ED2E /* accountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = accountant.h; sourceTree = "<group>"; };
+		C50CA0121C1714980074ED2E /* accountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = accountant.m; sourceTree = "<group>"; };
+		C50CA0151C1714F60074ED2E /* director.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = director.h; sourceTree = "<group>"; };
+		C50CA0161C1714F60074ED2E /* director.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = director.m; sourceTree = "<group>"; };
+		C50CA01D1C1718C70074ED2E /* employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = employee.h; sourceTree = "<group>"; };
+		C50CA01E1C1718C70074ED2E /* employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = employee.m; sourceTree = "<group>"; };
+		C50CA0211C171E810074ED2E /* rooms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rooms.h; sourceTree = "<group>"; };
+		C50CA0221C171E810074ED2E /* rooms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rooms.m; sourceTree = "<group>"; };
 		C50D5C2C1C11DB0D004F2369 /* KSAlphabetSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetSpec.m; sourceTree = "<group>"; };
 		C53F34A21C11D77B005E1A48 /* ObjectiveCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectiveCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53F34A61C11D77B005E1A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -190,6 +226,111 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C50C9FF11C16FBD40074ED2E /* KSCarWash */ = {
+			isa = PBXGroup;
+			children = (
+				C50C9FF21C16FC420074ED2E /* KSEnterprise */,
+			);
+			path = KSCarWash;
+			sourceTree = "<group>";
+		};
+		C50C9FF21C16FC420074ED2E /* KSEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				C50CA0041C1701A60074ED2E /* car */,
+				C50CA0021C1701370074ED2E /* employee */,
+				C50C9FF31C16FF040074ED2E /* buildings */,
+				C50C9FF61C17001B0074ED2E /* KSEnterprise.h */,
+				C50C9FF71C17001B0074ED2E /* KSEnterprise.m */,
+			);
+			path = KSEnterprise;
+			sourceTree = "<group>";
+		};
+		C50C9FF31C16FF040074ED2E /* buildings */ = {
+			isa = PBXGroup;
+			children = (
+				C50CA0031C17015F0074ED2E /* rooms */,
+				C50C9FF51C16FF4A0074ED2E /* officeBuilding */,
+				C50C9FF41C16FF2C0074ED2E /* carWashBuilding */,
+			);
+			path = buildings;
+			sourceTree = "<group>";
+		};
+		C50C9FF41C16FF2C0074ED2E /* carWashBuilding */ = {
+			isa = PBXGroup;
+			children = (
+				C50C9FFA1C1700380074ED2E /* carWashBuilding.h */,
+				C50C9FFB1C1700380074ED2E /* carWashBuilding.m */,
+			);
+			path = carWashBuilding;
+			sourceTree = "<group>";
+		};
+		C50C9FF51C16FF4A0074ED2E /* officeBuilding */ = {
+			isa = PBXGroup;
+			children = (
+				C50C9FFE1C1700470074ED2E /* officeBuilding.h */,
+				C50C9FFF1C1700470074ED2E /* officeBuilding.m */,
+			);
+			path = officeBuilding;
+			sourceTree = "<group>";
+		};
+		C50CA0021C1701370074ED2E /* employee */ = {
+			isa = PBXGroup;
+			children = (
+				C50CA00C1C1714640074ED2E /* director */,
+				C50CA00A1C1714210074ED2E /* accountant */,
+				C50CA0091C1714140074ED2E /* washer */,
+				C50CA01D1C1718C70074ED2E /* employee.h */,
+				C50CA01E1C1718C70074ED2E /* employee.m */,
+			);
+			path = employee;
+			sourceTree = "<group>";
+		};
+		C50CA0031C17015F0074ED2E /* rooms */ = {
+			isa = PBXGroup;
+			children = (
+				C50CA0211C171E810074ED2E /* rooms.h */,
+				C50CA0221C171E810074ED2E /* rooms.m */,
+			);
+			path = rooms;
+			sourceTree = "<group>";
+		};
+		C50CA0041C1701A60074ED2E /* car */ = {
+			isa = PBXGroup;
+			children = (
+				C50CA0051C1714030074ED2E /* car.h */,
+				C50CA0061C1714030074ED2E /* car.m */,
+			);
+			path = car;
+			sourceTree = "<group>";
+		};
+		C50CA0091C1714140074ED2E /* washer */ = {
+			isa = PBXGroup;
+			children = (
+				C50CA00D1C17148A0074ED2E /* washer.h */,
+				C50CA00E1C17148A0074ED2E /* washer.m */,
+			);
+			path = washer;
+			sourceTree = "<group>";
+		};
+		C50CA00A1C1714210074ED2E /* accountant */ = {
+			isa = PBXGroup;
+			children = (
+				C50CA0111C1714980074ED2E /* accountant.h */,
+				C50CA0121C1714980074ED2E /* accountant.m */,
+			);
+			path = accountant;
+			sourceTree = "<group>";
+		};
+		C50CA00C1C1714640074ED2E /* director */ = {
+			isa = PBXGroup;
+			children = (
+				C50CA0151C1714F60074ED2E /* director.h */,
+				C50CA0161C1714F60074ED2E /* director.m */,
+			);
+			path = director;
+			sourceTree = "<group>";
+		};
 		C50D5C2A1C11DA6A004F2369 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +370,7 @@
 		C53F34DF1C11D896005E1A48 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C50C9FF11C16FBD40074ED2E /* KSCarWash */,
 				C53F34E01C11D896005E1A48 /* CategoryForNSObject */,
 				C53F34E31C11D896005E1A48 /* KSCreature */,
 				C53F34F01C11D896005E1A48 /* KSStringCategories */,
@@ -763,16 +905,25 @@
 			files = (
 				C53F350E1C11D896005E1A48 /* KSWoman.m in Sources */,
 				C53F35141C11D896005E1A48 /* KSClusterAlphabet.m in Sources */,
+				C50CA0201C1718C70074ED2E /* employee.m in Sources */,
 				C53F350A1C11D896005E1A48 /* KSMan.m in Sources */,
 				C53F35121C11D896005E1A48 /* KSStringCategories.m in Sources */,
+				C50C9FF91C17001B0074ED2E /* KSEnterprise.m in Sources */,
+				C50CA0011C1700470074ED2E /* officeBuilding.m in Sources */,
 				C53F35081C11D896005E1A48 /* KSCreature.m in Sources */,
 				C53F35161C11D896005E1A48 /* KSRangeAlphabet.m in Sources */,
 				C53F35181C11D896005E1A48 /* KSStringsAlphabet.m in Sources */,
+				C50CA0101C17148A0074ED2E /* washer.m in Sources */,
 				C53F351C1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */,
 				C53F351A1C11D896005E1A48 /* KSCreatureTests.m in Sources */,
 				C53F350C1C11D896005E1A48 /* KSUndefined.m in Sources */,
+				C50CA0081C1714030074ED2E /* car.m in Sources */,
+				C50CA0141C1714980074ED2E /* accountant.m in Sources */,
+				C50CA0241C171E810074ED2E /* rooms.m in Sources */,
 				C50D5C2D1C11DB0D004F2369 /* KSAlphabetSpec.m in Sources */,
 				C53F35101C11D896005E1A48 /* KSAlphabet.m in Sources */,
+				C50CA0181C1714F60074ED2E /* director.m in Sources */,
+				C50C9FFD1C1700380074ED2E /* carWashBuilding.m in Sources */,
 				C53F35061C11D896005E1A48 /* CategoryForNSObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,16 +934,25 @@
 			files = (
 				C53F351D1C11D8BE005E1A48 /* main.m in Sources */,
 				C53F350D1C11D896005E1A48 /* KSWoman.m in Sources */,
+				C50CA01F1C1718C70074ED2E /* employee.m in Sources */,
 				C53F35131C11D896005E1A48 /* KSClusterAlphabet.m in Sources */,
 				C53F35091C11D896005E1A48 /* KSMan.m in Sources */,
+				C50C9FF81C17001B0074ED2E /* KSEnterprise.m in Sources */,
+				C50CA0001C1700470074ED2E /* officeBuilding.m in Sources */,
 				C53F35111C11D896005E1A48 /* KSStringCategories.m in Sources */,
 				C53F35071C11D896005E1A48 /* KSCreature.m in Sources */,
 				C53F35151C11D896005E1A48 /* KSRangeAlphabet.m in Sources */,
+				C50CA00F1C17148A0074ED2E /* washer.m in Sources */,
 				C53F35171C11D896005E1A48 /* KSStringsAlphabet.m in Sources */,
 				C53F351B1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */,
 				C53F35191C11D896005E1A48 /* KSCreatureTests.m in Sources */,
+				C50CA0071C1714030074ED2E /* car.m in Sources */,
+				C50CA0131C1714980074ED2E /* accountant.m in Sources */,
+				C50CA0231C171E810074ED2E /* rooms.m in Sources */,
 				C53F350B1C11D896005E1A48 /* KSUndefined.m in Sources */,
 				C53F350F1C11D896005E1A48 /* KSAlphabet.m in Sources */,
+				C50CA0171C1714F60074ED2E /* director.m in Sources */,
+				C50C9FFC1C1700380074ED2E /* carWashBuilding.m in Sources */,
 				C53F35051C11D896005E1A48 /* CategoryForNSObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

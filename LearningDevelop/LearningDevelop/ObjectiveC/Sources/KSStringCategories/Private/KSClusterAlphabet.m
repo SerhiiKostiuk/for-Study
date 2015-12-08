@@ -47,16 +47,26 @@
     
     NSAssert(index < count, NSRangeException);
 
-    NSUInteger iterator = 0;
     for (KSAlphabet *alphabet in self.alphabets) {
-        if (iterator >= index) {
+        count = [alphabet count];
+        
+        if (iteretedIndex < count) {
             return alphabet[iteretedIndex];
         }
-        count = [alphabet count];
-        iterator += count;
+        
         iteretedIndex -= count;
     }
+    
     return nil;
+}
+
+- (NSString *)string {
+    NSMutableString *string = [NSMutableString stringWithCapacity:[self count]];
+    for (KSAlphabet *alphabet in self.alphabets) {
+        [string appendString:[alphabet string]];
+    }
+    
+    return [[string copy]autorelease];
 }
 
 #pragma mark -
@@ -67,20 +77,8 @@
     for(KSAlphabet *alphabet in alphabets) {
         count += [alphabet count];
     }
+    
     return count;
-}
-
-
-#pragma mark -
-#pragma mark NSFastEnumeration
-
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
-                                  objects:(id _Nonnull [])stackbuf
-                                    count:(NSUInteger)resultLength
-{
-    return [super countByEnumeratingWithState:state
-                                      objects:stackbuf
-                                        count:resultLength];
 }
 
 @end

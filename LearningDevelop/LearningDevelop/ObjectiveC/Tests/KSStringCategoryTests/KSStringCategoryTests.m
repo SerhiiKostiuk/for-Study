@@ -6,6 +6,7 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
+#import "KSAlphabet.h"
 #import "KSStringCategories.h"
 #import "KSStringCategoryTests.h"
 
