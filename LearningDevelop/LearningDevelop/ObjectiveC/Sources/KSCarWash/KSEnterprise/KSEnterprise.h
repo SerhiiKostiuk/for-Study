@@ -7,19 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
+@class buildings;
+@class officeBuilding;
 
-@class rooms;
+@class carWashBuilding;
+
 @interface KSEnterprise : NSObject
-@property (nonatomic, readonly) NSSet *rooms;
-@property (nonatomic, readonly) NSSet *items;
 
-+ (BOOL)canContainItemOfClass:(Class)itemClass;
 
-- (void)addRoom:(rooms *)room;
-- (void)removeRoom:(rooms *)room;
++ (instancetype)enterprise;
++ (instancetype)enterpriseWithOffice:(officeBuilding *)office carWash:(carWashBuilding *)carWash;
 
-- (void)addItem:(id)item;
-- (void)removeItem:(id)item;
+- (instancetype)initWithOffice:(officeBuilding *)office carWash:(carWashBuilding *)carWash;
+
+- (void)addBuilding:(buildings *)building;
+- (void)removeBuilding:(buildings *)building;
+
+- (void)hireEmployee:(employee *)employee;
+- (void)fireEmployee:(employee *)employee;
+
+
+
+
+
+
 
 
 @end

@@ -11,9 +11,19 @@
 
 @implementation KSEnterprise
 
-+ (BOOL)canContainItemOfClass:(Class)itemClass {
-    return [itemClass isSubclassOfClass:[employee class]];
++ (instancetype)enterprise;
++ (instancetype)enterpriseWithOffice:(officeBuilding *)office carWash:(carWashBuilding *)carWash;
+
+- (instancetype)initWithOffice:(officeBuilding *)office carWash:(carWashBuilding *)carWash;
+
+- (void)addBuilding:(buildings *)building {
+    
 }
+- (void)removeBuilding:(buildings *)building;
+
+- (void)hireEmployee:(employee *)employee;
+- (void)fireEmployee:(employee *)employee; 
+
 
 
 @end
