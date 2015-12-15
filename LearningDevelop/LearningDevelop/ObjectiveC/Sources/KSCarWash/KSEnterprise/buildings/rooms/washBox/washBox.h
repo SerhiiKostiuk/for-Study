@@ -9,14 +9,17 @@
 #import "rooms.h"
 
 @class car;
+@class containerForItems;
 
 @interface washBox : rooms
 
-@property (nonatomic,readonly) NSArray *cars;
+@property (nonatomic,readonly) containerForItems *cars;
 
-- (instancetype)initWithCars:(NSArray *)cars carsCapacity:(NSUInteger)carsCapacity;
++ (BOOL)canContainItemOfClass:(Class)itemClass;
 
-- (void)addCar:(car *)car;
-- (void)removeCar:(car *)car;
+- (instancetype)initWithCapacity:(NSUInteger)capacity;
+
+- (void)addCar:(id)car;
+- (void)removeCar:(id)car;
 
 @end

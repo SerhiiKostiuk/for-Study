@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol CashFlow
+@protocol CashFlowProtocol
 
 @property (nonatomic) NSUInteger money;
 
-- (BOOL)giveMoney:(NSUInteger)amount toReciver:(id<CashFlow>)reciver;
-- (BOOL)takeMoney:(NSUInteger)amount fromSender:(id<CashFlow>)sender;
+- (void)giveMoney:(NSUInteger)amount toReciver:(id<CashFlowProtocol>)reciver;
+//- (BOOL)takeMoney:(NSUInteger)amount fromSender:(id<CashFlow>)sender;
 
 @end

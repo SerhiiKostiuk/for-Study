@@ -10,4 +10,8 @@
 
 @implementation director
 
+- (void)performPositionSpecificOperation:(employee *)accountant {
+    [accountant giveMoney:self.money toReciver:self];
+    
+}
 @end

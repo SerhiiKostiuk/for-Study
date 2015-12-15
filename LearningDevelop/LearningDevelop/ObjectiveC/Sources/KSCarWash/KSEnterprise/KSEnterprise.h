@@ -8,17 +8,19 @@
 
 #import <Foundation/Foundation.h>
 @class buildings;
-@class officeBuilding;
 
 @class carWashBuilding;
+@class containerForItems;
 
 @interface KSEnterprise : NSObject
 
+@property (nonatomic, readonly) NSArray            *buildings;
+@property (nonatomic, readonly) containerForItems  *staff;
 
 + (instancetype)enterprise;
-+ (instancetype)enterpriseWithOffice:(officeBuilding *)office carWash:(carWashBuilding *)carWash;
++ (instancetype)enterpriseWithOffice:(buildings *)office carWash:(carWashBuilding *)carWash;
 
-- (instancetype)initWithOffice:(officeBuilding *)office carWash:(carWashBuilding *)carWash;
+- (instancetype)initWithOffice:(buildings *)office carWash:(carWashBuilding *)carWash;
 
 - (void)addBuilding:(buildings *)building;
 - (void)removeBuilding:(buildings *)building;

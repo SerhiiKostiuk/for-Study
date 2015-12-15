@@ -14,12 +14,15 @@
 
 @property (nonatomic, readonly) NSArray *rooms;
 
++ (instancetype)building;
++ (instancetype)buildingWithRooms:(NSArray *)rooms;
+
++ (BOOL)canContainItemOfClass:(Class)itemClass;
 
 
 - (instancetype)initWithRooms:(NSArray *)rooms;
-//+ (BOOL)canContainItemOfClass:(Class)itemClass;
 
-- (void)addRoom:(rooms *)room;
-- (void)removeRoom:(rooms *)room;
+- (void)addRoom:(id)room;
+- (void)removeRoom:(id)room;
 
 @end

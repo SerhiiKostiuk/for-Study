@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface director : NSObject
-
+#import "employee.h"
+@interface director : employee
+- (void)performPositionSpecificOperation:(employee *)accountant;
 @end

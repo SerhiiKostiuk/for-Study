@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CashFlowProtocol.h"
+@interface employee : NSObject <CashFlowProtocol>
 
-@interface employee : NSObject
+@property (nonatomic, readwrite) NSUInteger salary;
+@property (nonatomic, readwrite) NSUInteger experience;
 
-@property (nonatomic, readonly) NSUInteger salary;
-@property (nonatomic, readonly) NSUInteger experience;
++ (instancetype)employeeWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
 
-- (id)performPositionSpecificOperation;
+- (instancetype)initWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
+
+- (void)performPositionSpecificOperation;
 
 @end

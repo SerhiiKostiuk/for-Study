@@ -6,10 +6,12 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "buildings.h"
 
-@interface carWashBuilding : NSObject
+@interface carWashBuilding : buildings
 
++ (instancetype)building;
 
++ (BOOL)canContainItemOfClass:(Class)itemClass;
 
 @end

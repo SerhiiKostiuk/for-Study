@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "employee.h"
+#import "CashFlowProtocol.h"
+@class washBox;
 
-@interface washer : NSObject
+@interface washer :employee <CashFlowProtocol>
+@property (nonatomic, readonly, getter=isWasherFree) BOOL washerFree;
+
+- (void)performPositionSpecificOperation:(washBox *)carsWashBox;
 
 @end

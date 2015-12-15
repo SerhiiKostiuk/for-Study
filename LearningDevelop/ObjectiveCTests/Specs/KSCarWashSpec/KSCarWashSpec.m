@@ -10,13 +10,15 @@
 
 #import "Kiwi.h"
 #import "KSEnterprise.h"
-#import "KSRangeAlphabet.h"
-#import "KSClusterAlphabet.h"
-#import "KSStringsAlphabet.h"
+#import "director.h"
+#import "accountant.h"
+#import "washer.h"
+#import "car.h"
+
 
 SPEC_BEGIN(KSAlphabetSpec)
 
-describe(@"KSAlphabet", ^{
+describe(@"KSEnterprise", ^{
     
     
     });

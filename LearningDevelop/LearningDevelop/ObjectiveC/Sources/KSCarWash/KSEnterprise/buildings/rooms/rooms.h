@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class containerForItems;
+
 @interface rooms : NSObject
+@property (nonatomic, readonly) containerForItems *staff;
+
++ (instancetype)roomWithCapacity:(NSUInteger)capacity;
+
++ (BOOL)canContainItemOfClass:(Class)itemClass;
+
+- (instancetype)initWithCapacity:(NSUInteger)capacity;
+
+- (void)addEmployee:(id)employee;
+- (void)removeEmployee:(id)employee;
 
 @end

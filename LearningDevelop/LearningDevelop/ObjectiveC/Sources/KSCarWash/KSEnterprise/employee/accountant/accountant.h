@@ -6,8 +6,9 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "employee.h"
+@class washer;
 
-@interface accountant : NSObject
-
+@interface accountant : employee
+- (void)performPositionSpecificOperation:(employee *)washer;
 @end
