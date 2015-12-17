@@ -6,26 +6,26 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import "rooms.h"
-#import "buildings.h"
-#import "employee.h"
-#import "containerForItems.h"
+#import "KSRooms.h"
+#import "KSBuildings.h"
+#import "KSEmployee.h"
+#import "KSItemsContainer.h"
 
 static const NSUInteger kDefaultRoomCapacity = 2;
 
-@interface buildings ()
-@property (nonatomic, retain) NSMutableArray *mutableRooms;
+@interface KSBuildings ()
+@property (nonatomic, retain) KSItemsContainer *mutableRooms;
 
 @end
 
-@implementation buildings
+@implementation KSBuildings
 @dynamic rooms;
 
 #pragma mark -
 #pragma mark Class Methods
 
 + (instancetype)building {
-    return [[self alloc] initWithRooms:[NSArray arrayWithObject:[rooms roomWithCapacity:kDefaultRoomCapacity]]];
+    return [[self alloc] initWithRooms:[NSArray arrayWithObject:[KSRooms roomWithCapacity:kDefaultRoomCapacity]]];
 }
 
 + (instancetype)buildingWithRooms:(NSArray *)rooms {
@@ -33,7 +33,7 @@ static const NSUInteger kDefaultRoomCapacity = 2;
 }
 
 + (BOOL)canContainItemOfClass:(Class)itemClass {
-    return [itemClass isSubclassOfClass:[employee class]];
+    return [itemClass isSubclassOfClass:[KSEmployee class]];
 }
 
 #pragma mark -
@@ -45,13 +45,24 @@ static const NSUInteger kDefaultRoomCapacity = 2;
     [super dealloc];
 }
 
+- (instancetype)init {
+    self = [self initWithRooms:nil];
+    
+    return self;
+}
+
 - (instancetype)initWithRooms:(NSArray *)rooms {
-    self =[self init];
-    if (self) {
-        for (id room in rooms) {
-            [[self mutableRooms] addObject:room];
-        }
+    self =[super init];
+    
+    self.mutableRooms = [[[KSItemsContainer alloc]initWithCapacity:rooms.count] autorelease];
+    for (KSRooms *room in rooms) {
+        [self addRoom:room];
     }
+//    if (self) {
+//        for (id room in rooms) {
+//            [[self mutableRooms] addItems:room];
+//        }
+//}
     return self;
 }
 
@@ -66,7 +77,7 @@ static const NSUInteger kDefaultRoomCapacity = 2;
 #pragma mark Public
 
 - (void)addRoom:(id)room {
-    [self.mutableRooms addObject:room];
+    [self.mutableRooms addItems:room];
 }
 
 - (void)removeRoom:(id)room {
@@ -74,7 +85,7 @@ static const NSUInteger kDefaultRoomCapacity = 2;
         [room removeEmployee:employee];
     }
     
-    [self.mutableRooms removeObject:room];
+    [self.mutableRooms removeItems:room];
 }
 
 @end

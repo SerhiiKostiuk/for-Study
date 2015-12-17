@@ -6,14 +6,14 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import "rooms.h"
+#import "KSRooms.h"
 
-@class car;
-@class containerForItems;
+@class KSCar;
+@class KSItemsContainer;
 
-@interface washBox : rooms
+@interface KSWashBox : KSRooms
 
-@property (nonatomic,readonly) containerForItems *cars;
+@property (nonatomic,readonly) KSItemsContainer *cars;
 
 + (BOOL)canContainItemOfClass:(Class)itemClass;
 

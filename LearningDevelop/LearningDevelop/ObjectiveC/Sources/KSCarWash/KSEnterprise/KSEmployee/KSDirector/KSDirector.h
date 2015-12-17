@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "employee.h"
-@interface director : employee
-- (void)performPositionSpecificOperation:(employee *)accountant;
+#import "KSEmployee.h"
+
+@interface KSDirector : KSEmployee
+
+- (void)performPositionSpecificOperation:(KSEmployee *)accountant;
+
 @end

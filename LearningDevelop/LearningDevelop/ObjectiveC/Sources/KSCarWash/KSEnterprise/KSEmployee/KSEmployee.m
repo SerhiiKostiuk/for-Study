@@ -6,10 +6,10 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import "employee.h"
+#import "KSEmployee.h"
 
-@implementation employee
-@synthesize money = _money;
+@implementation KSEmployee
+
 
 #pragma mark -
 #pragma mark Class Methods
@@ -39,13 +39,24 @@
     
 }
 
+-(BOOL)isFree {
+    return self.free;
+}
+
+- (BOOL) isAbleToPay:(NSUInteger)amount {
+    if (self.wallet > amount) {
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark -
 #pragma mark CashFlowProtocol
 
-- (void)giveMoney:(NSUInteger)amount toReciver:(id<CashFlowProtocol>)reciver {
-    if (reciver) {
-        self.money -= amount;
-        reciver.money += amount;
+- (void)takeMoney:(NSUInteger)amount fromSender:(id<CashFlowProtocol>)sender {
+    if (sender) {
+        sender.wallet -= amount;
+        self.wallet += amount;
     }
 }
 

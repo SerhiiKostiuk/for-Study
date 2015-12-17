@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface containerForItems : NSObject
+@interface KSItemsContainer : NSObject
 
 @property (nonatomic, readonly) NSArray     *items;
 @property (nonatomic, readonly) BOOL        isFull;

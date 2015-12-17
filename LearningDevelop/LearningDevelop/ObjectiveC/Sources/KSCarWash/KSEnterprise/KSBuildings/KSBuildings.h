@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class rooms;
+@class KSRooms;
 
-@interface buildings : NSObject
+@interface KSBuildings : NSObject
 
 @property (nonatomic, readonly) NSArray *rooms;
 

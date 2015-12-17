@@ -7,16 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CashFlowProtocol.h"
-@interface employee : NSObject <CashFlowProtocol>
+#import "KSCashFlowProtocol.h"
+
+@interface KSEmployee : NSObject <CashFlowProtocol>
+
 
 @property (nonatomic, readwrite) NSUInteger salary;
 @property (nonatomic, readwrite) NSUInteger experience;
+@property (nonatomic, readwrite, assign) NSUInteger wallet;
+@property (nonatomic, readwrite, getter=isFree) BOOL free;
+
 
 + (instancetype)employeeWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
 
 - (instancetype)initWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
 
 - (void)performPositionSpecificOperation;
+
+//- (void)takeMoney:(NSUInteger)amount fromSender:(id<CashFlowProtocol>)sender;
 
 @end

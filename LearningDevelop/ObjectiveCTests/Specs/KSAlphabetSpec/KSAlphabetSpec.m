@@ -36,7 +36,7 @@ describe(@"KSAlphabet", ^{
 //    - (NSString *)string;
 
     afterAll(^{
-        alphabet = nil;
+        alphabet = nil; 
     }); 
     
     context(@"when initialized with + alphabetWithRange: with range 'A' - 'K' ", ^{

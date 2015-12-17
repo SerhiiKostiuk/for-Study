@@ -6,22 +6,22 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import "car.h"
-#import "washBox.h"
-#import "containerForItems.h"
+#import "KSCar.h"
+#import "KSWashBox.h"
+#import "KSItemsContainer.h"
 
-@interface washBox ()
-@property (nonatomic, retain) containerForItems *carsContainer;
+@interface KSWashBox ()
+@property (nonatomic, retain) KSItemsContainer *carsContainer;
 
 @end
 
-@implementation washBox
+@implementation KSWashBox
 
 #pragma mark -
 #pragma mark Class Methods
 
 + (BOOL)canContainItemOfClass:(Class)itemClass {
-    return [super canContainItemOfClass:itemClass] || [itemClass isSubclassOfClass:[car class]];
+    return [super canContainItemOfClass:itemClass] || [itemClass isSubclassOfClass:[KSCar class]];
 }
 
 #pragma mark -
@@ -37,7 +37,7 @@
     self = [super initWithCapacity:capacity];
     
     if (self) {
-        self.carsContainer = [[[containerForItems alloc] initWithCapacity:capacity] autorelease];
+        self.carsContainer = [[[KSItemsContainer alloc] initWithCapacity:capacity] autorelease];
     }
     return self;
 }
@@ -45,7 +45,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (containerForItems *)cars {
+- (KSItemsContainer *)cars {
     return self.carsContainer;
 }
 

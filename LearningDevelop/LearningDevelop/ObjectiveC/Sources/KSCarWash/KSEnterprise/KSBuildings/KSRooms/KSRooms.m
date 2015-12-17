@@ -7,16 +7,16 @@
 //
 
 
-#import "rooms.h"
-#import "employee.h"
-#import "containerForItems.h"
+#import "KSRooms.h"
+#import "KSEmployee.h"
+#import "KSItemsContainer.h"
 
-@interface rooms ()
-@property (nonatomic, retain) containerForItems *staffContainer;
+@interface KSRooms ()
+@property (nonatomic, retain) KSItemsContainer *staffContainer;
 
 @end
 
-@implementation rooms
+@implementation KSRooms
 @dynamic staff;
 
 #pragma mark -
@@ -26,9 +26,8 @@
     return [[[self alloc] initWithCapacity:capacity] autorelease];
 }
 
-
 + (BOOL)canContainItemOfClass:(Class)itemClass {
-    return [itemClass isSubclassOfClass:[employee class]];
+    return [itemClass isSubclassOfClass:[KSEmployee class]];
 }
 
 #pragma mark -
@@ -44,7 +43,7 @@
     self = [super init];
     
     if (self) {
-        self.staffContainer = [[[containerForItems alloc] initWithCapacity:capacity] autorelease];
+        self.staffContainer = [[[KSItemsContainer alloc] initWithCapacity:capacity] autorelease];
     }
     
     return self;
@@ -53,7 +52,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (containerForItems *) staff {
+- (KSItemsContainer *) KSStaff {
     return self.staffContainer;
 }
 

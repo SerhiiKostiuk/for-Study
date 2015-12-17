@@ -8,22 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		72D6AC03B2AB3C8083238937 /* libPods-ObjectiveCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C6CA6FCBEFDC6F4D3B464F /* libPods-ObjectiveCTests.a */; };
-		C50C9FF81C17001B0074ED2E /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C9FF71C17001B0074ED2E /* KSEnterprise.m */; };
-		C50C9FF91C17001B0074ED2E /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C9FF71C17001B0074ED2E /* KSEnterprise.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C50C9FFC1C1700380074ED2E /* carWashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C9FFB1C1700380074ED2E /* carWashBuilding.m */; };
-		C50C9FFD1C1700380074ED2E /* carWashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = C50C9FFB1C1700380074ED2E /* carWashBuilding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C50CA0071C1714030074ED2E /* car.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0061C1714030074ED2E /* car.m */; };
-		C50CA0081C1714030074ED2E /* car.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0061C1714030074ED2E /* car.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C50CA00F1C17148A0074ED2E /* washer.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA00E1C17148A0074ED2E /* washer.m */; };
-		C50CA0101C17148A0074ED2E /* washer.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA00E1C17148A0074ED2E /* washer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C50CA0131C1714980074ED2E /* accountant.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0121C1714980074ED2E /* accountant.m */; };
-		C50CA0141C1714980074ED2E /* accountant.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0121C1714980074ED2E /* accountant.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C50CA0171C1714F60074ED2E /* director.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0161C1714F60074ED2E /* director.m */; };
-		C50CA0181C1714F60074ED2E /* director.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0161C1714F60074ED2E /* director.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C50CA01F1C1718C70074ED2E /* employee.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA01E1C1718C70074ED2E /* employee.m */; };
-		C50CA0201C1718C70074ED2E /* employee.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA01E1C1718C70074ED2E /* employee.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C50CA0231C171E810074ED2E /* rooms.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0221C171E810074ED2E /* rooms.m */; };
-		C50CA0241C171E810074ED2E /* rooms.m in Sources */ = {isa = PBXBuildFile; fileRef = C50CA0221C171E810074ED2E /* rooms.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C50D5C2D1C11DB0D004F2369 /* KSAlphabetSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C50D5C2C1C11DB0D004F2369 /* KSAlphabetSpec.m */; };
 		C53F35051C11D896005E1A48 /* CategoryForNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34E21C11D896005E1A48 /* CategoryForNSObject.m */; };
 		C53F35061C11D896005E1A48 /* CategoryForNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34E21C11D896005E1A48 /* CategoryForNSObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -50,12 +34,6 @@
 		C53F351B1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */; };
 		C53F351C1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */; };
 		C53F351D1C11D8BE005E1A48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34DE1C11D896005E1A48 /* main.m */; };
-		C55295F91C1C796800D012EA /* buildings.m in Sources */ = {isa = PBXBuildFile; fileRef = C55295F81C1C796800D012EA /* buildings.m */; };
-		C55295FA1C1C796800D012EA /* buildings.m in Sources */ = {isa = PBXBuildFile; fileRef = C55295F81C1C796800D012EA /* buildings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C55296031C1C8E5600D012EA /* washBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C55296021C1C8E5600D012EA /* washBox.m */; };
-		C55296041C1C8E5600D012EA /* washBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C55296021C1C8E5600D012EA /* washBox.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C55296071C1DEEAF00D012EA /* containerForItems.m in Sources */ = {isa = PBXBuildFile; fileRef = C55296061C1DEEAF00D012EA /* containerForItems.m */; };
-		C55296081C1DEEAF00D012EA /* containerForItems.m in Sources */ = {isa = PBXBuildFile; fileRef = C55296061C1DEEAF00D012EA /* containerForItems.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C552960C1C1E055700D012EA /* KSCarWashSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C552960A1C1E055700D012EA /* KSCarWashSpec.m */; };
 		C5C314781C0474B000AE4D3C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314381C0474B000AE4D3C /* main.c */; };
 		C5C314791C0474B000AE4D3C /* KSArray.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C3143B1C0474B000AE4D3C /* KSArray.c */; };
@@ -76,6 +54,28 @@
 		C5C314881C0474B000AE4D3C /* KSPrimitiveTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314701C0474B000AE4D3C /* KSPrimitiveTypeTests.c */; };
 		C5C314891C0474B000AE4D3C /* KSStructureTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314731C0474B000AE4D3C /* KSStructureTests.c */; };
 		C5C3148A1C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314761C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.c */; };
+		C5D4555B1C215F3200BEDD59 /* KSBuildings.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4553A1C215F3200BEDD59 /* KSBuildings.m */; };
+		C5D4555C1C215F3200BEDD59 /* KSBuildings.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4553A1C215F3200BEDD59 /* KSBuildings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5D4555D1C215F3200BEDD59 /* KSCarWashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4553D1C215F3200BEDD59 /* KSCarWashBuilding.m */; };
+		C5D4555E1C215F3200BEDD59 /* KSCarWashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4553D1C215F3200BEDD59 /* KSCarWashBuilding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5D4555F1C215F3200BEDD59 /* KSRooms.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455401C215F3200BEDD59 /* KSRooms.m */; };
+		C5D455601C215F3200BEDD59 /* KSRooms.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455401C215F3200BEDD59 /* KSRooms.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5D455611C215F3200BEDD59 /* KSWashBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455431C215F3200BEDD59 /* KSWashBox.m */; };
+		C5D455621C215F3200BEDD59 /* KSWashBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455431C215F3200BEDD59 /* KSWashBox.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5D455651C215F3200BEDD59 /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455491C215F3200BEDD59 /* KSCar.m */; };
+		C5D455661C215F3200BEDD59 /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455491C215F3200BEDD59 /* KSCar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5D455671C215F3200BEDD59 /* KSItemsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4554C1C215F3200BEDD59 /* KSItemsContainer.m */; };
+		C5D455681C215F3200BEDD59 /* KSItemsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4554C1C215F3200BEDD59 /* KSItemsContainer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5D455691C215F3200BEDD59 /* KSAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455501C215F3200BEDD59 /* KSAccountant.m */; };
+		C5D4556A1C215F3200BEDD59 /* KSAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455501C215F3200BEDD59 /* KSAccountant.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5D4556B1C215F3200BEDD59 /* KSDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455531C215F3200BEDD59 /* KSDirector.m */; };
+		C5D4556C1C215F3200BEDD59 /* KSDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455531C215F3200BEDD59 /* KSDirector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5D4556D1C215F3200BEDD59 /* KSEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455551C215F3200BEDD59 /* KSEmployee.m */; };
+		C5D4556E1C215F3200BEDD59 /* KSEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455551C215F3200BEDD59 /* KSEmployee.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5D4556F1C215F3200BEDD59 /* KSWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455581C215F3200BEDD59 /* KSWasher.m */; };
+		C5D455701C215F3200BEDD59 /* KSWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D455581C215F3200BEDD59 /* KSWasher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5D455711C215F3200BEDD59 /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4555A1C215F3200BEDD59 /* KSEnterprise.m */; };
+		C5D455721C215F3200BEDD59 /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4555A1C215F3200BEDD59 /* KSEnterprise.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,22 +103,6 @@
 		35C6CA6FCBEFDC6F4D3B464F /* libPods-ObjectiveCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjectiveCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		582FFF51163204316694F79C /* Pods-ObjectiveCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectiveCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjectiveCTests/Pods-ObjectiveCTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5EEF0BA80EE1802BB5D3DA18 /* Pods-ObjectiveCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectiveCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjectiveCTests/Pods-ObjectiveCTests.release.xcconfig"; sourceTree = "<group>"; };
-		C50C9FF61C17001B0074ED2E /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
-		C50C9FF71C17001B0074ED2E /* KSEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEnterprise.m; sourceTree = "<group>"; };
-		C50C9FFA1C1700380074ED2E /* carWashBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = carWashBuilding.h; sourceTree = "<group>"; };
-		C50C9FFB1C1700380074ED2E /* carWashBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = carWashBuilding.m; sourceTree = "<group>"; };
-		C50CA0051C1714030074ED2E /* car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = car.h; sourceTree = "<group>"; };
-		C50CA0061C1714030074ED2E /* car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = car.m; sourceTree = "<group>"; };
-		C50CA00D1C17148A0074ED2E /* washer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = washer.h; sourceTree = "<group>"; };
-		C50CA00E1C17148A0074ED2E /* washer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = washer.m; sourceTree = "<group>"; };
-		C50CA0111C1714980074ED2E /* accountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = accountant.h; sourceTree = "<group>"; };
-		C50CA0121C1714980074ED2E /* accountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = accountant.m; sourceTree = "<group>"; };
-		C50CA0151C1714F60074ED2E /* director.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = director.h; sourceTree = "<group>"; };
-		C50CA0161C1714F60074ED2E /* director.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = director.m; sourceTree = "<group>"; };
-		C50CA01D1C1718C70074ED2E /* employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = employee.h; sourceTree = "<group>"; };
-		C50CA01E1C1718C70074ED2E /* employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = employee.m; sourceTree = "<group>"; };
-		C50CA0211C171E810074ED2E /* rooms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rooms.h; sourceTree = "<group>"; };
-		C50CA0221C171E810074ED2E /* rooms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rooms.m; sourceTree = "<group>"; };
 		C50D5C2C1C11DB0D004F2369 /* KSAlphabetSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetSpec.m; sourceTree = "<group>"; };
 		C53F34A21C11D77B005E1A48 /* ObjectiveCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectiveCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53F34A61C11D77B005E1A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,13 +132,6 @@
 		C53F34FF1C11D896005E1A48 /* KSCreatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTests.m; sourceTree = "<group>"; };
 		C53F35011C11D896005E1A48 /* KSStringCategoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringCategoryTests.h; sourceTree = "<group>"; };
 		C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStringCategoryTests.m; sourceTree = "<group>"; };
-		C55295F71C1C796800D012EA /* buildings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buildings.h; sourceTree = "<group>"; };
-		C55295F81C1C796800D012EA /* buildings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = buildings.m; sourceTree = "<group>"; };
-		C55295FB1C1C8A8F00D012EA /* CashFlowProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashFlowProtocol.h; sourceTree = "<group>"; };
-		C55296011C1C8E5600D012EA /* washBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = washBox.h; sourceTree = "<group>"; };
-		C55296021C1C8E5600D012EA /* washBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = washBox.m; sourceTree = "<group>"; };
-		C55296051C1DEEAF00D012EA /* containerForItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = containerForItems.h; sourceTree = "<group>"; };
-		C55296061C1DEEAF00D012EA /* containerForItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = containerForItems.m; sourceTree = "<group>"; };
 		C552960A1C1E055700D012EA /* KSCarWashSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCarWashSpec.m; sourceTree = "<group>"; };
 		C5C314381C0474B000AE4D3C /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		C5C3143B1C0474B000AE4D3C /* KSArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSArray.c; sourceTree = "<group>"; };
@@ -200,6 +177,29 @@
 		C5C314771C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTypeRepresentationInBinaryTests.h; sourceTree = "<group>"; };
 		C5C9E10A1BFF1D6500590391 /* ObjectiveC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveC; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D205901BAA0327003C2465 /* LearningDevelop */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearningDevelop; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5D455391C215F3200BEDD59 /* KSBuildings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBuildings.h; sourceTree = "<group>"; };
+		C5D4553A1C215F3200BEDD59 /* KSBuildings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSBuildings.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C5D4553C1C215F3200BEDD59 /* KSCarWashBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCarWashBuilding.h; sourceTree = "<group>"; };
+		C5D4553D1C215F3200BEDD59 /* KSCarWashBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCarWashBuilding.m; sourceTree = "<group>"; };
+		C5D4553F1C215F3200BEDD59 /* KSRooms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KSRooms.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C5D455401C215F3200BEDD59 /* KSRooms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSRooms.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C5D455421C215F3200BEDD59 /* KSWashBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KSWashBox.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C5D455431C215F3200BEDD59 /* KSWashBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSWashBox.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C5D455481C215F3200BEDD59 /* KSCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCar.h; sourceTree = "<group>"; };
+		C5D455491C215F3200BEDD59 /* KSCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCar.m; sourceTree = "<group>"; };
+		C5D4554A1C215F3200BEDD59 /* KSCashFlowProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCashFlowProtocol.h; sourceTree = "<group>"; };
+		C5D4554B1C215F3200BEDD59 /* KSItemsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KSItemsContainer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C5D4554C1C215F3200BEDD59 /* KSItemsContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSItemsContainer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C5D4554F1C215F3200BEDD59 /* KSAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAccountant.h; sourceTree = "<group>"; };
+		C5D455501C215F3200BEDD59 /* KSAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAccountant.m; sourceTree = "<group>"; };
+		C5D455521C215F3200BEDD59 /* KSDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDirector.h; sourceTree = "<group>"; };
+		C5D455531C215F3200BEDD59 /* KSDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDirector.m; sourceTree = "<group>"; };
+		C5D455541C215F3200BEDD59 /* KSEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEmployee.h; sourceTree = "<group>"; };
+		C5D455551C215F3200BEDD59 /* KSEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEmployee.m; sourceTree = "<group>"; };
+		C5D455571C215F3200BEDD59 /* KSWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWasher.h; sourceTree = "<group>"; };
+		C5D455581C215F3200BEDD59 /* KSWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWasher.m; sourceTree = "<group>"; };
+		C5D455591C215F3200BEDD59 /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KSEnterprise.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C5D4555A1C215F3200BEDD59 /* KSEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSEnterprise.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,102 +240,9 @@
 		C50C9FF11C16FBD40074ED2E /* KSCarWash */ = {
 			isa = PBXGroup;
 			children = (
-				C50C9FF21C16FC420074ED2E /* KSEnterprise */,
+				C5D455371C215F3200BEDD59 /* KSEnterprise */,
 			);
 			path = KSCarWash;
-			sourceTree = "<group>";
-		};
-		C50C9FF21C16FC420074ED2E /* KSEnterprise */ = {
-			isa = PBXGroup;
-			children = (
-				C50CA0041C1701A60074ED2E /* car */,
-				C50CA0021C1701370074ED2E /* employee */,
-				C50C9FF31C16FF040074ED2E /* buildings */,
-				C50C9FF61C17001B0074ED2E /* KSEnterprise.h */,
-				C50C9FF71C17001B0074ED2E /* KSEnterprise.m */,
-				C55295FB1C1C8A8F00D012EA /* CashFlowProtocol.h */,
-				C55296051C1DEEAF00D012EA /* containerForItems.h */,
-				C55296061C1DEEAF00D012EA /* containerForItems.m */,
-			);
-			path = KSEnterprise;
-			sourceTree = "<group>";
-		};
-		C50C9FF31C16FF040074ED2E /* buildings */ = {
-			isa = PBXGroup;
-			children = (
-				C50CA0031C17015F0074ED2E /* rooms */,
-				C50C9FF41C16FF2C0074ED2E /* carWashBuilding */,
-				C55295F71C1C796800D012EA /* buildings.h */,
-				C55295F81C1C796800D012EA /* buildings.m */,
-			);
-			path = buildings;
-			sourceTree = "<group>";
-		};
-		C50C9FF41C16FF2C0074ED2E /* carWashBuilding */ = {
-			isa = PBXGroup;
-			children = (
-				C50C9FFA1C1700380074ED2E /* carWashBuilding.h */,
-				C50C9FFB1C1700380074ED2E /* carWashBuilding.m */,
-			);
-			path = carWashBuilding;
-			sourceTree = "<group>";
-		};
-		C50CA0021C1701370074ED2E /* employee */ = {
-			isa = PBXGroup;
-			children = (
-				C50CA00C1C1714640074ED2E /* director */,
-				C50CA00A1C1714210074ED2E /* accountant */,
-				C50CA0091C1714140074ED2E /* washer */,
-				C50CA01D1C1718C70074ED2E /* employee.h */,
-				C50CA01E1C1718C70074ED2E /* employee.m */,
-			);
-			path = employee;
-			sourceTree = "<group>";
-		};
-		C50CA0031C17015F0074ED2E /* rooms */ = {
-			isa = PBXGroup;
-			children = (
-				C55295FC1C1C8DC400D012EA /* washBox */,
-				C50CA0211C171E810074ED2E /* rooms.h */,
-				C50CA0221C171E810074ED2E /* rooms.m */,
-			);
-			path = rooms;
-			sourceTree = "<group>";
-		};
-		C50CA0041C1701A60074ED2E /* car */ = {
-			isa = PBXGroup;
-			children = (
-				C50CA0051C1714030074ED2E /* car.h */,
-				C50CA0061C1714030074ED2E /* car.m */,
-			);
-			path = car;
-			sourceTree = "<group>";
-		};
-		C50CA0091C1714140074ED2E /* washer */ = {
-			isa = PBXGroup;
-			children = (
-				C50CA00D1C17148A0074ED2E /* washer.h */,
-				C50CA00E1C17148A0074ED2E /* washer.m */,
-			);
-			path = washer;
-			sourceTree = "<group>";
-		};
-		C50CA00A1C1714210074ED2E /* accountant */ = {
-			isa = PBXGroup;
-			children = (
-				C50CA0111C1714980074ED2E /* accountant.h */,
-				C50CA0121C1714980074ED2E /* accountant.m */,
-			);
-			path = accountant;
-			sourceTree = "<group>";
-		};
-		C50CA00C1C1714640074ED2E /* director */ = {
-			isa = PBXGroup;
-			children = (
-				C50CA0151C1714F60074ED2E /* director.h */,
-				C50CA0161C1714F60074ED2E /* director.m */,
-			);
-			path = director;
 			sourceTree = "<group>";
 		};
 		C50D5C2A1C11DA6A004F2369 /* Specs */ = {
@@ -485,15 +392,6 @@
 				C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */,
 			);
 			path = KSStringCategoryTests;
-			sourceTree = "<group>";
-		};
-		C55295FC1C1C8DC400D012EA /* washBox */ = {
-			isa = PBXGroup;
-			children = (
-				C55296011C1C8E5600D012EA /* washBox.h */,
-				C55296021C1C8E5600D012EA /* washBox.m */,
-			);
-			path = washBox;
 			sourceTree = "<group>";
 		};
 		C55296091C1E04CE00D012EA /* KSCarWashSpec */ = {
@@ -761,6 +659,108 @@
 			path = LerningDevelop;
 			sourceTree = "<group>";
 		};
+		C5D455371C215F3200BEDD59 /* KSEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				C5D455381C215F3200BEDD59 /* KSBuildings */,
+				C5D455471C215F3200BEDD59 /* KSCar */,
+				C5D4554A1C215F3200BEDD59 /* KSCashFlowProtocol.h */,
+				C5D4554B1C215F3200BEDD59 /* KSItemsContainer.h */,
+				C5D4554C1C215F3200BEDD59 /* KSItemsContainer.m */,
+				C5D4554D1C215F3200BEDD59 /* KSEmployee */,
+				C5D455591C215F3200BEDD59 /* KSEnterprise.h */,
+				C5D4555A1C215F3200BEDD59 /* KSEnterprise.m */,
+			);
+			path = KSEnterprise;
+			sourceTree = "<group>";
+		};
+		C5D455381C215F3200BEDD59 /* KSBuildings */ = {
+			isa = PBXGroup;
+			children = (
+				C5D455391C215F3200BEDD59 /* KSBuildings.h */,
+				C5D4553A1C215F3200BEDD59 /* KSBuildings.m */,
+				C5D4553B1C215F3200BEDD59 /* KSCarWashBuilding */,
+				C5D4553E1C215F3200BEDD59 /* KSRooms */,
+			);
+			path = KSBuildings;
+			sourceTree = "<group>";
+		};
+		C5D4553B1C215F3200BEDD59 /* KSCarWashBuilding */ = {
+			isa = PBXGroup;
+			children = (
+				C5D4553C1C215F3200BEDD59 /* KSCarWashBuilding.h */,
+				C5D4553D1C215F3200BEDD59 /* KSCarWashBuilding.m */,
+			);
+			path = KSCarWashBuilding;
+			sourceTree = "<group>";
+		};
+		C5D4553E1C215F3200BEDD59 /* KSRooms */ = {
+			isa = PBXGroup;
+			children = (
+				C5D4553F1C215F3200BEDD59 /* KSRooms.h */,
+				C5D455401C215F3200BEDD59 /* KSRooms.m */,
+				C5D455411C215F3200BEDD59 /* KSWashBox */,
+			);
+			path = KSRooms;
+			sourceTree = "<group>";
+		};
+		C5D455411C215F3200BEDD59 /* KSWashBox */ = {
+			isa = PBXGroup;
+			children = (
+				C5D455421C215F3200BEDD59 /* KSWashBox.h */,
+				C5D455431C215F3200BEDD59 /* KSWashBox.m */,
+			);
+			path = KSWashBox;
+			sourceTree = "<group>";
+		};
+		C5D455471C215F3200BEDD59 /* KSCar */ = {
+			isa = PBXGroup;
+			children = (
+				C5D455481C215F3200BEDD59 /* KSCar.h */,
+				C5D455491C215F3200BEDD59 /* KSCar.m */,
+			);
+			path = KSCar;
+			sourceTree = "<group>";
+		};
+		C5D4554D1C215F3200BEDD59 /* KSEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				C5D4554E1C215F3200BEDD59 /* KSAccountant */,
+				C5D455511C215F3200BEDD59 /* KSDirector */,
+				C5D455561C215F3200BEDD59 /* KSWasher */,
+				C5D455541C215F3200BEDD59 /* KSEmployee.h */,
+				C5D455551C215F3200BEDD59 /* KSEmployee.m */,
+			);
+			path = KSEmployee;
+			sourceTree = "<group>";
+		};
+		C5D4554E1C215F3200BEDD59 /* KSAccountant */ = {
+			isa = PBXGroup;
+			children = (
+				C5D4554F1C215F3200BEDD59 /* KSAccountant.h */,
+				C5D455501C215F3200BEDD59 /* KSAccountant.m */,
+			);
+			path = KSAccountant;
+			sourceTree = "<group>";
+		};
+		C5D455511C215F3200BEDD59 /* KSDirector */ = {
+			isa = PBXGroup;
+			children = (
+				C5D455521C215F3200BEDD59 /* KSDirector.h */,
+				C5D455531C215F3200BEDD59 /* KSDirector.m */,
+			);
+			path = KSDirector;
+			sourceTree = "<group>";
+		};
+		C5D455561C215F3200BEDD59 /* KSWasher */ = {
+			isa = PBXGroup;
+			children = (
+				C5D455571C215F3200BEDD59 /* KSWasher.h */,
+				C5D455581C215F3200BEDD59 /* KSWasher.m */,
+			);
+			path = KSWasher;
+			sourceTree = "<group>";
+		};
 		E424F7BE94D772DEBF88807C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,31 +928,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5D4555C1C215F3200BEDD59 /* KSBuildings.m in Sources */,
 				C53F350E1C11D896005E1A48 /* KSWoman.m in Sources */,
 				C53F35141C11D896005E1A48 /* KSClusterAlphabet.m in Sources */,
-				C50CA0201C1718C70074ED2E /* employee.m in Sources */,
+				C5D455601C215F3200BEDD59 /* KSRooms.m in Sources */,
+				C5D4555E1C215F3200BEDD59 /* KSCarWashBuilding.m in Sources */,
 				C53F350A1C11D896005E1A48 /* KSMan.m in Sources */,
 				C53F35121C11D896005E1A48 /* KSStringCategories.m in Sources */,
-				C50C9FF91C17001B0074ED2E /* KSEnterprise.m in Sources */,
 				C53F35081C11D896005E1A48 /* KSCreature.m in Sources */,
-				C55296041C1C8E5600D012EA /* washBox.m in Sources */,
+				C5D455621C215F3200BEDD59 /* KSWashBox.m in Sources */,
+				C5D455701C215F3200BEDD59 /* KSWasher.m in Sources */,
 				C53F35161C11D896005E1A48 /* KSRangeAlphabet.m in Sources */,
 				C53F35181C11D896005E1A48 /* KSStringsAlphabet.m in Sources */,
-				C50CA0101C17148A0074ED2E /* washer.m in Sources */,
 				C53F351C1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */,
+				C5D455721C215F3200BEDD59 /* KSEnterprise.m in Sources */,
+				C5D4556E1C215F3200BEDD59 /* KSEmployee.m in Sources */,
+				C5D455681C215F3200BEDD59 /* KSItemsContainer.m in Sources */,
 				C53F351A1C11D896005E1A48 /* KSCreatureTests.m in Sources */,
+				C5D455661C215F3200BEDD59 /* KSCar.m in Sources */,
 				C53F350C1C11D896005E1A48 /* KSUndefined.m in Sources */,
-				C50CA0081C1714030074ED2E /* car.m in Sources */,
-				C55295FA1C1C796800D012EA /* buildings.m in Sources */,
-				C50CA0141C1714980074ED2E /* accountant.m in Sources */,
-				C50CA0241C171E810074ED2E /* rooms.m in Sources */,
 				C50D5C2D1C11DB0D004F2369 /* KSAlphabetSpec.m in Sources */,
 				C53F35101C11D896005E1A48 /* KSAlphabet.m in Sources */,
-				C50CA0181C1714F60074ED2E /* director.m in Sources */,
 				C552960C1C1E055700D012EA /* KSCarWashSpec.m in Sources */,
-				C50C9FFD1C1700380074ED2E /* carWashBuilding.m in Sources */,
+				C5D4556C1C215F3200BEDD59 /* KSDirector.m in Sources */,
 				C53F35061C11D896005E1A48 /* CategoryForNSObject.m in Sources */,
-				C55296081C1DEEAF00D012EA /* containerForItems.m in Sources */,
+				C5D4556A1C215F3200BEDD59 /* KSAccountant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,29 +961,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				C53F351D1C11D8BE005E1A48 /* main.m in Sources */,
+				C5D4556B1C215F3200BEDD59 /* KSDirector.m in Sources */,
 				C53F350D1C11D896005E1A48 /* KSWoman.m in Sources */,
-				C50CA01F1C1718C70074ED2E /* employee.m in Sources */,
+				C5D4555F1C215F3200BEDD59 /* KSRooms.m in Sources */,
+				C5D455711C215F3200BEDD59 /* KSEnterprise.m in Sources */,
 				C53F35131C11D896005E1A48 /* KSClusterAlphabet.m in Sources */,
 				C53F35091C11D896005E1A48 /* KSMan.m in Sources */,
-				C50C9FF81C17001B0074ED2E /* KSEnterprise.m in Sources */,
+				C5D455691C215F3200BEDD59 /* KSAccountant.m in Sources */,
+				C5D455671C215F3200BEDD59 /* KSItemsContainer.m in Sources */,
 				C53F35111C11D896005E1A48 /* KSStringCategories.m in Sources */,
-				C55296031C1C8E5600D012EA /* washBox.m in Sources */,
+				C5D455611C215F3200BEDD59 /* KSWashBox.m in Sources */,
+				C5D4556D1C215F3200BEDD59 /* KSEmployee.m in Sources */,
+				C5D455651C215F3200BEDD59 /* KSCar.m in Sources */,
+				C5D4556F1C215F3200BEDD59 /* KSWasher.m in Sources */,
+				C5D4555B1C215F3200BEDD59 /* KSBuildings.m in Sources */,
 				C53F35071C11D896005E1A48 /* KSCreature.m in Sources */,
 				C53F35151C11D896005E1A48 /* KSRangeAlphabet.m in Sources */,
-				C50CA00F1C17148A0074ED2E /* washer.m in Sources */,
+				C5D4555D1C215F3200BEDD59 /* KSCarWashBuilding.m in Sources */,
 				C53F35171C11D896005E1A48 /* KSStringsAlphabet.m in Sources */,
 				C53F351B1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */,
 				C53F35191C11D896005E1A48 /* KSCreatureTests.m in Sources */,
-				C50CA0071C1714030074ED2E /* car.m in Sources */,
-				C55295F91C1C796800D012EA /* buildings.m in Sources */,
-				C50CA0131C1714980074ED2E /* accountant.m in Sources */,
-				C50CA0231C171E810074ED2E /* rooms.m in Sources */,
 				C53F350B1C11D896005E1A48 /* KSUndefined.m in Sources */,
 				C53F350F1C11D896005E1A48 /* KSAlphabet.m in Sources */,
-				C50CA0171C1714F60074ED2E /* director.m in Sources */,
-				C50C9FFC1C1700380074ED2E /* carWashBuilding.m in Sources */,
 				C53F35051C11D896005E1A48 /* CategoryForNSObject.m in Sources */,
-				C55296071C1DEEAF00D012EA /* containerForItems.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

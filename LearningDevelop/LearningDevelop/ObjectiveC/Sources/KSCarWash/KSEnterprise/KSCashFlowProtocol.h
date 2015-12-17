@@ -10,9 +10,10 @@
 
 @protocol CashFlowProtocol
 
-@property (nonatomic) NSUInteger money;
+@property (nonatomic, readwrite, assign) NSUInteger wallet;
 
-- (void)giveMoney:(NSUInteger)amount toReciver:(id<CashFlowProtocol>)reciver;
-//- (BOOL)takeMoney:(NSUInteger)amount fromSender:(id<CashFlow>)sender;
+- (void)takeMoney:(NSUInteger)amount fromSender:(id<CashFlowProtocol>)sender;
+
+- (BOOL) isAbleToPay:(NSUInteger)amount;
 
 @end

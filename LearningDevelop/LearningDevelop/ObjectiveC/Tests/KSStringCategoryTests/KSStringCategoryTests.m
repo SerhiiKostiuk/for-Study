@@ -10,6 +10,13 @@
 #import "KSStringCategories.h"
 #import "KSStringCategoryTests.h"
 
+#import "KSEnterprise.h"
+#import "KSDirector.h"
+#import "KSAccountant.h"
+#import "KSWasher.h"
+#import "KSCar.h"
+#import "KSCashFlowProtocol.h"
+
 @implementation KSStringCategoryTests
 
 + (void) stringTests {
@@ -18,23 +25,24 @@
 
 + (void) performStringTests {
     
-    NSLog(@"Our random string is %@", [NSString randomString]);
+//    NSLog(@"Our random string is %@", [NSString randomString]);
+//    
+//    NSLog(@"Our random string with length is %@",[NSString randomStringWithLength:11]);
+//    
+//    NSLog(@"Our random string with length from alphanumeric alphabet is %@",
+//          [NSString randomStringWithLength:11 alphabet:[NSString alphanumericAlphabet]]);
+//    
+//    NSLog(@"Our random string with length from numeric alphabet is %@",
+//          [NSString randomStringWithLength:11 alphabet:[NSString numericAlphabet]]);
+//    
+//    NSLog(@"Our random string with length from lowercase letters is %@",
+//          [NSString randomStringWithLength:11 alphabet:[NSString lowercaseLetters]]);
+//    
+//    NSLog(@"Our random string with length from uppercase letters is %@",
+//          [NSString randomStringWithLength:11 alphabet:[NSString uppercaseLetters]]);
+//    NSLog(@"%@",[NSString uppercaseLetters]);
     
-    NSLog(@"Our random string with length is %@",[NSString randomStringWithLength:11]);
     
-    NSLog(@"Our random string with length from alphanumeric alphabet is %@",
-          [NSString randomStringWithLength:11 alphabet:[NSString alphanumericAlphabet]]);
-    
-    NSLog(@"Our random string with length from numeric alphabet is %@",
-          [NSString randomStringWithLength:11 alphabet:[NSString numericAlphabet]]);
-    
-    NSLog(@"Our random string with length from lowercase letters is %@",
-          [NSString randomStringWithLength:11 alphabet:[NSString lowercaseLetters]]);
-    
-    NSLog(@"Our random string with length from uppercase letters is %@",
-          [NSString randomStringWithLength:11 alphabet:[NSString uppercaseLetters]]);
-    NSLog(@"%@",[NSString uppercaseLetters]);
-    
-}
 
+}
 @end

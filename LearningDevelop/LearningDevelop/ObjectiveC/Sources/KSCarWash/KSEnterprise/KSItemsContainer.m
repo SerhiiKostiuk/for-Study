@@ -6,15 +6,15 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import "containerForItems.h"
+#import "KSItemsContainer.h"
 
-@interface containerForItems ()
+@interface KSItemsContainer ()
 
 @property (nonatomic, retain) NSMutableArray *mutableItems;
 
 @end
 
-@implementation containerForItems
+@implementation KSItemsContainer
 
 @dynamic items;
 
@@ -35,7 +35,7 @@
 
 - (instancetype)initWithCapacity:(NSUInteger)capacity {
     self = [super init];
-    self.mutableItems = [[[NSMutableArray alloc]initWithCapacity:capacity] autorelease];
+    self.mutableItems = [[[NSMutableArray alloc] initWithCapacity:capacity] autorelease];
     self.capacity = capacity;
     
     return self;

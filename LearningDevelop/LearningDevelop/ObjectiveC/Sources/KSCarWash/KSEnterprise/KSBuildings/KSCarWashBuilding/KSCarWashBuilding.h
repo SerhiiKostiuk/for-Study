@@ -6,12 +6,10 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import "buildings.h"
+#import "KSBuildings.h"
 
-@interface carWashBuilding : buildings
+@interface KSCarWashBuilding : KSBuildings
 
 + (instancetype)building;
-
-+ (BOOL)canContainItemOfClass:(Class)itemClass;
 
 @end

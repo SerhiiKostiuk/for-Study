@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class containerForItems;
+@class KSItemsContainer;
 
-@interface rooms : NSObject
-@property (nonatomic, readonly) containerForItems *staff;
+@interface KSRooms : NSObject
+@property (nonatomic, readonly) KSItemsContainer *staff;
 
 + (instancetype)roomWithCapacity:(NSUInteger)capacity;
 

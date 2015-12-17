@@ -6,15 +6,21 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import "employee.h"
-#import "buildings.h"
+#import "CategoryForNSObject.h"
+#import "KSEmployee.h"
+#import "KSBuildings.h"
+#import "KSCarWashBuilding.h"
 #import "KSEnterprise.h"
-#import "containerForItems.h"
+#import "KSItemsContainer.h"
+#import "KSWashBox.h"
+#import "KSWasher.h"
+#import "KSAccountant.h"
+#import "KSDirector.h"
 
 @interface KSEnterprise ()
 
-@property (nonatomic, retain) NSMutableArray     *mutableBuildings;
-@property (nonatomic, retain) containerForItems  *staffContainer;
+@property (nonatomic, retain) KSItemsContainer    *mutableBuildings;
+@property (nonatomic, retain) KSItemsContainer    *staffContainer;
 
 @end
 
@@ -25,10 +31,10 @@
 #pragma Class Methods
 
 + (instancetype)enterprise {
-    return [[self alloc] initWithOffice:[buildings building] carWash:[carWashBuilding building]];
+    return [[self alloc] initWithOffice:[KSBuildings building] carWash:[KSCarWashBuilding building]];
 }
 
-+ (instancetype)enterpriseWithOffice:(buildings *)office carWash:(carWashBuilding *)carWash {
++ (instancetype)enterpriseWithOffice:(KSBuildings *)office carWash:(KSCarWashBuilding *)carWash {
     return [[self alloc] initWithOffice:office carWash:carWash];
 }
 
@@ -45,17 +51,17 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableBuildings = [NSMutableArray array];
+        self.mutableBuildings = [KSItemsContainer object];
     }
     return self;
 }
 
-- (instancetype)initWithOffice:(buildings *)office carWash:(carWashBuilding *)carWash {
+- (instancetype)initWithOffice:(KSBuildings *)office carWash:(KSCarWashBuilding *)carWash {
     self = [self init];
     
     if (self) {
-        [self.mutableBuildings addObject:office];
-        [self.mutableBuildings addObject:carWash];
+        [self.mutableBuildings addItems:office];
+        [self.mutableBuildings addItems:carWash];
     }
     return self;
 }
@@ -70,21 +76,45 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addBuilding:(buildings *)building {
-    [_mutableBuildings addObject:building];
+- (void)addBuilding:(KSBuildings *)building {
+    [_mutableBuildings addItems:building];
 }
 
-- (void)removeBuilding:(buildings *)building {
-    [_mutableBuildings removeObject:building];
+- (void)removeBuilding:(KSBuildings *)building {
+    [_mutableBuildings addItems:building];
 }
 
-- (void)hireEmployee:(employee *)employee {
+- (void)hireEmployee:(KSEmployee *)employee {
     [self.staffContainer addItems:employee];
 }
-- (void)fireEmployee:(employee *)employee {
+- (void)fireEmployee:(KSEmployee *)employee {
     [self.staffContainer removeItems:employee];
 }
 
+
+- (void)defaultSetup {
+    
+    KSWashBox *washBox = [[[KSWashBox alloc] initWithCapacity:2] autorelease];
+    KSCarWashBuilding *washBuilding = [[KSCarWashBuilding alloc] initWithRooms:@[washBox]];
+    
+    KSRooms *officeRoom = [KSRooms roomWithCapacity:2];
+    
+    KSBuildings *officeBuilding = [[KSBuildings alloc] initWithRooms:@[officeRoom]];
+    
+    
+    
+    KSEnterprise *enterprise = [[KSEnterprise alloc] initWithOffice:officeBuilding carWash:washBuilding];
+    
+    
+    [self hireEmployee:[KSWasher employeeWithSalary:3000 experience:1]];
+    
+    KSAccountant *accountant = [KSAccountant employeeWithSalary:6000 experience:3];
+    ks
+    
+//[self addBuilding:officeBuilding];
+//    [self addBuilding:washBuilding];
+    
+}
 
 
 @end

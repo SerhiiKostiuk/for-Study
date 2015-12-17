@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CashFlowProtocol.h"
+#import "KSCashFlowProtocol.h"
 
-@interface car : NSObject <CashFlowProtocol>
+@interface KSCar : NSObject <CashFlowProtocol>
 
-@property (nonatomic, readonly)                   NSUInteger    wallet;
-@property (nonatomic, assign, getter = isClean)   BOOL          clean;
+@property (nonatomic, readwrite, assign)                     NSUInteger    wallet;
+@property (nonatomic, readwrite, assign, getter = isClean)   BOOL          clean;
 
 + (instancetype)carWithMoney:(NSUInteger)money;
 
