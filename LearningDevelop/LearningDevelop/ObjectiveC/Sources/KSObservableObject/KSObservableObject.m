@@ -1,0 +1,77 @@
+//
+//  KSObjservableObject.m
+//  LearningDevelop
+//
+//  Created by Serg Bla on 20.12.15.
+//  Copyright © 2015 Serg Bla. All rights reserved.
+//
+
+#import "KSObservableObject.h"
+#import "KSWeakReference.h"
+@interface KSObservableObject ()
+@property (nonatomic, retain) NSMutableSet *mutableObservers;
+
+@end
+
+@implementation KSObservableObject
+
+@dynamic observers;
+
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.mutableObservers = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.mutableObservers = [NSMutableSet set];
+    }
+    return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSArray *) observers {
+    return [self.mutableObservers allObjects];
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void) addObserver:(id)observer {
+    KSWeakReference *reference = [[[KSWeakReference alloc] initWithTarget:observer] autorelease];
+    [self.mutableObservers addObject:reference];
+}
+
+- (void)removeObserver:(id)observer {
+    NSArray *array = self.observers;
+    for (KSWeakReference *reference in array) {
+        if (reference.target == observer) {
+            [self.mutableObservers removeObject:reference];
+            break;
+        }
+    }
+}
+
+- (void)notifyObserversWithSelector:(SEL)selector {
+    [self notifyObserversWithSelector:selector withObject:nil];
+}
+
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
+    [self notifyObserversWithSelector:selector withObject:object withObject:nil];
+}
+
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 { 
+    NSArray *observers = self.observers;
+    for (id observer in observers) {
+        [observer performSelector:(SEL)selector withObject:object withObject:object2];
+    }
+}
+@end
