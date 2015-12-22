@@ -21,9 +21,5 @@ static const NSUInteger kDefaultRoomCapacity = 1;
     return [[self alloc] initWithRooms:[NSArray arrayWithObject:[KSWashBox roomWithCapacity:kDefaultRoomCapacity]]];
 }
 
-//+ (BOOL)canContainItemOfClass:(Class)itemClass {
-//    return [super canContainItemOfClass:itemClass] || [itemClass isSubclassOfClass:[KSCar class]];
-//}
-
 @end
 

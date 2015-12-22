@@ -10,7 +10,9 @@
 
 @interface KSItemsContainer ()
 
-@property (nonatomic, retain) NSMutableArray *mutableItems;
+@property (nonatomic, readwrite, retain)  NSMutableArray   *mutableItems;
+@property (nonatomic, readwrite ,assign)  NSUInteger       capacity;
+
 
 @end
 
@@ -28,15 +30,20 @@
 }
 
 - (instancetype)init {
-    [self initWithCapacity:0];
-    
+    self = [super init];
+    if (self) {
+        self.mutableItems = [NSMutableArray array];
+    }
     return self;
 }
 
 - (instancetype)initWithCapacity:(NSUInteger)capacity {
     self = [super init];
-    self.mutableItems = [[[NSMutableArray alloc] initWithCapacity:capacity] autorelease];
-    self.capacity = capacity;
+    
+    if (self) {
+        self.capacity = capacity;
+
+    }
     
     return self;
 }
@@ -60,15 +67,14 @@
 }
 
 - (BOOL)isFull {
-    return (self.mutableItems.count == self.capacity);
+    return [self.mutableItems count] == self.capacity;
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)addItems:(id)item {
-    BOOL result = ![self isFull];
-    if (result) {
+    if (![self isFull]) {
         [self.mutableItems addObject:item];
     }
 }

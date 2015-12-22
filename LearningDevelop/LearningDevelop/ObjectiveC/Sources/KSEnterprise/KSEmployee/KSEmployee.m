@@ -39,9 +39,17 @@
     
 }
 
-//-(BOOL)isFree {
-//    return self.free;
-//}
+- (void)startWork {
+    self.state = kKSIsFree;
+}
+
+- (void)working {
+    self.state = kKSIsBusy;
+}
+
+- (void)finishWork {
+    self.state = kKSWorkDone;
+}
 
 - (BOOL) isAbleToPay:(NSUInteger)amount {
     if (self.wallet > amount) {
@@ -55,6 +63,7 @@
 
 - (void)takeMoney:(NSUInteger)amount fromSender:(id<CashFlowProtocol>)sender {
     if (sender) {
+        
         sender.wallet -= amount;
         self.wallet += amount;
     }

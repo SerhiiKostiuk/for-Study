@@ -18,17 +18,15 @@
 @property (nonatomic, readonly) NSArray    *staff;
 
 + (instancetype)enterprise;
-+ (instancetype)enterpriseWithOffice:(KSBuildings *)office carWash:(KSCarWashBuilding *)carWash;
++ (instancetype)enterpriseWithOffice:(KSBuildings *)office carWash:(KSBuildings *)carWash;
 
-- (instancetype)initWithOffice:(KSBuildings *)office carWash:(KSCarWashBuilding *)carWash;
+- (instancetype)initWithOffice:(KSBuildings *)office carWash:(KSBuildings *)carWash;
 
 - (void)addBuilding:(KSBuildings *)building;
 - (void)removeBuilding:(KSBuildings *)building;
 
 - (void)hireEmployee:(KSEmployee *)employee;
 - (void)fireEmployee:(KSEmployee *)employee;
-
-- (void)defaultSetup;
 
 - (void)washCars:(NSArray *)cars;
 

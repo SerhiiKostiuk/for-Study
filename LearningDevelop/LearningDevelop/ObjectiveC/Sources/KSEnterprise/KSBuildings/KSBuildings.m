@@ -14,7 +14,7 @@
 static const NSUInteger kDefaultRoomCapacity = 2;
 
 @interface KSBuildings ()
-@property (nonatomic, retain) KSItemsContainer *mutableRooms;
+@property (nonatomic, readwrite , retain) NSMutableArray *mutableRooms;
 
 @end
 
@@ -24,17 +24,13 @@ static const NSUInteger kDefaultRoomCapacity = 2;
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)building {
++ (instancetype)building { // delete 
     return [[self alloc] initWithRooms:[NSArray arrayWithObject:[KSRooms roomWithCapacity:kDefaultRoomCapacity]]];
 }
 
 + (instancetype)buildingWithRooms:(NSArray *)rooms {
     return  [[self alloc] initWithRooms:rooms];
 }
-
-//+ (BOOL)canContainItemOfClass:(Class)itemClass {
-//    return [itemClass isSubclassOfClass:[KSEmployee class]];
-//}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -54,7 +50,7 @@ static const NSUInteger kDefaultRoomCapacity = 2;
 - (instancetype)initWithRooms:(NSArray *)rooms {
     self =[super init];
     
-    self.mutableRooms = [[[KSItemsContainer alloc]initWithCapacity:rooms.count] autorelease];
+    self.mutableRooms = [[[NSMutableArray alloc]initWithCapacity:rooms.count] autorelease];
     for (KSRooms *room in rooms) {
         [self addRoom:room];
     }
@@ -66,14 +62,14 @@ static const NSUInteger kDefaultRoomCapacity = 2;
 #pragma mark Accessors
 
 -(NSArray *)rooms {
-    return [[_mutableRooms copy] autorelease];
+    return [[self.mutableRooms copy] autorelease];
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void)addRoom:(id)room {
-    [self.mutableRooms addItems:room];
+    [self.mutableRooms addObject:room];
 }
 
 - (void)removeRoom:(id)room {
@@ -81,11 +77,11 @@ static const NSUInteger kDefaultRoomCapacity = 2;
         [room removeEmployee:employee];
     }
     
-    [self.mutableRooms removeItems:room];
+    [self.mutableRooms removeObject:room];
 }
 
-- (NSArray *)roomsOfClass:(Class)roomClass {
-    return [self.mutableRooms itemsOfClass:roomClass];
-}
+//- (NSArray *)roomsOfClass:(Class)roomClass {
+//    return [self.mutableRooms itemsOfClass:roomClass];
+//}
 
 @end

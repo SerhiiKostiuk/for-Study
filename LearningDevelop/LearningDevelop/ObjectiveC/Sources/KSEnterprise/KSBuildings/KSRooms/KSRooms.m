@@ -6,18 +6,17 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-
 #import "KSRooms.h"
 #import "KSEmployee.h"
 #import "KSItemsContainer.h"
 
 @interface KSRooms ()
-@property (nonatomic, retain) KSItemsContainer *staffContainer;
+@property (nonatomic, readwrite, retain) KSItemsContainer *staff;
 
 @end
 
 @implementation KSRooms
-@dynamic staff;
+//@dynamic staff;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -26,15 +25,11 @@
     return [[[self alloc] initWithCapacity:capacity] autorelease];
 }
 
-//+ (BOOL)canContainItemOfClass:(Class)itemClass {
-//    return [itemClass isSubclassOfClass:[KSEmployee class]];
-//}
-
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.staffContainer = nil;
+    self.staff = nil;
     
     [super dealloc];
 }
@@ -43,28 +38,25 @@
     self = [super init];
     
     if (self) {
-        self.staffContainer = [[[KSItemsContainer alloc] initWithCapacity:capacity] autorelease];
+        self.staff = [[[KSItemsContainer alloc] initWithCapacity:capacity] autorelease];
     }
     
     return self;
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (KSItemsContainer *) KSStaff {
-    return self.staffContainer;
-}
-
-#pragma mark -
 #pragma mark Public
 
 - (void)addEmployee:(KSEmployee *)employee {
-    [self.staffContainer addItems:employee];
+    [self.staff addItems:employee];
 }
 
-- (void)removeEmployee:(id)employee {
-    [self.staffContainer removeItems:employee];
+- (void)removeEmployee:(KSEmployee *)employee {
+    [self.staff removeItems:employee];
+}
+
+- (BOOL)isFullOfEmployees {
+    return [self.staff isFull];
 }
 
 @end

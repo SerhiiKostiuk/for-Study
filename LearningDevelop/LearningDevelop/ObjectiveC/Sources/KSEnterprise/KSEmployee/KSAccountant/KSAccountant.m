@@ -9,8 +9,13 @@
 #import "KSAccountant.h"
 @implementation KSAccountant
 
-- (void)performPositionSpecificOperation:(KSEmployee *)washer {    
+- (void)performPositionSpecificOperation:(KSEmployee *)washer {
+    self.state = kKSIsBusy;
     [self takeMoney:washer.wallet fromSender:washer];
+    sleep(2);
+    [self notifyObserversWithSelector:@selector(performPositionSpecificOperation:) withObject:self];
+    self.state = kKSIsFree;
+
 }
 
 @end

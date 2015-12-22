@@ -21,14 +21,18 @@ static const NSUInteger kWashPrice = 10;
 
 - (void)performPositionSpecificOperation:(KSCar *)car {
     self.state = kKSIsBusy;
-    [car isAbleToPay:kWashPrice];
-    [self washCar:car];
+    if ([car isAbleToPay:kWashPrice]) {
+        [self washCar:car];
+    }
+    [self notifyObserversWithSelector:@selector(performPositionSpecificOperation:) withObject:self];
     self.state = kKSIsFree;
+
 }
 
 - (void) washCar:(KSCar *)car {
     if (car) {
         [self takeMoney:kWashPrice fromSender:car];
+        sleep(3);
         [car setClean:YES];
     }
 }

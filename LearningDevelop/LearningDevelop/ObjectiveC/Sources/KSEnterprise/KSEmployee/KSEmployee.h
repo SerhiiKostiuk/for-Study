@@ -8,23 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "KSCashFlowProtocol.h"
+#import "KSObservableObject.h"
 
 typedef NS_ENUM (NSUInteger, KSEmployeeState) {
     kKSIsFree,
-    kKSIsBusy
+    kKSIsBusy,
+    kKSWorkDone
 };
 
-
-@interface KSEmployee : NSObject <CashFlowProtocol>
-
+@interface KSEmployee : KSObservableObject <CashFlowProtocol>
 
 @property (nonatomic, assign)   NSUInteger      salary;
 @property (nonatomic, assign)   NSUInteger      experience;
 @property (nonatomic, assign)   NSUInteger      wallet;
 @property (nonatomic, assign)   KSEmployeeState state;
-
-//@property (nonatomic, readwrite, getter=isFree) BOOL free;
-
 
 + (instancetype)employeeWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
 
@@ -32,6 +29,7 @@ typedef NS_ENUM (NSUInteger, KSEmployeeState) {
 
 - (void)performPositionSpecificOperation;
 
-//- (void)takeMoney:(NSUInteger)amount fromSender:(id<CashFlowProtocol>)sender;
-
+- (void)startWork;
+- (void)working;
+- (void)finishWork;
 @end

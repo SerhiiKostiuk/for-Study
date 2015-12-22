@@ -29,7 +29,12 @@ describe(@"KSEnterprise", ^{
         });
         
         it(@"Create", ^{
-            KSEnterprise *enterprise = [KSEnterprise enterprise];
+            
+            KSBuildings *washbuilding = [KSBuildings buildingWithRooms:@[[KSWashBox roomWithCapacity:6]]];
+            
+            
+            
+            KSEnterprise *enterprise = [KSEnterprise enterpriseWithOffice:[KSBuildings building] carWash:washbuilding];
             
             NSLog(@"Enterprise is %@", enterprise);
             
@@ -44,10 +49,6 @@ describe(@"KSEnterprise", ^{
             KSWasher *washer = [KSWasher employeeWithSalary:3000 experience:1];
             [enterprise hireEmployee:washer];
             NSLog(@"Washer is %@", washer);
-            
-            KSBuildings *washbuilding = [KSBuildings building];
-            KSWashBox *washbox = [[KSWashBox alloc]initWithCapacity:2];
-            [washbuilding addRoom:washbox];
             
             
             NSArray *cars = [NSArray arrayWithObjects:  [KSCar carWithMoney:20],
@@ -70,9 +71,7 @@ describe(@"KSEnterprise", ^{
         });
         
         it(@"Create", ^{
-            KSEnterprise *enteprise = [KSEnterprise enterprise];
             
-            [enteprise defaultSetup];
         });
     
     });

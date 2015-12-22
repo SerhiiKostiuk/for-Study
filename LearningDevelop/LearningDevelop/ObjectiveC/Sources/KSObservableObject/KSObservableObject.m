@@ -71,7 +71,9 @@
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 { 
     NSArray *observers = self.observers;
     for (id observer in observers) {
-        [observer performSelector:(SEL)selector withObject:object withObject:object2];
+        if ([observer respondsToSelector:selector]) {
+            [observer performSelector:(SEL)selector withObject:object withObject:object2];
+        }
     }
 }
 @end

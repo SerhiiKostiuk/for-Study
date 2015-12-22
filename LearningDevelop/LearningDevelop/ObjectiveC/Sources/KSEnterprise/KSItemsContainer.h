@@ -12,7 +12,7 @@
 
 @property (nonatomic, readonly) NSArray     *items;
 @property (nonatomic, readonly) BOOL        isFull;
-@property (nonatomic, assign)   NSUInteger  capacity;
+@property (nonatomic, readonly) NSUInteger  capacity;
 
 - (instancetype)initWithCapacity:(NSUInteger)capacity;
 

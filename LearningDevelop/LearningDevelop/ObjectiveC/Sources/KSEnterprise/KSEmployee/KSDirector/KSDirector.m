@@ -12,8 +12,12 @@
 @implementation KSDirector
 
 - (void)performPositionSpecificOperation:(KSEmployee *)accountant {
+    self.state = kKSIsBusy;
     [self takeMoney:accountant.wallet fromSender:accountant];
+    sleep(1);
     NSLog(@"Wallet is %lu",self.wallet);
+    self.state = kKSIsFree;
+
     
 }
 

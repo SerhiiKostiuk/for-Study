@@ -453,9 +453,9 @@
 			children = (
 				C5AE776E1C26D13000002924 /* KSAccountant */,
 				C5AE77711C26D13000002924 /* KSDirector */,
+				C5AE77761C26D13000002924 /* KSWasher */,
 				C5AE77741C26D13000002924 /* KSEmployee.h */,
 				C5AE77751C26D13000002924 /* KSEmployee.m */,
-				C5AE77761C26D13000002924 /* KSWasher */,
 			);
 			path = KSEmployee;
 			sourceTree = "<group>";

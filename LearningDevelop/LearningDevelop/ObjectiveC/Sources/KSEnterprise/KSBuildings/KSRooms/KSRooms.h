@@ -16,11 +16,11 @@
 
 + (instancetype)roomWithCapacity:(NSUInteger)capacity;
 
-//+ (BOOL)canContainItemOfClass:(Class)itemClass;
-
 - (instancetype)initWithCapacity:(NSUInteger)capacity;
 
 - (void)addEmployee:(KSEmployee *)employee;
-- (void)removeEmployee:(id)employee;
+- (void)removeEmployee:(KSEmployee *)employee;
+
+- (BOOL)isFullOfEmployees;
 
 @end

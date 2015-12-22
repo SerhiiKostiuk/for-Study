@@ -11,24 +11,24 @@
 #import "KSItemsContainer.h"
 
 @interface KSWashBox ()
-@property (nonatomic, retain) KSItemsContainer *carsContainer;
+@property (nonatomic, readwrite, retain) KSItemsContainer *cars;
 
 @end
 
 @implementation KSWashBox
 
-//#pragma mark -
-//#pragma mark Class Methods
-//
-//+ (BOOL)canContainItemOfClass:(Class)itemClass {
-//    return [super canContainItemOfClass:itemClass] || [itemClass isSubclassOfClass:[KSCar class]];
-//}
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)roomWithCapacity:(NSUInteger)capacity {
+    return [[[self alloc] initWithCapacity:capacity] autorelease];
+}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.carsContainer = nil;
+    self.cars = nil;
     
     [super dealloc];
 }
@@ -37,31 +37,24 @@
     self = [super initWithCapacity:capacity];
     
     if (self) {
-        self.carsContainer = [[[KSItemsContainer alloc] initWithCapacity:capacity] autorelease];
+        self.cars = [[[KSItemsContainer alloc] initWithCapacity:capacity] autorelease];
     }
     return self;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (NSArray *)cars {
-    return self.carsContainer.items;
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void)addCar:(id)car {
-    [self.carsContainer addItems:car];
+    [self.cars addItems:car];
 }
 
 - (void)removeCar:(id)car {
-    [self.carsContainer removeItems:car];
+    [self.cars removeItems:car];
 }
 
 - (BOOL)isFullOfCars {
-    return [self.carsContainer isFull];
+    return [self.cars isFull];
 }
 
 @end

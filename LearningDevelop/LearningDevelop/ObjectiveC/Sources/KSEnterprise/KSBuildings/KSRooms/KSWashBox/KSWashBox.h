@@ -13,9 +13,9 @@
 
 @interface KSWashBox : KSRooms
 
-@property (nonatomic,readonly) NSArray *cars;
+@property (nonatomic,readonly) KSItemsContainer *cars;
 
-//+ (BOOL)canContainItemOfClass:(Class)itemClass;
++ (instancetype)roomWithCapacity:(NSUInteger)capacity;
 
 - (instancetype)initWithCapacity:(NSUInteger)capacity;
 
