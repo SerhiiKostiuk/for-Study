@@ -10,13 +10,7 @@
 
 @interface KSItemsContainer : NSObject
 
-@property (nonatomic, readonly) NSArray     *items;
-@property (nonatomic, readonly) BOOL        isFull;
-@property (nonatomic, readonly) NSUInteger  capacity;
-
-- (instancetype)initWithCapacity:(NSUInteger)capacity;
-
-- (NSArray *)itemsOfClass:(Class)itemClass;
+@property (nonatomic, readonly) NSArray  *items;
 
 - (void)addItems:(id)item;
 - (void)removeItems:(id)item;

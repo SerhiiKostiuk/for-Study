@@ -8,8 +8,9 @@
 
 #import "KSObservableObject.h"
 #import "KSWeakReference.h"
+#import "KSItemsContainer.h"
 @interface KSObservableObject ()
-@property (nonatomic, retain) NSMutableSet *mutableObservers;
+@property (nonatomic,readwrite, retain) NSMutableSet *mutableObservers;
 
 @end
 
@@ -38,24 +39,34 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *) observers {
-    return [self.mutableObservers allObjects];
+- (NSSet *) observers {
+    NSMutableSet *observers = self.mutableObservers;
+    NSMutableSet *result = [NSMutableSet setWithCapacity:[observers count]];
+    for (KSReference *reference in observers) {
+        [result addObject:reference.target];
+    }
+    
+    return [[result copy] autorelease];
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void) addObserver:(id)observer {
-    KSWeakReference *reference = [[[KSWeakReference alloc] initWithTarget:observer] autorelease];
-    [self.mutableObservers addObject:reference];
+    @synchronized(self) {
+        KSWeakReference *reference = [[[KSWeakReference alloc] initWithTarget:observer] autorelease];
+        [self.mutableObservers addObject:reference];
+    }
 }
 
 - (void)removeObserver:(id)observer {
-    NSArray *array = self.observers;
-    for (KSWeakReference *reference in array) {
-        if (reference.target == observer) {
-            [self.mutableObservers removeObject:reference];
-            break;
+    @synchronized(self) {
+        NSSet *set = self.observers;
+        for (KSWeakReference *reference in set) {
+            if (reference.target == observer) {
+                [self.mutableObservers removeObject:reference];
+                break;
+            }
         }
     }
 }
@@ -65,15 +76,20 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-    [self notifyObserversWithSelector:selector withObject:object withObject:nil];
-}
-
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 { 
-    NSArray *observers = self.observers;
+    NSSet *observers = self.observers;
+    
+    
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:(SEL)selector withObject:object withObject:object2];
-        }
+        [observer performSelector:(SEL)selector withObject:object];
+    }
     }
 }
+
+//- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 { 
+//    NSArray *observers = self.observers;
+//    for (id observer in observers) {
+//            [observer performSelector:(SEL)selector withObject:object withObject:object2];
+//    }
+//}
 @end

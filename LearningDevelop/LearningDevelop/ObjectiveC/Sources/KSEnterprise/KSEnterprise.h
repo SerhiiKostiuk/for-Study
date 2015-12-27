@@ -7,24 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-@class KSBuildings;
 @class KSEmployee;
-@class KSCarWashBuilding;
 @class KSItemsContainer;
 
 @interface KSEnterprise : NSObject
 
-@property (nonatomic, readonly) NSArray    *buildings;
 @property (nonatomic, readonly) NSArray    *staff;
 
 + (instancetype)enterprise;
-+ (instancetype)enterpriseWithOffice:(KSBuildings *)office carWash:(KSBuildings *)carWash;
 
-- (instancetype)initWithOffice:(KSBuildings *)office carWash:(KSBuildings *)carWash;
-
-- (void)addBuilding:(KSBuildings *)building;
-- (void)removeBuilding:(KSBuildings *)building;
-
+- (void)hireBasicTeam;
 - (void)hireEmployee:(KSEmployee *)employee;
 - (void)fireEmployee:(KSEmployee *)employee;
 

@@ -33,14 +33,6 @@
 		C53F351B1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */; };
 		C53F351C1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */; };
 		C53F351D1C11D8BE005E1A48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34DE1C11D896005E1A48 /* main.m */; };
-		C5AE777D1C26D13000002924 /* KSBuildings.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE775C1C26D13000002924 /* KSBuildings.m */; };
-		C5AE777E1C26D13000002924 /* KSBuildings.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE775C1C26D13000002924 /* KSBuildings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C5AE777F1C26D13000002924 /* KSCarWashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE775F1C26D13000002924 /* KSCarWashBuilding.m */; };
-		C5AE77801C26D13000002924 /* KSCarWashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE775F1C26D13000002924 /* KSCarWashBuilding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C5AE77811C26D13000002924 /* KSRooms.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77621C26D13000002924 /* KSRooms.m */; };
-		C5AE77821C26D13000002924 /* KSRooms.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77621C26D13000002924 /* KSRooms.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C5AE77831C26D13000002924 /* KSWashBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77651C26D13000002924 /* KSWashBox.m */; };
-		C5AE77841C26D13000002924 /* KSWashBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77651C26D13000002924 /* KSWashBox.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C5AE77871C26D13000002924 /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE776B1C26D13000002924 /* KSCar.m */; };
 		C5AE77881C26D13000002924 /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE776B1C26D13000002924 /* KSCar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C5AE77891C26D13000002924 /* KSAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77701C26D13000002924 /* KSAccountant.m */; };
@@ -138,14 +130,6 @@
 		C53F34FF1C11D896005E1A48 /* KSCreatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTests.m; sourceTree = "<group>"; };
 		C53F35011C11D896005E1A48 /* KSStringCategoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringCategoryTests.h; sourceTree = "<group>"; };
 		C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStringCategoryTests.m; sourceTree = "<group>"; };
-		C5AE775B1C26D13000002924 /* KSBuildings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBuildings.h; sourceTree = "<group>"; };
-		C5AE775C1C26D13000002924 /* KSBuildings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBuildings.m; sourceTree = "<group>"; };
-		C5AE775E1C26D13000002924 /* KSCarWashBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCarWashBuilding.h; sourceTree = "<group>"; };
-		C5AE775F1C26D13000002924 /* KSCarWashBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCarWashBuilding.m; sourceTree = "<group>"; };
-		C5AE77611C26D13000002924 /* KSRooms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSRooms.h; sourceTree = "<group>"; };
-		C5AE77621C26D13000002924 /* KSRooms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSRooms.m; sourceTree = "<group>"; };
-		C5AE77641C26D13000002924 /* KSWashBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWashBox.h; sourceTree = "<group>"; };
-		C5AE77651C26D13000002924 /* KSWashBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWashBox.m; sourceTree = "<group>"; };
 		C5AE776A1C26D13000002924 /* KSCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCar.h; sourceTree = "<group>"; };
 		C5AE776B1C26D13000002924 /* KSCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCar.m; sourceTree = "<group>"; };
 		C5AE776C1C26D13000002924 /* KSCashFlowProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCashFlowProtocol.h; sourceTree = "<group>"; };
@@ -214,6 +198,7 @@
 		C5C314771C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTypeRepresentationInBinaryTests.h; sourceTree = "<group>"; };
 		C5C9E10A1BFF1D6500590391 /* ObjectiveC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveC; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D205901BAA0327003C2465 /* LearningDevelop */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearningDevelop; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5F4D26A1C3049E1003FE41E /* KSObserverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserverProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,9 +373,9 @@
 		C5AE77591C26D13000002924 /* KSEnterprise */ = {
 			isa = PBXGroup;
 			children = (
-				C5AE775A1C26D13000002924 /* KSBuildings */,
 				C5AE77691C26D13000002924 /* KSCar */,
 				C5AE776C1C26D13000002924 /* KSCashFlowProtocol.h */,
+				C5F4D26A1C3049E1003FE41E /* KSObserverProtocol.h */,
 				C5AE776D1C26D13000002924 /* KSEmployee */,
 				C5AE77791C26D13000002924 /* KSEnterprise.h */,
 				C5AE777A1C26D13000002924 /* KSEnterprise.m */,
@@ -398,45 +383,6 @@
 				C5AE777C1C26D13000002924 /* KSItemsContainer.m */,
 			);
 			path = KSEnterprise;
-			sourceTree = "<group>";
-		};
-		C5AE775A1C26D13000002924 /* KSBuildings */ = {
-			isa = PBXGroup;
-			children = (
-				C5AE775B1C26D13000002924 /* KSBuildings.h */,
-				C5AE775C1C26D13000002924 /* KSBuildings.m */,
-				C5AE775D1C26D13000002924 /* KSCarWashBuilding */,
-				C5AE77601C26D13000002924 /* KSRooms */,
-			);
-			path = KSBuildings;
-			sourceTree = "<group>";
-		};
-		C5AE775D1C26D13000002924 /* KSCarWashBuilding */ = {
-			isa = PBXGroup;
-			children = (
-				C5AE775E1C26D13000002924 /* KSCarWashBuilding.h */,
-				C5AE775F1C26D13000002924 /* KSCarWashBuilding.m */,
-			);
-			path = KSCarWashBuilding;
-			sourceTree = "<group>";
-		};
-		C5AE77601C26D13000002924 /* KSRooms */ = {
-			isa = PBXGroup;
-			children = (
-				C5AE77611C26D13000002924 /* KSRooms.h */,
-				C5AE77621C26D13000002924 /* KSRooms.m */,
-				C5AE77631C26D13000002924 /* KSWashBox */,
-			);
-			path = KSRooms;
-			sourceTree = "<group>";
-		};
-		C5AE77631C26D13000002924 /* KSWashBox */ = {
-			isa = PBXGroup;
-			children = (
-				C5AE77641C26D13000002924 /* KSWashBox.h */,
-				C5AE77651C26D13000002924 /* KSWashBox.m */,
-			);
-			path = KSWashBox;
 			sourceTree = "<group>";
 		};
 		C5AE77691C26D13000002924 /* KSCar */ = {
@@ -950,23 +896,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5AE777E1C26D13000002924 /* KSBuildings.m in Sources */,
 				C5AE778C1C26D13000002924 /* KSDirector.m in Sources */,
 				C53F350E1C11D896005E1A48 /* KSWoman.m in Sources */,
 				C5AE77941C26D13000002924 /* KSItemsContainer.m in Sources */,
 				C5AE77B01C27337400002924 /* KSObservableObjectSpec.m in Sources */,
 				C5AE77921C26D13000002924 /* KSEnterprise.m in Sources */,
 				C53F35141C11D896005E1A48 /* KSClusterAlphabet.m in Sources */,
-				C5AE77821C26D13000002924 /* KSRooms.m in Sources */,
 				C5AE77AE1C27333E00002924 /* KSCarWashSpec.m in Sources */,
 				C5AE77B51C273CBE00002924 /* KSWeakReference.m in Sources */,
 				C5AE778A1C26D13000002924 /* KSAccountant.m in Sources */,
-				C5AE77801C26D13000002924 /* KSCarWashBuilding.m in Sources */,
 				C53F350A1C11D896005E1A48 /* KSMan.m in Sources */,
 				C53F35121C11D896005E1A48 /* KSStringCategories.m in Sources */,
 				C53F35081C11D896005E1A48 /* KSCreature.m in Sources */,
 				C5AE778E1C26D13000002924 /* KSEmployee.m in Sources */,
-				C5AE77841C26D13000002924 /* KSWashBox.m in Sources */,
 				C5AE77901C26D13000002924 /* KSWasher.m in Sources */,
 				C5AE77AD1C27333E00002924 /* KSAlphabetSpec.m in Sources */,
 				C53F35161C11D896005E1A48 /* KSRangeAlphabet.m in Sources */,
@@ -988,7 +930,6 @@
 			files = (
 				C53F351D1C11D8BE005E1A48 /* main.m in Sources */,
 				C53F350D1C11D896005E1A48 /* KSWoman.m in Sources */,
-				C5AE77811C26D13000002924 /* KSRooms.m in Sources */,
 				C5AE77891C26D13000002924 /* KSAccountant.m in Sources */,
 				C53F35131C11D896005E1A48 /* KSClusterAlphabet.m in Sources */,
 				C5AE778D1C26D13000002924 /* KSEmployee.m in Sources */,
@@ -997,14 +938,11 @@
 				C5AE77B91C273D1100002924 /* KSObservableObject.m in Sources */,
 				C5AE778F1C26D13000002924 /* KSWasher.m in Sources */,
 				C53F35111C11D896005E1A48 /* KSStringCategories.m in Sources */,
-				C5AE77831C26D13000002924 /* KSWashBox.m in Sources */,
 				C5AE77871C26D13000002924 /* KSCar.m in Sources */,
-				C5AE777D1C26D13000002924 /* KSBuildings.m in Sources */,
 				C5AE77B41C273CBE00002924 /* KSWeakReference.m in Sources */,
 				C53F35071C11D896005E1A48 /* KSCreature.m in Sources */,
 				C53F35151C11D896005E1A48 /* KSRangeAlphabet.m in Sources */,
 				C5AE77911C26D13000002924 /* KSEnterprise.m in Sources */,
-				C5AE777F1C26D13000002924 /* KSCarWashBuilding.m in Sources */,
 				C53F35171C11D896005E1A48 /* KSStringsAlphabet.m in Sources */,
 				C53F351B1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */,
 				C53F35191C11D896005E1A48 /* KSCreatureTests.m in Sources */,

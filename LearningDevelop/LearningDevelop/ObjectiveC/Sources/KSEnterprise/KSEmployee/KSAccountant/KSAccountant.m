@@ -12,9 +12,11 @@
 - (void)performPositionSpecificOperation:(KSEmployee *)washer {
     self.state = kKSIsBusy;
     [self takeMoney:washer.wallet fromSender:washer];
-    sleep(2);
+    [washer setState:kKSIsFree];
+//    sleep(2);
     [self notifyObserversWithSelector:@selector(performPositionSpecificOperation:) withObject:self];
     self.state = kKSIsFree;
+    
 
 }
 

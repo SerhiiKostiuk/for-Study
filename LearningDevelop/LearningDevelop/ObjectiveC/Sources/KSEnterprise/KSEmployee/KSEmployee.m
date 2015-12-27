@@ -8,11 +8,18 @@
 
 #import "KSEmployee.h"
 
+static const NSUInteger kKSDefaultSalary = 20;
+static const NSUInteger kKSDefaultExperience = 1;
+
 @implementation KSEmployee
 
 
 #pragma mark -
 #pragma mark Class Methods
+
++ (instancetype)employee {
+    return [[[self alloc] initWithSalary:kKSDefaultSalary experience:kKSDefaultExperience] autorelease];
+}
 
 + (instancetype)employeeWithSalary:(NSUInteger)salary experience:(NSUInteger)experience {
     return [[[self alloc] initWithSalary:salary experience:experience] autorelease];
@@ -33,22 +40,14 @@
 }
 
 #pragma mark -
-#pragma mark Public Implementations
+#pragma mark CashFlowProtocol
 
-- (void)performPositionSpecificOperation {
-    
-}
-
-- (void)startWork {
-    self.state = kKSIsFree;
-}
-
-- (void)working {
-    self.state = kKSIsBusy;
-}
-
-- (void)finishWork {
-    self.state = kKSWorkDone;
+- (void)takeMoney:(NSUInteger)amount fromSender:(id<CashFlowProtocol>)sender {
+    if (sender) {
+        
+        sender.wallet -= amount;
+        self.wallet += amount;
+    }
 }
 
 - (BOOL) isAbleToPay:(NSUInteger)amount {
@@ -59,14 +58,10 @@
 }
 
 #pragma mark -
-#pragma mark CashFlowProtocol
+#pragma mark KSObserverProtocol
 
-- (void)takeMoney:(NSUInteger)amount fromSender:(id<CashFlowProtocol>)sender {
-    if (sender) {
-        
-        sender.wallet -= amount;
-        self.wallet += amount;
-    }
+- (void)performPositionSpecificOperation:(id<CashFlowProtocol>)object {
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 @end

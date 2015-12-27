@@ -11,8 +11,6 @@
 @interface KSItemsContainer ()
 
 @property (nonatomic, readwrite, retain)  NSMutableArray   *mutableItems;
-@property (nonatomic, readwrite ,assign)  NSUInteger       capacity;
-
 
 @end
 
@@ -37,50 +35,29 @@
     return self;
 }
 
-- (instancetype)initWithCapacity:(NSUInteger)capacity {
-    self = [super init];
-    
-    if (self) {
-        self.capacity = capacity;
-
-    }
-    
-    return self;
-}
-
 #pragma mark -
 #pragma mark Accesors
 
 - (NSArray *)items {
-    return [[self.mutableItems copy] autorelease];
+//    @synchronized(self.mutableItems) {
+        return [[self.mutableItems copy] autorelease];
+//    }
 }
 
-- (NSArray *)itemsOfClass:(Class)itemClass {
-    NSMutableArray *mutableResult = [NSMutableArray array];
-    for (id item in self.mutableItems) {
-        if ([item isMemberOfClass:itemClass]) {
-            [mutableResult addObject:item];
-        }
-    }
-    
-    return [[mutableResult copy] autorelease];
-}
-
-- (BOOL)isFull {
-    return [self.mutableItems count] == self.capacity;
-}
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)addItems:(id)item {
-    if (![self isFull]) {
-        [self.mutableItems addObject:item];
-    }
+        @synchronized(self.mutableItems) {
+            [self.mutableItems addObject:item];
+        }
 }
 
 - (void)removeItems:(id)item {
-    [self.mutableItems removeObject:item];
+    @synchronized(self.mutableItems) {
+        [self.mutableItems removeObject:item];
+    }
 }
 
 

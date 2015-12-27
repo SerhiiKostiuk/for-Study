@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface KSObservableObject : NSObject
-@property (nonatomic, readonly) NSArray *observers;
+@property (nonatomic, readonly) NSSet *observers;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 
 - (void)notifyObserversWithSelector:(SEL)selector;
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object;
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2;
+//- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2;
 
 @end

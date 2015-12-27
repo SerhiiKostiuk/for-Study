@@ -8,7 +8,13 @@
 
 #import "KSCar.h"
 
+static const NSUInteger kKSDefaultWallet = 20;
+
 @implementation KSCar
+
++ (instancetype)car {
+    return [[[self alloc] initWithMoney:kKSDefaultWallet]autorelease];
+}
 
 + (instancetype)carWithMoney:(NSUInteger)money {
     return [[[self alloc] initWithMoney:money] autorelease];

@@ -8,7 +8,7 @@
 
 #import "KSCar.h"
 #import "KSWasher.h"
-#import "KSWashBox.h"
+//#import "KSWashBox.h"
 #import "KSEmployee.h"
 #import "KSAccountant.h"
 static const NSUInteger kWashPrice = 10;
@@ -24,15 +24,16 @@ static const NSUInteger kWashPrice = 10;
     if ([car isAbleToPay:kWashPrice]) {
         [self washCar:car];
     }
+    self.state = kKSWorkDone;
+    
     [self notifyObserversWithSelector:@selector(performPositionSpecificOperation:) withObject:self];
-    self.state = kKSIsFree;
-
+  
 }
 
 - (void) washCar:(KSCar *)car {
     if (car) {
         [self takeMoney:kWashPrice fromSender:car];
-        sleep(3);
+//        sleep(1);
         [car setClean:YES];
     }
 }

@@ -22,6 +22,4 @@
 - (void)addRoom:(id)room;
 - (void)removeRoom:(id)room;
 
-- (NSArray *)roomsOfClass:(Class)roomClass;
-
 @end

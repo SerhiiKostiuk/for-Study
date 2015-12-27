@@ -7,15 +7,11 @@
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import "CategoryForNSObject.h"
 #import "KSCar.h"
 #import "CategoryForNSObject.h"
 #import "KSEmployee.h"
-#import "KSBuildings.h"
-#import "KSCarWashBuilding.h"
 #import "KSEnterprise.h"
 #import "KSItemsContainer.h"
-#import "KSWashBox.h"
 #import "KSWasher.h"
 #import "KSAccountant.h"
 #import "KSDirector.h"
@@ -23,10 +19,9 @@
 
 @interface KSEnterprise ()
 
-@property (nonatomic, readwrite, retain) NSMutableArray    *mutableBuildings;
-@property (nonatomic, readwrite, retain) NSMutableArray    *staffContainer;
+@property (nonatomic, readwrite, retain) KSItemsContainer    *staffContainer;
+@property (nonatomic, readwrite, retain) KSItemsContainer    *queue;
 
-- (id) findFreeRoomOfClass:(Class)roomClass;
 - (id) findFreeEmployee:(Class)class;
 
 @end
@@ -38,11 +33,7 @@
 #pragma Class Methods
 
 + (instancetype)enterprise {
-    return [[self alloc] initWithOffice:[KSBuildings building] carWash:[KSCarWashBuilding building]];
-}
-
-+ (instancetype)enterpriseWithOffice:(KSBuildings *)office carWash:(KSBuildings *)carWash {
-    return [[self alloc] initWithOffice:office carWash:carWash];
+    return [self object];
 }
 
 #pragma mark -
@@ -50,8 +41,8 @@
 
 - (void)dealloc
 {
-    self.mutableBuildings = nil;
     self.staffContainer = nil;
+    self.queue = nil;
     
     [super dealloc];
 }
@@ -59,18 +50,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableBuildings = [NSMutableArray array];
-        self.staffContainer = [NSMutableArray array];
-    }
-    return self;
-}
-
-- (instancetype)initWithOffice:(KSBuildings *)office carWash:(KSBuildings *)carWash {
-    self = [self init];
-    
-    if (self) {
-        [self.mutableBuildings addObject:office];
-        [self.mutableBuildings addObject:carWash];
+        self.staffContainer = [KSItemsContainer object];
+        self.queue = [KSItemsContainer object];
     }
     return self;
 }
@@ -78,80 +59,48 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)buildings {
-    return [[self.mutableBuildings copy] autorelease] ;
-}
-
 - (NSArray *)staff {
-    return [[self.staffContainer copy] autorelease];
+    return [self.staffContainer items];
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void)addBuilding:(KSBuildings *)building {
-    [self.mutableBuildings addObject:building];
-}
-
-- (void)removeBuilding:(KSBuildings *)building {
-    [self.mutableBuildings removeObject:building];
-}
-
 - (void)hireEmployee:(KSEmployee *)employee {
-    [self.staffContainer addObject:employee];
+    [self.staffContainer addItems:employee];
 }
+
 - (void)fireEmployee:(KSEmployee *)employee {
-    [self.staffContainer removeObject:employee];
+    [self.staffContainer removeItems:employee];
 }
 
-
+- (void)hireBasicTeam {
+    KSWasher *firstWasher = [KSWasher employee];
+    KSWasher *secondWasher = [KSWasher employee];
+    KSAccountant *accountant = [KSAccountant employee];
+    KSDirector *director = [KSDirector employee];
+    
+    [firstWasher addObserver:accountant];
+    [secondWasher addObserver:accountant];
+    [accountant addObserver:director];
+    
+    NSArray *personal = @[firstWasher,secondWasher,accountant,director];
+    for (KSEmployee *worker in personal) {
+        [self hireEmployee:worker];
+    }
+}
 
 - (void)washCars:(NSArray *)cars {
-    KSWashBox *washBox = [self findFreeRoomOfClass:[KSWashBox class]];
-    KSWasher *washer = [self findFreeEmployee:[KSWasher class]];
-    KSAccountant *accountant = [self findFreeEmployee:[KSAccountant class]];
-    KSDirector *director = [self findFreeEmployee:[KSDirector class]];
+
     for (KSCar *car in cars) {
-        if (washBox) {
-            [washBox addCar:car];
-        } else {
-            break;
-        }
         
-        if (washer) {
-            [washer addObserver:accountant];
-            [accountant addObserver:director];
-            
-            [washer performPositionSpecificOperation:car];
-            [washBox removeCar:car];
-            
-            [washer removeObserver:accountant];
-            [accountant removeObserver:director];
-        }
+        [self performBackgroundWashCar:car];
     }
+  
 }
 
 #pragma mark -
 #pragma mark Private
-
-- (id) findFreeRoomOfClass:(Class)roomClass {
-    KSRooms *result = nil;
-    
-    for (id construction in self.buildings) {
-        for (id room in [construction rooms] ) {
-            if ([room respondsToSelector:@selector(addCar:)] && ![room isFullOfCars]) {
-                result = room;
-                
-                break;
-            }
-        }
-        if(result) {
-            break;
-        }
-    }
-    
-    return result;
-}
 
 - (id) findFreeEmployee:(Class)class {
     for (id employee in self.staff) {
@@ -162,6 +111,19 @@
     }
     
     return nil;
+}
+
+- (void)performBackgroundWashCar:(KSCar *)car {
+    KSWasher *washer = [self findFreeEmployee:[KSWasher class]];
+    if (washer) {
+        @synchronized(washer) {
+            NSLog(@"Washerman %@ locked", washer);
+            if (kKSIsFree == [washer state]) {
+                [washer performPositionSpecificOperation:car];
+                NSLog(@"Is car clean: %hhd Money is: %lu", car.isClean, car.wallet);
+            }
+        }
+    }
 }
 
 @end

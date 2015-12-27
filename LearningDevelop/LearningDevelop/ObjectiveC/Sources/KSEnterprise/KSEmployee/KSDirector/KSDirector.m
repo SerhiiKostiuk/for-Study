@@ -14,7 +14,8 @@
 - (void)performPositionSpecificOperation:(KSEmployee *)accountant {
     self.state = kKSIsBusy;
     [self takeMoney:accountant.wallet fromSender:accountant];
-    sleep(1);
+    [accountant setState:kKSIsFree];
+//    sleep(1);
     NSLog(@"Wallet is %lu",self.wallet);
     self.state = kKSIsFree;
 
