@@ -23,7 +23,7 @@ describe(@"KSEnterprise", ^{
     context(@"Create Enterprise", ^{
         
         it(@"Create", ^{
-            NSUInteger carsCount = 10;
+            NSUInteger carsCount = 5;
         
             KSEnterprise *enterprise = [KSEnterprise object];
             NSLog(@"Enterprise is %@", enterprise);
@@ -43,7 +43,7 @@ describe(@"KSEnterprise", ^{
             for (KSCar *car in cars) {
                 NSLog(@"Is car clean: %hhd Money is: %lu", car.isClean, car.wallet);
                 [enterprise washCars:cars];
-                 NSLog(@"Is car clean: %hhd Money is: %lu", car.isClean, car.wallet);
+//                 NSLog(@"Is car clean: %hhd Money is: %lu", car.isClean, car.wallet);
             }
             
             

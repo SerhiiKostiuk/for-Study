@@ -20,7 +20,6 @@
 @interface KSEnterprise ()
 
 @property (nonatomic, readwrite, retain) KSItemsContainer    *staffContainer;
-@property (nonatomic, readwrite, retain) KSItemsContainer    *queue;
 
 - (id) findFreeEmployee:(Class)class;
 
@@ -42,7 +41,6 @@
 - (void)dealloc
 {
     self.staffContainer = nil;
-    self.queue = nil;
     
     [super dealloc];
 }
@@ -51,7 +49,6 @@
     self = [super init];
     if (self) {
         self.staffContainer = [KSItemsContainer object];
-        self.queue = [KSItemsContainer object];
     }
     return self;
 }
@@ -77,26 +74,33 @@
 - (void)hireBasicTeam {
     KSWasher *firstWasher = [KSWasher employee];
     KSWasher *secondWasher = [KSWasher employee];
+    KSWasher *thirdWasher = [KSWasher employee];
     KSAccountant *accountant = [KSAccountant employee];
     KSDirector *director = [KSDirector employee];
     
     [firstWasher addObserver:accountant];
     [secondWasher addObserver:accountant];
+    [thirdWasher addObserver:accountant];
     [accountant addObserver:director];
     
-    NSArray *personal = @[firstWasher,secondWasher,accountant,director];
+    NSArray *personal = @[firstWasher,secondWasher,thirdWasher,accountant,director];
     for (KSEmployee *worker in personal) {
         [self hireEmployee:worker];
     }
 }
 
 - (void)washCars:(NSArray *)cars {
-
     for (KSCar *car in cars) {
-        
-        [self performBackgroundWashCar:car];
+//        NSThread *backGroundThread = [[[NSThread alloc]initWithTarget:self
+//                                                             selector:@selector(performBackgroundWashCar:)
+//                                                               object:car] autorelease];
+        [NSThread detachNewThreadSelector:@selector(performBackgroundWashCar:) toTarget:self withObject:car];
+//        [backGroundThread start];
+//        [self performSelectorInBackground:@selector(performBackgroundWashCar:) withObject:car];
     }
-  
+    NSLog(@"");
+    [NSThread exit];
+    
 }
 
 #pragma mark -
@@ -114,16 +118,19 @@
 }
 
 - (void)performBackgroundWashCar:(KSCar *)car {
-    KSWasher *washer = [self findFreeEmployee:[KSWasher class]];
-    if (washer) {
-        @synchronized(washer) {
-            NSLog(@"Washerman %@ locked", washer);
-            if (kKSIsFree == [washer state]) {
-                [washer performPositionSpecificOperation:car];
-                NSLog(@"Is car clean: %hhd Money is: %lu", car.isClean, car.wallet);
+    @autoreleasepool {
+        KSWasher *washer = [self findFreeEmployee:[KSWasher class]];
+        if (washer) {
+            @synchronized(washer) {
+                NSLog(@"Washer is %@ locked", washer);
+                if (kKSIsFree == [washer state]) {
+//                    usleep(10 *1000);
+
+                    [washer performPositionSpecificOperation:car];
+                    NSLog(@"Is car clean: %hhd Money is: %lu", car.isClean, car.wallet);
+                }
             }
         }
     }
 }
-
 @end

@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "KSStringCategoryTests.h"
 #import "KSCreatureTests.h"
-
+#import "KSCarWashTests.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
      //   [KSCreatureTests KSCreatureBehaviourTests];
-        [KSStringCategoryTests stringTests];
+//        [KSStringCategoryTests stringTests];
+        [KSCarWashTests carWashTests];
         
     }
     

@@ -80,9 +80,9 @@
     
     
     for (id observer in observers) {
-        if ([observer respondsToSelector:selector]) {
+//        if ([observer respondsToSelector:selector]) {
         [observer performSelector:(SEL)selector withObject:object];
-    }
+//    }
     }
 }
 
