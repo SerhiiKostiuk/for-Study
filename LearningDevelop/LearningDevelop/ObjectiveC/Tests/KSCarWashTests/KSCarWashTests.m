@@ -38,10 +38,14 @@
         [cars addObject:[KSCar car]];
     }
     
+    [enterprise washCars:cars];
+
     for (KSCar *car in cars) {
         NSLog(@"Is car clean: %hhd Money is: %lu", car.isClean, car.wallet);
-        [enterprise washCars:cars];
+      
     }
+    
+    NSLog(@"CarWash is finished");
 }
 
 @end

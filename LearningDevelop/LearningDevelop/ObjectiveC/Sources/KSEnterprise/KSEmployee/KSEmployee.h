@@ -9,20 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "KSCashFlowProtocol.h"
 #import "KSObservableObject.h"
-#import "KSObserverProtocol.h"
+#import "KSStateProtocol.h"
 
-typedef NS_ENUM (NSUInteger, KSEmployeeState) {
-    kKSIsFree,
-    kKSIsBusy,
-    kKSWorkDone
-};
-
-@interface KSEmployee : KSObservableObject <CashFlowProtocol, KSObserverProtocol>
+@interface KSEmployee : KSObservableObject <CashFlowProtocol, KSStateProtocol>
 
 @property (nonatomic, assign)   NSUInteger      salary;
 @property (nonatomic, assign)   NSUInteger      experience;
 @property (nonatomic, assign)   NSUInteger      wallet;
-@property (nonatomic, assign)   KSEmployeeState state;
 
 + (instancetype)employee;
 

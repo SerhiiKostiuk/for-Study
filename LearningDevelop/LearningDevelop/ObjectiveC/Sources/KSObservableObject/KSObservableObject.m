@@ -76,20 +76,15 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-    NSSet *observers = self.observers;
-    
-    
-    for (id observer in observers) {
-//        if ([observer respondsToSelector:selector]) {
-        [observer performSelector:(SEL)selector withObject:object];
-//    }
-    }
+    [self notifyObserversWithSelector:selector withObject:object withObject:nil];
 }
 
-//- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 { 
-//    NSArray *observers = self.observers;
-//    for (id observer in observers) {
-//            [observer performSelector:(SEL)selector withObject:object withObject:object2];
-//    }
-//}
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
+    NSSet *observers = self.observers;
+    for (id observer in observers) {
+        if ([observer respondsToSelector:selector]) {
+            [observer performSelector:(SEL)selector withObject:object withObject:object2];
+        }
+    }
+}
 @end

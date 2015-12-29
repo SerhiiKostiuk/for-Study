@@ -11,14 +11,20 @@
 static const NSUInteger kKSDefaultSalary = 20;
 static const NSUInteger kKSDefaultExperience = 1;
 
-@implementation KSEmployee
+@interface KSEmployee ()
 
+@property (nonatomic, readwrite, assign) KSEmployeeState  state;
+@property (nonatomic, readwrite, assign) id object;
+
+@end
+@implementation KSEmployee
+@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Class Methods
 
 + (instancetype)employee {
-    return [[[self alloc] initWithSalary:kKSDefaultSalary experience:kKSDefaultExperience] autorelease];
+    return [self employeeWithSalary:kKSDefaultSalary experience:kKSDefaultExperience];
 }
 
 + (instancetype)employeeWithSalary:(NSUInteger)salary experience:(NSUInteger)experience {
@@ -27,6 +33,10 @@ static const NSUInteger kKSDefaultExperience = 1;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
+
+- (instancetype)init {
+    return [self initWithSalary:kKSDefaultSalary experience:kKSDefaultExperience] ;
+}
 
 - (instancetype)initWithSalary:(NSUInteger)salary experience:(NSUInteger)experience {
     self = [super init];
@@ -40,6 +50,23 @@ static const NSUInteger kKSDefaultExperience = 1;
 }
 
 #pragma mark -
+#pragma mark Public
+
+- (void)performAsyncWorkWithObject:(id<CashFlowProtocol>)object {
+    [self performSelectorInBackground:@selector(performPositionSpecificOperation:) withObject:object];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)performPositionSpecificOperation:(id<CashFlowProtocol>)object {
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+- (void) onStateDidChange:(KSEmployee *)sender {
+    [self notifyObserversWithSelector:[self selectorForState:sender.state] withObject:sender];
+}
+#pragma mark -
 #pragma mark CashFlowProtocol
 
 - (void)takeMoney:(NSUInteger)amount fromSender:(id<CashFlowProtocol>)sender {
@@ -50,7 +77,7 @@ static const NSUInteger kKSDefaultExperience = 1;
     }
 }
 
-- (BOOL) isAbleToPay:(NSUInteger)amount {
+- (BOOL)isAbleToPay:(NSUInteger)amount {
     if (self.wallet > amount) {
         return YES;
     }
@@ -58,10 +85,19 @@ static const NSUInteger kKSDefaultExperience = 1;
 }
 
 #pragma mark -
-#pragma mark KSObserverProtocol
+#pragma mark KSStateProtocol
 
-- (void)performPositionSpecificOperation:(id<CashFlowProtocol>)object {
+- (void)setState:(KSEmployeeState)state {
+    if (_state != state) {
+        _state = state;
+        [self performSelectorOnMainThread:@selector(onStateDidChange:) withObject:self waitUntilDone:NO];
+    }
+}
+
+- (SEL)selectorForState:(KSEmployeeState)state {
     [self doesNotRecognizeSelector:_cmd];
+    
+    return Nil;
 }
 
 @end

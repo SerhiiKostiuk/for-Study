@@ -15,13 +15,13 @@
 #import "KSWasher.h"
 #import "KSAccountant.h"
 #import "KSDirector.h"
+#import "KSChecker.h"
 
 
 @interface KSEnterprise ()
 
 @property (nonatomic, readwrite, retain) KSItemsContainer    *staffContainer;
-
-- (id) findFreeEmployee:(Class)class;
+@property (nonatomic, readwrite, retain) KSChecker           *checker;
 
 @end
 
@@ -41,6 +41,7 @@
 - (void)dealloc
 {
     self.staffContainer = nil;
+    self.checker = nil;
     
     [super dealloc];
 }
@@ -49,6 +50,7 @@
     self = [super init];
     if (self) {
         self.staffContainer = [KSItemsContainer object];
+        self.checker = [KSChecker checkerWithEnterprise:self];
     }
     return self;
 }
@@ -89,48 +91,17 @@
     }
 }
 
+
 - (void)washCars:(NSArray *)cars {
-    for (KSCar *car in cars) {
-//        NSThread *backGroundThread = [[[NSThread alloc]initWithTarget:self
-//                                                             selector:@selector(performBackgroundWashCar:)
-//                                                               object:car] autorelease];
-        [NSThread detachNewThreadSelector:@selector(performBackgroundWashCar:) toTarget:self withObject:car];
-//        [backGroundThread start];
-//        [self performSelectorInBackground:@selector(performBackgroundWashCar:) withObject:car];
-    }
-    NSLog(@"");
-    [NSThread exit];
-    
+
+    [self.checker performWorkWithObjects:cars];
+
 }
+
 
 #pragma mark -
 #pragma mark Private
 
-- (id) findFreeEmployee:(Class)class {
-    for (id employee in self.staff) {
-        if ([employee isMemberOfClass:class] && kKSIsFree == [employee state]) {
-            
-            return employee;
-        }
-    }
-    
-    return nil;
-}
 
-- (void)performBackgroundWashCar:(KSCar *)car {
-    @autoreleasepool {
-        KSWasher *washer = [self findFreeEmployee:[KSWasher class]];
-        if (washer) {
-            @synchronized(washer) {
-                NSLog(@"Washer is %@ locked", washer);
-                if (kKSIsFree == [washer state]) {
-//                    usleep(10 *1000);
 
-                    [washer performPositionSpecificOperation:car];
-                    NSLog(@"Is car clean: %hhd Money is: %lu", car.isClean, car.wallet);
-                }
-            }
-        }
-    }
-}
 @end

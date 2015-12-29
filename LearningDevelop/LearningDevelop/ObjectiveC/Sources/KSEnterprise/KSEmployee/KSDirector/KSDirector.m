@@ -12,6 +12,7 @@
 @implementation KSDirector
 
 - (void)performPositionSpecificOperation:(KSEmployee *)accountant {
+    @autoreleasepool {
     self.state = kKSIsBusy;
     [self takeMoney:accountant.wallet fromSender:accountant];
     [accountant setState:kKSIsFree];
@@ -19,7 +20,7 @@
     NSLog(@"Wallet is %lu",self.wallet);
     self.state = kKSIsFree;
 
-    
+    }
 }
 
 @end

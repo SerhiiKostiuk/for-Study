@@ -8,7 +8,6 @@
 
 #import "KSCar.h"
 #import "KSWasher.h"
-//#import "KSWashBox.h"
 #import "KSEmployee.h"
 #import "KSAccountant.h"
 static const NSUInteger kWashPrice = 10;
@@ -18,8 +17,11 @@ static const NSUInteger kWashPrice = 10;
 @end
 
 @implementation KSWasher
+@synthesize state = _state;
 
 - (void)performPositionSpecificOperation:(KSCar *)car {
+    @autoreleasepool {
+
     self.state = kKSIsBusy;
     if ([car isAbleToPay:kWashPrice]) {
         [self washCar:car];
@@ -27,7 +29,7 @@ static const NSUInteger kWashPrice = 10;
     self.state = kKSWorkDone;
     
     [self notifyObserversWithSelector:@selector(performPositionSpecificOperation:) withObject:self];
-  
+    }
 }
 
 - (void) washCar:(KSCar *)car {
