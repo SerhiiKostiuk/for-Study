@@ -10,13 +10,10 @@
 @implementation KSAccountant
 
 - (void)performPositionSpecificOperation:(KSEmployee *)washer {
-    self.state = kKSIsBusy;
     [self takeMoney:washer.wallet fromSender:washer];
-    [washer setState:kKSIsFree];
-//    sleep(2);
+    [self finish];
     [self notifyObserversWithSelector:@selector(performPositionSpecificOperation:) withObject:self];
-    self.state = kKSIsFree;
-    
+    [self becomeFree];
 
 }
 

@@ -13,13 +13,10 @@
 
 - (void)performPositionSpecificOperation:(KSEmployee *)accountant {
     @autoreleasepool {
-    self.state = kKSIsBusy;
-    [self takeMoney:accountant.wallet fromSender:accountant];
-    [accountant setState:kKSIsFree];
-//    sleep(1);
-    NSLog(@"Wallet is %lu",self.wallet);
-    self.state = kKSIsFree;
-
+        [self takeMoney:accountant.wallet fromSender:accountant];
+        [self finish];
+        NSLog(@"Wallet is %lu",self.wallet);
+        [self becomeFree];
     }
 }
 

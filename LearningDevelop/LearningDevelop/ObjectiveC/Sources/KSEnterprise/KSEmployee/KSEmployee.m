@@ -13,8 +13,8 @@ static const NSUInteger kKSDefaultExperience = 1;
 
 @interface KSEmployee ()
 
-@property (nonatomic, readwrite, assign) KSEmployeeState  state;
-@property (nonatomic, readwrite, assign) id object;
+@property (nonatomic, readwrite, assign) KSEmployeeState    state;
+@property (nonatomic, readwrite, retain) id                 object;
 
 @end
 @implementation KSEmployee
@@ -63,8 +63,21 @@ static const NSUInteger kKSDefaultExperience = 1;
     [self doesNotRecognizeSelector:_cmd];
 }
 
-- (void) onStateDidChange:(KSEmployee *)sender {
+- (void)onStateDidChange:(KSEmployee *)sender {
     [self notifyObserversWithSelector:[self selectorForState:sender.state] withObject:sender];
+}
+
+-(void)start {
+    self.state = kKSIsBusy;
+    [self performAsyncWorkWithObject:self.object];
+}
+
+-(void)finish {
+    self.state = kKSWorkDone;
+}
+
+-(void)becomeFree {
+    self.state = kKSIsFree;
 }
 #pragma mark -
 #pragma mark CashFlowProtocol

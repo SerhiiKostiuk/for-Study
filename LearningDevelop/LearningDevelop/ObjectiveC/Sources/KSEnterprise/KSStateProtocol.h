@@ -16,13 +16,18 @@ typedef NS_ENUM (NSUInteger, KSEmployeeState) {
 };
 
 @protocol KSStateProtocol <CashFlowProtocol>
-@property (nonatomic, readonly, assign) id object;
+@property (nonatomic, readonly) id object;
 
 @property (nonatomic, readonly, assign)   KSEmployeeState state;
 
 - (void)setState:(KSEmployeeState)state;
 
 - (SEL)selectorForState:(KSEmployeeState)state;
+
+- (void)start;
+- (void)finish;
+- (void)becomeFree;
+
 
 //- (void)performPositionSpecificOperation:(id<CashFlowProtocol>)object;
 

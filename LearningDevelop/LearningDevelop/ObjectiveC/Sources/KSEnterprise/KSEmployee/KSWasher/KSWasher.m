@@ -17,16 +17,14 @@ static const NSUInteger kWashPrice = 10;
 @end
 
 @implementation KSWasher
-@synthesize state = _state;
 
 - (void)performPositionSpecificOperation:(KSCar *)car {
     @autoreleasepool {
 
-    self.state = kKSIsBusy;
     if ([car isAbleToPay:kWashPrice]) {
         [self washCar:car];
     }
-    self.state = kKSWorkDone;
+        [self finish];
     
     [self notifyObserversWithSelector:@selector(performPositionSpecificOperation:) withObject:self];
     }

@@ -85,6 +85,12 @@
     [thirdWasher addObserver:accountant];
     [accountant addObserver:director];
     
+    [firstWasher addObserver:self.checker];
+    [secondWasher addObserver:self.checker];
+    [thirdWasher addObserver:self.checker];
+    [accountant addObserver:self.checker];
+    
+    
     NSArray *personal = @[firstWasher,secondWasher,thirdWasher,accountant,director];
     for (KSEmployee *worker in personal) {
         [self hireEmployee:worker];

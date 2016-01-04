@@ -76,12 +76,9 @@
         KSWasher *washer = [self findFreeEmployee:[KSWasher class]];
         if (washer) {
             @synchronized(washer) {
-                NSLog(@"Washer is %@ locked", washer);
                 if (kKSIsFree == [washer state]) {
-                    sleep(1);
-                    [washer performPositionSpecificOperation:car];
+                    [washer start];
                     
-//                    [washer performSelectorInBackground:@selector(performPositionSpecificOperation:) withObject:car];
                     NSLog(@"Is car clean: %hhd Money is: %lu", car.isClean, car.wallet);
                 } else {
                     [self.queue addItems:car];
