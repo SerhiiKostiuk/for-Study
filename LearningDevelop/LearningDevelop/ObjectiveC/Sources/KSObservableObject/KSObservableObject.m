@@ -39,20 +39,22 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSSet *) observers {
-    NSMutableSet *observers = self.mutableObservers;
-    NSMutableSet *result = [NSMutableSet setWithCapacity:[observers count]];
-    for (KSReference *reference in observers) {
-        [result addObject:reference.target];
+- (NSSet *)observers {
+    @synchronized(self.mutableObservers) {
+        NSMutableSet *observers = self.mutableObservers;
+        NSMutableSet *result = [NSMutableSet setWithCapacity:[observers count]];
+        for (KSReference *reference in observers) {
+            [result addObject:reference.target];
+        }
+        
+        return [[result copy] autorelease];
     }
-    
-    return [[result copy] autorelease];
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void) addObserver:(id)observer {
+- (void)addObserver:(id)observer {
     @synchronized(self) {
         KSWeakReference *reference = [[[KSWeakReference alloc] initWithTarget:observer] autorelease];
         [self.mutableObservers addObject:reference];

@@ -43,18 +43,18 @@
 
 - (NSString *)stringAtIndex:(NSUInteger)index {
     NSUInteger count = self.count;
-    NSUInteger iteretedIndex = index;
+    NSUInteger iteratedIndex = index;
     
     NSAssert(index < count, NSRangeException);
 
     for (KSAlphabet *alphabet in self.alphabets) {
         count = [alphabet count];
         
-        if (iteretedIndex < count) {
-            return alphabet[iteretedIndex];
+        if (iteratedIndex < count) {
+            return alphabet[iteratedIndex];
         }
         
-        iteretedIndex -= count;
+        iteratedIndex -= count;
     }
     
     return nil;

@@ -8,25 +8,29 @@
 //
 
 #import "KSCar.h"
-#import "CategoryForNSObject.h"
+#import "KSQueue.h"
+#import "KSWasher.h"
+#import "KSDirector.h"
 #import "KSEmployee.h"
+#import "KSAccountant.h"
 #import "KSEnterprise.h"
 #import "KSItemsContainer.h"
-#import "KSWasher.h"
-#import "KSAccountant.h"
-#import "KSDirector.h"
-#import "KSChecker.h"
+#import "NSObject+KSExtensions.h"
 
+@interface KSEnterprise () <KSObserverProtocol>
 
-@interface KSEnterprise ()
+@property (nonatomic, retain) KSItemsContainer    *staffContainer;
 
-@property (nonatomic, readwrite, retain) KSItemsContainer    *staffContainer;
-@property (nonatomic, readwrite, retain) KSChecker           *checker;
+@property (nonatomic, retain) KSQueue  *carsQueue;
+@property (nonatomic, retain) KSQueue  *washerQueue;
+@property (nonatomic, retain) KSQueue  *accountantQueue;
+
+- (void)hireBasicTeam;
+- (id)findFreeEmployee:(Class)class;
 
 @end
 
 @implementation KSEnterprise
-@dynamic staff;
 
 #pragma mark -
 #pragma Class Methods
@@ -41,7 +45,6 @@
 - (void)dealloc
 {
     self.staffContainer = nil;
-    self.checker = nil;
     
     [super dealloc];
 }
@@ -50,7 +53,6 @@
     self = [super init];
     if (self) {
         self.staffContainer = [KSItemsContainer object];
-        self.checker = [KSChecker checkerWithEnterprise:self];
     }
     return self;
 }
@@ -65,48 +67,72 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)hireEmployee:(KSEmployee *)employee {
-    [self.staffContainer addItems:employee];
-}
-
-- (void)fireEmployee:(KSEmployee *)employee {
-    [self.staffContainer removeItems:employee];
-}
-
-- (void)hireBasicTeam {
-    KSWasher *firstWasher = [KSWasher employee];
-    KSWasher *secondWasher = [KSWasher employee];
-    KSWasher *thirdWasher = [KSWasher employee];
-    KSAccountant *accountant = [KSAccountant employee];
-    KSDirector *director = [KSDirector employee];
-    
-    [firstWasher addObserver:accountant];
-    [secondWasher addObserver:accountant];
-    [thirdWasher addObserver:accountant];
-    [accountant addObserver:director];
-    
-    [firstWasher addObserver:self.checker];
-    [secondWasher addObserver:self.checker];
-    [thirdWasher addObserver:self.checker];
-    [accountant addObserver:self.checker];
-    
-    
-    NSArray *personal = @[firstWasher,secondWasher,thirdWasher,accountant,director];
-    for (KSEmployee *worker in personal) {
-        [self hireEmployee:worker];
-    }
-}
-
-
 - (void)washCars:(NSArray *)cars {
-
-    [self.checker performWorkWithObjects:cars];
-
+    [self performSelectorInBackground:@selector(performWorkWithCars:) withObject:cars];
+    
 }
-
 
 #pragma mark -
 #pragma mark Private
+
+
+- (void)hireBasicTeam {
+    KSItemsContainer *teamContainer = self.staffContainer;
+    NSArray *staff = @[[KSWasher object],[KSWasher object],[KSAccountant object],[KSDirector object]];
+    
+    for (id employee in staff) {
+        [employee addObserver:self];
+        [teamContainer addItem:employee];
+    }
+}
+
+- (void)fireBasicTeam {
+    NSArray *staff = self.staffContainer.items;
+    
+    for (id employee in staff) {
+        for (id observer in staff) {
+            [employee removeObserver:observer];
+        }
+        [employee removeObserver:self];
+    }
+    
+    self.staffContainer = nil;
+}
+
+- (id)findFreeEmployee:(Class)class {
+    for (id employee in self.staffContainer.items) {
+        if ([employee isMemberOfClass:class] && kKSIsFree == [employee state]) {
+            @synchronized(employee) {
+                if (kKSIsFree == [employee state]) {
+                    [employee setState:kKSIsBusy];
+                    
+                    return employee;
+                }
+            }
+        }
+    }
+    
+    return nil;
+}
+
+- (void)performWorkWithCar:(id<KSCashFlowProtocol>)car {
+    @autoreleasepool {
+        KSWasher *washer = [self findFreeEmployee:[KSWasher class]];
+        if (washer) {
+            [washer performWorkWithObject:car];
+        } else {
+            [self.carsQueue addToQueue:car];
+        }
+    }
+}
+
+- (void)performWorkWithCars:(NSArray *)cars {
+    @autoreleasepool {
+        for (KSCar *car in cars) {
+            [self performWorkWithCar:car];
+        }
+    }
+}
 
 
 

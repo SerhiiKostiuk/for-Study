@@ -10,13 +10,11 @@
 #import "KSEmployee.h"
 #import "KSCashFlowProtocol.h"
 
-@class KSWashBox;
 @class KSCar;
 
 @interface KSWasher :KSEmployee
 
-- (void)performPositionSpecificOperation:(KSCar *)car;
+- (void)performSpecificOperationWithObject:(KSCar *)car;
 
-- (void) washCar:(KSCar *)car;
 
 @end

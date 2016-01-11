@@ -9,19 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "KSCashFlowProtocol.h"
 #import "KSObservableObject.h"
+#import "KSObserverProtocol.h"
 #import "KSStateProtocol.h"
 
-@interface KSEmployee : KSObservableObject <CashFlowProtocol, KSStateProtocol>
+@interface KSEmployee : KSObservableObject <KSCashFlowProtocol, KSStateProtocol, KSObserverProtocol>
 
-@property (nonatomic, assign)   NSUInteger      salary;
-@property (nonatomic, assign)   NSUInteger      experience;
-@property (nonatomic, assign)   NSUInteger      wallet;
-
-+ (instancetype)employee;
-
-+ (instancetype)employeeWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
-
-- (instancetype)initWithSalary:(NSUInteger)salary experience:(NSUInteger)experience;
-
+- (void)performWorkWithObject:(id<KSCashFlowProtocol>)object;
 
 @end

@@ -11,7 +11,7 @@
 #import "KSRangeAlphabet.h"
 #import "KSClusterAlphabet.h"
 #import "KSStringsAlphabet.h"
-#import "KSStringCategories.h"
+#import "NSString+KSExtensions.h"
 
 NSRange KSMakeAlphabetRange(unichar firstValue, unichar secondValue) {
     unichar minValue = MIN(firstValue, secondValue);

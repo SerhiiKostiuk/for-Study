@@ -1,5 +1,5 @@
 //
-//  washer.m
+//  KSWasher.m
 //  LearningDevelop
 //
 //  Created by Serg Bla on 08.12.15.
@@ -8,32 +8,29 @@
 
 #import "KSCar.h"
 #import "KSWasher.h"
-#import "KSEmployee.h"
-#import "KSAccountant.h"
+
 static const NSUInteger kWashPrice = 10;
-
-@interface KSWasher ()
-
-@end
 
 @implementation KSWasher
 
-- (void)performPositionSpecificOperation:(KSCar *)car {
-    @autoreleasepool {
+#pragma mark -
+#pragma mark Public Implementations
 
-    if ([car isAbleToPay:kWashPrice]) {
-        [self washCar:car];
-    }
-        [self finish];
-    
-    [self notifyObserversWithSelector:@selector(performPositionSpecificOperation:) withObject:self];
+- (void)performSpecificOperationWithObject:(KSCar *)car {
+    @autoreleasepool {
+        if ([car isAbleToPay:kWashPrice]) {
+            [self washCar:car];
+        }
+        self.state = kKSWorkDone;
     }
 }
 
+#pragma mark -
+#pragma mark Private Implementations
+
 - (void) washCar:(KSCar *)car {
     if (car) {
-        [self takeMoney:kWashPrice fromSender:car];
-//        sleep(1);
+        [car giveMoney:kWashPrice toReceiver:self];
         [car setClean:YES];
     }
 }

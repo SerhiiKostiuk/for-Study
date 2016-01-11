@@ -10,6 +10,11 @@
 
 static const NSUInteger kKSDefaultWallet = 20;
 
+@interface KSCar ()
+@property (nonatomic, readwrite) NSUInteger wallet;
+
+@end
+
 @implementation KSCar
 
 + (instancetype)car {
@@ -32,21 +37,30 @@ static const NSUInteger kKSDefaultWallet = 20;
     return self;
 }
 
-- (BOOL) isAbleToPay:(NSUInteger)amount {
-    if (self.wallet > amount) {
-        return YES;
-    }
-    return NO;
-}
-
 #pragma mark -
 #pragma mark CashFlowProtocol
 
-- (void)takeMoney:(NSUInteger)amount fromSender:(id<CashFlowProtocol>)sender {
-    if (sender && [self isAbleToPay:amount] ) {
-        sender.wallet -= amount;
+- (void)giveMoney:(NSUInteger)amount toReceiver:(id<KSCashFlowProtocol>)receiver {
+    @synchronized(self) {
+        if ([self isAbleToPay:amount]) {
+            [receiver takeMoney:amount];
+            self.wallet -=amount;
+        }
+    }
+}
+
+- (void)takeMoney:(NSUInteger)amount {
+    @synchronized(self) {
         self.wallet += amount;
     }
+}
+
+- (BOOL)isAbleToPay:(NSUInteger)amount {
+    if (self.wallet > amount) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end

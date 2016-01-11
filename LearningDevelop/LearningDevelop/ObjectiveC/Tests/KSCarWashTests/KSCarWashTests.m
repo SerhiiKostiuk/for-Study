@@ -7,7 +7,7 @@
 //
 
 #import "KSCarWashTests.h"
-#import "CategoryForNSObject.h"
+#import "NSObject+KSExtensions.h"
 #import "KSEnterprise.h"
 //#import "KSDirector.h"
 //#import "KSAccountant.h"

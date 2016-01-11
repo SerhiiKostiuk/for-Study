@@ -39,22 +39,23 @@
 #pragma mark Accesors
 
 - (NSArray *)items {
-//    @synchronized(self.mutableItems) {
+    NSMutableArray *mutableItems = self.mutableItems;
+    @synchronized(mutableItems) {
         return [[self.mutableItems copy] autorelease];
-//    }
+    }
 }
 
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)addItems:(id)item {
+- (void)addItem:(id)item {
         @synchronized(self.mutableItems) {
             [self.mutableItems addObject:item];
         }
 }
 
-- (void)removeItems:(id)item {
+- (void)removeItem:(id)item {
     @synchronized(self.mutableItems) {
         [self.mutableItems removeObject:item];
     }

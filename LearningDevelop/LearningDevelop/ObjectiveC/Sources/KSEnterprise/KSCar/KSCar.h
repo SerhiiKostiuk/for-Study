@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "KSCashFlowProtocol.h"
 
-@interface KSCar : NSObject <CashFlowProtocol>
+@interface KSCar : NSObject <KSCashFlowProtocol>
 
-@property (nonatomic, readwrite, assign)                     NSUInteger    wallet;
-@property (nonatomic, readwrite, assign, getter = isClean)   BOOL          clean;
+@property (nonatomic, readwrite, assign, getter = isClean) BOOL clean;
 
 + (instancetype)car;
 + (instancetype)carWithMoney:(NSUInteger)money;

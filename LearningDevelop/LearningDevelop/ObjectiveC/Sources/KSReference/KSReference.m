@@ -21,9 +21,6 @@
 }
 
 - (instancetype)initWithTarget:(id)target {
-    if (nil == target) {
-        return nil;
-    }
     self = [super init];
     if (self) {
         self.target = target;

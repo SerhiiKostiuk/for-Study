@@ -7,7 +7,7 @@
 //
 
 #import "KSAlphabet.h"
-#import "KSStringCategories.h"
+#import "NSString+KSExtensions.h"
 #import "KSStringCategoryTests.h"
 
 

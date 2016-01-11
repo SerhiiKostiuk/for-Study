@@ -7,8 +7,8 @@
 //
 
 #import "KSWeakReference.h"
-@interface KSWeakReference ()
 
+@interface KSWeakReference ()
 @property (nonatomic, assign) id target;
 
 @end

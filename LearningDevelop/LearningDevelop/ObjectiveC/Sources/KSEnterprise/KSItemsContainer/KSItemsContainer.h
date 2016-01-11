@@ -12,8 +12,8 @@
 
 @property (nonatomic, readonly) NSArray  *items;
 
-- (void)addItems:(id)item;
-- (void)removeItems:(id)item;
+- (void)addItem:(id)item;
+- (void)removeItem:(id)item;
 
 
 

@@ -1,12 +1,12 @@
 //
-//  KSStringCategories.m
+//  NSString+KSExtensions.m
 //  LearningDevelop
 //
 //  Created by Serg Bla on 26.11.15.
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
 
-#import "KSStringCategories.h"
+#import "NSString+KSExtensions.h"
 
 #define KSNumericRange NSMakeRange( '0', '9' - '0' + 1)
 #define KSLowercaseLettersRange NSMakeRange('a', 'z' - 'a' + 1)

@@ -7,18 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class KSEmployee;
-@class KSItemsContainer;
 
 @interface KSEnterprise : NSObject
-
-@property (nonatomic, readonly) NSArray    *staff;
-
-+ (instancetype)enterprise;
-
-- (void)hireBasicTeam;
-- (void)hireEmployee:(KSEmployee *)employee;
-- (void)fireEmployee:(KSEmployee *)employee;
 
 - (void)washCars:(NSArray *)cars;
 

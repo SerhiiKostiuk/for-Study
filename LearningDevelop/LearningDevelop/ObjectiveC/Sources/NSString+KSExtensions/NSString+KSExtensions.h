@@ -1,5 +1,5 @@
 //
-//  KSStringCategories.h
+//  NSString+KSExtensions.h
 //  LearningDevelop
 //
 //  Created by Serg Bla on 26.11.15.
