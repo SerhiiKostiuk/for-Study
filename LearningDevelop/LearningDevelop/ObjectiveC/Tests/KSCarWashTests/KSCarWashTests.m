@@ -21,12 +21,10 @@
 }
 
 +(void)performCarWashTests {
-    NSUInteger carsCount = 5;
+    NSUInteger carsCount = 5000;
     
     KSEnterprise *enterprise = [KSEnterprise object];
-    NSLog(@"Enterprise is %@", enterprise);
     
-    [enterprise hireBasicTeam];
     
     //            NSArray *cars = [NSArray arrayWithObjects:  [KSCar carWithMoney:20],
     //                             [KSCar carWithMoney:15],
@@ -46,6 +44,9 @@
     }
     
     NSLog(@"CarWash is finished");
+    
+    [[NSRunLoop currentRunLoop] run];
+
 }
 
 @end

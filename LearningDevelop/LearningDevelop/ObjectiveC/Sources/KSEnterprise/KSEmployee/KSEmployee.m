@@ -91,9 +91,17 @@
 }
 
 - (SEL)selectorForState:(KSEmployeeState)state {
-    [self doesNotRecognizeSelector:_cmd];
-    
-    return NULL;
+    switch (state) {
+        case kKSWorkDone:
+            return @selector(employeeFinishWork:);
+        case kKSIsFree:
+            return @selector(employeeBecomeFree:);
+        case kKSIsBusy:
+            return @selector(employeeStartWorking:);
+            
+        default:
+            return NULL;
+    }
 }
 
 @end

@@ -11,6 +11,4 @@
 
 @interface KSDirector : KSEmployee
 
-- (void)performPositionSpecificOperation:(KSEmployee *)accountant;
-
 @end

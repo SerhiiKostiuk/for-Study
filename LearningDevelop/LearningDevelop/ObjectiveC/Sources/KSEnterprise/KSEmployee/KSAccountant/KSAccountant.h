@@ -11,7 +11,5 @@
 
 @interface KSAccountant : KSEmployee
 
-- (void)performPositionSpecificOperation:(KSEmployee *)washer;
-
 @end
 

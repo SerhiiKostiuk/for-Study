@@ -27,33 +27,36 @@
 
 - (void)hireBasicTeam;
 - (id)findFreeEmployee:(Class)class;
+- (void)performWorkWithCar:(id<KSCashFlowProtocol>)car;
+- (void)performWorkWithCars:(NSArray *)cars;
 
 @end
 
 @implementation KSEnterprise
 
 #pragma mark -
-#pragma Class Methods
-
-+ (instancetype)enterprise {
-    return [self object];
-}
-
-#pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (void)dealloc
-{
+- (void)dealloc {
+    self.carsQueue = nil;
+    self.washerQueue = nil;
     self.staffContainer = nil;
-    
+    self.accountantQueue = nil;
+
     [super dealloc];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.carsQueue = [KSQueue object];
+        self.washerQueue = [KSQueue object];
+        self.accountantQueue = [KSQueue object];
         self.staffContainer = [KSItemsContainer object];
+        
+        [self hireBasicTeam];
     }
+    
     return self;
 }
 
@@ -68,13 +71,11 @@
 #pragma mark Public
 
 - (void)washCars:(NSArray *)cars {
-    [self performSelectorInBackground:@selector(performWorkWithCars:) withObject:cars];
-    
+    [self performSelectorInBackground:@selector(performWorkWithCars:) withObject:cars];    
 }
 
 #pragma mark -
 #pragma mark Private
-
 
 - (void)hireBasicTeam {
     KSItemsContainer *teamContainer = self.staffContainer;
@@ -84,19 +85,6 @@
         [employee addObserver:self];
         [teamContainer addItem:employee];
     }
-}
-
-- (void)fireBasicTeam {
-    NSArray *staff = self.staffContainer.items;
-    
-    for (id employee in staff) {
-        for (id observer in staff) {
-            [employee removeObserver:observer];
-        }
-        [employee removeObserver:self];
-    }
-    
-    self.staffContainer = nil;
 }
 
 - (id)findFreeEmployee:(Class)class {
@@ -134,6 +122,51 @@
     }
 }
 
+#pragma mark -
+#pragma mark KSObserverProtocol
 
+- (void)employeeFinishWork:(id)employee {
+    if ([employee class] == [KSWasher class]) {
+        KSAccountant *accountant = [self findFreeEmployee:[KSAccountant class]];
+        if (accountant) {
+            [accountant performWorkWithObject:employee];
+        } else {
+            [self.washerQueue addItem:employee];
+        }
+    } else if ([employee class] == [KSAccountant class]) {
+        KSDirector *director = [self findFreeEmployee:[KSDirector class]];
+        if (director) {
+            [director performWorkWithObject:employee];
+        } else {
+            [self.accountantQueue addItem:employee];
+        }
+    }
+}
+
+- (void)employeeBecomeFree:(id)employee {
+    if ([employee class] == [KSWasher class]) {
+        if (kKSIsFree == [employee state]) {
+            @synchronized(employee) {
+                if (kKSIsFree == [employee state]) {
+                    KSCar *car = [self.carsQueue removeDequeue];
+                    if (car) {
+                        [employee setState:kKSIsBusy];
+                        [employee performWorkWithObject:(id<KSCashFlowProtocol>)car];
+                    }
+                }
+            }
+        }
+    } else if ([employee class] == [KSAccountant class]) {
+        KSWasher *washer = [self.washerQueue removeDequeue];
+        if (washer) {
+            [employee performWorkWithObject:washer];
+        }
+    } else if ([employee class] == [KSDirector class]) {
+        KSAccountant *accountant = [self.accountantQueue removeDequeue];
+        if (accountant) {
+            [employee performWorkWithObject:accountant];
+        }
+    }
+}
 
 @end

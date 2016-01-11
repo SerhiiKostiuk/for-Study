@@ -5,16 +5,23 @@
 //  Created by Serg Bla on 08.12.15.
 //  Copyright © 2015 Serg Bla. All rights reserved.
 //
-#import "KSDirector.h"
 #import "KSAccountant.h"
+
 @implementation KSAccountant
 
-- (void)performPositionSpecificOperation:(KSEmployee *)washer {
-    [self takeMoney:washer.wallet fromSender:washer];
-    [self finish];
-    [self notifyObserversWithSelector:@selector(performPositionSpecificOperation:) withObject:self];
-    [self becomeFree];
+#pragma mark -
+#pragma mark Private
 
+- (void)performSpecificOperationWithObject:(KSEmployee *)washer {
+    @autoreleasepool {
+        [washer giveMoney:washer.wallet toReceiver:self];
+        [self moneyCount];
+        washer.state = kKSIsFree;
+    }
+}
+
+- (void)moneyCount {
+    NSLog(@"account has : %lu money", self.wallet);
 }
 
 @end

@@ -14,7 +14,4 @@
 
 @interface KSWasher :KSEmployee
 
-- (void)performSpecificOperationWithObject:(KSCar *)car;
-
-
 @end

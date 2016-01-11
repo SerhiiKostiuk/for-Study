@@ -11,13 +11,17 @@
 
 @implementation KSDirector
 
-- (void)performPositionSpecificOperation:(KSEmployee *)accountant {
+- (void)performSpecificOperationWithObject:(KSEmployee *)accountant {
     @autoreleasepool {
-        [self takeMoney:accountant.wallet fromSender:accountant];
-        [self finish];
-        NSLog(@"Wallet is %lu",self.wallet);
-        [self becomeFree];
+        [accountant giveMoney:self.wallet toReceiver:self];
+        accountant.state = kKSIsFree;
+        [self moneyIncome];
+        self.state = kKSIsFree;
     }
+}
+
+- (void)moneyIncome {
+    NSLog(@"Director's Income is %lu money", self.wallet);
 }
 
 @end
