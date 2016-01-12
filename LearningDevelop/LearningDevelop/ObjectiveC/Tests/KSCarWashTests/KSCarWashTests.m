@@ -25,25 +25,20 @@
     
     KSEnterprise *enterprise = [KSEnterprise object];
     
-    
-    //            NSArray *cars = [NSArray arrayWithObjects:  [KSCar carWithMoney:20],
-    //                             [KSCar carWithMoney:15],
-    //                             [KSCar carWithMoney:9],
-    //                             [KSCar carWithMoney:18], nil];
-    
     NSMutableArray *cars = [NSMutableArray arrayWithCapacity:carsCount];
+    NSMutableArray *cars1 = [NSMutableArray arrayWithCapacity:carsCount];
+
+    
     for (NSUInteger count = 0; count < carsCount; count++) {
         [cars addObject:[KSCar car]];
     }
     
-    [enterprise washCars:cars];
-
-    for (KSCar *car in cars) {
-        NSLog(@"Is car clean: %hhd Money is: %lu", car.isClean, car.wallet);
-      
+    for (NSUInteger count = 0; count < carsCount; count++) {
+        [cars1 addObject:[KSCar car]];
     }
     
-    NSLog(@"CarWash is finished");
+    [enterprise washCars:cars];
+//    [enterprise washCars:cars1];
     
     [[NSRunLoop currentRunLoop] run];
 

@@ -11,12 +11,12 @@
 
 @implementation KSDirector
 
-- (void)performSpecificOperationWithObject:(KSEmployee *)accountant {
+- (void)processObject:(KSEmployee *)accountant {
     @autoreleasepool {
-        [accountant giveMoney:self.wallet toReceiver:self];
-        accountant.state = kKSIsFree;
+        [accountant giveMoney:accountant.wallet toReceiver:self];
+        accountant.state = kKSEmployeeIsFree;
         [self moneyIncome];
-        self.state = kKSIsFree;
+        self.state = kKSEmployeeIsFree;
     }
 }
 

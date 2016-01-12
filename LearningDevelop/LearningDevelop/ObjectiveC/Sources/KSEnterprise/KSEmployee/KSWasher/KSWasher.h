@@ -10,8 +10,6 @@
 #import "KSEmployee.h"
 #import "KSCashFlowProtocol.h"
 
-@class KSCar;
-
 @interface KSWasher :KSEmployee
 
 @end

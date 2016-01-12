@@ -134,7 +134,7 @@
 		C5982DE21C43ACCA002B5A5A /* NSObject+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtensions.h"; sourceTree = "<group>"; };
 		C5982DE31C43ACCA002B5A5A /* NSObject+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtensions.m"; sourceTree = "<group>"; };
 		C5982DE91C43AFFC002B5A5A /* KSCashFlowProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCashFlowProtocol.h; sourceTree = "<group>"; };
-		C5982DEA1C43AFFC002B5A5A /* KSObserverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObserverProtocol.h; sourceTree = "<group>"; };
+		C5982DEA1C43AFFC002B5A5A /* KSEmployeeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEmployeeProtocol.h; sourceTree = "<group>"; };
 		C5982DEB1C43AFFC002B5A5A /* KSStateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStateProtocol.h; sourceTree = "<group>"; };
 		C5982DED1C43E1B9002B5A5A /* KSQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSQueue.h; path = KSQueue/KSQueue.h; sourceTree = "<group>"; };
 		C5982DEE1C43E1B9002B5A5A /* KSQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSQueue.m; path = KSQueue/KSQueue.m; sourceTree = "<group>"; };
@@ -384,7 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				C5982DE91C43AFFC002B5A5A /* KSCashFlowProtocol.h */,
-				C5982DEA1C43AFFC002B5A5A /* KSObserverProtocol.h */,
+				C5982DEA1C43AFFC002B5A5A /* KSEmployeeProtocol.h */,
 				C5982DEB1C43AFFC002B5A5A /* KSStateProtocol.h */,
 			);
 			path = Protocols;

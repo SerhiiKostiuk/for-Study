@@ -14,9 +14,7 @@
 
 - (void)giveMoney:(NSUInteger)amount toReceiver:(id<KSCashFlowProtocol>)receiver;
 
+- (void)giveMoney:(NSUInteger)amount;
 - (void)takeMoney:(NSUInteger)amount;
-
-@optional
-- (BOOL)isAbleToPay:(NSUInteger)amount;
 
 @end

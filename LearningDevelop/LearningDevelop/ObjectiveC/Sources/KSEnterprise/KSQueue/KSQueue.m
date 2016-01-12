@@ -10,13 +10,13 @@
 
 @implementation KSQueue
 
-- (void)addToQueue:(id)object {
+- (void)enQueue:(id)object {
     @synchronized(self) {
         [self addItem:object];
     }
 }
 
-- (id)removeDequeue {
+- (id)deQueue {
     id object = nil;
     
     @synchronized(self) {

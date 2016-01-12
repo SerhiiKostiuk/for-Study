@@ -10,7 +10,7 @@
 
 @interface KSQueue : KSItemsContainer
 
-- (void)addToQueue:(id)object;
-- (id)removeDequeue;
+- (void)enQueue:(id)object;
+- (id)deQueue;
 
 @end

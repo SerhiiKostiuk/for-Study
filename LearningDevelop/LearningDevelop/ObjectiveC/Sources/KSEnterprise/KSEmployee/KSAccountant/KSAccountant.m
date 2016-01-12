@@ -12,15 +12,16 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)performSpecificOperationWithObject:(KSEmployee *)washer {
+- (void)processObject:(KSEmployee *)washer {
     @autoreleasepool {
         [washer giveMoney:washer.wallet toReceiver:self];
-        [self moneyCount];
-        washer.state = kKSIsFree;
+        washer.state = kKSEmployeeIsFree;
+        [self countMoney];
+        self.state = kKSEmployeeWorkDone;        
     }
 }
 
-- (void)moneyCount {
+- (void)countMoney {
     NSLog(@"account has : %lu money", self.wallet);
 }
 

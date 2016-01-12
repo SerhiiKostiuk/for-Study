@@ -1,5 +1,5 @@
 //
-//  KSObserverProtocol.h
+//  KSEmployeeProtocol.h
 //  LearningDevelop
 //
 //  Created by Serg Bla on 11.01.16.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol KSObserverProtocol <NSObject>
+@protocol KSEmployeeProtocol <NSObject>
 
 @optional
 - (void)employeeStartWorking:(id)employee;

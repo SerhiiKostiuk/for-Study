@@ -17,7 +17,7 @@
 #import "KSItemsContainer.h"
 #import "NSObject+KSExtensions.h"
 
-@interface KSEnterprise () <KSObserverProtocol>
+@interface KSEnterprise () <KSEmployeeProtocol>
 
 @property (nonatomic, retain) KSItemsContainer    *staffContainer;
 
@@ -89,10 +89,10 @@
 
 - (id)findFreeEmployee:(Class)class {
     for (id employee in self.staffContainer.items) {
-        if ([employee isMemberOfClass:class] && kKSIsFree == [employee state]) {
+        if ([employee isMemberOfClass:class] && kKSEmployeeIsFree == [employee state]) {
             @synchronized(employee) {
-                if (kKSIsFree == [employee state]) {
-                    [employee setState:kKSIsBusy];
+                if (kKSEmployeeIsFree == [employee state]) {
+                    [employee setState:kKSEmployeeIsBusy];
                     
                     return employee;
                 }
@@ -109,7 +109,7 @@
         if (washer) {
             [washer performWorkWithObject:car];
         } else {
-            [self.carsQueue addToQueue:car];
+            [self.carsQueue enQueue:car];
         }
     }
 }
@@ -123,49 +123,16 @@
 }
 
 #pragma mark -
-#pragma mark KSObserverProtocol
+#pragma mark KSEmployeeProtocol
 
 - (void)employeeFinishWork:(id)employee {
     if ([employee class] == [KSWasher class]) {
         KSAccountant *accountant = [self findFreeEmployee:[KSAccountant class]];
-        if (accountant) {
-            [accountant performWorkWithObject:employee];
-        } else {
-            [self.washerQueue addItem:employee];
-        }
+        [accountant performWorkWithObject:employee];
     } else if ([employee class] == [KSAccountant class]) {
         KSDirector *director = [self findFreeEmployee:[KSDirector class]];
-        if (director) {
-            [director performWorkWithObject:employee];
-        } else {
-            [self.accountantQueue addItem:employee];
-        }
-    }
-}
-
-- (void)employeeBecomeFree:(id)employee {
-    if ([employee class] == [KSWasher class]) {
-        if (kKSIsFree == [employee state]) {
-            @synchronized(employee) {
-                if (kKSIsFree == [employee state]) {
-                    KSCar *car = [self.carsQueue removeDequeue];
-                    if (car) {
-                        [employee setState:kKSIsBusy];
-                        [employee performWorkWithObject:(id<KSCashFlowProtocol>)car];
-                    }
-                }
-            }
-        }
-    } else if ([employee class] == [KSAccountant class]) {
-        KSWasher *washer = [self.washerQueue removeDequeue];
-        if (washer) {
-            [employee performWorkWithObject:washer];
-        }
-    } else if ([employee class] == [KSDirector class]) {
-        KSAccountant *accountant = [self.accountantQueue removeDequeue];
-        if (accountant) {
-            [employee performWorkWithObject:accountant];
-        }
+        [director performWorkWithObject:employee];
+        
     }
 }
 

@@ -42,10 +42,15 @@ static const NSUInteger kKSDefaultWallet = 20;
 
 - (void)giveMoney:(NSUInteger)amount toReceiver:(id<KSCashFlowProtocol>)receiver {
     @synchronized(self) {
-        if ([self isAbleToPay:amount]) {
-            [receiver takeMoney:amount];
-            self.wallet -=amount;
-        }
+        [self giveMoney:amount];
+        [receiver takeMoney:amount];
+        self.wallet -=amount;
+    }
+}
+
+- (void)giveMoney:(NSUInteger)amount {
+    @synchronized(self) {
+        self.wallet -= amount;
     }
 }
 
@@ -53,14 +58,6 @@ static const NSUInteger kKSDefaultWallet = 20;
     @synchronized(self) {
         self.wallet += amount;
     }
-}
-
-- (BOOL)isAbleToPay:(NSUInteger)amount {
-    if (self.wallet > amount) {
-        return YES;
-    }
-    
-    return NO;
 }
 
 @end

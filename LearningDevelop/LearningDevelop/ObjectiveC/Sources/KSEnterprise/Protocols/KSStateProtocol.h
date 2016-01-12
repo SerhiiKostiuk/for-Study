@@ -1,5 +1,5 @@
 //
-//  KSObserverProtocol.h
+//  KSEmployeeProtocol.h
 //  LearningDevelop
 //
 //  Created by Serg Bla on 27.12.15.
@@ -10,16 +10,16 @@
 #import "KSCashFlowProtocol.h"
 
 typedef NS_ENUM (NSUInteger, KSEmployeeState) {
-    kKSIsFree,
-    kKSIsBusy,
-    kKSWorkDone
+    kKSEmployeeIsFree,
+    kKSEmployeeIsBusy,
+    kKSEmployeeWorkDone
 };
 
 @protocol KSStateProtocol <KSCashFlowProtocol>
-@property (nonatomic, readonly, assign)   KSEmployeeState state;
+@property (nonatomic, readonly, assign)   NSUInteger state;
 
-- (void)setState:(KSEmployeeState)state;
+- (void)setState:(NSUInteger)state;
 
-- (SEL)selectorForState:(KSEmployeeState)state;
+- (SEL)selectorForState:(NSUInteger)state;
 
 @end

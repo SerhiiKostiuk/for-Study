@@ -16,12 +16,10 @@ static const NSUInteger kWashPrice = 10;
 #pragma mark -
 #pragma mark Public Implementations
 
-- (void)performSpecificOperationWithObject:(KSCar *)car {
+- (void)processObject:(KSCar *)car {
     @autoreleasepool {
-        if ([car isAbleToPay:kWashPrice]) {
-            [self washCar:car];
-        }
-        self.state = kKSWorkDone;
+        [self washCar:car];
+        self.state = kKSEmployeeWorkDone;
     }
 }
 

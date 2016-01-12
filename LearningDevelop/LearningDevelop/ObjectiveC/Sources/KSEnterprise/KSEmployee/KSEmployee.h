@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "KSCashFlowProtocol.h"
 #import "KSObservableObject.h"
-#import "KSObserverProtocol.h"
+#import "KSEmployeeProtocol.h"
 #import "KSStateProtocol.h"
 
-@interface KSEmployee : KSObservableObject <KSCashFlowProtocol, KSStateProtocol, KSObserverProtocol>
+@interface KSEmployee : KSObservableObject <KSCashFlowProtocol, KSStateProtocol, KSEmployeeProtocol>
+@property (nonatomic, readonly) NSArray *objectsQueue;
 
 - (void)performWorkWithObject:(id<KSCashFlowProtocol>)object;
 
