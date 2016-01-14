@@ -10,7 +10,7 @@
 
 @protocol KSCashFlowProtocol
 
-@property (nonatomic, readonly) NSUInteger wallet;
+@property (nonatomic, readonly) NSUInteger moneyAmount;
 
 - (void)giveMoney:(NSUInteger)amount toReceiver:(id<KSCashFlowProtocol>)receiver;
 

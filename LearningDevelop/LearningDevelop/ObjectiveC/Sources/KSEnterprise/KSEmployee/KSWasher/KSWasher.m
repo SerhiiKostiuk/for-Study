@@ -14,17 +14,14 @@ static const NSUInteger kWashPrice = 10;
 @implementation KSWasher
 
 #pragma mark -
-#pragma mark Public Implementations
+#pragma mark Private
 
 - (void)processObject:(KSCar *)car {
     @autoreleasepool {
         [self washCar:car];
-        self.state = kKSEmployeeWorkDone;
+        self.state = kKSEmployeeDidFinishWork;
     }
 }
-
-#pragma mark -
-#pragma mark Private Implementations
 
 - (void) washCar:(KSCar *)car {
     if (car) {

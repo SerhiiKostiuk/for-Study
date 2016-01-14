@@ -9,6 +9,7 @@
 #import "KSObservableObject.h"
 #import "KSWeakReference.h"
 #import "KSItemsContainer.h"
+
 @interface KSObservableObject ()
 @property (nonatomic,readwrite, retain) NSMutableSet *mutableObservers;
 
@@ -17,7 +18,6 @@
 @implementation KSObservableObject
 
 @dynamic observers;
-
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -33,6 +33,7 @@
     if (self) {
         self.mutableObservers = [NSMutableSet set];
     }
+    
     return self;
 }
 
@@ -48,6 +49,13 @@
         }
         
         return [[result copy] autorelease];
+    }
+}
+
+- (void)setState:(NSUInteger)state {
+    if (_state != state) {
+        _state = state;
+        [self notifyObserversWithSelector:[self selectorForState:state]];
     }
 }
 
@@ -78,15 +86,16 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-    [self notifyObserversWithSelector:selector withObject:object withObject:nil];
-}
-
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
     NSSet *observers = self.observers;
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:(SEL)selector withObject:object withObject:object2];
+            [observer performSelector:selector withObject:self withObject:object];
         }
     }
 }
+
+- (SEL)selectorForState:(NSUInteger)state {
+    return NULL;
+}
+
 @end

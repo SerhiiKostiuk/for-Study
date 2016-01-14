@@ -11,7 +11,7 @@
 static const NSUInteger kKSDefaultWallet = 20;
 
 @interface KSCar ()
-@property (nonatomic, readwrite) NSUInteger wallet;
+@property (nonatomic, readwrite) NSUInteger moneyAmount;
 
 @end
 
@@ -32,7 +32,7 @@ static const NSUInteger kKSDefaultWallet = 20;
     self = [super init];
     
     if (self) {
-        self.wallet = money;
+        self.moneyAmount = money;
     }
     return self;
 }
@@ -41,22 +41,19 @@ static const NSUInteger kKSDefaultWallet = 20;
 #pragma mark CashFlowProtocol
 
 - (void)giveMoney:(NSUInteger)amount toReceiver:(id<KSCashFlowProtocol>)receiver {
-    @synchronized(self) {
-        [self giveMoney:amount];
-        [receiver takeMoney:amount];
-        self.wallet -=amount;
-    }
+    [self giveMoney:amount];
+    [receiver takeMoney:amount];
 }
 
 - (void)giveMoney:(NSUInteger)amount {
     @synchronized(self) {
-        self.wallet -= amount;
+        self.moneyAmount -= amount;
     }
 }
 
 - (void)takeMoney:(NSUInteger)amount {
     @synchronized(self) {
-        self.wallet += amount;
+        self.moneyAmount += amount;
     }
 }
 

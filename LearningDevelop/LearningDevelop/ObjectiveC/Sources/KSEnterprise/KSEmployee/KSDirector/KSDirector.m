@@ -11,17 +11,20 @@
 
 @implementation KSDirector
 
+#pragma mark -
+#pragma mark Private
+
 - (void)processObject:(KSEmployee *)accountant {
     @autoreleasepool {
-        [accountant giveMoney:accountant.wallet toReceiver:self];
-        accountant.state = kKSEmployeeIsFree;
+        [accountant giveMoney:accountant.moneyAmount toReceiver:self];
+        accountant.state = kKSEmployeeDidBecomeFree;
         [self moneyIncome];
-        self.state = kKSEmployeeIsFree;
+        self.state = kKSEmployeeDidBecomeFree;
     }
 }
 
 - (void)moneyIncome {
-    NSLog(@"Director's Income is %lu money", self.wallet);
+    NSLog(@"Director's Income is %lu money", self.moneyAmount);
 }
 
 @end

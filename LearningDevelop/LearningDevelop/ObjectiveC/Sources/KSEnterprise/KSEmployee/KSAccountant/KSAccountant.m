@@ -14,15 +14,17 @@
 
 - (void)processObject:(KSEmployee *)washer {
     @autoreleasepool {
-        [washer giveMoney:washer.wallet toReceiver:self];
-        washer.state = kKSEmployeeIsFree;
+        [washer giveMoney:washer.moneyAmount toReceiver:self];
+        washer.state = kKSEmployeeDidBecomeFree;
         [self countMoney];
-        self.state = kKSEmployeeWorkDone;        
+        self.state = kKSEmployeeDidFinishWork;        
     }
 }
 
 - (void)countMoney {
-    NSLog(@"account has : %lu money", self.wallet);
+    NSLog(@"account has : %lu money", self.moneyAmount);
 }
+
+
 
 @end

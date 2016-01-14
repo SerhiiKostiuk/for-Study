@@ -89,12 +89,12 @@
 
 - (id)findFreeEmployee:(Class)class {
     for (id employee in self.staffContainer.items) {
-        if ([employee isMemberOfClass:class] && kKSEmployeeIsFree == [employee state]) {
-            @synchronized(employee) {
-                if (kKSEmployeeIsFree == [employee state]) {
-                    [employee setState:kKSEmployeeIsBusy];
+        if ([employee isMemberOfClass:class] && kKSEmployeeDidBecomeFree == [employee state]) {
+            @synchronized(employee) {                           // from this part
+                if (kKSEmployeeDidBecomeFree == [employee state]) {    // write reserve method
+                    [employee setState:kKSEmployeeDidStartWork];      // for dispatcher
                     
-                    return employee;
+                    return employee;                            //
                 }
             }
         }
@@ -122,18 +122,34 @@
     }
 }
 
+-(void)performWork {
+    id object = [self.carsQueue deQueue];
+    if (object) {
+        id employee = [self findFreeEmployee:[KSEmployee class]];
+        if (employee) {
+            [employee performWorkWithObject:object];
+        } else {
+            [self.carsQueue enQueue:object];
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark KSEmployeeProtocol
 
-- (void)employeeFinishWork:(id)employee {
+- (void)employeeDidFinishWork:(id)employee {
     if ([employee class] == [KSWasher class]) {
         KSAccountant *accountant = [self findFreeEmployee:[KSAccountant class]];
         [accountant performWorkWithObject:employee];
     } else if ([employee class] == [KSAccountant class]) {
         KSDirector *director = [self findFreeEmployee:[KSDirector class]];
-        [director performWorkWithObject:employee];
-        
+        [director performWorkWithObject:employee];        
     }
 }
+
+-(void)employeeDidBecomeFree:(id)employee {
+    [self performWork];
+}
+
 
 @end

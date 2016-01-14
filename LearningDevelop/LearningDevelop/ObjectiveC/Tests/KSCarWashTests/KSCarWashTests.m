@@ -9,9 +9,6 @@
 #import "KSCarWashTests.h"
 #import "NSObject+KSExtensions.h"
 #import "KSEnterprise.h"
-//#import "KSDirector.h"
-//#import "KSAccountant.h"
-//#import "KSWasher.h"
 #import "KSCar.h"
 
 @implementation KSCarWashTests
@@ -21,7 +18,7 @@
 }
 
 +(void)performCarWashTests {
-    NSUInteger carsCount = 5000;
+    NSUInteger carsCount = 500;
     
     KSEnterprise *enterprise = [KSEnterprise object];
     
@@ -41,6 +38,7 @@
 //    [enterprise washCars:cars1];
     
     [[NSRunLoop currentRunLoop] run];
+    
 
 }
 

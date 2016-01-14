@@ -50,9 +50,9 @@
 #pragma mark Public Methods
 
 - (void)addItem:(id)item {
-        @synchronized(self.mutableItems) {
-            [self.mutableItems addObject:item];
-        }
+    @synchronized(self.mutableItems) {
+        [self.mutableItems addObject:item];
+    }
 }
 
 - (void)removeItem:(id)item {

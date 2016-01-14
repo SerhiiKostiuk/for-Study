@@ -10,10 +10,14 @@
 #import "KSCashFlowProtocol.h"
 #import "KSObservableObject.h"
 #import "KSEmployeeProtocol.h"
-#import "KSStateProtocol.h"
 
-@interface KSEmployee : KSObservableObject <KSCashFlowProtocol, KSStateProtocol, KSEmployeeProtocol>
-@property (nonatomic, readonly) NSArray *objectsQueue;
+typedef NS_ENUM (NSUInteger, KSEmployeeState) {
+    kKSEmployeeDidBecomeFree,
+    kKSEmployeeDidStartWork,
+    kKSEmployeeDidFinishWork
+};
+
+@interface KSEmployee : KSObservableObject <KSCashFlowProtocol>
 
 - (void)performWorkWithObject:(id<KSCashFlowProtocol>)object;
 

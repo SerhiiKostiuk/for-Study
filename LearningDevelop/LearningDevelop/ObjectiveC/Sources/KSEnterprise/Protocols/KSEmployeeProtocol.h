@@ -11,8 +11,8 @@
 @protocol KSEmployeeProtocol <NSObject>
 
 @optional
-- (void)employeeStartWorking:(id)employee;
-- (void)employeeFinishWork:(id)employee;
-- (void)employeeBecomeFree:(id)employee;
+- (void)employeeDidStartWork:(id)employee;
+- (void)employeeDidFinishWork:(id)employee;
+- (void)employeeDidBecomeFree:(id)employee;
 
 @end
