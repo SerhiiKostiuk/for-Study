@@ -7,6 +7,8 @@
 @end
 @implementation KSEmployee
 
+#pragma mark -
+#pragma mark Public 
 
 - (void)processObject:(id<KSCashFlowProtocol>)object {
     [self doesNotRecognizeSelector:_cmd];

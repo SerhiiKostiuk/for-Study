@@ -19,7 +19,7 @@
 
 +(void)performCarWashTests {
     
-    NSUInteger carsCount = 5;
+    NSUInteger carsCount = 500;
     
     KSEnterprise *enterprise = [KSEnterprise object];
     
