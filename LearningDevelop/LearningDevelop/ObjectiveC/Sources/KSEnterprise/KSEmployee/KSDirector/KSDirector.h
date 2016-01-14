@@ -1,1 +1,4 @@
 
+@interface KSDirector : KSEmployee
+
+@end

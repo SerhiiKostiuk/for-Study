@@ -10,7 +10,7 @@
 #import "KSEmployeeProtocol.h"
 
 
-@interface KSObservableObject : NSObject <KSEmployeeProtocol>
+@interface KSObservableObject : NSObject //<KSEmployeeProtocol>
 @property (nonatomic, readonly) NSSet      *observers;
 @property (nonatomic)           NSUInteger state;
 
