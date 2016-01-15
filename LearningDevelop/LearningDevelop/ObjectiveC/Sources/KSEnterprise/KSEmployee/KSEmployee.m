@@ -1,8 +1,11 @@
 
+#import "NSObject+KSExtensions.h"
 #import "KSEmployee.h"
+#import "KSQueue.h"
 
 @interface KSEmployee ()
-@property (nonatomic, readwrite) NSUInteger moneyAmount;
+@property (nonatomic, readwrite) NSUInteger  moneyAmount;
+@property (nonatomic, retain)    KSQueue     *objectsQueue;
 
 - (void)processObject:(id<KSCashFlowProtocol>)object;
 - (void)finishProcessingObject:(id<KSCashFlowProtocol>)object;
@@ -10,14 +13,38 @@
 - (void)cleanupAfterProcessing;
 
 @end
+
 @implementation KSEmployee
 
+#pragma mark-
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.objectsQueue = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.state = kKSEmployeeDidBecomeFree;
+        self.objectsQueue = [KSQueue object];
+    }
+    
+    return self;
+}
 #pragma mark -
 #pragma mark Public 
 
 - (void)performWorkWithObject:(id<KSCashFlowProtocol>)object {
-    [self processObject:object];
-    [self finishProcessingObject:object];
+    if (kKSEmployeeDidBecomeFree == self.state) {
+        self.state = kKSEmployeeDidStartWork;
+        [self processObject:object];
+        [self finishProcessingObject:object];
+    } else {
+        [self.objectsQueue enqueue:object];
+    }
 }
 
 #pragma mark -
@@ -40,7 +67,7 @@
     self.state = kKSEmployeeDidFinishWork;
 }
 
--(SEL)selectorForState:(NSUInteger)state {
+- (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case kKSEmployeeDidFinishWork:
             return @selector(employeeDidFinishWork:);
@@ -50,7 +77,7 @@
             return @selector(employeeDidStartWork:);
             
         default:
-            return NULL;
+            return [super selectorForState:state];
     }
 }
 
@@ -68,6 +95,14 @@
 
 - (void)takeMoney:(NSUInteger)amount {
     self.moneyAmount += amount;
+}
+
+#pragma mark -
+#pragma mark KSEmployeeProtocol
+
+- (void)employeeDidFinishWork:(KSEmployee *)employee {
+    [self performWorkWithObject:employee];
+    
 }
 
 @end
