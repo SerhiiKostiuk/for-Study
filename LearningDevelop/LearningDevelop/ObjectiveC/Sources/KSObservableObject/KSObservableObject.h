@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "KSEmployeeProtocol.h"
 
-
 @interface KSObservableObject : NSObject //<KSEmployeeProtocol>
 @property (nonatomic, readonly) NSSet      *observers;
-@property (nonatomic)           NSUInteger state;
+@property (nonatomic, assign)   NSUInteger state;
 
 
 - (void)addObserver:(id)observer;
