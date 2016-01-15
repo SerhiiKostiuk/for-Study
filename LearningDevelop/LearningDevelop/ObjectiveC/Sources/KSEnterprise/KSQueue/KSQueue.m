@@ -10,7 +10,7 @@
 @dynamic items;
 
 #pragma mark-
-#pragma mark Initializatinos and Deallocations
+#pragma mark Initializations and Deallocations
 
 - (void)dealloc {
     self.mutableItems = nil;
