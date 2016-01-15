@@ -5,8 +5,13 @@
 #import "KSWasher.h"
 #import "KSAccountant.h"
 #import "KSDirector.h"
-@interface KSEnterprise ()
+#import "KSQueue.h"
+#import "KSEmployeeProtocol.h"
+#import "KSEmployee.h"
+
+@interface KSEnterprise () <KSEmployeeProtocol>
 @property (nonatomic, retain) NSMutableArray *mutableStaff;
+@property (nonatomic, retain) KSQueue *carsQueue;
 
 @end
 
@@ -17,6 +22,7 @@
 
 - (void)dealloc {
     self.mutableStaff = nil;
+    self.carsQueue = nil;
     
     [super dealloc];
 }
@@ -25,6 +31,7 @@
     self = [super init];
     if (self) {
         self.mutableStaff = [NSMutableArray array];
+        self.carsQueue = [KSQueue object];
         
         [self hireBasicTeam];
     }
@@ -61,9 +68,11 @@
 
 - (void)hireBasicTeam {
     NSMutableArray *team = self.mutableStaff;
-    NSArray *staff = @[[KSWasher object], [KSAccountant object], [KSDirector object]];
+    NSArray *staff = @[[KSWasher object], [KSWasher object], [KSAccountant object], [KSDirector object]];
     
     for (id employee in staff) {
+        [(KSWasher *)employee addObserver:(KSAccountant *)employee];
+        [employee addObserver:self];
         [team addObject:employee];
     }
 }
@@ -78,6 +87,20 @@
     }
     
     return nil;
+}
+
+- (void)performNextCar:(KSWasher *)washer {
+    KSCar *car = [[self carsQueue] dequeue];
+    if (car) {
+        [washer performWorkWithObject:car];
+
+    }
+}
+#pragma mark -
+#pragma mark KSEmployeeProtocol
+
+- (void)employeeDidBecomeFree:(KSWasher *)employee {
+    [self performNextCar:employee];
 }
 
 @end
