@@ -1,9 +1,17 @@
 
 #import <Foundation/Foundation.h>
 #import "KSCashFlowProtocol.h"
+#import "KSObservableObject.h"
+#import "KSEmployeeProtocol.h"
 
-@interface KSEmployee : NSObject <KSCashFlowProtocol>
+typedef NS_ENUM (NSUInteger, KSEmployeeState) {
+    kKSEmployeeDidBecomeFree,
+    kKSEmployeeDidStartWork,
+    kKSEmployeeDidFinishWork
+};
 
-- (void)processObject:(id<KSCashFlowProtocol>)object;
+@interface KSEmployee : KSObservableObject <KSCashFlowProtocol, KSEmployeeProtocol>
+
+- (void)performWorkWithObject:(id<KSCashFlowProtocol>)object;
 
 @end

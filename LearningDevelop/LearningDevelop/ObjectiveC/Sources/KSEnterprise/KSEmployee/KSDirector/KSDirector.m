@@ -8,4 +8,8 @@
      NSLog(@"Director's Income is %lu money", self.moneyAmount);
 }
 
+- (void)cleanupAfterProcessing {
+    self.state = kKSEmployeeDidBecomeFree;
+}
+
 @end

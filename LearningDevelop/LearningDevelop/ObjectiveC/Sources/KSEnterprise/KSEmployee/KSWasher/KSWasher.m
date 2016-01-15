@@ -13,4 +13,8 @@ static const NSUInteger kWashPrice = 10;
     }
 }
 
+- (void)completeProcessingObject:(id)object {
+    
+}
+
 @end
