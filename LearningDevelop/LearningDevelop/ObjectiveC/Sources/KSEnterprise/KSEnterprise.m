@@ -48,9 +48,9 @@
         KSAccountant *accountant = [self findFreeEmployee:[KSAccountant class]];
         KSDirector *director = [self findFreeEmployee:[KSDirector class]];
         if (washer && accountant && director) {
-            [washer processObject:car];
-            [accountant processObject:washer];
-            [director processObject:accountant];
+            [washer performWorkWithObject:car];
+            [accountant performWorkWithObject:washer];
+            [director performWorkWithObject:accountant];
         }
     }
 }
@@ -70,8 +70,8 @@
 
 
 - (id) findFreeEmployee:(Class)class {
-    for (id employee in self.staff) {
-        if ([employee isMemberOfClass:class]) {
+    for (KSEmployee *employee in self.staff) {
+        if ([employee isMemberOfClass:class] && kKSEmployeeDidBecomeFree == [employee state]) {
             
             return employee;
         }

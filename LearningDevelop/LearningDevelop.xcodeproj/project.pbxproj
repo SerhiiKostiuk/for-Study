@@ -35,8 +35,6 @@
 		C5982DE51C43ACCA002B5A5A /* NSObject+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5982DE31C43ACCA002B5A5A /* NSObject+KSExtensions.m */; };
 		C5982DEF1C43E1B9002B5A5A /* KSQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C5982DEE1C43E1B9002B5A5A /* KSQueue.m */; };
 		C5982DF01C43E1B9002B5A5A /* KSQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C5982DEE1C43E1B9002B5A5A /* KSQueue.m */; };
-		C5982DF41C43E4D5002B5A5A /* KSItemsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C5982DF31C43E4D5002B5A5A /* KSItemsContainer.m */; };
-		C5982DF51C43E4D5002B5A5A /* KSItemsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C5982DF31C43E4D5002B5A5A /* KSItemsContainer.m */; };
 		C5AE77871C26D13000002924 /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE776B1C26D13000002924 /* KSCar.m */; };
 		C5AE77881C26D13000002924 /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE776B1C26D13000002924 /* KSCar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C5AE77891C26D13000002924 /* KSAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77701C26D13000002924 /* KSAccountant.m */; };
@@ -137,8 +135,6 @@
 		C5982DEA1C43AFFC002B5A5A /* KSEmployeeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KSEmployeeProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C5982DED1C43E1B9002B5A5A /* KSQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSQueue.h; path = KSQueue/KSQueue.h; sourceTree = "<group>"; };
 		C5982DEE1C43E1B9002B5A5A /* KSQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSQueue.m; path = KSQueue/KSQueue.m; sourceTree = "<group>"; };
-		C5982DF21C43E4D5002B5A5A /* KSItemsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSItemsContainer.h; sourceTree = "<group>"; };
-		C5982DF31C43E4D5002B5A5A /* KSItemsContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSItemsContainer.m; sourceTree = "<group>"; };
 		C5AE776A1C26D13000002924 /* KSCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCar.h; sourceTree = "<group>"; };
 		C5AE776B1C26D13000002924 /* KSCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCar.m; sourceTree = "<group>"; };
 		C5AE776F1C26D13000002924 /* KSAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAccountant.h; sourceTree = "<group>"; };
@@ -397,15 +393,6 @@
 			name = KSQueue;
 			sourceTree = "<group>";
 		};
-		C5982DF11C43E4D5002B5A5A /* KSItemsContainer */ = {
-			isa = PBXGroup;
-			children = (
-				C5982DF21C43E4D5002B5A5A /* KSItemsContainer.h */,
-				C5982DF31C43E4D5002B5A5A /* KSItemsContainer.m */,
-			);
-			path = KSItemsContainer;
-			sourceTree = "<group>";
-		};
 		C5AE77591C26D13000002924 /* KSEnterprise */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,7 +401,6 @@
 				C5AE776D1C26D13000002924 /* KSEmployee */,
 				C5AE77791C26D13000002924 /* KSEnterprise.h */,
 				C5AE777A1C26D13000002924 /* KSEnterprise.m */,
-				C5982DF11C43E4D5002B5A5A /* KSItemsContainer */,
 				C5982DEC1C43E18C002B5A5A /* KSQueue */,
 			);
 			path = KSEnterprise;
@@ -944,7 +930,6 @@
 				C53F350E1C11D896005E1A48 /* KSWoman.m in Sources */,
 				C5AE77B01C27337400002924 /* KSObservableObjectSpec.m in Sources */,
 				C5AE77921C26D13000002924 /* KSEnterprise.m in Sources */,
-				C5982DF51C43E4D5002B5A5A /* KSItemsContainer.m in Sources */,
 				C53F35141C11D896005E1A48 /* KSClusterAlphabet.m in Sources */,
 				C5AE77AE1C27333E00002924 /* KSCarWashSpec.m in Sources */,
 				C5AE77B51C273CBE00002924 /* KSWeakReference.m in Sources */,
@@ -994,7 +979,6 @@
 				C53F351B1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */,
 				C53F35191C11D896005E1A48 /* KSCreatureTests.m in Sources */,
 				C5982DEF1C43E1B9002B5A5A /* KSQueue.m in Sources */,
-				C5982DF41C43E4D5002B5A5A /* KSItemsContainer.m in Sources */,
 				C53F350B1C11D896005E1A48 /* KSUndefined.m in Sources */,
 				C53F350F1C11D896005E1A48 /* KSAlphabet.m in Sources */,
 				C5AE77A31C27046800002924 /* KSReference.m in Sources */,
