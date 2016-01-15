@@ -8,7 +8,6 @@
 
 #import "KSObservableObject.h"
 #import "KSWeakReference.h"
-#import "KSItemsContainer.h"
 
 @interface KSObservableObject ()
 @property (nonatomic,readwrite, retain) NSMutableSet *mutableObservers;
