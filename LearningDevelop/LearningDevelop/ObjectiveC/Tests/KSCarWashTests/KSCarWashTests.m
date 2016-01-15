@@ -18,11 +18,8 @@
 }
 
 +(void)performCarWashTests {
-    
     NSUInteger carsCount = 500;
-    
     KSEnterprise *enterprise = [KSEnterprise object];
-    
     NSMutableArray *cars = [NSMutableArray arrayWithCapacity:carsCount];
 
     for (NSUInteger count = 0; count < carsCount; count++) {
@@ -30,7 +27,6 @@
     }
     
     [enterprise washCars:cars];
-
 }
 
 @end

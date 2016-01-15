@@ -54,7 +54,7 @@
 - (void)setState:(NSUInteger)state {
     if (_state != state) {
         _state = state;
-        [self notifyObserversWithSelector:[self selectorForState:state]];
+        [self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
     }
 }
 
@@ -88,7 +88,7 @@
     NSSet *observers = self.observers;
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self withObject:object];
+            [observer performSelector:selector withObject:object];
         }
     }
 }
