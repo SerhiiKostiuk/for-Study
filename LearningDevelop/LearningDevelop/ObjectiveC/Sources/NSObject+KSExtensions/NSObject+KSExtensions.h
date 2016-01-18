@@ -3,6 +3,8 @@
 
 @interface NSObject (KSExtensions)
 
-+(instancetype)object;
++ (instancetype)object;
++ (NSArray *)objectsWithCount:(NSUInteger)count;
+
 
 @end
