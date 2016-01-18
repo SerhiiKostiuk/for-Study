@@ -40,9 +40,9 @@
 #pragma mark Accessors
 
 - (NSSet *)observers {
-    @synchronized(self.mutableObservers) {
-        NSMutableSet *observers = self.mutableObservers;
-        NSMutableSet *result = [NSMutableSet setWithCapacity:[observers count]];
+    NSMutableSet *observers = self.mutableObservers;
+    @synchronized(observers) {
+        NSMutableSet *result = [NSMutableSet setWithCapacity:observers.count];
         for (KSReference *reference in observers) {
             [result addObject:reference.target];
         }
@@ -73,6 +73,14 @@
     }
 }
 
+- (void)addObserversFromArray:(NSArray *)observers {
+    @synchronized(self) {
+        for (id observer in observers) {
+            [self addObserver:observer];
+        }
+    }
+}
+
 - (void)removeObserver:(id)observer {
     @synchronized(self) {
         KSWeakReference *reference = [[[KSWeakReference alloc] initWithTarget:observer] autorelease];
@@ -93,12 +101,14 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-    NSSet *observers = self.observers;
-    for (id observer in observers) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self withObject:object];
+    @synchronized(self) {
+        NSSet *observers = self.observers;
+        for (id observer in observers) {
+            if ([observer respondsToSelector:selector]) {
+                [observer performSelector:selector withObject:self withObject:object];
+            }
         }
-    }
+    }    
 }
 
 - (SEL)selectorForState:(NSUInteger)state {

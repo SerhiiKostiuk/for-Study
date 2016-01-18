@@ -16,6 +16,8 @@
 - (void)setState:(NSUInteger)state withObject:(id)object;
 
 - (void)addObserver:(id)observer;
+- (void)addObserversFromArray:(NSArray *)observers;
+
 - (void)removeObserver:(id)observer;
 - (void)removeObserversFromArray:(NSArray *)observers;
 
