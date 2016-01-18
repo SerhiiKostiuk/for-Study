@@ -5,3 +5,4 @@
 @interface KSWasher :KSEmployee
 
 @end
+ 

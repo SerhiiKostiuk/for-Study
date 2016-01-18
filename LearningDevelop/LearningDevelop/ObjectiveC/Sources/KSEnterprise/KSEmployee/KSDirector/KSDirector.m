@@ -9,7 +9,9 @@
 }
 
 - (void)cleanupAfterProcessing {
-    self.state = kKSEmployeeDidBecomeFree;
+    @synchronized(self) {
+        self.state = kKSEmployeeDidBecomeFree;
+    }
 }
 
 @end
