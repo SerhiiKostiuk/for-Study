@@ -7,6 +7,7 @@
 @property (nonatomic, readwrite) NSUInteger  moneyAmount;
 @property (nonatomic, retain)    KSQueue     *objectsQueue;
 
+- (void)performBackgroundWorkWithObject:(id)object;
 - (void)processObject:(id<KSCashFlowProtocol>)object;
 - (void)finishProcessingObject:(id<KSCashFlowProtocol>)object;
 - (void)completeProcessingObject:(id<KSCashFlowProtocol>)object;
@@ -38,17 +39,25 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(id<KSCashFlowProtocol>)object {
-    if (kKSEmployeeDidBecomeFree == self.state) {
-        self.state = kKSEmployeeDidStartWork;
-        [self processObject:object];
-        [self finishProcessingObject:object];
-    } else {
-        [self.objectsQueue enqueue:object];
+    @synchronized(self) {
+        if (kKSEmployeeDidBecomeFree == self.state) {
+            self.state = kKSEmployeeDidStartWork;
+            [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
+        } else {
+            [self.objectsQueue enqueue:object];
+        }
     }
 }
 
 #pragma mark -
 #pragma mark Private
+
+- (void)performBackgroundWorkWithObject:(id)object {
+    @synchronized(self) {
+        [self processObject:object];
+        [self finishProcessingObject:object];
+    }
+}
 
 - (void)processObject:(id<KSCashFlowProtocol>)object {
     [self doesNotRecognizeSelector:_cmd];
@@ -75,8 +84,10 @@
     switch (state) {
         case kKSEmployeeDidFinishWork:
             return @selector(employeeDidFinishWork:);
+            
         case kKSEmployeeDidBecomeFree:
             return @selector(employeeDidBecomeFree:);
+            
         case kKSEmployeeDidStartWork:
             return @selector(employeeDidStartWork:);
             
