@@ -10,8 +10,13 @@
 #import "KSEmployee.h"
 
 @interface KSEnterprise () <KSEmployeeProtocol>
-@property (nonatomic, retain) NSMutableArray *mutableStaff;
-@property (nonatomic, retain) KSQueue *carsQueue;
+@property (nonatomic, retain) NSMutableArray    *mutableStaff;
+@property (nonatomic, retain) KSQueue           *carsQueue;
+
+- (void)hireBasicTeam;
+- (void)fireBasicTeam;
+- (id)findFreeEmployee:(Class)class;
+- (void)performNextCar:(KSWasher *)washer;
 
 @end
 
@@ -24,6 +29,8 @@
     self.mutableStaff = nil;
     self.carsQueue = nil;
     
+    [self fireBasicTeam];
+    
     [super dealloc];
 }
 
@@ -35,6 +42,7 @@
         
         [self hireBasicTeam];
     }
+    
     return self;
 }
 
@@ -56,8 +64,6 @@
         KSDirector *director = [self findFreeEmployee:[KSDirector class]];
         if (washer && accountant && director) {
             [washer performWorkWithObject:car];
-            [accountant performWorkWithObject:washer];
-            [director performWorkWithObject:accountant];
         }
     }
 }
@@ -67,20 +73,40 @@
 #pragma mark Private
 
 - (void)hireBasicTeam {
-    NSMutableArray *team = self.mutableStaff;
-    NSArray *staff = @[[KSWasher object], [KSWasher object], [KSAccountant object], [KSDirector object]];
+    KSAccountant *accountant = [KSAccountant object];
+    KSDirector *director = [KSDirector object];
     
-    for (id employee in staff) {
-        [(KSWasher *)employee addObserver:(KSAccountant *)employee];
-        [employee addObserver:self];
-        [team addObject:employee];
+    [self addEmployees:@[[KSWasher object],[KSWasher object]] withObservers:@[accountant, self]];
+    [self addEmployee:accountant withObservers:@[self, director]];
+    [self addEmployee:director withObservers:nil];
+
+}
+
+- (void)fireBasicTeam {
+    NSMutableArray *staff = self.mutableStaff;
+    for (KSEmployee *employee in staff) {
+        [employee removeObserver:self];
+        [employee removeObserversFromArray:staff];
     }
 }
 
+- (void)addEmployees:(NSArray *)employees withObservers:(NSArray *)observers {
+    for (KSEmployee *employee in employees) {
+        [self addEmployee:employee withObservers:observers];
+    }
+}
 
-- (id) findFreeEmployee:(Class)class {
+- (void)addEmployee:(KSEmployee *)employee withObservers:(NSArray *)observers {
+    for (id observer in observers) {
+        [employee addObserver:observer];
+    }
+    
+    [self.mutableStaff addObject:employee];
+}
+
+- (id)findFreeEmployee:(Class)class {
     for (KSEmployee *employee in self.staff) {
-        if ([employee isMemberOfClass:class] && kKSEmployeeDidBecomeFree == [employee state]) {
+        if ([employee isMemberOfClass:class] && employee.state == kKSEmployeeDidBecomeFree) {
             
             return employee;
         }
@@ -93,14 +119,15 @@
     KSCar *car = [[self carsQueue] dequeue];
     if (car) {
         [washer performWorkWithObject:car];
-
     }
 }
+
 #pragma mark -
 #pragma mark KSEmployeeProtocol
 
 - (void)employeeDidBecomeFree:(KSWasher *)employee {
     [self performNextCar:employee];
+    
 }
 
 @end
