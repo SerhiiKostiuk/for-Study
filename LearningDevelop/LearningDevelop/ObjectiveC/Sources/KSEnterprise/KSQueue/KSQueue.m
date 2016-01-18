@@ -1,4 +1,3 @@
-
 #import "KSQueue.h"
 
 @interface KSQueue ()

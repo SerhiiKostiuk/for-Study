@@ -55,8 +55,8 @@
 }
 
 - (void)finishProcessingObject:(id<KSCashFlowProtocol>)object {
-    [self completeProcessingObject:object];
     [self cleanupAfterProcessing];
+    [self completeProcessingObject:object];
 }
 
 - (void)completeProcessingObject:(KSEmployee *)object {
