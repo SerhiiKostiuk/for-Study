@@ -15,6 +15,8 @@
 
 - (void)hireBasicTeam;
 - (void)fireBasicTeam;
+- (void)addEmployees:(NSArray *)employees withObservers:(NSArray *)observers; 
+- (void)addEmployee:(KSEmployee *)employee withObservers:(NSArray *)observers;
 - (id)findFreeEmployee:(Class)class;
 - (void)performNextCar:(KSWasher *)washer;
 
@@ -26,11 +28,11 @@
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.mutableStaff = nil;
-    self.carsQueue = nil;
-    
     [self fireBasicTeam];
     
+    self.mutableStaff = nil;
+    self.carsQueue = nil;
+   
     [super dealloc];
 }
 
@@ -60,14 +62,13 @@
 - (void)washCars:(NSArray *)cars {
     for (KSCar *car in cars) {
         KSWasher *washer = [self findFreeEmployee:[KSWasher class]];
-        KSAccountant *accountant = [self findFreeEmployee:[KSAccountant class]];
-        KSDirector *director = [self findFreeEmployee:[KSDirector class]];
-        if (washer && accountant && director) {
+        if (washer) {
             [washer performWorkWithObject:car];
+        } else {
+            [self.carsQueue enqueue:car];
         }
     }
 }
-
 
 #pragma mark -
 #pragma mark Private
@@ -127,7 +128,6 @@
 
 - (void)employeeDidBecomeFree:(KSWasher *)employee {
     [self performNextCar:employee];
-    
 }
 
 @end

@@ -3,7 +3,7 @@
 
 @interface KSEnterprise : NSObject
 
-@property (nonatomic, readonly) NSArray    *staff;
+@property (nonatomic, readonly) NSArray *staff;
 
 - (void)washCars:(NSArray *)cars;
 

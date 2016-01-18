@@ -42,7 +42,7 @@
 - (id)dequeue {
     NSMutableArray *items = self.mutableItems;
     id object = nil;
-    object = [items lastObject];
+    object = [items firstObject];
     
     if (object) {
         [[object retain] autorelease];

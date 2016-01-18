@@ -35,7 +35,7 @@
     return self;
 }
 #pragma mark -
-#pragma mark Public 
+#pragma mark Public
 
 - (void)performWorkWithObject:(id<KSCashFlowProtocol>)object {
     if (kKSEmployeeDidBecomeFree == self.state) {
@@ -55,8 +55,8 @@
 }
 
 - (void)finishProcessingObject:(id<KSCashFlowProtocol>)object {
-    [self cleanupAfterProcessing];
     [self completeProcessingObject:object];
+    [self cleanupAfterProcessing];
 }
 
 - (void)completeProcessingObject:(KSEmployee *)object {
