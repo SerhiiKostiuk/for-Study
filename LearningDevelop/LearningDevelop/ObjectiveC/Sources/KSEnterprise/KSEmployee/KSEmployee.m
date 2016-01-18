@@ -60,11 +60,15 @@
 }
 
 - (void)completeProcessingObject:(KSEmployee *)object {
-    object.state = kKSEmployeeDidBecomeFree;
+    @synchronized(self) {
+        object.state = kKSEmployeeDidBecomeFree;
+    }
 }
 
 - (void)cleanupAfterProcessing {
-    self.state = kKSEmployeeDidFinishWork;
+    @synchronized(self) {
+        self.state = kKSEmployeeDidFinishWork;
+    }
 }
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -90,11 +94,15 @@
 }
 
 - (void)giveMoney:(NSUInteger)amount {
-    self.moneyAmount -= amount;
+    @synchronized(self) {
+        self.moneyAmount -= amount;
+    }
 }
 
 - (void)takeMoney:(NSUInteger)amount {
-    self.moneyAmount += amount;
+    @synchronized(self) {
+        self.moneyAmount += amount;
+    }
 }
 
 #pragma mark -
