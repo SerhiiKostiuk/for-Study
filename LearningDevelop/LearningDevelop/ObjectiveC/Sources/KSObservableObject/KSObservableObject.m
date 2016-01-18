@@ -10,7 +10,7 @@
 #import "KSWeakReference.h"
 
 @interface KSObservableObject ()
-@property (nonatomic,readwrite, retain) NSMutableSet *mutableObservers;
+@property (nonatomic, retain) NSMutableSet *mutableObservers;
 
 @end
 
@@ -52,8 +52,13 @@
 }
 
 - (void)setState:(NSUInteger)state {
+    [self setState:state withObject:nil];
+}
+
+- (void)setState:(NSUInteger)state withObject:(id)object {
     if (_state != state) {
         _state = state;
+        
         [self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
     }
 }
@@ -70,12 +75,15 @@
 
 - (void)removeObserver:(id)observer {
     @synchronized(self) {
-        NSSet *set = self.observers;
-        for (KSWeakReference *reference in set) {
-            if (reference.target == observer) {
-                [self.mutableObservers removeObject:reference];
-                break;
-            }
+        KSWeakReference *reference = [[[KSWeakReference alloc] initWithTarget:observer] autorelease];
+        [self.mutableObservers removeObject:reference];        
+    }
+}
+
+- (void)removeObserversFromArray:(NSArray *)observers {
+    @synchronized(self) {
+        for (id observer in observers) {
+            [self removeObserver:observer];
         }
     }
 }
@@ -88,7 +96,7 @@
     NSSet *observers = self.observers;
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:object];
+            [observer performSelector:selector withObject:self withObject:object];
         }
     }
 }

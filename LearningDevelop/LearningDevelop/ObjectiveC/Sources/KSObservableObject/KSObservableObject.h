@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "KSEmployeeProtocol.h"
 
-@interface KSObservableObject : NSObject <KSEmployeeProtocol>
+@interface KSObservableObject : NSObject
 @property (nonatomic, readonly) NSSet      *observers;
 @property (nonatomic, assign)   NSUInteger state;
 
+- (void)setState:(NSUInteger)state withObject:(id)object;
+
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
+- (void)removeObserversFromArray:(NSArray *)observers;
 
 - (void)notifyObserversWithSelector:(SEL)selector;
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object;
