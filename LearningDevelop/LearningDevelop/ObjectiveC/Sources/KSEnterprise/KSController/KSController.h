@@ -11,4 +11,6 @@
 @interface KSController : NSObject
 @property (nonatomic, getter=isWorking) BOOL working;
 
+- (void)startWork;
+- (void)stopWork;
 @end

@@ -8,8 +8,6 @@
 
 #import "KSCarWashTests.h"
 #import "NSObject+KSExtensions.h"
-#import "KSEnterprise.h"
-#import "KSCar.h"
 #import "KSController.h"
 
 @implementation KSCarWashTests
@@ -19,20 +17,15 @@
 }
 
 +(void)performCarWashTests {
-    NSUInteger carsCount = 500;
-    KSEnterprise *enterprise = [KSEnterprise object];
-    NSMutableArray *cars = [NSMutableArray arrayWithCapacity:carsCount];
 
-    for (NSUInteger count = 0; count < carsCount; count++) {
-        [cars addObject:[KSCar car]];
+    KSController *controller = [KSController object];
+    [controller startWork];
+    
+    while (true) {
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantFuture]];
+
     }
     
-    [enterprise washCars:cars];
-    KSController *controller = [KSController object];
-    [controller setWorking:YES];
-    
-    
-    [[NSRunLoop currentRunLoop] run];
 }
 
 @end

@@ -12,7 +12,7 @@
 #import "KSCar.h"
 
 static const NSUInteger kKSDefaultTimeInterval = 0.7;
-static const NSUInteger kKSDefaultCarsCount = 500;
+static const NSUInteger kKSDefaultCarsCount = 5;
 
 @interface KSController ()
 @property (nonatomic, retain) KSEnterprise *enterprise;
@@ -20,6 +20,7 @@ static const NSUInteger kKSDefaultCarsCount = 500;
 
 - (void)startBackgroundWork;
 - (void)generateCar;
+- (void)performWorkWithObject:(id)object;
 
 @end
 
@@ -37,7 +38,7 @@ static const NSUInteger kKSDefaultCarsCount = 500;
     [super dealloc];
 }
 
-- (instancetype)initWithEnterprise {
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.enterprise = [KSEnterprise object];
@@ -62,18 +63,27 @@ static const NSUInteger kKSDefaultCarsCount = 500;
     }
 }
 
-- (void)setWorking:(BOOL)working {
-    if (self.working == YES) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:kKSDefaultTimeInterval
+//- (void)setWorking:(BOOL)working {
+//    if (self.working == YES) {
+
+- (void)startWork {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:kKSDefaultTimeInterval
                                                       target:self
                                                     selector:@selector(startBackgroundWork)
                                                     userInfo:nil
                                                      repeats:YES];
-    } else if (self.working == NO) {
-        self.timer = nil;
-    }
-    
 }
+
+//}
+//}
+
+//else if (self.working == NO) {
+
+- (void)stopWork {
+   self.timer = nil; 
+}
+
+//}
 
 #pragma mark-
 #pragma mark Private
@@ -85,8 +95,14 @@ static const NSUInteger kKSDefaultCarsCount = 500;
 - (void)generateCar {
     @autoreleasepool {
         NSArray *cars = [KSCar objectsWithCount:kKSDefaultCarsCount];
-        [self.enterprise washCars:cars];
+        for (id car in cars) {
+            [self performWorkWithObject:car];
+        }
     }
+}
+
+- (void)performWorkWithObject:(id)object {
+    [self.enterprise washCar:object];
 }
 
 @end

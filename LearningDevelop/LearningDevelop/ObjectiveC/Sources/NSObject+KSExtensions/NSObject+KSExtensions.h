@@ -4,6 +4,7 @@
 @interface NSObject (KSExtensions)
 
 + (instancetype)object;
+
 + (NSArray *)objectsWithCount:(NSUInteger)count;
 
 
