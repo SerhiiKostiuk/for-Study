@@ -101,4 +101,21 @@ static const NSUInteger kKSDefaultDirectorCount = 1;
     }
 }
 
+- (KSDispatcher *)dispatcherHandlerForClass:(id)object {
+    if([self.accountantsDispatcher containHandler:object]) {
+        return self.directorsDispatcher;
+    } else if([self.washersDispatcher containHandler:object]) {
+        return self.accountantsDispatcher;
+    } else {
+        return nil;
+    }
+}
+
+#pragma mark -
+#pragma mark KSEmployeeProtocol
+
+- (void)employeeDidBecomeFree:(KSWasher *)employee {
+    [[self dispatcherHandlerForClass:[employee class]] performWorkWithObject:employee];
+}
+
 @end
