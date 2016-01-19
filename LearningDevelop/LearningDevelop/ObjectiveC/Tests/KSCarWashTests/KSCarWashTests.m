@@ -10,6 +10,7 @@
 #import "NSObject+KSExtensions.h"
 #import "KSEnterprise.h"
 #import "KSCar.h"
+#import "KSController.h"
 
 @implementation KSCarWashTests
 
@@ -27,6 +28,8 @@
     }
     
     [enterprise washCars:cars];
+    KSController *controller = [KSController object];
+    [controller setWorking:YES];
     
     
     [[NSRunLoop currentRunLoop] run];
