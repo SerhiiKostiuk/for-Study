@@ -18,9 +18,14 @@ static const NSUInteger kKSDefaultCarsCount = 500;
 @property (nonatomic, retain) KSEnterprise *enterprise;
 @property (nonatomic, retain) NSTimer      *timer;
 
+- (void)startBackgroundWork;
+- (void)generateCar;
+
 @end
 
 @implementation KSController
+
+@dynamic working;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -40,6 +45,9 @@ static const NSUInteger kKSDefaultCarsCount = 500;
     
     return self;
 }
+
+#pragma mark -
+#pragma mark Accessors
 
 - (BOOL)isWorking {
   return nil != self.timer;
@@ -67,11 +75,14 @@ static const NSUInteger kKSDefaultCarsCount = 500;
     
 }
 
+#pragma mark-
+#pragma mark Private
+
 - (void)startBackgroundWork {
-    [self performSelectorInBackground:@selector(carGenerate) withObject:nil];
+    [self performSelectorInBackground:@selector(generateCar) withObject:nil];
 }
 
-- (void)carGenerate {
+- (void)generateCar {
     @autoreleasepool {
         NSArray *cars = [KSCar objectsWithCount:kKSDefaultCarsCount];
         [self.enterprise washCars:cars];
