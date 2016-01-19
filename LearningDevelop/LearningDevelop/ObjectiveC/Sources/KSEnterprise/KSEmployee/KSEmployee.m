@@ -10,8 +10,7 @@
 - (void)performBackgroundWorkWithObject:(id)object;
 - (void)processObject:(id<KSCashFlowProtocol>)object;
 - (void)finishProcessingObject:(id<KSCashFlowProtocol>)object;
-- (void)completeProcessingObject:(id<KSCashFlowProtocol>)object;
-- (void)cleanupAfterProcessing;
+
 
 @end
 
@@ -35,6 +34,7 @@
     
     return self;
 }
+
 #pragma mark -
 #pragma mark Public
 
@@ -46,6 +46,18 @@
         } else {
             [self.objectsQueue enqueue:object];
         }
+    }
+}
+
+- (void)completeProcessingObject:(KSEmployee *)object {
+    @synchronized(object) {
+        object.state = kKSEmployeeDidBecomeFree;
+    }
+}
+
+- (void)cleanupAfterProcessing {
+    @synchronized(self) {
+        self.state = kKSEmployeeDidFinishWork;
     }
 }
 
@@ -63,21 +75,9 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
-- (void)finishProcessingObject:(id<KSCashFlowProtocol>)object {
+- (void)finishProcessingObject:(KSEmployee *)object {
     [self completeProcessingObject:object];
-    [self cleanupAfterProcessing];
-}
-
-- (void)completeProcessingObject:(KSEmployee *)object {
-    @synchronized(self) {
-        object.state = kKSEmployeeDidBecomeFree;
-    }
-}
-
-- (void)cleanupAfterProcessing {
-    @synchronized(self) {
-        self.state = kKSEmployeeDidFinishWork;
-    }
+    [self processObjectQueue];
 }
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -93,6 +93,17 @@
             
         default:
             return [super selectorForState:state];
+    }
+}
+
+- (void)processObjectQueue {
+    id object = [self.objectsQueue dequeue];
+    @synchronized(object) {
+        if (object) {
+            [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
+        } else {
+            [self cleanupAfterProcessing];
+        }
     }
 }
 
@@ -120,7 +131,7 @@
 #pragma mark KSEmployeeProtocol
 
 - (void)employeeDidFinishWork:(KSEmployee *)employee {
-    [self performWorkWithObject:employee];
+    [self performBackgroundWorkWithObject:employee];
     
 }
 

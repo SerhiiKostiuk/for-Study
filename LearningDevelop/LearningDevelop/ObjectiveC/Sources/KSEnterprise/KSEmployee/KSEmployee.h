@@ -14,4 +14,8 @@ typedef NS_ENUM (NSUInteger, KSEmployeeState) {
 
 - (void)performWorkWithObject:(id<KSCashFlowProtocol>)object;
 
+// 
+- (void)completeProcessingObject:(KSEmployee *)object;
+- (void)cleanupAfterProcessing;
+
 @end
