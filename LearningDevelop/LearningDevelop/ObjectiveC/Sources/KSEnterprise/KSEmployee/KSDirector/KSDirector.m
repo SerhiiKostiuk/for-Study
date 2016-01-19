@@ -5,7 +5,7 @@
 
 - (void)processObject:(KSAccountant *)accountant {
     [accountant giveMoney:accountant.moneyAmount toReceiver:self];
-     NSLog(@"Director's Income is %lu money", self.moneyAmount);
+     NSLog(@"Director's Income is %lu ", self.moneyAmount);
 }
 
 - (void)cleanupAfterProcessing {

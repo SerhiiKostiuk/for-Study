@@ -29,27 +29,31 @@
 #pragma mark Accessors
 
 - (NSArray *)items {
-    return [[self.mutableItems copy] autorelease];
+    @synchronized(self.mutableItems) {
+        return [[self.mutableItems copy] autorelease];
+    }
 }
 
 #pragma mark-
 #pragma mark Public
 
 - (void)enqueue:(id)object {
-    [self.mutableItems addObject:object];
+    @synchronized(self) {
+        [self.mutableItems addObject:object];
+    }
 }
 
 - (id)dequeue {
-    NSMutableArray *items = self.mutableItems;
-    id object = nil;
-    object = [items firstObject];
-    
-    if (object) {
-        [[object retain] autorelease];
-        [items removeObject:object];
+    @synchronized(self) {
+        id object = [self.items firstObject];
+        
+        if (object) {
+            [[object retain] autorelease];
+            [self.mutableItems removeObject:object];
+        }
+        
+        return object;
     }
-    
-    return object;
 }
 
 @end
