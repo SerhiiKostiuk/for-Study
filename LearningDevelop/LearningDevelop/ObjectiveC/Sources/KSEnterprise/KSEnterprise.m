@@ -78,7 +78,7 @@
     KSDirector *director = [KSDirector object];
     
     [self addEmployees:@[[KSWasher object],[KSWasher object]] withObservers:@[accountant, self]];
-    [self addEmployee:accountant withObservers:@[self, director]];
+    [self addEmployee:accountant withObservers:@[director]];
     [self addEmployee:director withObservers:nil];
 
 }
