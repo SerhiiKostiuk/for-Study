@@ -1,6 +1,7 @@
 
 #import "KSAccountant.h"
 #import "KSDirector.h"
+
 @implementation KSDirector
 
 - (void)processObject:(KSAccountant *)accountant {

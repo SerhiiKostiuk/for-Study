@@ -1,6 +1,7 @@
 
 #import "KSAccountant.h"
 #import "KSWasher.h"
+
 @implementation KSAccountant
 
 - (void)processObject:(KSWasher *)washer {
