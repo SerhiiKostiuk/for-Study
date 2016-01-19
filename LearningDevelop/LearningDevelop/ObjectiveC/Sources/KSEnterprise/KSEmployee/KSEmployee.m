@@ -10,7 +10,7 @@
 - (void)performBackgroundWorkWithObject:(id)object;
 - (void)processObject:(id<KSCashFlowProtocol>)object;
 - (void)finishProcessingObject:(id<KSCashFlowProtocol>)object;
-
+- (void)processObjectQueue;
 
 @end
 
@@ -49,6 +49,10 @@
     }
 }
 
+- (void)processObject:(id<KSCashFlowProtocol>)object {
+    [self doesNotRecognizeSelector:_cmd];
+}
+
 - (void)completeProcessingObject:(KSEmployee *)object {
     @synchronized(object) {
         object.state = kKSEmployeeDidBecomeFree;
@@ -69,10 +73,6 @@
         [self processObject:object];
         [self finishProcessingObject:object];
     }
-}
-
-- (void)processObject:(id<KSCashFlowProtocol>)object {
-    [self doesNotRecognizeSelector:_cmd];
 }
 
 - (void)finishProcessingObject:(KSEmployee *)object {
