@@ -9,6 +9,7 @@
 #import "KSEmployeeProtocol.h"
 #import "KSEmployee.h"
 #import "KSDispatcher.h"
+
 static const NSUInteger kKSDefaultWasherCount = 3;
 static const NSUInteger kKSDefaultAccountantCount = 2;
 static const NSUInteger kKSDefaultDirectorCount = 1;
@@ -69,6 +70,10 @@ static const NSUInteger kKSDefaultDirectorCount = 1;
     for (KSCar *car in cars) {
         [self.washersDispatcher performWorkWithObject:car];
     }
+}
+
+- (void)washCar:(KSCar *)car {
+    [self.washersDispatcher performWorkWithObject:car];
 }
 
 #pragma mark -
