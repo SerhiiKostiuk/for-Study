@@ -1,5 +1,4 @@
 
-#import "NSObject+KSExtensions.h"
 #import "KSEmployee.h"
 #import "KSQueue.h"
 
@@ -40,8 +39,7 @@
 
 - (void)performWorkWithObject:(id<KSCashFlowProtocol>)object {
     @synchronized(self) {
-        if (kKSEmployeeDidBecomeFree == self.state) {
-            self.state = kKSEmployeeDidStartWork;
+        if (kKSEmployeeDidStartWork == self.state) {            
             [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
         } else {
             [self.objectsQueue enqueue:object];
@@ -69,10 +67,8 @@
 #pragma mark Private
 
 - (void)performBackgroundWorkWithObject:(id)object {
-    @synchronized(self) {
-        [self processObject:object];
-        [self finishProcessingObject:object];
-    }
+    [self processObject:object];
+    [self performSelectorOnMainThread:@selector(finishProcessingObject:) withObject:object waitUntilDone:NO];
 }
 
 - (void)finishProcessingObject:(KSEmployee *)object {
@@ -97,8 +93,8 @@
 }
 
 - (void)processObjectQueue {
-    id object = [self.objectsQueue dequeue];
-    @synchronized(object) {
+    @synchronized(self) {
+        id object = [self.objectsQueue dequeue];
         if (object) {
             [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
         } else {
@@ -125,14 +121,6 @@
     @synchronized(self) {
         self.moneyAmount += amount;
     }
-}
-
-#pragma mark -
-#pragma mark KSEmployeeProtocol
-
-- (void)employeeDidFinishWork:(KSEmployee *)employee {
-    [self performBackgroundWorkWithObject:employee];
-    
 }
 
 @end
