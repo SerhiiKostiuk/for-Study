@@ -14,13 +14,13 @@ static const NSUInteger kKSDefaultMoneyAmount = 20;
 #pragma mark Initializations and Deallocations
 
 + (instancetype)car {
-    return [[[self alloc] initWithMoney:kKSDefaultMoneyAmount] autorelease];
+    return [self object];
 }
 
-- (instancetype)initWithMoney:(NSUInteger)money {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        self.moneyAmount = money;
+        self.moneyAmount = kKSDefaultMoneyAmount;
     }
     
     return self;
