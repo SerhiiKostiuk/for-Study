@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface KSController : NSObject
-@property (nonatomic, getter=isWorking) BOOL working;
+@property (nonatomic, assign, getter=isWorking) BOOL working;
 
-- (void)startWork;
-- (void)stopWork;
 @end

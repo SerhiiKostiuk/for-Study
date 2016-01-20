@@ -6,7 +6,6 @@
 //  Copyright © 2016 Serg Bla. All rights reserved.
 //
 
-#import "NSObject+KSExtensions.h"
 #import "KSController.h"
 #import "KSEnterprise.h"
 #import "KSCar.h"
@@ -25,8 +24,6 @@ static const NSUInteger kKSDefaultCarsCount = 5;
 @end
 
 @implementation KSController
-
-@dynamic working;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -50,40 +47,31 @@ static const NSUInteger kKSDefaultCarsCount = 5;
 #pragma mark -
 #pragma mark Accessors
 
-- (BOOL)isWorking {
-  return nil != self.timer;
-}
-
 - (void)setTimer:(NSTimer *)timer {
     if (timer != _timer) {
         [_timer invalidate];
         [_timer release];
         
-        _timer = timer;
+        _timer = [timer retain];
     }
 }
 
-//- (void)setWorking:(BOOL)working {
-//    if (self.working == YES) {
-
-- (void)startWork {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:kKSDefaultTimeInterval
+- (void)setWorking:(BOOL)working {
+    if (_working == working) {
+        return;
+    }
+    
+    _working = working;
+    if (working) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:kKSDefaultTimeInterval
                                                       target:self
                                                     selector:@selector(startBackgroundWork)
                                                     userInfo:nil
                                                      repeats:YES];
+    } else {
+        self.timer = nil;
+    }
 }
-
-//}
-//}
-
-//else if (self.working == NO) {
-
-- (void)stopWork {
-   self.timer = nil; 
-}
-
-//}
 
 #pragma mark-
 #pragma mark Private
