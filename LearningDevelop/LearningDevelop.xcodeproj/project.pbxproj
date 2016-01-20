@@ -137,6 +137,7 @@
 		C53F34FF1C11D896005E1A48 /* KSCreatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTests.m; sourceTree = "<group>"; };
 		C53F35011C11D896005E1A48 /* KSStringCategoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringCategoryTests.h; sourceTree = "<group>"; };
 		C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSStringCategoryTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C54F9E141C4FA1CD00951DF8 /* KSPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPrefixHeader.pch; sourceTree = "<group>"; };
 		C5982DE21C43ACCA002B5A5A /* NSObject+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtensions.h"; sourceTree = "<group>"; };
 		C5982DE31C43ACCA002B5A5A /* NSObject+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtensions.m"; sourceTree = "<group>"; };
 		C5982DE91C43AFFC002B5A5A /* KSCashFlowProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCashFlowProtocol.h; sourceTree = "<group>"; };
@@ -278,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				C53F34DE1C11D896005E1A48 /* main.m */,
+				C54F9E141C4FA1CD00951DF8 /* KSPrefixHeader.pch */,
 				C53F34DF1C11D896005E1A48 /* Sources */,
 				C53F34FC1C11D896005E1A48 /* Tests */,
 			);
@@ -1079,6 +1081,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "-";
+				GCC_PREFIX_HEADER = "/Users/Serhii/for-Study/LearningDevelop/LearningDevelop/ObjectiveC/KSPrefixHeader.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1089,6 +1092,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "-";
+				GCC_PREFIX_HEADER = "/Users/Serhii/for-Study/LearningDevelop/LearningDevelop/ObjectiveC/KSPrefixHeader.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -7,7 +7,6 @@
 //
 
 #import "KSCarWashTests.h"
-#import "NSObject+KSExtensions.h"
 #import "KSController.h"
 
 @implementation KSCarWashTests
@@ -17,14 +16,13 @@
 }
 
 +(void)performCarWashTests {
-
-    KSController *controller = [KSController object];
-    [controller startWork];
     
-    while (true) {
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantFuture]];
-
-    }
+    KSController *controller = [KSController object];
+    controller.working = YES;
+    
+    [[NSRunLoop currentRunLoop] run];
+    
+    
     
 }
 
