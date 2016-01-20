@@ -1,18 +1,18 @@
 
-#import "NSObject+KSExtensions.h"
 #import "KSEnterprise.h"
+
 #import "KSCar.h"
 #import "KSWasher.h"
 #import "KSAccountant.h"
 #import "KSDirector.h"
+
 #import "KSQueue.h"
 #import "KSEmployeeProtocol.h"
-#import "KSEmployee.h"
 #import "KSDispatcher.h"
 
-static const NSUInteger kKSDefaultWasherCount = 3;
-static const NSUInteger kKSDefaultAccountantCount = 2;
-static const NSUInteger kKSDefaultDirectorCount = 1;
+static const NSUInteger kKSDefaultWasherCount       = 3;
+static const NSUInteger kKSDefaultAccountantCount   = 2;
+static const NSUInteger kKSDefaultDirectorCount     = 1;
 
 @interface KSEnterprise ()
 @property (nonatomic, retain) KSDispatcher   *washersDispatcher;
@@ -107,9 +107,9 @@ static const NSUInteger kKSDefaultDirectorCount = 1;
 }
 
 - (KSDispatcher *)dispatcherHandlerForClass:(id)object {
-    if([self.accountantsDispatcher containHandler:object]) {
+    if([self.accountantsDispatcher containsHandler:object]) {
         return self.directorsDispatcher;
-    } else if([self.washersDispatcher containHandler:object]) {
+    } else if([self.washersDispatcher containsHandler:object]) {
         return self.accountantsDispatcher;
     } else {
         return nil;
@@ -119,8 +119,8 @@ static const NSUInteger kKSDefaultDirectorCount = 1;
 #pragma mark -
 #pragma mark KSEmployeeProtocol
 
-- (void)employeeDidBecomeFree:(KSWasher *)employee {
-    [[self dispatcherHandlerForClass:[employee class]] performWorkWithObject:employee];
+- (void)employeeDidFinishWork:(KSEmployee *)employee {
+    [[self dispatcherHandlerForClass:employee] performWorkWithObject:employee];
 }
 
 @end
