@@ -17,6 +17,6 @@
 - (void)addHandler:(id)handler;
 - (void)removeHandler:(id)handler;
 
-- (id)containHandler:(id)object;
+- (BOOL)containsHandler:(id)object;
 
 @end

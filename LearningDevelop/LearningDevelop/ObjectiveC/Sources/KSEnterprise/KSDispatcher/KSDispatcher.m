@@ -8,7 +8,6 @@
 
 #import "KSDispatcher.h"
 #import "KSQueue.h"
-#import "NSObject+KSExtensions.h"
 #import "KSEmployee.h"
 
 @interface KSDispatcher ()
@@ -78,7 +77,7 @@
     for (KSEmployee *handler in self.handlers) {
         @synchronized(handler) {
             if (kKSEmployeeDidBecomeFree == handler.state) {
-                
+                handler.state = kKSEmployeeDidStartWork;
                 return handler;
             }
         }
@@ -99,11 +98,11 @@
     }
 }
 
-- (id)containHandler:(id)object {
+- (BOOL)containsHandler:(id)object {
     @synchronized(object) {
-        [self.mutableHandlers containsObject:object];
+        
+    return [self.mutableHandlers containsObject:object];
     }
-    return object;
 }
 
 #pragma mark -
