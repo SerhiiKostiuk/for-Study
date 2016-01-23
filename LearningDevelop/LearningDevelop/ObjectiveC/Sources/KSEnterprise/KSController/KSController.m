@@ -48,7 +48,7 @@ static const NSUInteger kKSDefaultCarsCount = 5;
 #pragma mark Accessors
 
 - (void)setTimer:(NSTimer *)timer {
-    if (timer != _timer) {
+    if (_timer != timer) {
         [_timer invalidate];
         [_timer release];
         
@@ -77,6 +77,7 @@ static const NSUInteger kKSDefaultCarsCount = 5;
 #pragma mark Private
 
 - (void)startBackgroundWork {
+    usleep(50 *1000);
     [self performSelectorInBackground:@selector(generateCar) withObject:nil];
 }
 
