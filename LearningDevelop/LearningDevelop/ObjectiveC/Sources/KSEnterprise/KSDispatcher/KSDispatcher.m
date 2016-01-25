@@ -6,15 +6,15 @@
 //  Copyright © 2016 Serg Bla. All rights reserved.
 //
 
-#import "KSDispatcher.h"
 #import "KSQueue.h"
 #import "KSEmployee.h"
+#import "KSDispatcher.h"
 
 @interface KSDispatcher ()
 @property (nonatomic, retain) NSMutableArray *mutableHandlers;
 @property (nonatomic, retain) KSQueue        *objectsQueue;
 
-- (id)freeHandler;
+- (id)reserveHandler;
 - (void)performWork;
 
 @end
@@ -45,8 +45,9 @@
 #pragma mark Accessors
 
 - (NSArray *)handlers {
-    @synchronized(self.mutableHandlers) {
-        return [[self.mutableHandlers copy] autorelease];
+    NSMutableArray *mutableHandlers = self.mutableHandlers;
+    @synchronized(mutableHandlers) {
+        return [[mutableHandlers copy] autorelease];
     }
 }
 
@@ -59,21 +60,23 @@
 }
 
 - (void)addHandler:(id)handler {
-    @synchronized(self.mutableHandlers) {
-        [self.mutableHandlers addObject:handler];
+    NSMutableArray *mutableHandlers = self.mutableHandlers;
+    @synchronized(mutableHandlers) {
+        [mutableHandlers addObject:handler];
     }
 }
 
 - (void)removeHandler:(id)handler {
-    @synchronized(self.mutableHandlers) {
-        [self.mutableHandlers removeObject:handler];
+    NSMutableArray *mutableHandlers = self.mutableHandlers;
+    @synchronized(mutableHandlers) {
+        [mutableHandlers removeObject:handler];
     }
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (id)freeHandler {
+- (id)reserveHandler {
     for (KSEmployee *handler in self.handlers) {
         @synchronized(handler) {
             if (kKSEmployeeDidBecomeFree == handler.state) {
@@ -89,7 +92,7 @@
 - (void)performWork {
     id object = [self.objectsQueue dequeue];
     if (object) {
-        id employee = [self freeHandler];
+        id employee = [self reserveHandler];
         if (employee) {
             [employee performWorkWithObject:object];
         } else {
@@ -99,9 +102,9 @@
 }
 
 - (BOOL)containsHandler:(id)object {
-    @synchronized(object) {
-        
-    return [self.mutableHandlers containsObject:object];
+    NSMutableArray *mutableHandlers = self.mutableHandlers;
+    @synchronized(mutableHandlers) {
+        return [mutableHandlers containsObject:object];
     }
 }
 
