@@ -20,9 +20,41 @@ void KSDispatchSyncOnBackgroundQueue(dispatch_block_t block) {
 }
 
 void KSDispatchAsyncOnMainQueue(dispatch_block_t block) {
+    if (!block) {
+        return;
+    }
+    
     dispatch_async(dispatch_get_main_queue(), block);
 }
 
 void KSDispatchSyncOnMainQueue(dispatch_block_t block) {
+    if (!block) {
+        return;
+    }
+    
     dispatch_sync(dispatch_get_main_queue(), block);
+}
+
+void KSDispatchAsyncOnQueue(KSDispatchQueueType type, dispatch_block_t block) {
+    if (!block) {
+        return;
+    }
+    
+    dispatch_async(KSDispatchGetQueue(type), block);
+}
+
+void KSDispatchSyncOnQueue(KSDispatchQueueType type, dispatch_block_t block) {
+    if (!block) {
+        return;
+    }
+    
+    dispatch_sync(KSDispatchGetQueue(type), block);
+}
+
+dispatch_queue_t KSDispatchGetQueue(KSDispatchQueueType type) {
+    if (KSDispatchQueueMain == type) {
+        return dispatch_get_main_queue();
+    }
+    
+    return dispatch_get_global_queue(type, 0);
 }

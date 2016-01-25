@@ -1095,7 +1095,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "-";
-				GCC_PREFIX_HEADER = "/Users/Serhii/for-Study/LearningDevelop/LearningDevelop/ObjectiveC/KSPrefixHeader.pch";
+				GCC_PREFIX_HEADER = LearningDevelop/ObjectiveC/KSPrefixHeader.pch;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1106,7 +1106,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "-";
-				GCC_PREFIX_HEADER = "/Users/Serhii/for-Study/LearningDevelop/LearningDevelop/ObjectiveC/KSPrefixHeader.pch";
+				GCC_PREFIX_HEADER = LearningDevelop/ObjectiveC/KSPrefixHeader.pch;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
