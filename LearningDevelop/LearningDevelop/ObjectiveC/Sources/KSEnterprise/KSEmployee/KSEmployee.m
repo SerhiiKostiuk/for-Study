@@ -13,7 +13,7 @@
 
 @implementation KSEmployee
 
-#pragma mark-
+#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
@@ -36,10 +36,10 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(id<KSCashFlowProtocol>)object {
-    KSDispatchAsyncOnBackgroundQueue(^{
+    KSDispatchAsyncOnQueue(KSDispatchQueueDefault, ^{
         [self processObject:object];
         
-        KSDispatchAsyncOnMainQueue(^{
+        KSDispatchSyncOnMainQueue(^{
             [self completeProcessingObject:object];
             [self cleanupAfterProcessing];
         });
