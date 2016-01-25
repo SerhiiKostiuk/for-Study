@@ -1,0 +1,14 @@
+//
+//  KSPrefixHeader.pch
+//  LearningDevelop
+//
+//  Created by Serg Bla on 20.01.16.
+//  Copyright © 2016 Serg Bla. All rights reserved.
+//
+
+#ifndef KSPrefixHeader_pch
+#define KSPrefixHeader_pch
+
+#import "NSObject+KSExtensions.h"
+
+#endif /* KSPrefixHeader_pch */

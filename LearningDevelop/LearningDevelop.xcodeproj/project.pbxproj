@@ -1,0 +1,1251 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72D6AC03B2AB3C8083238937 /* libPods-ObjectiveCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C6CA6FCBEFDC6F4D3B464F /* libPods-ObjectiveCTests.a */; };
+		C53726561C4E4EF600C97C1C /* KSController.m in Sources */ = {isa = PBXBuildFile; fileRef = C53726551C4E4EF600C97C1C /* KSController.m */; };
+		C53726571C4E4EF600C97C1C /* KSController.m in Sources */ = {isa = PBXBuildFile; fileRef = C53726551C4E4EF600C97C1C /* KSController.m */; };
+		C537265B1C4E61F300C97C1C /* KSDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C537265A1C4E61F300C97C1C /* KSDispatcher.m */; };
+		C537265C1C4E61F300C97C1C /* KSDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C537265A1C4E61F300C97C1C /* KSDispatcher.m */; };
+		C53F35071C11D896005E1A48 /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34E51C11D896005E1A48 /* KSCreature.m */; };
+		C53F35081C11D896005E1A48 /* KSCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34E51C11D896005E1A48 /* KSCreature.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C53F35091C11D896005E1A48 /* KSMan.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34E91C11D896005E1A48 /* KSMan.m */; };
+		C53F350A1C11D896005E1A48 /* KSMan.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34E91C11D896005E1A48 /* KSMan.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C53F350B1C11D896005E1A48 /* KSUndefined.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34EC1C11D896005E1A48 /* KSUndefined.m */; };
+		C53F350C1C11D896005E1A48 /* KSUndefined.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34EC1C11D896005E1A48 /* KSUndefined.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C53F350D1C11D896005E1A48 /* KSWoman.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34EF1C11D896005E1A48 /* KSWoman.m */; };
+		C53F350E1C11D896005E1A48 /* KSWoman.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34EF1C11D896005E1A48 /* KSWoman.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C53F350F1C11D896005E1A48 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F21C11D896005E1A48 /* KSAlphabet.m */; };
+		C53F35101C11D896005E1A48 /* KSAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F21C11D896005E1A48 /* KSAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C53F35111C11D896005E1A48 /* NSString+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F41C11D896005E1A48 /* NSString+KSExtensions.m */; };
+		C53F35121C11D896005E1A48 /* NSString+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F41C11D896005E1A48 /* NSString+KSExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C53F35131C11D896005E1A48 /* KSClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F71C11D896005E1A48 /* KSClusterAlphabet.m */; };
+		C53F35141C11D896005E1A48 /* KSClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F71C11D896005E1A48 /* KSClusterAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C53F35151C11D896005E1A48 /* KSRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F91C11D896005E1A48 /* KSRangeAlphabet.m */; };
+		C53F35161C11D896005E1A48 /* KSRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34F91C11D896005E1A48 /* KSRangeAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C53F35171C11D896005E1A48 /* KSStringsAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34FB1C11D896005E1A48 /* KSStringsAlphabet.m */; };
+		C53F35181C11D896005E1A48 /* KSStringsAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34FB1C11D896005E1A48 /* KSStringsAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C53F35191C11D896005E1A48 /* KSCreatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34FF1C11D896005E1A48 /* KSCreatureTests.m */; };
+		C53F351A1C11D896005E1A48 /* KSCreatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34FF1C11D896005E1A48 /* KSCreatureTests.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C53F351B1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */; };
+		C53F351C1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */; };
+		C53F351D1C11D8BE005E1A48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F34DE1C11D896005E1A48 /* main.m */; };
+		C54F9E181C53CFEB00951DF8 /* KSDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F9E171C53CFEB00951DF8 /* KSDispatch.m */; };
+		C5982DE41C43ACCA002B5A5A /* NSObject+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5982DE31C43ACCA002B5A5A /* NSObject+KSExtensions.m */; };
+		C5982DE51C43ACCA002B5A5A /* NSObject+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5982DE31C43ACCA002B5A5A /* NSObject+KSExtensions.m */; };
+		C5982DEF1C43E1B9002B5A5A /* KSQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C5982DEE1C43E1B9002B5A5A /* KSQueue.m */; };
+		C5982DF01C43E1B9002B5A5A /* KSQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C5982DEE1C43E1B9002B5A5A /* KSQueue.m */; };
+		C5AE77871C26D13000002924 /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE776B1C26D13000002924 /* KSCar.m */; };
+		C5AE77881C26D13000002924 /* KSCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE776B1C26D13000002924 /* KSCar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5AE77891C26D13000002924 /* KSAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77701C26D13000002924 /* KSAccountant.m */; };
+		C5AE778A1C26D13000002924 /* KSAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77701C26D13000002924 /* KSAccountant.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5AE778B1C26D13000002924 /* KSDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77731C26D13000002924 /* KSDirector.m */; };
+		C5AE778C1C26D13000002924 /* KSDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77731C26D13000002924 /* KSDirector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5AE778D1C26D13000002924 /* KSEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77751C26D13000002924 /* KSEmployee.m */; };
+		C5AE778E1C26D13000002924 /* KSEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77751C26D13000002924 /* KSEmployee.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5AE778F1C26D13000002924 /* KSWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77781C26D13000002924 /* KSWasher.m */; };
+		C5AE77901C26D13000002924 /* KSWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77781C26D13000002924 /* KSWasher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5AE77911C26D13000002924 /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE777A1C26D13000002924 /* KSEnterprise.m */; };
+		C5AE77921C26D13000002924 /* KSEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE777A1C26D13000002924 /* KSEnterprise.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5AE77A31C27046800002924 /* KSReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77A21C27046800002924 /* KSReference.m */; };
+		C5AE77A41C27046800002924 /* KSReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77A21C27046800002924 /* KSReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5AE77AD1C27333E00002924 /* KSAlphabetSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77AB1C27333E00002924 /* KSAlphabetSpec.m */; };
+		C5AE77AE1C27333E00002924 /* KSCarWashSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77AC1C27333E00002924 /* KSCarWashSpec.m */; };
+		C5AE77B01C27337400002924 /* KSObservableObjectSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77AF1C27337400002924 /* KSObservableObjectSpec.m */; };
+		C5AE77B41C273CBE00002924 /* KSWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77B31C273CBE00002924 /* KSWeakReference.m */; };
+		C5AE77B51C273CBE00002924 /* KSWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77B31C273CBE00002924 /* KSWeakReference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5AE77B91C273D1100002924 /* KSObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77B81C273D1100002924 /* KSObservableObject.m */; };
+		C5AE77BA1C273D1100002924 /* KSObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AE77B81C273D1100002924 /* KSObservableObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C5C314781C0474B000AE4D3C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314381C0474B000AE4D3C /* main.c */; };
+		C5C314791C0474B000AE4D3C /* KSArray.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C3143B1C0474B000AE4D3C /* KSArray.c */; };
+		C5C3147A1C0474B000AE4D3C /* KSCheckValueAndPrint.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C3143E1C0474B000AE4D3C /* KSCheckValueAndPrint.c */; };
+		C5C3147B1C0474B000AE4D3C /* KSDynamicArray.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314431C0474B000AE4D3C /* KSDynamicArray.c */; };
+		C5C3147C1C0474B000AE4D3C /* KSHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314461C0474B000AE4D3C /* KSHuman.c */; };
+		C5C3147D1C0474B000AE4D3C /* KSLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314491C0474B000AE4D3C /* KSLinkedList.c */; };
+		C5C3147E1C0474B000AE4D3C /* KSLinkedListEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C3144C1C0474B000AE4D3C /* KSLinkedListEnumerator.c */; };
+		C5C3147F1C0474B000AE4D3C /* KSLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314501C0474B000AE4D3C /* KSLinkedListNode.c */; };
+		C5C314801C0474B000AE4D3C /* KSObject.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314571C0474B000AE4D3C /* KSObject.c */; };
+		C5C314811C0474B000AE4D3C /* KSString.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C3145A1C0474B000AE4D3C /* KSString.c */; };
+		C5C314821C0474B000AE4D3C /* KSStructure.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C3145D1C0474B000AE4D3C /* KSStructure.c */; };
+		C5C314831C0474B000AE4D3C /* KSTypeRepresentationInBinary.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314601C0474B000AE4D3C /* KSTypeRepresentationInBinary.c */; };
+		C5C314841C0474B000AE4D3C /* KSCheckValueAndPrintTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314641C0474B000AE4D3C /* KSCheckValueAndPrintTests.c */; };
+		C5C314851C0474B000AE4D3C /* KSDataTypesTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314671C0474B000AE4D3C /* KSDataTypesTests.c */; };
+		C5C314861C0474B000AE4D3C /* KSHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C3146A1C0474B000AE4D3C /* KSHumanTests.c */; };
+		C5C314871C0474B000AE4D3C /* KSLinkedListTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C3146D1C0474B000AE4D3C /* KSLinkedListTests.c */; };
+		C5C314881C0474B000AE4D3C /* KSPrimitiveTypeTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314701C0474B000AE4D3C /* KSPrimitiveTypeTests.c */; };
+		C5C314891C0474B000AE4D3C /* KSStructureTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314731C0474B000AE4D3C /* KSStructureTests.c */; };
+		C5C3148A1C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.c in Sources */ = {isa = PBXBuildFile; fileRef = C5C314761C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.c */; };
+		C5F4D26E1C307470003FE41E /* KSCarWashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F4D26D1C307470003FE41E /* KSCarWashTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C5C9E1081BFF1D6500590391 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		C5D2058E1BAA0327003C2465 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		35C6CA6FCBEFDC6F4D3B464F /* libPods-ObjectiveCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjectiveCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		582FFF51163204316694F79C /* Pods-ObjectiveCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectiveCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjectiveCTests/Pods-ObjectiveCTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5EEF0BA80EE1802BB5D3DA18 /* Pods-ObjectiveCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectiveCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjectiveCTests/Pods-ObjectiveCTests.release.xcconfig"; sourceTree = "<group>"; };
+		C53726541C4E4EF600C97C1C /* KSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSController.h; sourceTree = "<group>"; };
+		C53726551C4E4EF600C97C1C /* KSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSController.m; sourceTree = "<group>"; };
+		C53726591C4E61F300C97C1C /* KSDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDispatcher.h; sourceTree = "<group>"; };
+		C537265A1C4E61F300C97C1C /* KSDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDispatcher.m; sourceTree = "<group>"; };
+		C53F34A21C11D77B005E1A48 /* ObjectiveCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectiveCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C53F34A61C11D77B005E1A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C53F34DE1C11D896005E1A48 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C53F34E41C11D896005E1A48 /* KSCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreature.h; sourceTree = "<group>"; };
+		C53F34E51C11D896005E1A48 /* KSCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreature.m; sourceTree = "<group>"; };
+		C53F34E61C11D896005E1A48 /* KSCreatureProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureProtocol.h; sourceTree = "<group>"; };
+		C53F34E81C11D896005E1A48 /* KSMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMan.h; sourceTree = "<group>"; };
+		C53F34E91C11D896005E1A48 /* KSMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSMan.m; sourceTree = "<group>"; };
+		C53F34EB1C11D896005E1A48 /* KSUndefined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUndefined.h; sourceTree = "<group>"; };
+		C53F34EC1C11D896005E1A48 /* KSUndefined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUndefined.m; sourceTree = "<group>"; };
+		C53F34EE1C11D896005E1A48 /* KSWoman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWoman.h; sourceTree = "<group>"; };
+		C53F34EF1C11D896005E1A48 /* KSWoman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWoman.m; sourceTree = "<group>"; };
+		C53F34F11C11D896005E1A48 /* KSAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAlphabet.h; sourceTree = "<group>"; };
+		C53F34F21C11D896005E1A48 /* KSAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSAlphabet.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C53F34F31C11D896005E1A48 /* NSString+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSString+KSExtensions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C53F34F41C11D896005E1A48 /* NSString+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSString+KSExtensions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C53F34F61C11D896005E1A48 /* KSClusterAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSClusterAlphabet.h; sourceTree = "<group>"; };
+		C53F34F71C11D896005E1A48 /* KSClusterAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSClusterAlphabet.m; sourceTree = "<group>"; };
+		C53F34F81C11D896005E1A48 /* KSRangeAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSRangeAlphabet.h; sourceTree = "<group>"; };
+		C53F34F91C11D896005E1A48 /* KSRangeAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSRangeAlphabet.m; sourceTree = "<group>"; };
+		C53F34FA1C11D896005E1A48 /* KSStringsAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringsAlphabet.h; sourceTree = "<group>"; };
+		C53F34FB1C11D896005E1A48 /* KSStringsAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStringsAlphabet.m; sourceTree = "<group>"; };
+		C53F34FE1C11D896005E1A48 /* KSCreatureTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCreatureTests.h; sourceTree = "<group>"; };
+		C53F34FF1C11D896005E1A48 /* KSCreatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCreatureTests.m; sourceTree = "<group>"; };
+		C53F35011C11D896005E1A48 /* KSStringCategoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStringCategoryTests.h; sourceTree = "<group>"; };
+		C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSStringCategoryTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C54F9E141C4FA1CD00951DF8 /* KSPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPrefixHeader.pch; sourceTree = "<group>"; };
+		C54F9E161C53CFEB00951DF8 /* KSDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDispatch.h; sourceTree = "<group>"; };
+		C54F9E171C53CFEB00951DF8 /* KSDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDispatch.m; sourceTree = "<group>"; };
+		C5982DE21C43ACCA002B5A5A /* NSObject+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtensions.h"; sourceTree = "<group>"; };
+		C5982DE31C43ACCA002B5A5A /* NSObject+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtensions.m"; sourceTree = "<group>"; };
+		C5982DE91C43AFFC002B5A5A /* KSCashFlowProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCashFlowProtocol.h; sourceTree = "<group>"; };
+		C5982DEA1C43AFFC002B5A5A /* KSEmployeeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = KSEmployeeProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C5982DED1C43E1B9002B5A5A /* KSQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSQueue.h; path = KSQueue/KSQueue.h; sourceTree = "<group>"; };
+		C5982DEE1C43E1B9002B5A5A /* KSQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSQueue.m; path = KSQueue/KSQueue.m; sourceTree = "<group>"; };
+		C5AE776A1C26D13000002924 /* KSCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCar.h; sourceTree = "<group>"; };
+		C5AE776B1C26D13000002924 /* KSCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCar.m; sourceTree = "<group>"; };
+		C5AE776F1C26D13000002924 /* KSAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAccountant.h; sourceTree = "<group>"; };
+		C5AE77701C26D13000002924 /* KSAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAccountant.m; sourceTree = "<group>"; };
+		C5AE77721C26D13000002924 /* KSDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDirector.h; sourceTree = "<group>"; };
+		C5AE77731C26D13000002924 /* KSDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDirector.m; sourceTree = "<group>"; };
+		C5AE77741C26D13000002924 /* KSEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEmployee.h; sourceTree = "<group>"; };
+		C5AE77751C26D13000002924 /* KSEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEmployee.m; sourceTree = "<group>"; };
+		C5AE77771C26D13000002924 /* KSWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWasher.h; sourceTree = "<group>"; };
+		C5AE77781C26D13000002924 /* KSWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWasher.m; sourceTree = "<group>"; };
+		C5AE77791C26D13000002924 /* KSEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSEnterprise.h; sourceTree = "<group>"; };
+		C5AE777A1C26D13000002924 /* KSEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEnterprise.m; sourceTree = "<group>"; };
+		C5AE77A11C27046700002924 /* KSReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSReference.h; path = KSReference/KSReference.h; sourceTree = "<group>"; };
+		C5AE77A21C27046800002924 /* KSReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSReference.m; path = KSReference/KSReference.m; sourceTree = "<group>"; };
+		C5AE77AB1C27333E00002924 /* KSAlphabetSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAlphabetSpec.m; sourceTree = "<group>"; };
+		C5AE77AC1C27333E00002924 /* KSCarWashSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCarWashSpec.m; sourceTree = "<group>"; };
+		C5AE77AF1C27337400002924 /* KSObservableObjectSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObservableObjectSpec.m; sourceTree = "<group>"; };
+		C5AE77B21C273CBE00002924 /* KSWeakReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWeakReference.h; sourceTree = "<group>"; };
+		C5AE77B31C273CBE00002924 /* KSWeakReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWeakReference.m; sourceTree = "<group>"; };
+		C5AE77B71C273D1100002924 /* KSObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObservableObject.h; sourceTree = "<group>"; };
+		C5AE77B81C273D1100002924 /* KSObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSObservableObject.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C5C314381C0474B000AE4D3C /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		C5C3143B1C0474B000AE4D3C /* KSArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSArray.c; sourceTree = "<group>"; };
+		C5C3143C1C0474B000AE4D3C /* KSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArray.h; sourceTree = "<group>"; };
+		C5C3143E1C0474B000AE4D3C /* KSCheckValueAndPrint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSCheckValueAndPrint.c; sourceTree = "<group>"; };
+		C5C3143F1C0474B000AE4D3C /* KSCheckValueAndPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCheckValueAndPrint.h; sourceTree = "<group>"; };
+		C5C314411C0474B000AE4D3C /* KSDataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDataTypes.h; sourceTree = "<group>"; };
+		C5C314431C0474B000AE4D3C /* KSDynamicArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSDynamicArray.c; sourceTree = "<group>"; };
+		C5C314441C0474B000AE4D3C /* KSDynamicArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDynamicArray.h; sourceTree = "<group>"; };
+		C5C314461C0474B000AE4D3C /* KSHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSHuman.c; sourceTree = "<group>"; };
+		C5C314471C0474B000AE4D3C /* KSHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHuman.h; sourceTree = "<group>"; };
+		C5C314491C0474B000AE4D3C /* KSLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSLinkedList.c; sourceTree = "<group>"; };
+		C5C3144A1C0474B000AE4D3C /* KSLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedList.h; sourceTree = "<group>"; };
+		C5C3144C1C0474B000AE4D3C /* KSLinkedListEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSLinkedListEnumerator.c; sourceTree = "<group>"; };
+		C5C3144D1C0474B000AE4D3C /* KSLinkedListEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedListEnumerator.h; sourceTree = "<group>"; };
+		C5C3144E1C0474B000AE4D3C /* KSLinkedListEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedListEnumeratorPrivate.h; sourceTree = "<group>"; };
+		C5C314501C0474B000AE4D3C /* KSLinkedListNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSLinkedListNode.c; sourceTree = "<group>"; };
+		C5C314511C0474B000AE4D3C /* KSLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedListNode.h; sourceTree = "<group>"; };
+		C5C314521C0474B000AE4D3C /* KSLinkedListPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedListPrivate.h; sourceTree = "<group>"; };
+		C5C314531C0474B000AE4D3C /* KSMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMacros.h; sourceTree = "<group>"; };
+		C5C314551C0474B000AE4D3C /* KSMethodOfGeneratingAPrimitiveType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMethodOfGeneratingAPrimitiveType.h; sourceTree = "<group>"; };
+		C5C314571C0474B000AE4D3C /* KSObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSObject.c; sourceTree = "<group>"; };
+		C5C314581C0474B000AE4D3C /* KSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObject.h; sourceTree = "<group>"; };
+		C5C3145A1C0474B000AE4D3C /* KSString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSString.c; sourceTree = "<group>"; };
+		C5C3145B1C0474B000AE4D3C /* KSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSString.h; sourceTree = "<group>"; };
+		C5C3145D1C0474B000AE4D3C /* KSStructure.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStructure.c; sourceTree = "<group>"; };
+		C5C3145E1C0474B000AE4D3C /* KSStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStructure.h; sourceTree = "<group>"; };
+		C5C314601C0474B000AE4D3C /* KSTypeRepresentationInBinary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSTypeRepresentationInBinary.c; sourceTree = "<group>"; };
+		C5C314611C0474B000AE4D3C /* KSTypeRepresentationInBinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTypeRepresentationInBinary.h; sourceTree = "<group>"; };
+		C5C314641C0474B000AE4D3C /* KSCheckValueAndPrintTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSCheckValueAndPrintTests.c; sourceTree = "<group>"; };
+		C5C314651C0474B000AE4D3C /* KSCheckValueAndPrintTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCheckValueAndPrintTests.h; sourceTree = "<group>"; };
+		C5C314671C0474B000AE4D3C /* KSDataTypesTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSDataTypesTests.c; sourceTree = "<group>"; };
+		C5C314681C0474B000AE4D3C /* KSDataTypesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDataTypesTests.h; sourceTree = "<group>"; };
+		C5C3146A1C0474B000AE4D3C /* KSHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSHumanTests.c; sourceTree = "<group>"; };
+		C5C3146B1C0474B000AE4D3C /* KSHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHumanTests.h; sourceTree = "<group>"; };
+		C5C3146D1C0474B000AE4D3C /* KSLinkedListTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSLinkedListTests.c; sourceTree = "<group>"; };
+		C5C3146E1C0474B000AE4D3C /* KSLinkedListTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLinkedListTests.h; sourceTree = "<group>"; };
+		C5C314701C0474B000AE4D3C /* KSPrimitiveTypeTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSPrimitiveTypeTests.c; sourceTree = "<group>"; };
+		C5C314711C0474B000AE4D3C /* KSPrimitiveTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPrimitiveTypeTests.h; sourceTree = "<group>"; };
+		C5C314731C0474B000AE4D3C /* KSStructureTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSStructureTests.c; sourceTree = "<group>"; };
+		C5C314741C0474B000AE4D3C /* KSStructureTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStructureTests.h; sourceTree = "<group>"; };
+		C5C314761C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KSTypeRepresentationInBinaryTests.c; sourceTree = "<group>"; };
+		C5C314771C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTypeRepresentationInBinaryTests.h; sourceTree = "<group>"; };
+		C5C9E10A1BFF1D6500590391 /* ObjectiveC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveC; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5D205901BAA0327003C2465 /* LearningDevelop */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearningDevelop; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5F4D26C1C307470003FE41E /* KSCarWashTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSCarWashTests.h; path = KSCarWashTests/KSCarWashTests.h; sourceTree = "<group>"; };
+		C5F4D26D1C307470003FE41E /* KSCarWashTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSCarWashTests.m; path = KSCarWashTests/KSCarWashTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C53F349F1C11D77B005E1A48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72D6AC03B2AB3C8083238937 /* libPods-ObjectiveCTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5C9E1071BFF1D6500590391 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5D2058D1BAA0327003C2465 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D853747395B051F761AA1CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				582FFF51163204316694F79C /* Pods-ObjectiveCTests.debug.xcconfig */,
+				5EEF0BA80EE1802BB5D3DA18 /* Pods-ObjectiveCTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C53726531C4E4E5C00C97C1C /* KSController */ = {
+			isa = PBXGroup;
+			children = (
+				C53726541C4E4EF600C97C1C /* KSController.h */,
+				C53726551C4E4EF600C97C1C /* KSController.m */,
+			);
+			path = KSController;
+			sourceTree = "<group>";
+		};
+		C53726581C4E619000C97C1C /* KSDispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				C53726591C4E61F300C97C1C /* KSDispatcher.h */,
+				C537265A1C4E61F300C97C1C /* KSDispatcher.m */,
+			);
+			path = KSDispatcher;
+			sourceTree = "<group>";
+		};
+		C53F34A31C11D77B005E1A48 /* ObjectiveCTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE77AA1C27333E00002924 /* Specs */,
+				C53F34A61C11D77B005E1A48 /* Info.plist */,
+			);
+			path = ObjectiveCTests;
+			sourceTree = "<group>";
+		};
+		C53F34DD1C11D896005E1A48 /* ObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				C53F34DE1C11D896005E1A48 /* main.m */,
+				C54F9E141C4FA1CD00951DF8 /* KSPrefixHeader.pch */,
+				C53F34DF1C11D896005E1A48 /* Sources */,
+				C53F34FC1C11D896005E1A48 /* Tests */,
+			);
+			name = ObjectiveC;
+			path = LearningDevelop/ObjectiveC;
+			sourceTree = SOURCE_ROOT;
+		};
+		C53F34DF1C11D896005E1A48 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C54F9E151C53CFAC00951DF8 /* KSDispatch */,
+				C5AE77A01C27043C00002924 /* KSReference */,
+				C5AE77B61C273D1100002924 /* KSObservableObject */,
+				C5AE77591C26D13000002924 /* KSEnterprise */,
+				C5982DE11C43ACCA002B5A5A /* NSObject+KSExtensions */,
+				C53F34E31C11D896005E1A48 /* KSCreature */,
+				C53F34F01C11D896005E1A48 /* NSString+KSExtensions */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C53F34E31C11D896005E1A48 /* KSCreature */ = {
+			isa = PBXGroup;
+			children = (
+				C53F34E41C11D896005E1A48 /* KSCreature.h */,
+				C53F34E51C11D896005E1A48 /* KSCreature.m */,
+				C53F34E61C11D896005E1A48 /* KSCreatureProtocol.h */,
+				C53F34E71C11D896005E1A48 /* KSMan */,
+				C53F34EA1C11D896005E1A48 /* KSUndefined */,
+				C53F34ED1C11D896005E1A48 /* KSWoman */,
+			);
+			path = KSCreature;
+			sourceTree = "<group>";
+		};
+		C53F34E71C11D896005E1A48 /* KSMan */ = {
+			isa = PBXGroup;
+			children = (
+				C53F34E81C11D896005E1A48 /* KSMan.h */,
+				C53F34E91C11D896005E1A48 /* KSMan.m */,
+			);
+			path = KSMan;
+			sourceTree = "<group>";
+		};
+		C53F34EA1C11D896005E1A48 /* KSUndefined */ = {
+			isa = PBXGroup;
+			children = (
+				C53F34EB1C11D896005E1A48 /* KSUndefined.h */,
+				C53F34EC1C11D896005E1A48 /* KSUndefined.m */,
+			);
+			path = KSUndefined;
+			sourceTree = "<group>";
+		};
+		C53F34ED1C11D896005E1A48 /* KSWoman */ = {
+			isa = PBXGroup;
+			children = (
+				C53F34EE1C11D896005E1A48 /* KSWoman.h */,
+				C53F34EF1C11D896005E1A48 /* KSWoman.m */,
+			);
+			path = KSWoman;
+			sourceTree = "<group>";
+		};
+		C53F34F01C11D896005E1A48 /* NSString+KSExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C53F34F11C11D896005E1A48 /* KSAlphabet.h */,
+				C53F34F21C11D896005E1A48 /* KSAlphabet.m */,
+				C53F34F31C11D896005E1A48 /* NSString+KSExtensions.h */,
+				C53F34F41C11D896005E1A48 /* NSString+KSExtensions.m */,
+				C53F34F51C11D896005E1A48 /* Private */,
+			);
+			path = "NSString+KSExtensions";
+			sourceTree = "<group>";
+		};
+		C53F34F51C11D896005E1A48 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				C53F34F61C11D896005E1A48 /* KSClusterAlphabet.h */,
+				C53F34F71C11D896005E1A48 /* KSClusterAlphabet.m */,
+				C53F34F81C11D896005E1A48 /* KSRangeAlphabet.h */,
+				C53F34F91C11D896005E1A48 /* KSRangeAlphabet.m */,
+				C53F34FA1C11D896005E1A48 /* KSStringsAlphabet.h */,
+				C53F34FB1C11D896005E1A48 /* KSStringsAlphabet.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		C53F34FC1C11D896005E1A48 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C5F4D26B1C307430003FE41E /* KSCarWashTests */,
+				C53F34FD1C11D896005E1A48 /* KSCreatureTests */,
+				C53F35001C11D896005E1A48 /* KSStringCategoryTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C53F34FD1C11D896005E1A48 /* KSCreatureTests */ = {
+			isa = PBXGroup;
+			children = (
+				C53F34FE1C11D896005E1A48 /* KSCreatureTests.h */,
+				C53F34FF1C11D896005E1A48 /* KSCreatureTests.m */,
+			);
+			path = KSCreatureTests;
+			sourceTree = "<group>";
+		};
+		C53F35001C11D896005E1A48 /* KSStringCategoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				C53F35011C11D896005E1A48 /* KSStringCategoryTests.h */,
+				C53F35021C11D896005E1A48 /* KSStringCategoryTests.m */,
+			);
+			path = KSStringCategoryTests;
+			sourceTree = "<group>";
+		};
+		C54F9E151C53CFAC00951DF8 /* KSDispatch */ = {
+			isa = PBXGroup;
+			children = (
+				C54F9E161C53CFEB00951DF8 /* KSDispatch.h */,
+				C54F9E171C53CFEB00951DF8 /* KSDispatch.m */,
+			);
+			path = KSDispatch;
+			sourceTree = "<group>";
+		};
+		C5982DE11C43ACCA002B5A5A /* NSObject+KSExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C5982DE21C43ACCA002B5A5A /* NSObject+KSExtensions.h */,
+				C5982DE31C43ACCA002B5A5A /* NSObject+KSExtensions.m */,
+			);
+			name = "NSObject+KSExtensions";
+			path = "LearningDevelop/ObjectiveC/Sources/NSObject+KSExtensions";
+			sourceTree = SOURCE_ROOT;
+		};
+		C5982DE81C43AFFC002B5A5A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C5982DE91C43AFFC002B5A5A /* KSCashFlowProtocol.h */,
+				C5982DEA1C43AFFC002B5A5A /* KSEmployeeProtocol.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C5982DEC1C43E18C002B5A5A /* KSQueue */ = {
+			isa = PBXGroup;
+			children = (
+				C5982DED1C43E1B9002B5A5A /* KSQueue.h */,
+				C5982DEE1C43E1B9002B5A5A /* KSQueue.m */,
+			);
+			name = KSQueue;
+			sourceTree = "<group>";
+		};
+		C5AE77591C26D13000002924 /* KSEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				C53726581C4E619000C97C1C /* KSDispatcher */,
+				C53726531C4E4E5C00C97C1C /* KSController */,
+				C5982DE81C43AFFC002B5A5A /* Protocols */,
+				C5AE77691C26D13000002924 /* KSCar */,
+				C5AE776D1C26D13000002924 /* KSEmployee */,
+				C5AE77791C26D13000002924 /* KSEnterprise.h */,
+				C5AE777A1C26D13000002924 /* KSEnterprise.m */,
+				C5982DEC1C43E18C002B5A5A /* KSQueue */,
+			);
+			path = KSEnterprise;
+			sourceTree = "<group>";
+		};
+		C5AE77691C26D13000002924 /* KSCar */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE776A1C26D13000002924 /* KSCar.h */,
+				C5AE776B1C26D13000002924 /* KSCar.m */,
+			);
+			path = KSCar;
+			sourceTree = "<group>";
+		};
+		C5AE776D1C26D13000002924 /* KSEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE776E1C26D13000002924 /* KSAccountant */,
+				C5AE77711C26D13000002924 /* KSDirector */,
+				C5AE77761C26D13000002924 /* KSWasher */,
+				C5AE77741C26D13000002924 /* KSEmployee.h */,
+				C5AE77751C26D13000002924 /* KSEmployee.m */,
+			);
+			path = KSEmployee;
+			sourceTree = "<group>";
+		};
+		C5AE776E1C26D13000002924 /* KSAccountant */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE776F1C26D13000002924 /* KSAccountant.h */,
+				C5AE77701C26D13000002924 /* KSAccountant.m */,
+			);
+			path = KSAccountant;
+			sourceTree = "<group>";
+		};
+		C5AE77711C26D13000002924 /* KSDirector */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE77721C26D13000002924 /* KSDirector.h */,
+				C5AE77731C26D13000002924 /* KSDirector.m */,
+			);
+			path = KSDirector;
+			sourceTree = "<group>";
+		};
+		C5AE77761C26D13000002924 /* KSWasher */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE77771C26D13000002924 /* KSWasher.h */,
+				C5AE77781C26D13000002924 /* KSWasher.m */,
+			);
+			path = KSWasher;
+			sourceTree = "<group>";
+		};
+		C5AE77A01C27043C00002924 /* KSReference */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE77B11C273CBE00002924 /* KSWeakReference */,
+				C5AE77A11C27046700002924 /* KSReference.h */,
+				C5AE77A21C27046800002924 /* KSReference.m */,
+			);
+			name = KSReference;
+			sourceTree = "<group>";
+		};
+		C5AE77AA1C27333E00002924 /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE77AB1C27333E00002924 /* KSAlphabetSpec.m */,
+				C5AE77AC1C27333E00002924 /* KSCarWashSpec.m */,
+				C5AE77AF1C27337400002924 /* KSObservableObjectSpec.m */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
+		C5AE77B11C273CBE00002924 /* KSWeakReference */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE77B21C273CBE00002924 /* KSWeakReference.h */,
+				C5AE77B31C273CBE00002924 /* KSWeakReference.m */,
+			);
+			name = KSWeakReference;
+			path = KSReference/KSWeakReference;
+			sourceTree = "<group>";
+		};
+		C5AE77B61C273D1100002924 /* KSObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				C5AE77B71C273D1100002924 /* KSObservableObject.h */,
+				C5AE77B81C273D1100002924 /* KSObservableObject.m */,
+			);
+			path = KSObservableObject;
+			sourceTree = "<group>";
+		};
+		C5C314371C0474B000AE4D3C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314381C0474B000AE4D3C /* main.c */,
+				C5C314391C0474B000AE4D3C /* Sources */,
+				C5C314621C0474B000AE4D3C /* Tests */,
+			);
+			name = C;
+			path = LearningDevelop/C;
+			sourceTree = SOURCE_ROOT;
+		};
+		C5C314391C0474B000AE4D3C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C5C3143A1C0474B000AE4D3C /* KSArray */,
+				C5C3143D1C0474B000AE4D3C /* KSCheckValueAndPrint */,
+				C5C314401C0474B000AE4D3C /* KSDataTypes */,
+				C5C314421C0474B000AE4D3C /* KSDynamicArray */,
+				C5C314451C0474B000AE4D3C /* KSHuman */,
+				C5C314481C0474B000AE4D3C /* KSLinkedList */,
+				C5C314531C0474B000AE4D3C /* KSMacros.h */,
+				C5C314541C0474B000AE4D3C /* KSMethodOfGeneratingAPrimitiveType */,
+				C5C314561C0474B000AE4D3C /* KSObject */,
+				C5C314591C0474B000AE4D3C /* KSString */,
+				C5C3145C1C0474B000AE4D3C /* KSStructure */,
+				C5C3145F1C0474B000AE4D3C /* KSTypeRepresentationInBinary */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C5C3143A1C0474B000AE4D3C /* KSArray */ = {
+			isa = PBXGroup;
+			children = (
+				C5C3143B1C0474B000AE4D3C /* KSArray.c */,
+				C5C3143C1C0474B000AE4D3C /* KSArray.h */,
+			);
+			path = KSArray;
+			sourceTree = "<group>";
+		};
+		C5C3143D1C0474B000AE4D3C /* KSCheckValueAndPrint */ = {
+			isa = PBXGroup;
+			children = (
+				C5C3143E1C0474B000AE4D3C /* KSCheckValueAndPrint.c */,
+				C5C3143F1C0474B000AE4D3C /* KSCheckValueAndPrint.h */,
+			);
+			path = KSCheckValueAndPrint;
+			sourceTree = "<group>";
+		};
+		C5C314401C0474B000AE4D3C /* KSDataTypes */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314411C0474B000AE4D3C /* KSDataTypes.h */,
+			);
+			path = KSDataTypes;
+			sourceTree = "<group>";
+		};
+		C5C314421C0474B000AE4D3C /* KSDynamicArray */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314431C0474B000AE4D3C /* KSDynamicArray.c */,
+				C5C314441C0474B000AE4D3C /* KSDynamicArray.h */,
+			);
+			path = KSDynamicArray;
+			sourceTree = "<group>";
+		};
+		C5C314451C0474B000AE4D3C /* KSHuman */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314461C0474B000AE4D3C /* KSHuman.c */,
+				C5C314471C0474B000AE4D3C /* KSHuman.h */,
+			);
+			path = KSHuman;
+			sourceTree = "<group>";
+		};
+		C5C314481C0474B000AE4D3C /* KSLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314491C0474B000AE4D3C /* KSLinkedList.c */,
+				C5C3144A1C0474B000AE4D3C /* KSLinkedList.h */,
+				C5C3144B1C0474B000AE4D3C /* KSLinkedListEnumerator */,
+				C5C3144F1C0474B000AE4D3C /* KSLinkedListNode */,
+				C5C314521C0474B000AE4D3C /* KSLinkedListPrivate.h */,
+			);
+			path = KSLinkedList;
+			sourceTree = "<group>";
+		};
+		C5C3144B1C0474B000AE4D3C /* KSLinkedListEnumerator */ = {
+			isa = PBXGroup;
+			children = (
+				C5C3144C1C0474B000AE4D3C /* KSLinkedListEnumerator.c */,
+				C5C3144D1C0474B000AE4D3C /* KSLinkedListEnumerator.h */,
+				C5C3144E1C0474B000AE4D3C /* KSLinkedListEnumeratorPrivate.h */,
+			);
+			path = KSLinkedListEnumerator;
+			sourceTree = "<group>";
+		};
+		C5C3144F1C0474B000AE4D3C /* KSLinkedListNode */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314501C0474B000AE4D3C /* KSLinkedListNode.c */,
+				C5C314511C0474B000AE4D3C /* KSLinkedListNode.h */,
+			);
+			path = KSLinkedListNode;
+			sourceTree = "<group>";
+		};
+		C5C314541C0474B000AE4D3C /* KSMethodOfGeneratingAPrimitiveType */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314551C0474B000AE4D3C /* KSMethodOfGeneratingAPrimitiveType.h */,
+			);
+			path = KSMethodOfGeneratingAPrimitiveType;
+			sourceTree = "<group>";
+		};
+		C5C314561C0474B000AE4D3C /* KSObject */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314571C0474B000AE4D3C /* KSObject.c */,
+				C5C314581C0474B000AE4D3C /* KSObject.h */,
+			);
+			path = KSObject;
+			sourceTree = "<group>";
+		};
+		C5C314591C0474B000AE4D3C /* KSString */ = {
+			isa = PBXGroup;
+			children = (
+				C5C3145A1C0474B000AE4D3C /* KSString.c */,
+				C5C3145B1C0474B000AE4D3C /* KSString.h */,
+			);
+			path = KSString;
+			sourceTree = "<group>";
+		};
+		C5C3145C1C0474B000AE4D3C /* KSStructure */ = {
+			isa = PBXGroup;
+			children = (
+				C5C3145D1C0474B000AE4D3C /* KSStructure.c */,
+				C5C3145E1C0474B000AE4D3C /* KSStructure.h */,
+			);
+			path = KSStructure;
+			sourceTree = "<group>";
+		};
+		C5C3145F1C0474B000AE4D3C /* KSTypeRepresentationInBinary */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314601C0474B000AE4D3C /* KSTypeRepresentationInBinary.c */,
+				C5C314611C0474B000AE4D3C /* KSTypeRepresentationInBinary.h */,
+			);
+			path = KSTypeRepresentationInBinary;
+			sourceTree = "<group>";
+		};
+		C5C314621C0474B000AE4D3C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314631C0474B000AE4D3C /* KSCheckValueAndPrintTests */,
+				C5C314661C0474B000AE4D3C /* KSDataTypesTests */,
+				C5C314691C0474B000AE4D3C /* KSHumanTests */,
+				C5C3146C1C0474B000AE4D3C /* KSLinkedListTests */,
+				C5C3146F1C0474B000AE4D3C /* KSPrimitiveTypeTests */,
+				C5C314721C0474B000AE4D3C /* KSStructureTests */,
+				C5C314751C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C5C314631C0474B000AE4D3C /* KSCheckValueAndPrintTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314641C0474B000AE4D3C /* KSCheckValueAndPrintTests.c */,
+				C5C314651C0474B000AE4D3C /* KSCheckValueAndPrintTests.h */,
+			);
+			path = KSCheckValueAndPrintTests;
+			sourceTree = "<group>";
+		};
+		C5C314661C0474B000AE4D3C /* KSDataTypesTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314671C0474B000AE4D3C /* KSDataTypesTests.c */,
+				C5C314681C0474B000AE4D3C /* KSDataTypesTests.h */,
+			);
+			path = KSDataTypesTests;
+			sourceTree = "<group>";
+		};
+		C5C314691C0474B000AE4D3C /* KSHumanTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5C3146A1C0474B000AE4D3C /* KSHumanTests.c */,
+				C5C3146B1C0474B000AE4D3C /* KSHumanTests.h */,
+			);
+			path = KSHumanTests;
+			sourceTree = "<group>";
+		};
+		C5C3146C1C0474B000AE4D3C /* KSLinkedListTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5C3146D1C0474B000AE4D3C /* KSLinkedListTests.c */,
+				C5C3146E1C0474B000AE4D3C /* KSLinkedListTests.h */,
+			);
+			path = KSLinkedListTests;
+			sourceTree = "<group>";
+		};
+		C5C3146F1C0474B000AE4D3C /* KSPrimitiveTypeTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314701C0474B000AE4D3C /* KSPrimitiveTypeTests.c */,
+				C5C314711C0474B000AE4D3C /* KSPrimitiveTypeTests.h */,
+			);
+			path = KSPrimitiveTypeTests;
+			sourceTree = "<group>";
+		};
+		C5C314721C0474B000AE4D3C /* KSStructureTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314731C0474B000AE4D3C /* KSStructureTests.c */,
+				C5C314741C0474B000AE4D3C /* KSStructureTests.h */,
+			);
+			path = KSStructureTests;
+			sourceTree = "<group>";
+		};
+		C5C314751C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5C314761C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.c */,
+				C5C314771C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.h */,
+			);
+			path = KSTypeRepresentationInBinaryTests;
+			sourceTree = "<group>";
+		};
+		C5D205871BAA0327003C2465 = {
+			isa = PBXGroup;
+			children = (
+				C5D205921BAA0327003C2465 /* LearningDevelop */,
+				C53F34A31C11D77B005E1A48 /* ObjectiveCTests */,
+				C5D205911BAA0327003C2465 /* Products */,
+				0D853747395B051F761AA1CF /* Pods */,
+				E424F7BE94D772DEBF88807C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C5D205911BAA0327003C2465 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C5D205901BAA0327003C2465 /* LearningDevelop */,
+				C5C9E10A1BFF1D6500590391 /* ObjectiveC */,
+				C53F34A21C11D77B005E1A48 /* ObjectiveCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C5D205921BAA0327003C2465 /* LearningDevelop */ = {
+			isa = PBXGroup;
+			children = (
+				C53F34DD1C11D896005E1A48 /* ObjectiveC */,
+				C5C314371C0474B000AE4D3C /* C */,
+			);
+			name = LearningDevelop;
+			path = LerningDevelop;
+			sourceTree = "<group>";
+		};
+		C5F4D26B1C307430003FE41E /* KSCarWashTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5F4D26C1C307470003FE41E /* KSCarWashTests.h */,
+				C5F4D26D1C307470003FE41E /* KSCarWashTests.m */,
+			);
+			name = KSCarWashTests;
+			sourceTree = "<group>";
+		};
+		E424F7BE94D772DEBF88807C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35C6CA6FCBEFDC6F4D3B464F /* libPods-ObjectiveCTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C53F34A11C11D77B005E1A48 /* ObjectiveCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C53F34A91C11D77B005E1A48 /* Build configuration list for PBXNativeTarget "ObjectiveCTests" */;
+			buildPhases = (
+				994F0C2C6895110A9ED40F57 /* Check Pods Manifest.lock */,
+				C53F349E1C11D77B005E1A48 /* Sources */,
+				C53F349F1C11D77B005E1A48 /* Frameworks */,
+				C53F34A01C11D77B005E1A48 /* Resources */,
+				E60BFE732A8CE4FEB082A9B9 /* Embed Pods Frameworks */,
+				0A1DBEEC36355B0CEE4D54C8 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjectiveCTests;
+			productName = ObjectiveCTests;
+			productReference = C53F34A21C11D77B005E1A48 /* ObjectiveCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C5C9E1091BFF1D6500590391 /* ObjectiveC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5C9E1101BFF1D6500590391 /* Build configuration list for PBXNativeTarget "ObjectiveC" */;
+			buildPhases = (
+				C5C9E1061BFF1D6500590391 /* Sources */,
+				C5C9E1071BFF1D6500590391 /* Frameworks */,
+				C5C9E1081BFF1D6500590391 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjectiveC;
+			productName = ObjectiveC;
+			productReference = C5C9E10A1BFF1D6500590391 /* ObjectiveC */;
+			productType = "com.apple.product-type.tool";
+		};
+		C5D2058F1BAA0327003C2465 /* LearningDevelop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5D205971BAA0327003C2465 /* Build configuration list for PBXNativeTarget "LearningDevelop" */;
+			buildPhases = (
+				C5D2058C1BAA0327003C2465 /* Sources */,
+				C5D2058D1BAA0327003C2465 /* Frameworks */,
+				C5D2058E1BAA0327003C2465 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LearningDevelop;
+			productName = LerningCPart1;
+			productReference = C5D205901BAA0327003C2465 /* LearningDevelop */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C5D205881BAA0327003C2465 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Serg Bla";
+				TargetAttributes = {
+					C53F34A11C11D77B005E1A48 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					C5C9E1091BFF1D6500590391 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					C5D2058F1BAA0327003C2465 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = C5D2058B1BAA0327003C2465 /* Build configuration list for PBXProject "LearningDevelop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C5D205871BAA0327003C2465;
+			productRefGroup = C5D205911BAA0327003C2465 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C5D2058F1BAA0327003C2465 /* LearningDevelop */,
+				C5C9E1091BFF1D6500590391 /* ObjectiveC */,
+				C53F34A11C11D77B005E1A48 /* ObjectiveCTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C53F34A01C11D77B005E1A48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A1DBEEC36355B0CEE4D54C8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ObjectiveCTests/Pods-ObjectiveCTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		994F0C2C6895110A9ED40F57 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E60BFE732A8CE4FEB082A9B9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ObjectiveCTests/Pods-ObjectiveCTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C53F349E1C11D77B005E1A48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5AE778C1C26D13000002924 /* KSDirector.m in Sources */,
+				C53F350E1C11D896005E1A48 /* KSWoman.m in Sources */,
+				C5AE77B01C27337400002924 /* KSObservableObjectSpec.m in Sources */,
+				C5AE77921C26D13000002924 /* KSEnterprise.m in Sources */,
+				C53F35141C11D896005E1A48 /* KSClusterAlphabet.m in Sources */,
+				C5AE77AE1C27333E00002924 /* KSCarWashSpec.m in Sources */,
+				C5AE77B51C273CBE00002924 /* KSWeakReference.m in Sources */,
+				C5AE778A1C26D13000002924 /* KSAccountant.m in Sources */,
+				C53F350A1C11D896005E1A48 /* KSMan.m in Sources */,
+				C53F35121C11D896005E1A48 /* NSString+KSExtensions.m in Sources */,
+				C53F35081C11D896005E1A48 /* KSCreature.m in Sources */,
+				C5AE778E1C26D13000002924 /* KSEmployee.m in Sources */,
+				C5982DE51C43ACCA002B5A5A /* NSObject+KSExtensions.m in Sources */,
+				C5AE77901C26D13000002924 /* KSWasher.m in Sources */,
+				C5AE77AD1C27333E00002924 /* KSAlphabetSpec.m in Sources */,
+				C53F35161C11D896005E1A48 /* KSRangeAlphabet.m in Sources */,
+				C53F35181C11D896005E1A48 /* KSStringsAlphabet.m in Sources */,
+				C53F351C1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */,
+				C53F351A1C11D896005E1A48 /* KSCreatureTests.m in Sources */,
+				C5AE77A41C27046800002924 /* KSReference.m in Sources */,
+				C5982DF01C43E1B9002B5A5A /* KSQueue.m in Sources */,
+				C5AE77881C26D13000002924 /* KSCar.m in Sources */,
+				C5AE77BA1C273D1100002924 /* KSObservableObject.m in Sources */,
+				C53F350C1C11D896005E1A48 /* KSUndefined.m in Sources */,
+				C53F35101C11D896005E1A48 /* KSAlphabet.m in Sources */,
+				C537265C1C4E61F300C97C1C /* KSDispatcher.m in Sources */,
+				C53726571C4E4EF600C97C1C /* KSController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5C9E1061BFF1D6500590391 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C53F351D1C11D8BE005E1A48 /* main.m in Sources */,
+				C53F350D1C11D896005E1A48 /* KSWoman.m in Sources */,
+				C54F9E181C53CFEB00951DF8 /* KSDispatch.m in Sources */,
+				C5AE77891C26D13000002924 /* KSAccountant.m in Sources */,
+				C53F35131C11D896005E1A48 /* KSClusterAlphabet.m in Sources */,
+				C5AE778D1C26D13000002924 /* KSEmployee.m in Sources */,
+				C53F35091C11D896005E1A48 /* KSMan.m in Sources */,
+				C5AE778B1C26D13000002924 /* KSDirector.m in Sources */,
+				C5AE77B91C273D1100002924 /* KSObservableObject.m in Sources */,
+				C5AE778F1C26D13000002924 /* KSWasher.m in Sources */,
+				C53726561C4E4EF600C97C1C /* KSController.m in Sources */,
+				C537265B1C4E61F300C97C1C /* KSDispatcher.m in Sources */,
+				C53F35111C11D896005E1A48 /* NSString+KSExtensions.m in Sources */,
+				C5AE77871C26D13000002924 /* KSCar.m in Sources */,
+				C5AE77B41C273CBE00002924 /* KSWeakReference.m in Sources */,
+				C5982DE41C43ACCA002B5A5A /* NSObject+KSExtensions.m in Sources */,
+				C53F35071C11D896005E1A48 /* KSCreature.m in Sources */,
+				C5F4D26E1C307470003FE41E /* KSCarWashTests.m in Sources */,
+				C53F35151C11D896005E1A48 /* KSRangeAlphabet.m in Sources */,
+				C5AE77911C26D13000002924 /* KSEnterprise.m in Sources */,
+				C53F35171C11D896005E1A48 /* KSStringsAlphabet.m in Sources */,
+				C53F351B1C11D896005E1A48 /* KSStringCategoryTests.m in Sources */,
+				C53F35191C11D896005E1A48 /* KSCreatureTests.m in Sources */,
+				C5982DEF1C43E1B9002B5A5A /* KSQueue.m in Sources */,
+				C53F350B1C11D896005E1A48 /* KSUndefined.m in Sources */,
+				C53F350F1C11D896005E1A48 /* KSAlphabet.m in Sources */,
+				C5AE77A31C27046800002924 /* KSReference.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5D2058C1BAA0327003C2465 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5C3147A1C0474B000AE4D3C /* KSCheckValueAndPrint.c in Sources */,
+				C5C314781C0474B000AE4D3C /* main.c in Sources */,
+				C5C3148A1C0474B000AE4D3C /* KSTypeRepresentationInBinaryTests.c in Sources */,
+				C5C3147F1C0474B000AE4D3C /* KSLinkedListNode.c in Sources */,
+				C5C314891C0474B000AE4D3C /* KSStructureTests.c in Sources */,
+				C5C3147D1C0474B000AE4D3C /* KSLinkedList.c in Sources */,
+				C5C314791C0474B000AE4D3C /* KSArray.c in Sources */,
+				C5C314861C0474B000AE4D3C /* KSHumanTests.c in Sources */,
+				C5C3147B1C0474B000AE4D3C /* KSDynamicArray.c in Sources */,
+				C5C314831C0474B000AE4D3C /* KSTypeRepresentationInBinary.c in Sources */,
+				C5C314871C0474B000AE4D3C /* KSLinkedListTests.c in Sources */,
+				C5C314851C0474B000AE4D3C /* KSDataTypesTests.c in Sources */,
+				C5C314841C0474B000AE4D3C /* KSCheckValueAndPrintTests.c in Sources */,
+				C5C314811C0474B000AE4D3C /* KSString.c in Sources */,
+				C5C3147E1C0474B000AE4D3C /* KSLinkedListEnumerator.c in Sources */,
+				C5C3147C1C0474B000AE4D3C /* KSHuman.c in Sources */,
+				C5C314801C0474B000AE4D3C /* KSObject.c in Sources */,
+				C5C314881C0474B000AE4D3C /* KSPrimitiveTypeTests.c in Sources */,
+				C5C314821C0474B000AE4D3C /* KSStructure.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C53F34A71C11D77B005E1A48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 582FFF51163204316694F79C /* Pods-ObjectiveCTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ObjectiveCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = bla.ObjectiveCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C53F34A81C11D77B005E1A48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EEF0BA80EE1802BB5D3DA18 /* Pods-ObjectiveCTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ObjectiveCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = bla.ObjectiveCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C5C9E10E1BFF1D6500590391 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "-";
+				GCC_PREFIX_HEADER = LearningDevelop/ObjectiveC/KSPrefixHeader.pch;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C5C9E10F1BFF1D6500590391 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "-";
+				GCC_PREFIX_HEADER = LearningDevelop/ObjectiveC/KSPrefixHeader.pch;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C5D205951BAA0327003C2465 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C5D205961BAA0327003C2465 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C5D205981BAA0327003C2465 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				PRODUCT_NAME = LearningDevelop;
+			};
+			name = Debug;
+		};
+		C5D205991BAA0327003C2465 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				PRODUCT_NAME = LearningDevelop;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C53F34A91C11D77B005E1A48 /* Build configuration list for PBXNativeTarget "ObjectiveCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C53F34A71C11D77B005E1A48 /* Debug */,
+				C53F34A81C11D77B005E1A48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5C9E1101BFF1D6500590391 /* Build configuration list for PBXNativeTarget "ObjectiveC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5C9E10E1BFF1D6500590391 /* Debug */,
+				C5C9E10F1BFF1D6500590391 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5D2058B1BAA0327003C2465 /* Build configuration list for PBXProject "LearningDevelop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5D205951BAA0327003C2465 /* Debug */,
+				C5D205961BAA0327003C2465 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5D205971BAA0327003C2465 /* Build configuration list for PBXNativeTarget "LearningDevelop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5D205981BAA0327003C2465 /* Debug */,
+				C5D205991BAA0327003C2465 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C5D205881BAA0327003C2465 /* Project object */;
+}
