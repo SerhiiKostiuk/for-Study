@@ -6,9 +6,10 @@
 @end
 
 @implementation KSQueue
+
 @dynamic items;
 
-#pragma mark-
+#pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
@@ -25,16 +26,17 @@
     return self;
 }
 
-#pragma mark-
+#pragma mark -
 #pragma mark Accessors
 
 - (NSArray *)items {
-    @synchronized(self.mutableItems) {
-        return [[self.mutableItems copy] autorelease];
+    NSMutableArray *mutableItems = self.mutableItems;
+    @synchronized(mutableItems) {
+        return [[mutableItems copy] autorelease];
     }
 }
 
-#pragma mark-
+#pragma mark -
 #pragma mark Public
 
 - (void)enqueue:(id)object {
