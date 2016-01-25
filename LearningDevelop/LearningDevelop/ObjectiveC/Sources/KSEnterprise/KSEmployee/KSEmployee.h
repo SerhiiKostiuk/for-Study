@@ -18,7 +18,7 @@ typedef NS_ENUM (NSUInteger, KSEmployeeState) {
 - (void)processObject:(id<KSCashFlowProtocol>)object;
 
 // this methods should be overload in subclass
-- (void)completeProcessingObject:(KSEmployee *)object;
+- (void)completeProcessingObject:(id<KSCashFlowProtocol>)object;
 - (void)cleanupAfterProcessing;
 
 @end

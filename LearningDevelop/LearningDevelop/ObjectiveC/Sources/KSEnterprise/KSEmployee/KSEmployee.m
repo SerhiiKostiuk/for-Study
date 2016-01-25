@@ -1,15 +1,13 @@
 
 #import "KSEmployee.h"
+#import "KSDispatch.h"
 #import "KSQueue.h"
 
 @interface KSEmployee ()
 @property (nonatomic, readwrite) NSUInteger  moneyAmount;
 @property (nonatomic, retain)    KSQueue     *objectsQueue;
 
-- (void)performBackgroundWorkWithObject:(id)object;
 - (void)processObject:(id<KSCashFlowProtocol>)object;
-- (void)finishProcessingObject:(id<KSCashFlowProtocol>)object;
-- (void)processObjectQueue;
 
 @end
 
@@ -38,13 +36,14 @@
 #pragma mark Public
 
 - (void)performWorkWithObject:(id<KSCashFlowProtocol>)object {
-    @synchronized(self) {
-        if (kKSEmployeeDidStartWork == self.state) {            
-            [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
-        } else {
-            [self.objectsQueue enqueue:object];
-        }
-    }
+    KSDispatchAsyncOnBackgroundQueue(^{
+        [self processObject:object];
+        
+        KSDispatchAsyncOnMainQueue(^{
+            [self completeProcessingObject:object];
+            [self cleanupAfterProcessing];
+        });
+    });
 }
 
 - (void)processObject:(id<KSCashFlowProtocol>)object {
@@ -66,16 +65,6 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)performBackgroundWorkWithObject:(id)object {
-    [self processObject:object];
-    [self performSelectorOnMainThread:@selector(finishProcessingObject:) withObject:object waitUntilDone:NO];
-}
-
-- (void)finishProcessingObject:(KSEmployee *)object {
-    [self completeProcessingObject:object];
-    [self processObjectQueue];
-}
-
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case kKSEmployeeDidFinishWork:
@@ -89,17 +78,6 @@
             
         default:
             return [super selectorForState:state];
-    }
-}
-
-- (void)processObjectQueue {
-    @synchronized(self) {
-        id object = [self.objectsQueue dequeue];
-        if (object) {
-            [self performSelectorInBackground:@selector(performBackgroundWorkWithObject:) withObject:object];
-        } else {
-            [self cleanupAfterProcessing];
-        }
     }
 }
 
