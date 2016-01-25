@@ -11,8 +11,8 @@
 #import "KSDispatch.h"
 #import "KSCar.h"
 
-static const NSUInteger kKSDefaultTimeInterval = 0.7;
-static const NSUInteger kKSDefaultCarsCount    = 5;
+static const NSUInteger kKSDefaultTimeInterval = 0.2;
+static const NSUInteger kKSDefaultCarsCount    = 20000;
 
 @interface KSController ()
 @property (nonatomic, retain) KSEnterprise *enterprise;
@@ -73,12 +73,11 @@ static const NSUInteger kKSDefaultCarsCount    = 5;
     }
 }
 
-#pragma mark-
+#pragma mark -
 #pragma mark Private
 
 - (void)startBackgroundWork {
-    usleep(50 *500);
-    KSDispatchAsyncOnBackgroundQueue(^{
+    KSDispatchAsyncOnQueue(KSDispatchQueueBackground, ^{
         NSArray *cars = [KSCar objectsWithCount:kKSDefaultCarsCount];
         for (id car in cars) {
             [self performWorkWithObject:car];

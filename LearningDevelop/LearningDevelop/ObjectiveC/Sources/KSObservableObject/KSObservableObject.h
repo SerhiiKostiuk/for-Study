@@ -26,5 +26,4 @@
 
 - (SEL)selectorForState:(NSUInteger)state;
 
-
 @end
