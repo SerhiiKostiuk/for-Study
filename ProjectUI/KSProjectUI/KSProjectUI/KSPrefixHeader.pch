@@ -1,0 +1,14 @@
+//
+//  KSPrefixHeader.pch
+//  KSProjectUI
+//
+//  Created by Serg Bla on 28.01.16.
+//  Copyright © 2016 Serg Bla. All rights reserved.
+//
+
+#ifndef KSPrefixHeader_pch
+#define KSPrefixHeader_pch
+
+#import "UIWindow+KSExtensions.h"
+
+#endif /* KSPrefixHeader_pch */
