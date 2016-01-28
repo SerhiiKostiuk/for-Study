@@ -16,6 +16,7 @@ typedef NS_ENUM(NSUInteger, KSSqurePosition) {
 };
 
 @interface KSView : UIView
-@property (nonatomic, strong) IBOutlet UILabel  *squre;
-@property (nonatomic, assign) NSUInteger        squrePosition;
+@property (nonatomic, strong) IBOutlet    UILabel   *squre;
+@property (nonatomic, assign) NSUInteger            squrePosition;
+
 @end
