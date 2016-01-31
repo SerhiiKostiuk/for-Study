@@ -9,6 +9,4 @@
 #ifndef KSPrefixHeader_pch
 #define KSPrefixHeader_pch
 
-#import "UIWindow+KSExtensions.h"
-
 #endif /* KSPrefixHeader_pch */

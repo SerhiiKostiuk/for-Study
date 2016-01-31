@@ -1,5 +1,5 @@
 //
-//  KSViewController.h
+//  KSSquareViewController.h
 //  KSProjectUI
 //
 //  Created by Serg Bla on 28.01.16.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KSViewController : UIViewController
+@interface KSSquareViewController : UIViewController
+
+- (IBAction)onMoveButton:(id)sender;
 
 @end
