@@ -25,6 +25,6 @@ typedef NS_ENUM(NSUInteger, KSSquarePosition) {
 - (void)setSquarePosition:(KSSquarePosition)squarePosition animated:(BOOL)animated;
 - (void)setSquarePosition:(KSSquarePosition)squarePosition
                  animated:(BOOL)animated
-         comletionHandler:(void (^)(BOOL))handler;
+         completionHandler:(void (^)(BOOL))handler;
 
 @end

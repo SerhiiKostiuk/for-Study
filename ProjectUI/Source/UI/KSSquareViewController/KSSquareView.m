@@ -48,16 +48,13 @@ static NSTimeInterval KSDuration = 1.0;
     [self setSquarePosition:newLocation animated:YES];
 }
 
-
-
-
 - (void)setSquarePosition:(KSSquarePosition)squarePosition animated:(BOOL)animated {
-    [self setSquarePosition:squarePosition animated:animated comletionHandler:nil];
+    [self setSquarePosition:squarePosition animated:animated completionHandler:nil];
 }
 
 - (void)setSquarePosition:(KSSquarePosition)squarePosition
                  animated:(BOOL)animated
-         comletionHandler:(void (^)(BOOL))handler
+         completionHandler:(void (^)(BOOL))handler
 {
     [UIView animateWithDuration:KSDuration animations:^{
         CGRect squareFrame = self.square.frame;
