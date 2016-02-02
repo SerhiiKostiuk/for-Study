@@ -11,5 +11,7 @@
 @interface KSSquareViewController : UIViewController
 
 - (IBAction)onMoveButton:(id)sender;
+- (IBAction)OnStartButton:(id)sender;
+- (IBAction)OnStopButton:(id)sender;
 
 @end

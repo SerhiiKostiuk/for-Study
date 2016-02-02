@@ -8,6 +8,7 @@
 
 #import "KSSquareViewController.h"
 #import "KSSquareView.h"
+#import "KSMacro.h"
 
 @interface KSSquareViewController ()
 @property (nonatomic, readonly) KSSquareView  *squareView;
@@ -15,16 +16,10 @@
 @end
 
 @implementation KSSquareViewController
-
+ 
 @dynamic squareView;
 
-- (KSSquareView *)squareView {
-    if ([self isViewLoaded] && [self.view isKindOfClass:[KSSquareView class]]) {
-        return (KSSquareView *)self.view;
-    }
-    
-    return nil;
-}
+KSViewGetterSynthesize(KSSquareView, squareView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +30,19 @@
 }
 
 - (IBAction)onMoveButton:(id)sender {
-    [self.squareView moveSquare];
+    [self.squareView moveSquareToNextPosition];
+}
+
+- (IBAction)OnStartButton:(id)sender {
+    KSSquareView *squareView = self.squareView;
+    if (!squareView.isAnimated) {
+        squareView.animated = YES;
+        [squareView animateSquareMoving];
+    }
+}
+- (IBAction)OnStopButton:(id)sender {
+    self.squareView.animated = NO;
+    
 }
 
 @end
