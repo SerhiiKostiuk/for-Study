@@ -8,7 +8,16 @@
 
 #import "KSSquareView.h"
 
+#import "KSMacro.h"
+
 static NSTimeInterval KSDuration = 1.0;
+
+@interface KSSquareView ()
+
+- (KSSquarePosition)nextPosition:(KSSquarePosition)position;
+- (CGRect)squareFrameWithSqurePosition:(KSSquarePosition)position;
+
+@end
 
 @implementation KSSquareView
 
@@ -22,30 +31,32 @@ static NSTimeInterval KSDuration = 1.0;
 #pragma mark -
 #pragma mark Public
 
-- (void)moveSquare {
-    KSSquarePosition newLocation = KSSquarePositionBottomRight;
+- (void)moveSquareToNextPosition {
+    KSSquarePosition position = [self nextPosition:self.squarePosition];
     
-    switch (self.squarePosition) {
+    [self setSquarePosition:position animated:YES];
+}
+
+- (void)animateSquareMoving {
+    if (self.isAnimated) {
+        [self moveSquareToNextPosition];
+    }
+}
+
+- (KSSquarePosition)nextPosition:(KSSquarePosition)position {
+    switch (position) {
         case KSSquarePositionBottomRight:
-            newLocation = KSSquarePositionTopRight;
-            
-            break;
+            return KSSquarePositionTopRight;
             
         case KSSquarePositionTopRight:
-            newLocation = KSSquarePositionTopLeft;
-            
-            break;
+            return KSSquarePositionTopLeft;
             
         case KSSquarePositionTopLeft:
-            newLocation = KSSquarePositionBottomLeft;
+            return KSSquarePositionBottomLeft;
             
-            break;
-
         default:
-            break;
+            return KSSquarePositionBottomRight;
     }
-    
-    [self setSquarePosition:newLocation animated:YES];
 }
 
 - (void)setSquarePosition:(KSSquarePosition)squarePosition animated:(BOOL)animated {
@@ -54,46 +65,53 @@ static NSTimeInterval KSDuration = 1.0;
 
 - (void)setSquarePosition:(KSSquarePosition)squarePosition
                  animated:(BOOL)animated
-         completionHandler:(void (^)(BOOL))handler
+        completionHandler:(KSVoidBlock)handler
 {
-    [UIView animateWithDuration:KSDuration animations:^{
-        CGRect squareFrame = self.square.frame;
-        CGFloat squareX = CGRectGetWidth(self.frame) - CGRectGetWidth(squareFrame);
-        CGFloat squareY = CGRectGetHeight(self.frame) - CGRectGetHeight(squareFrame);
-        switch (squarePosition) {
-            case KSSquarePositionBottomLeft:
-                squareFrame.origin.x = 0;
-                squareFrame.origin.y = squareY;
-                
-                break;
-                
-            case KSSquarePositionBottomRight:
-                squareFrame.origin.x = squareX;
-                squareFrame.origin.y = squareY;
-                
-                break;
-                
-            case KSSquarePositionTopRight:
-                squareFrame.origin.x = squareX;
-                squareFrame.origin.y = 0;
-                
-                break;
-                
-            case KSSquarePositionTopLeft:
-                squareFrame.origin.x = 0;
-                squareFrame.origin.y = 0;
-                
-                break;
-                
-            default:
-                break;
-        }
-        
-        self.square.frame = squareFrame;
-        
-        _squarePosition = squarePosition;
-        
-    } completion:handler];
+    [UIView animateWithDuration:animated ? KSDuration : 0.0
+                     animations:^{
+                         self.squareLabel.frame = [self squareFrameWithSqurePosition:squarePosition];
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished) {
+                             _squarePosition = squarePosition;
+                             
+                             [self animateSquareMoving];
+                         }
+                         
+                         if (handler) {
+                             handler();
+                         }
+                     }];
+}
+
+- (CGRect)squareFrameWithSqurePosition:(KSSquarePosition)position {
+    CGRect squareFrame = self.squareLabel.frame;
+    CGRect areaViewFrame = self.areaView.frame;
+    CGFloat pointLocationOnXaxis = CGWidth(areaViewFrame) - CGWidth(squareFrame);
+    CGFloat pointLocationOnYaxis = CGHeight(areaViewFrame) - CGHeight(squareFrame);
+    
+    CGPoint origin = CGPointZero;
+    switch (position) {
+        case KSSquarePositionBottomLeft:
+            origin.y = pointLocationOnYaxis;
+            break;
+            
+        case KSSquarePositionBottomRight:
+            origin.x = pointLocationOnXaxis;
+            origin.y = pointLocationOnYaxis;
+            break;
+            
+        case KSSquarePositionTopRight:
+            origin.x = pointLocationOnXaxis;
+            break;
+            
+        default:
+            break;
+    }
+    
+    squareFrame.origin = origin;
+    
+    return squareFrame;
 }
 
 @end

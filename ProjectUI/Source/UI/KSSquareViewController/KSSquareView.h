@@ -15,16 +15,25 @@ typedef NS_ENUM(NSUInteger, KSSquarePosition) {
     KSSquarePositionBottomRight
 };
 
-@interface KSSquareView : UIView
-@property (nonatomic, strong) IBOutlet    UILabel   *square;
-@property (nonatomic, strong) IBOutlet    UIButton  *moveButton;
-@property (nonatomic, assign) KSSquarePosition      squarePosition;
+typedef void(^KSVoidBlock)(void);
 
-- (void)moveSquare;
+@interface KSSquareView : UIView
+@property (nonatomic, strong) IBOutlet    UILabel       *squareLabel;
+@property (nonatomic, strong) IBOutlet    UIView        *areaView;
+@property (nonatomic, strong) IBOutlet    UIButton      *moveButton;
+@property (nonatomic, strong) IBOutlet    UIButton      *startButton;
+@property (nonatomic, strong) IBOutlet    UIButton      *stopButton;
+@property (nonatomic, assign) KSSquarePosition          squarePosition;
+@property (nonatomic, assign, getter=isAnimated) BOOL   animated;
 
 - (void)setSquarePosition:(KSSquarePosition)squarePosition animated:(BOOL)animated;
 - (void)setSquarePosition:(KSSquarePosition)squarePosition
                  animated:(BOOL)animated
-         completionHandler:(void (^)(BOOL))handler;
+        completionHandler:(KSVoidBlock)handler;
+
+- (void)moveSquareToNextPosition;
+- (void)animateSquareMoving;
+
+
 
 @end
