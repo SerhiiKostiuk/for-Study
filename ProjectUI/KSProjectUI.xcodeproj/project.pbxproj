@@ -7,32 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C5052C241C5A48130002B214 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5052C231C5A48130002B214 /* main.m */; };
-		C5052C271C5A48130002B214 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5052C261C5A48130002B214 /* KSAppDelegate.m */; };
-		C5052C781C5E65570002B214 /* KSSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5052C741C5E65570002B214 /* KSSquareView.m */; };
-		C5052C791C5E65570002B214 /* KSSquareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5052C751C5E65570002B214 /* KSSquareView.xib */; };
-		C5052C7A1C5E65570002B214 /* KSSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5052C771C5E65570002B214 /* KSSquareViewController.m */; };
-		C5052C801C5E66550002B214 /* UIWindow+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5052C7F1C5E66550002B214 /* UIWindow+KSExtensions.m */; };
-		C5052C851C5E66750002B214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5052C821C5E66750002B214 /* Assets.xcassets */; };
-		C5052C861C5E66750002B214 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5052C831C5E66750002B214 /* LaunchScreen.storyboard */; };
+		C56A03421C60BDA00043FE10 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56A032C1C60BDA00043FE10 /* Info.plist */; };
+		C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A032E1C60BDA00043FE10 /* KSAppDelegate.m */; };
+		C56A03441C60BDA00043FE10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A03301C60BDA00043FE10 /* main.m */; };
+		C56A03451C60BDA00043FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C56A03321C60BDA00043FE10 /* Assets.xcassets */; };
+		C56A03461C60BDA00043FE10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C56A03331C60BDA00043FE10 /* LaunchScreen.storyboard */; };
+		C56A03481C60BDA00043FE10 /* KSSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A033E1C60BDA00043FE10 /* KSSquareView.m */; };
+		C56A03491C60BDA00043FE10 /* KSSquareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C56A033F1C60BDA00043FE10 /* KSSquareView.xib */; };
+		C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A03411C60BDA00043FE10 /* KSSquareViewController.m */; };
+		C56A034E1C60BF290043FE10 /* UIWindow+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A034D1C60BF290043FE10 /* UIWindow+KSExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C5052C1F1C5A48130002B214 /* KSProjectUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSProjectUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5052C231C5A48130002B214 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C5052C251C5A48130002B214 /* KSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
-		C5052C261C5A48130002B214 /* KSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSAppDelegate.m; sourceTree = "<group>"; };
-		C5052C331C5A48130002B214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5052C4B1C5A4FD40002B214 /* KSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSPrefixHeader.pch; sourceTree = "<group>"; };
-		C5052C731C5E65570002B214 /* KSSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSquareView.h; sourceTree = "<group>"; };
-		C5052C741C5E65570002B214 /* KSSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSquareView.m; sourceTree = "<group>"; };
-		C5052C751C5E65570002B214 /* KSSquareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSSquareView.xib; sourceTree = "<group>"; };
-		C5052C761C5E65570002B214 /* KSSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSquareViewController.h; sourceTree = "<group>"; };
-		C5052C771C5E65570002B214 /* KSSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSquareViewController.m; sourceTree = "<group>"; };
-		C5052C7E1C5E66550002B214 /* UIWindow+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+KSExtensions.h"; sourceTree = "<group>"; };
-		C5052C7F1C5E66550002B214 /* UIWindow+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+KSExtensions.m"; sourceTree = "<group>"; };
-		C5052C821C5E66750002B214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C5052C841C5E66750002B214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C56A032C1C60BDA00043FE10 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C56A032D1C60BDA00043FE10 /* KSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
+		C56A032E1C60BDA00043FE10 /* KSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAppDelegate.m; sourceTree = "<group>"; };
+		C56A032F1C60BDA00043FE10 /* KSPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPrefixHeader.pch; sourceTree = "<group>"; };
+		C56A03301C60BDA00043FE10 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C56A03321C60BDA00043FE10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C56A03341C60BDA00043FE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C56A033D1C60BDA00043FE10 /* KSSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSquareView.h; sourceTree = "<group>"; };
+		C56A033E1C60BDA00043FE10 /* KSSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSquareView.m; sourceTree = "<group>"; };
+		C56A033F1C60BDA00043FE10 /* KSSquareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSSquareView.xib; sourceTree = "<group>"; };
+		C56A03401C60BDA00043FE10 /* KSSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSquareViewController.h; sourceTree = "<group>"; };
+		C56A03411C60BDA00043FE10 /* KSSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSquareViewController.m; sourceTree = "<group>"; };
+		C56A034C1C60BF290043FE10 /* UIWindow+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+KSExtensions.h"; sourceTree = "<group>"; };
+		C56A034D1C60BF290043FE10 /* UIWindow+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+KSExtensions.m"; sourceTree = "<group>"; };
+		C56A03501C60CB7D0043FE10 /* KSMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,9 +51,10 @@
 		C5052C161C5A48130002B214 = {
 			isa = PBXGroup;
 			children = (
-				C5052C211C5A48130002B214 /* KSProjectUI */,
-				C5052C391C5A48F00002B214 /* Source */,
 				C5052C201C5A48130002B214 /* Products */,
+				C56A032B1C60BDA00043FE10 /* KSProjectUI */,
+				C56A03311C60BDA00043FE10 /* Resources */,
+				C56A03351C60BDA00043FE10 /* Source */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,81 +66,89 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C5052C211C5A48130002B214 /* KSProjectUI */ = {
+		C56A032B1C60BDA00043FE10 /* KSProjectUI */ = {
 			isa = PBXGroup;
 			children = (
-				C5052C4B1C5A4FD40002B214 /* KSPrefixHeader.pch */,
-				C5052C251C5A48130002B214 /* KSAppDelegate.h */,
-				C5052C261C5A48130002B214 /* KSAppDelegate.m */,
-				C5052C331C5A48130002B214 /* Info.plist */,
-				C5052C231C5A48130002B214 /* main.m */,
-				C5052C811C5E66750002B214 /* Resources */,
+				C56A032C1C60BDA00043FE10 /* Info.plist */,
+				C56A032D1C60BDA00043FE10 /* KSAppDelegate.h */,
+				C56A032E1C60BDA00043FE10 /* KSAppDelegate.m */,
+				C56A032F1C60BDA00043FE10 /* KSPrefixHeader.pch */,
+				C56A03301C60BDA00043FE10 /* main.m */,
 			);
 			path = KSProjectUI;
 			sourceTree = "<group>";
 		};
-		C5052C391C5A48F00002B214 /* Source */ = {
+		C56A03311C60BDA00043FE10 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C5052C7B1C5E66550002B214 /* Library */,
-				C5052C711C5E65570002B214 /* UI */,
+				C56A03321C60BDA00043FE10 /* Assets.xcassets */,
+				C56A03331C60BDA00043FE10 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C56A03351C60BDA00043FE10 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C56A03361C60BDA00043FE10 /* Library */,
+				C56A033B1C60BDA00043FE10 /* UI */,
 			);
 			path = Source;
 			sourceTree = "<group>";
 		};
-		C5052C711C5E65570002B214 /* UI */ = {
+		C56A03361C60BDA00043FE10 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				C5052C721C5E65570002B214 /* KSSquareViewController */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		C5052C721C5E65570002B214 /* KSSquareViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C5052C731C5E65570002B214 /* KSSquareView.h */,
-				C5052C741C5E65570002B214 /* KSSquareView.m */,
-				C5052C751C5E65570002B214 /* KSSquareView.xib */,
-				C5052C761C5E65570002B214 /* KSSquareViewController.h */,
-				C5052C771C5E65570002B214 /* KSSquareViewController.m */,
-			);
-			path = KSSquareViewController;
-			sourceTree = "<group>";
-		};
-		C5052C7B1C5E66550002B214 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				C5052C7C1C5E66550002B214 /* Categories */,
+				C56A034F1C60CB4E0043FE10 /* Macros */,
+				C56A03371C60BDA00043FE10 /* Categories */,
 			);
 			path = Library;
 			sourceTree = "<group>";
 		};
-		C5052C7C1C5E66550002B214 /* Categories */ = {
+		C56A03371C60BDA00043FE10 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				C5052C7D1C5E66550002B214 /* UIWindow + KSExtensions */,
+				C56A034B1C60BF290043FE10 /* UIWindow+KSExtensions */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		C5052C7D1C5E66550002B214 /* UIWindow + KSExtensions */ = {
+		C56A033B1C60BDA00043FE10 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C5052C7E1C5E66550002B214 /* UIWindow+KSExtensions.h */,
-				C5052C7F1C5E66550002B214 /* UIWindow+KSExtensions.m */,
+				C56A033C1C60BDA00043FE10 /* KSSquareViewController */,
 			);
-			path = "UIWindow + KSExtensions";
+			path = UI;
 			sourceTree = "<group>";
 		};
-		C5052C811C5E66750002B214 /* Resources */ = {
+		C56A033C1C60BDA00043FE10 /* KSSquareViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C5052C821C5E66750002B214 /* Assets.xcassets */,
-				C5052C831C5E66750002B214 /* LaunchScreen.storyboard */,
+				C56A033D1C60BDA00043FE10 /* KSSquareView.h */,
+				C56A033E1C60BDA00043FE10 /* KSSquareView.m */,
+				C56A033F1C60BDA00043FE10 /* KSSquareView.xib */,
+				C56A03401C60BDA00043FE10 /* KSSquareViewController.h */,
+				C56A03411C60BDA00043FE10 /* KSSquareViewController.m */,
 			);
-			path = Resources;
-			sourceTree = SOURCE_ROOT;
+			path = KSSquareViewController;
+			sourceTree = "<group>";
+		};
+		C56A034B1C60BF290043FE10 /* UIWindow+KSExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C56A034C1C60BF290043FE10 /* UIWindow+KSExtensions.h */,
+				C56A034D1C60BF290043FE10 /* UIWindow+KSExtensions.m */,
+			);
+			path = "UIWindow+KSExtensions";
+			sourceTree = "<group>";
+		};
+		C56A034F1C60CB4E0043FE10 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				C56A03501C60CB7D0043FE10 /* KSMacro.h */,
+			);
+			path = Macros;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -165,8 +176,9 @@
 		C5052C171C5A48130002B214 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = KS;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "Serg Bla";
+				ORGANIZATIONNAME = "Serg Kostiuk";
 				TargetAttributes = {
 					C5052C1E1C5A48130002B214 = {
 						CreatedOnToolsVersion = 7.2;
@@ -197,9 +209,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5052C791C5E65570002B214 /* KSSquareView.xib in Resources */,
-				C5052C851C5E66750002B214 /* Assets.xcassets in Resources */,
-				C5052C861C5E66750002B214 /* LaunchScreen.storyboard in Resources */,
+				C56A03461C60BDA00043FE10 /* LaunchScreen.storyboard in Resources */,
+				C56A03451C60BDA00043FE10 /* Assets.xcassets in Resources */,
+				C56A03421C60BDA00043FE10 /* Info.plist in Resources */,
+				C56A03491C60BDA00043FE10 /* KSSquareView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,21 +223,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5052C7A1C5E65570002B214 /* KSSquareViewController.m in Sources */,
-				C5052C271C5A48130002B214 /* KSAppDelegate.m in Sources */,
-				C5052C241C5A48130002B214 /* main.m in Sources */,
-				C5052C801C5E66550002B214 /* UIWindow+KSExtensions.m in Sources */,
-				C5052C781C5E65570002B214 /* KSSquareView.m in Sources */,
+				C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */,
+				C56A03441C60BDA00043FE10 /* main.m in Sources */,
+				C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */,
+				C56A034E1C60BF290043FE10 /* UIWindow+KSExtensions.m in Sources */,
+				C56A03481C60BDA00043FE10 /* KSSquareView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C5052C831C5E66750002B214 /* LaunchScreen.storyboard */ = {
+		C56A03331C60BDA00043FE10 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C5052C841C5E66750002B214 /* Base */,
+				C56A03341C60BDA00043FE10 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -318,7 +331,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = KSProjectUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bla.KSProjectUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -329,7 +344,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = KSProjectUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bla.KSProjectUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
