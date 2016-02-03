@@ -40,9 +40,9 @@ KSViewGetterSynthesize(KSSquareView, squareView);
         [squareView animateSquareMoving];
     }
 }
+
 - (IBAction)OnStopButton:(id)sender {
-    self.squareView.animated = NO;
-    
+    self.squareView.animated = NO;    
 }
 
 @end
