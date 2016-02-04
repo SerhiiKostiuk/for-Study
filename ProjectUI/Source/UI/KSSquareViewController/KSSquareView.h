@@ -24,7 +24,9 @@ typedef void(^KSVoidBlock)(void);
 @property (nonatomic, strong) IBOutlet    UIButton      *startButton;
 @property (nonatomic, strong) IBOutlet    UIButton      *stopButton;
 @property (nonatomic, assign) KSSquarePosition          squarePosition;
-@property (nonatomic, assign, getter=isAnimated) BOOL   animated;
+
+@property (nonatomic, assign, getter=isAnimating)      BOOL   animating;
+@property (nonatomic, assign, getter=isCycleAnimating) BOOL   cycleAnimating;
 
 - (void)setSquarePosition:(KSSquarePosition)squarePosition animated:(BOOL)animated;
 - (void)setSquarePosition:(KSSquarePosition)squarePosition
@@ -32,8 +34,5 @@ typedef void(^KSVoidBlock)(void);
         completionHandler:(KSVoidBlock)handler;
 
 - (void)moveSquareToNextPosition;
-- (void)animateSquareMoving;
-
-
 
 @end
