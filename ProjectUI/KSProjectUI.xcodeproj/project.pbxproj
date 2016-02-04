@@ -16,6 +16,8 @@
 		C56A03491C60BDA00043FE10 /* KSSquareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C56A033F1C60BDA00043FE10 /* KSSquareView.xib */; };
 		C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A03411C60BDA00043FE10 /* KSSquareViewController.m */; };
 		C56A034E1C60BF290043FE10 /* UIWindow+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A034D1C60BF290043FE10 /* UIWindow+KSExtensions.m */; };
+		C5A035591C63670E003BCAFD /* UIViewController+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A035581C63670E003BCAFD /* UIViewController+KSExtensions.m */; };
+		C5A0355D1C63714D003BCAFD /* CGGeometry+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A0355C1C63714D003BCAFD /* CGGeometry+KSExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,11 @@
 		C56A034C1C60BF290043FE10 /* UIWindow+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+KSExtensions.h"; sourceTree = "<group>"; };
 		C56A034D1C60BF290043FE10 /* UIWindow+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+KSExtensions.m"; sourceTree = "<group>"; };
 		C56A03501C60CB7D0043FE10 /* KSMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
+		C5A035511C636398003BCAFD /* CGGeometry+KSExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+KSExtensions.h"; sourceTree = "<group>"; };
+		C5A035521C63664E003BCAFD /* KSWeakifyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSWeakifyMacro.h; sourceTree = "<group>"; };
+		C5A035571C63670E003BCAFD /* UIViewController+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KSExtensions.h"; sourceTree = "<group>"; };
+		C5A035581C63670E003BCAFD /* UIViewController+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KSExtensions.m"; sourceTree = "<group>"; };
+		C5A0355C1C63714D003BCAFD /* CGGeometry+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+KSExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +115,8 @@
 		C56A03371C60BDA00043FE10 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C5A035561C63670E003BCAFD /* UIViewController+KSExtensions */,
+				C5A0354F1C635C19003BCAFD /* CGGeometry+KSExtensions */,
 				C56A034B1C60BF290043FE10 /* UIWindow+KSExtensions */,
 			);
 			path = Categories;
@@ -146,8 +155,27 @@
 			isa = PBXGroup;
 			children = (
 				C56A03501C60CB7D0043FE10 /* KSMacro.h */,
+				C5A035521C63664E003BCAFD /* KSWeakifyMacro.h */,
 			);
 			path = Macros;
+			sourceTree = "<group>";
+		};
+		C5A0354F1C635C19003BCAFD /* CGGeometry+KSExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C5A035511C636398003BCAFD /* CGGeometry+KSExtensions.h */,
+				C5A0355C1C63714D003BCAFD /* CGGeometry+KSExtensions.m */,
+			);
+			path = "CGGeometry+KSExtensions";
+			sourceTree = "<group>";
+		};
+		C5A035561C63670E003BCAFD /* UIViewController+KSExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C5A035571C63670E003BCAFD /* UIViewController+KSExtensions.h */,
+				C5A035581C63670E003BCAFD /* UIViewController+KSExtensions.m */,
+			);
+			path = "UIViewController+KSExtensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,8 +253,10 @@
 			files = (
 				C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */,
 				C56A03441C60BDA00043FE10 /* main.m in Sources */,
+				C5A0355D1C63714D003BCAFD /* CGGeometry+KSExtensions.m in Sources */,
 				C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */,
 				C56A034E1C60BF290043FE10 /* UIWindow+KSExtensions.m in Sources */,
+				C5A035591C63670E003BCAFD /* UIViewController+KSExtensions.m in Sources */,
 				C56A03481C60BDA00043FE10 /* KSSquareView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +308,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_SHADOW = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -316,6 +347,7 @@
 				GCC_PREFIX_HEADER = KSProjectUI/KSPrefixHeader.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_SHADOW = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
