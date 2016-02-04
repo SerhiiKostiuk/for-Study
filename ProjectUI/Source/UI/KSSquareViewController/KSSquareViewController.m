@@ -8,7 +8,8 @@
 
 #import "KSSquareViewController.h"
 #import "KSSquareView.h"
-#import "KSMacro.h"
+
+#import "UIViewController+KSExtensions.h"
 
 @interface KSSquareViewController ()
 @property (nonatomic, readonly) KSSquareView  *squareView;
@@ -34,15 +35,11 @@ KSViewGetterSynthesize(KSSquareView, squareView);
 }
 
 - (IBAction)OnStartButton:(id)sender {
-    KSSquareView *squareView = self.squareView;
-    if (!squareView.isAnimated) {
-        squareView.animated = YES;
-        [squareView animateSquareMoving];
-    }
+    self.squareView.cycleAnimating = YES;
 }
 
 - (IBAction)OnStopButton:(id)sender {
-    self.squareView.animated = NO;    
+    self.squareView.cycleAnimating = NO;
 }
 
 @end
