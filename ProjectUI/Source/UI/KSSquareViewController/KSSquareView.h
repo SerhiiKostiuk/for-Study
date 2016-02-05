@@ -12,7 +12,8 @@ typedef NS_ENUM(NSUInteger, KSSquarePosition) {
     KSSquarePositionTopLeft,
     KSSquarePositionTopRight,
     KSSquarePositionBottomLeft,
-    KSSquarePositionBottomRight
+    KSSquarePositionBottomRight,
+    KSSquarePositionCount
 };
 
 typedef void(^KSVoidBlock)(void);
@@ -25,7 +26,7 @@ typedef void(^KSVoidBlock)(void);
 @property (nonatomic, strong) IBOutlet    UIButton      *stopButton;
 @property (nonatomic, assign) KSSquarePosition          squarePosition;
 
-@property (nonatomic, assign, getter=isAnimating)      BOOL   animating;
+@property (nonatomic, readonly, getter=isAnimating)    BOOL   animating;
 @property (nonatomic, assign, getter=isCycleAnimating) BOOL   cycleAnimating;
 
 - (void)setSquarePosition:(KSSquarePosition)squarePosition animated:(BOOL)animated;

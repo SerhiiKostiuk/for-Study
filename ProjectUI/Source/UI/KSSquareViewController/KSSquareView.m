@@ -11,12 +11,14 @@
 #import "KSWeakifyMacro.h"
 #import "CGGeometry+KSExtensions.h"
 
-static NSTimeInterval KSDuration = 1.0;
+static const NSTimeInterval KSDuration = 1.0;
 
 @interface KSSquareView ()
+@property (nonatomic, assign, getter=isAnimating)    BOOL  animating;
+@property (nonatomic, assign, getter=isCycleStoped)  BOOL  cycleStoped;
 
 - (KSSquarePosition)nextPositionWithSquarePosition:(KSSquarePosition)position;
-- (void)moveSquareToNextPositionWithAnimatedCompletionHandler;
+- (void)moveSquareToNextPositionWithCompletionHandler:(id)handler;
 - (CGRect)squareFrameWithSquarePosition:(KSSquarePosition)position;
 
 @end
@@ -32,8 +34,21 @@ static NSTimeInterval KSDuration = 1.0;
 
 - (void)setCycleAnimating:(BOOL)cycleAnimating {
     if (_cycleAnimating != cycleAnimating) {
-        _cycleAnimating = cycleAnimating;
-        [self moveSquareToNextPositionWithAnimatedCompletionHandler];
+        if (cycleAnimating) {
+        if (!self.animating) {
+            _cycleAnimating = cycleAnimating;
+            KSWeakify(self);
+            [self moveSquareToNextPositionWithCompletionHandler:^{
+                void (^nextPosition)(void) = ^() {
+                    KSStrongifyAndReturnIfNil(self);
+                    [self moveSquareToNextPositionWithCompletionHandler:nextPosition];
+                };
+            }];
+        }
+        } else {
+            _cycleAnimating = cycleAnimating;
+            self.cycleStoped = YES;
+        }
     }
 }
 
@@ -41,7 +56,9 @@ static NSTimeInterval KSDuration = 1.0;
 #pragma mark Public
 
 - (void)moveSquareToNextPosition {
-    [self moveSquareToNextPositionWithAnimatedCompletionHandler];
+    if (!self.animating) {
+        [self moveSquareToNextPositionWithCompletionHandler:nil];
+    }
 }
 
 - (void)setSquarePosition:(KSSquarePosition)squarePosition animated:(BOOL)animated {
@@ -70,37 +87,19 @@ static NSTimeInterval KSDuration = 1.0;
 #pragma mark -
 #pragma mark Private
 
-- (void)moveSquareToNextPositionWithAnimatedCompletionHandler {
-    KSWeakify(self);
+- (void)moveSquareToNextPositionWithCompletionHandler:(id)handler {
     [self setSquarePosition:[self nextPositionWithSquarePosition:self.squarePosition]
                    animated:YES
-          completionHandler:^{
-              KSStrongifyAndReturnIfNil(self);
-              if (self.cycleAnimating) {
-                  [self moveSquareToNextPositionWithAnimatedCompletionHandler];
-              }
-          }];
+          completionHandler:handler];
 }
 
 - (KSSquarePosition)nextPositionWithSquarePosition:(KSSquarePosition)position {
-    switch (position) {
-        case KSSquarePositionBottomRight:
-            return KSSquarePositionTopRight;
-            
-        case KSSquarePositionTopRight:
-            return KSSquarePositionTopLeft;
-            
-        case KSSquarePositionTopLeft:
-            return KSSquarePositionBottomLeft;
-            
-        default:
-            return KSSquarePositionBottomRight;
-    }
+    return (position + 1) % KSSquarePositionCount;
 }
 
 - (CGRect)squareFrameWithSquarePosition:(KSSquarePosition)position {
     CGRect squareFrame = self.squareLabel.frame;
-    CGPoint visibleOrign = getPointByRectsSubtracting(self.areaView.bounds, squareFrame);
+    CGPoint visibleOrign = KSPointBySubtractingRects(self.areaView.bounds, squareFrame);
     
     CGPoint origin = CGPointZero;
     switch (position) {
