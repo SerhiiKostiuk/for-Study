@@ -11,16 +11,12 @@
 
 #import "UIViewController+KSExtensions.h"
 
-@interface KSSquareViewController ()
-@property (nonatomic, readonly) KSSquareView  *squareView;
-
-@end
+KSCategoryForViewProperty(KSSquareViewController, KSSquareView, squareView);
 
 @implementation KSSquareViewController
- 
-@dynamic squareView;
 
-KSViewGetterSynthesize(KSSquareView, squareView);
+#pragma mark -
+#pragma mark View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +25,9 @@ KSViewGetterSynthesize(KSSquareView, squareView);
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+#pragma mark -
+#pragma mark Interface Handling
 
 - (IBAction)onMoveButton:(id)sender {
     [self.squareView moveSquareToNextPosition];
