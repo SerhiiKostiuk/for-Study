@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C56A03421C60BDA00043FE10 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56A032C1C60BDA00043FE10 /* Info.plist */; };
 		C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A032E1C60BDA00043FE10 /* KSAppDelegate.m */; };
 		C56A03441C60BDA00043FE10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A03301C60BDA00043FE10 /* main.m */; };
 		C56A03451C60BDA00043FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C56A03321C60BDA00043FE10 /* Assets.xcassets */; };
@@ -73,6 +72,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C554FA031C68959E00979CCA /* KSTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KSTableViewController;
+			sourceTree = "<group>";
+		};
 		C56A032B1C60BDA00043FE10 /* KSProjectUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +121,7 @@
 		C56A033B1C60BDA00043FE10 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C554FA031C68959E00979CCA /* KSTableViewController */,
 				C56A033C1C60BDA00043FE10 /* KSSquareViewController */,
 			);
 			path = UI;
@@ -239,7 +246,6 @@
 			files = (
 				C56A03461C60BDA00043FE10 /* LaunchScreen.storyboard in Resources */,
 				C56A03451C60BDA00043FE10 /* Assets.xcassets in Resources */,
-				C56A03421C60BDA00043FE10 /* Info.plist in Resources */,
 				C56A03491C60BDA00043FE10 /* KSSquareView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
