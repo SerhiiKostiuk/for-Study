@@ -11,8 +11,8 @@
 typedef NS_ENUM(NSUInteger, KSSquarePosition) {
     KSSquarePositionTopLeft,
     KSSquarePositionTopRight,
-    KSSquarePositionBottomLeft,
     KSSquarePositionBottomRight,
+    KSSquarePositionBottomLeft,    
     KSSquarePositionCount
 };
 

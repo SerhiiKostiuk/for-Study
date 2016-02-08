@@ -11,11 +11,10 @@
 #import "KSWeakifyMacro.h"
 #import "CGGeometry+KSExtensions.h"
 
-static const NSTimeInterval KSDuration = 1.0;
+static const NSTimeInterval KSDuration = 2.0;
 
 @interface KSSquareView ()
 @property (nonatomic, assign, getter=isAnimating)    BOOL  animating;
-@property (nonatomic, assign, getter=isCycleStoped)  BOOL  cycleStoped;
 
 - (KSSquarePosition)nextPositionWithSquarePosition:(KSSquarePosition)position;
 - (void)moveSquareToNextPositionWithCompletionHandler:(id)handler;
@@ -32,22 +31,36 @@ static const NSTimeInterval KSDuration = 1.0;
     [self setSquarePosition:squarePosition animated:NO];
 }
 
+- (void)setSquarePosition:(KSSquarePosition)squarePosition animated:(BOOL)animated {
+    [self setSquarePosition:squarePosition animated:animated completionHandler:nil];
+}
+
+- (void)setSquarePosition:(KSSquarePosition)squarePosition
+                 animated:(BOOL)animated
+        completionHandler:(KSVoidBlock)handler
+{
+    self.animating = YES;
+    [UIView animateWithDuration:animated ? KSDuration : 0.0
+                     animations:^{
+                         self.squareLabel.frame = [self squareFrameWithSquarePosition:squarePosition];
+                     }
+                     completion:^(BOOL finished) {
+                         self.animating = NO;
+                         if (finished) {
+                             _squarePosition = squarePosition;
+                         }
+                         
+                         if (handler) {
+                             handler();
+                         }
+                     }];
+}
+
 - (void)setCycleAnimating:(BOOL)cycleAnimating {
     if (_cycleAnimating != cycleAnimating) {
-        if (cycleAnimating) {
-        if (!self.animating) {
-            _cycleAnimating = cycleAnimating;
-            KSWeakify(self);
-            [self moveSquareToNextPositionWithCompletionHandler:^{
-                void (^nextPosition)(void) = ^() {
-                    KSStrongifyAndReturnIfNil(self);
-                    [self moveSquareToNextPositionWithCompletionHandler:nextPosition];
-                };
-            }];
-        }
-        } else {
-            _cycleAnimating = cycleAnimating;
-            self.cycleStoped = YES;
+        _cycleAnimating = cycleAnimating;
+        if (cycleAnimating && !self.animating) {
+            [self cycleAnimate];
         }
     }
 }
@@ -59,29 +72,6 @@ static const NSTimeInterval KSDuration = 1.0;
     if (!self.animating) {
         [self moveSquareToNextPositionWithCompletionHandler:nil];
     }
-}
-
-- (void)setSquarePosition:(KSSquarePosition)squarePosition animated:(BOOL)animated {
-    [self setSquarePosition:squarePosition animated:animated completionHandler:nil];
-}
-
-- (void)setSquarePosition:(KSSquarePosition)squarePosition
-                 animated:(BOOL)animated
-        completionHandler:(KSVoidBlock)handler
-{
-    [UIView animateWithDuration:animated ? KSDuration : 0.0
-                     animations:^{
-                         self.squareLabel.frame = [self squareFrameWithSquarePosition:squarePosition];
-                     }
-                     completion:^(BOOL finished) {
-                         if (finished) {
-                             _squarePosition = squarePosition;
-                         }
-                         
-                         if (handler) {
-                             handler();
-                         }
-                     }];
 }
 
 #pragma mark -
@@ -122,6 +112,18 @@ static const NSTimeInterval KSDuration = 1.0;
     squareFrame.origin = origin;
     
     return squareFrame;
+}
+
+- (void)cycleAnimate {
+    if (!self.cycleAnimating) {
+        return;
+    }
+    
+    KSWeakify(self);
+    [self moveSquareToNextPositionWithCompletionHandler:^{
+        KSStrongifyAndReturnIfNil(self);
+        [self cycleAnimate];
+    }];
 }
 
 @end
