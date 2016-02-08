@@ -8,6 +8,7 @@
 
 #import "KSAppDelegate.h"
 #import "KSSquareViewController.h"
+#import "KSTableViewController.h"
 
 #import "UIWindow+KSExtensions.h"
 
@@ -21,7 +22,7 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
     
-    KSSquareViewController *controller = [KSSquareViewController new];
+    KSTableViewController *controller = [KSTableViewController new];
     
     window.rootViewController = controller;
     

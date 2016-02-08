@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C554FA061C6896D800979CCA /* KSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA051C6896D800979CCA /* KSTableView.m */; };
+		C554FA081C6896F500979CCA /* KSTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C554FA071C6896F500979CCA /* KSTableView.xib */; };
+		C554FA0B1C68972400979CCA /* KSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA0A1C68972400979CCA /* KSTableViewController.m */; };
+		C554FA151C6897FF00979CCA /* KSObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA0E1C6897FF00979CCA /* KSObservableObject.m */; };
+		C554FA161C6897FF00979CCA /* KSReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA111C6897FF00979CCA /* KSReference.m */; };
+		C554FA171C6897FF00979CCA /* KSWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA141C6897FF00979CCA /* KSWeakReference.m */; };
+		C554FA291C6898FD00979CCA /* NSString+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA1F1C6898FD00979CCA /* NSString+KSExtensions.m */; };
 		C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A032E1C60BDA00043FE10 /* KSAppDelegate.m */; };
 		C56A03441C60BDA00043FE10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A03301C60BDA00043FE10 /* main.m */; };
 		C56A03451C60BDA00043FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C56A03321C60BDA00043FE10 /* Assets.xcassets */; };
@@ -21,6 +28,19 @@
 
 /* Begin PBXFileReference section */
 		C5052C1F1C5A48130002B214 /* KSProjectUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSProjectUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C554FA041C6896D800979CCA /* KSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTableView.h; sourceTree = "<group>"; };
+		C554FA051C6896D800979CCA /* KSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTableView.m; sourceTree = "<group>"; };
+		C554FA071C6896F500979CCA /* KSTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSTableView.xib; sourceTree = "<group>"; };
+		C554FA091C68972400979CCA /* KSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTableViewController.h; sourceTree = "<group>"; };
+		C554FA0A1C68972400979CCA /* KSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTableViewController.m; sourceTree = "<group>"; };
+		C554FA0D1C6897FF00979CCA /* KSObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObservableObject.h; sourceTree = "<group>"; };
+		C554FA0E1C6897FF00979CCA /* KSObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObservableObject.m; sourceTree = "<group>"; };
+		C554FA101C6897FF00979CCA /* KSReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSReference.h; sourceTree = "<group>"; };
+		C554FA111C6897FF00979CCA /* KSReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSReference.m; sourceTree = "<group>"; };
+		C554FA131C6897FF00979CCA /* KSWeakReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWeakReference.h; sourceTree = "<group>"; };
+		C554FA141C6897FF00979CCA /* KSWeakReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWeakReference.m; sourceTree = "<group>"; };
+		C554FA1E1C6898FD00979CCA /* NSString+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KSExtensions.h"; sourceTree = "<group>"; };
+		C554FA1F1C6898FD00979CCA /* NSString+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KSExtensions.m"; sourceTree = "<group>"; };
 		C56A032C1C60BDA00043FE10 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C56A032D1C60BDA00043FE10 /* KSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
 		C56A032E1C60BDA00043FE10 /* KSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAppDelegate.m; sourceTree = "<group>"; };
@@ -75,8 +95,52 @@
 		C554FA031C68959E00979CCA /* KSTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C554FA041C6896D800979CCA /* KSTableView.h */,
+				C554FA051C6896D800979CCA /* KSTableView.m */,
+				C554FA071C6896F500979CCA /* KSTableView.xib */,
+				C554FA091C68972400979CCA /* KSTableViewController.h */,
+				C554FA0A1C68972400979CCA /* KSTableViewController.m */,
 			);
 			path = KSTableViewController;
+			sourceTree = "<group>";
+		};
+		C554FA0C1C6897FF00979CCA /* KSObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				C554FA0D1C6897FF00979CCA /* KSObservableObject.h */,
+				C554FA0E1C6897FF00979CCA /* KSObservableObject.m */,
+				C554FA0F1C6897FF00979CCA /* KSReference */,
+			);
+			name = KSObservableObject;
+			path = Source/Library/KSObservableObject;
+			sourceTree = SOURCE_ROOT;
+		};
+		C554FA0F1C6897FF00979CCA /* KSReference */ = {
+			isa = PBXGroup;
+			children = (
+				C554FA101C6897FF00979CCA /* KSReference.h */,
+				C554FA111C6897FF00979CCA /* KSReference.m */,
+				C554FA121C6897FF00979CCA /* KSWeakReference */,
+			);
+			path = KSReference;
+			sourceTree = "<group>";
+		};
+		C554FA121C6897FF00979CCA /* KSWeakReference */ = {
+			isa = PBXGroup;
+			children = (
+				C554FA131C6897FF00979CCA /* KSWeakReference.h */,
+				C554FA141C6897FF00979CCA /* KSWeakReference.m */,
+			);
+			path = KSWeakReference;
+			sourceTree = "<group>";
+		};
+		C554FA1B1C6898FD00979CCA /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				C554FA1E1C6898FD00979CCA /* NSString+KSExtensions.h */,
+				C554FA1F1C6898FD00979CCA /* NSString+KSExtensions.m */,
+			);
+			path = NSString;
 			sourceTree = "<group>";
 		};
 		C56A032B1C60BDA00043FE10 /* KSProjectUI */ = {
@@ -112,6 +176,7 @@
 		C56A03361C60BDA00043FE10 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				C554FA0C1C6897FF00979CCA /* KSObservableObject */,
 				C5D39F231C64A6430053E43C /* Categories */,
 				C56A034F1C60CB4E0043FE10 /* Macros */,
 			);
@@ -151,6 +216,7 @@
 		C5D39F231C64A6430053E43C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C554FA1B1C6898FD00979CCA /* NSString */,
 				C5D39F241C64A6430053E43C /* CGGeometry */,
 				C5D39F271C64A6430053E43C /* UIViewController */,
 				C5D39F2A1C64A6430053E43C /* UIWindow */,
@@ -245,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C56A03461C60BDA00043FE10 /* LaunchScreen.storyboard in Resources */,
+				C554FA081C6896F500979CCA /* KSTableView.xib in Resources */,
 				C56A03451C60BDA00043FE10 /* Assets.xcassets in Resources */,
 				C56A03491C60BDA00043FE10 /* KSSquareView.xib in Resources */,
 			);
@@ -257,11 +324,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C554FA161C6897FF00979CCA /* KSReference.m in Sources */,
+				C554FA291C6898FD00979CCA /* NSString+KSExtensions.m in Sources */,
+				C554FA171C6897FF00979CCA /* KSWeakReference.m in Sources */,
 				C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */,
+				C554FA061C6896D800979CCA /* KSTableView.m in Sources */,
+				C554FA0B1C68972400979CCA /* KSTableViewController.m in Sources */,
 				C5D39F2D1C64A6430053E43C /* CGGeometry+KSExtensions.m in Sources */,
 				C5D39F2F1C64A6430053E43C /* UIWindow+KSExtensions.m in Sources */,
 				C56A03441C60BDA00043FE10 /* main.m in Sources */,
 				C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */,
+				C554FA151C6897FF00979CCA /* KSObservableObject.m in Sources */,
 				C5D39F2E1C64A6430053E43C /* UIViewController+KSExtensions.m in Sources */,
 				C56A03481C60BDA00043FE10 /* KSSquareView.m in Sources */,
 			);
