@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface KSTableView : UIView
+@property (nonatomic, strong) IBOutlet UITableView  *tableView;
 
 @end
