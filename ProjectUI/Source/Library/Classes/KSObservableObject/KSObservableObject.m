@@ -9,6 +9,8 @@
 #import "KSObservableObject.h"
 #import "KSWeakReference.h"
 
+#import "KSWeakifyMacro.h"
+
 @interface KSObservableObject ()
 @property (nonatomic, retain) NSMutableSet *mutableObservers;
 
@@ -104,7 +106,9 @@
         NSSet *observers = self.observers;
         for (id observer in observers) {
             if ([observer respondsToSelector:selector]) {
+                KSClangDiagnosticPushOption("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
                 [observer performSelector:selector withObject:self withObject:object];
+                KSClangDiagnosticPopOption
             }
         }
     }    
