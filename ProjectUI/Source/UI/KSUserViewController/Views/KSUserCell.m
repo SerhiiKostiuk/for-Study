@@ -18,6 +18,9 @@
 
 @implementation KSUserCell
 
+#pragma mark - 
+#pragma mark Accessors
+
 - (void)setUser:(KSUser *)user {
     if (_user != user) {
         _user = user;
@@ -26,8 +29,12 @@
     }
 }
 
+#pragma mark -
+#pragma mark Private
+
 - (void)fillWithModel:(KSUser *)user {
     self.userLabel.text = user.name;
+    self.userImageView.image = user.image;
     
 }
 

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "KSTableViewCell.h"
+
 @class KSUser;
 
-@interface KSUserCell : UITableViewCell
+@interface KSUserCell : KSTableViewCell
 @property (nonatomic, strong) IBOutlet UILabel      *userLabel;
 @property (nonatomic, strong) IBOutlet UIImageView  *userImageView;
 
