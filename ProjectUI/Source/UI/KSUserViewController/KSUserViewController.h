@@ -13,4 +13,6 @@
 @interface KSUserViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) KSUsers *users;
 
+- (IBAction)onAddNewUser:(id)sender;
+
 @end

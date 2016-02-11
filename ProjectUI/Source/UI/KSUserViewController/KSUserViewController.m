@@ -10,8 +10,13 @@
 
 #import "KSUserView.h"
 #import "KSUserCell.h"
+#import "KSUsers.h"
+#import "KSUser.h"
 
 #import "UIViewController+KSExtensions.h"
+#import "UINib+KSExtensions.h"
+
+#define reloadData [self.mainView.usersView reloadData]
 
 KSCategoryForViewProperty(KSUserViewController, KSUserView, mainView);
 
@@ -24,7 +29,7 @@ KSCategoryForViewProperty(KSUserViewController, KSUserView, mainView);
     if (_users != users) {
         _users = users;
         
-        [self.mainView.usersView reloadData];
+        reloadData;
     }
 }
 
@@ -34,38 +39,40 @@ KSCategoryForViewProperty(KSUserViewController, KSUserView, mainView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.mainView.usersView reloadData];
+    reloadData;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark -
+#pragma mark Interface Handling
+
+- (IBAction)onAddNewUser:(id)sender {
+    [self.users addObject:[KSUser new]];
+    reloadData;
+}
+
 
 #pragma mark -
 #pragma mark UITableViewDataSource
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.users.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Class class = [KSUserCell class];
     NSString *classString = NSStringFromClass(class);
+    
     KSUserCell *cell = [tableView dequeueReusableCellWithIdentifier:classString];
     if (!cell) {
-        UINib *nib = [UINib nibWithNibName:classString bundle:nil];
-        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
-        for (KSUserCell *result in cells) {
-            if ([result isMemberOfClass:class]) {
-                cell = result;
-                break;
-            }
-        }
+        cell = [UINib objectWithClass:class];
     }
-    cell.user = self.users[indexPath.row];
+    
+    cell.user = [self.users objectAtIndex:indexPath.row];
     
     return cell;
 }
