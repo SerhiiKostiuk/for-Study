@@ -10,5 +10,11 @@
 
 @implementation KSUserView
 
+- (IBAction)OnSwipe:(UISwipeGestureRecognizer *)sender {
+    UITableView *usersView = self.usersView;
+    if (UIGestureRecognizerStateBegan == sender.state) {
+        [usersView setEditing:YES animated:YES];
+    }
+}
 
 @end

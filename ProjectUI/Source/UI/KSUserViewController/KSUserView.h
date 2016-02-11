@@ -11,4 +11,7 @@
 @interface KSUserView : UIView
 @property (nonatomic, strong) IBOutlet UITableView  *usersView;
 
+- (IBAction)OnSwipe:(UISwipeGestureRecognizer *)sender;
+
+
 @end
