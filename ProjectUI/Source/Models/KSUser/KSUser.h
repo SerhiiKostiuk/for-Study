@@ -9,8 +9,10 @@
 #import "KSObservableObject.h"
 #import <UIKit/UIKit.h>
 
+#import "KSObservableObject.h"
+
 @interface KSUser : KSObservableObject
-@property (nonatomic, copy)   NSString  *name;
-@property (nonatomic, strong) UIImage   *image;
+@property (nonatomic, copy)     NSString  *name;
+@property (nonatomic, readonly) UIImage   *image;
 
 @end

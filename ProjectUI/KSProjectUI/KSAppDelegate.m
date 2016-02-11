@@ -7,8 +7,9 @@
 // 
 
 #import "KSAppDelegate.h"
-#import "KSSquareViewController.h"
-#import "KSUserVIewController.h"
+//#import "KSSquareViewController.h"
+#import "KSUserViewController.h"
+#import "KSUsers.h"
 
 #import "UIWindow+KSExtensions.h"
 
@@ -22,7 +23,10 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
     
-    KSUserVIewController *controller = [KSUserVIewController new];
+    KSUserViewController *controller = [KSUserViewController new];
+    
+    KSUsers *users = [KSUsers new];
+    controller.users = users;
     
     window.rootViewController = controller;
     

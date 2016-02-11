@@ -30,6 +30,8 @@
 		C5D39F2D1C64A6430053E43C /* CGGeometry+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F261C64A6430053E43C /* CGGeometry+KSExtensions.m */; };
 		C5D39F2E1C64A6430053E43C /* UIViewController+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F291C64A6430053E43C /* UIViewController+KSExtensions.m */; };
 		C5D39F2F1C64A6430053E43C /* UIWindow+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F2C1C64A6430053E43C /* UIWindow+KSExtensions.m */; };
+		C5F1F4421C6A9A1D008075D1 /* KSUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F1F4411C6A9A1D008075D1 /* KSUsers.m */; };
+		C5F1F4451C6AAA07008075D1 /* UINib+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F1F4441C6AAA07008075D1 /* UINib+KSExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,10 @@
 		C5D39F291C64A6430053E43C /* UIViewController+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KSExtensions.m"; sourceTree = "<group>"; };
 		C5D39F2B1C64A6430053E43C /* UIWindow+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+KSExtensions.h"; sourceTree = "<group>"; };
 		C5D39F2C1C64A6430053E43C /* UIWindow+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+KSExtensions.m"; sourceTree = "<group>"; };
+		C5F1F4401C6A9A1D008075D1 /* KSUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsers.h; sourceTree = "<group>"; };
+		C5F1F4411C6A9A1D008075D1 /* KSUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUsers.m; sourceTree = "<group>"; };
+		C5F1F4431C6AAA07008075D1 /* UINib+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+KSExtensions.h"; sourceTree = "<group>"; };
+		C5F1F4441C6AAA07008075D1 /* UINib+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+KSExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,8 @@
 			children = (
 				C554FA531C6A313100979CCA /* KSUser.h */,
 				C554FA541C6A313100979CCA /* KSUser.m */,
+				C5F1F4401C6A9A1D008075D1 /* KSUsers.h */,
+				C5F1F4411C6A9A1D008075D1 /* KSUsers.m */,
 			);
 			path = KSUser;
 			sourceTree = "<group>";
@@ -286,11 +294,21 @@
 			path = Macros;
 			sourceTree = "<group>";
 		};
+		C5CBBD7B1C6A920F00DD2118 /* UINib */ = {
+			isa = PBXGroup;
+			children = (
+				C5F1F4431C6AAA07008075D1 /* UINib+KSExtensions.h */,
+				C5F1F4441C6AAA07008075D1 /* UINib+KSExtensions.m */,
+			);
+			path = UINib;
+			sourceTree = "<group>";
+		};
 		C5D39F231C64A6430053E43C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
 				C554FA1B1C6898FD00979CCA /* NSString */,
 				C5D39F241C64A6430053E43C /* CGGeometry */,
+				C5CBBD7B1C6A920F00DD2118 /* UINib */,
 				C5D39F271C64A6430053E43C /* UIViewController */,
 				C5D39F2A1C64A6430053E43C /* UIWindow */,
 			);
@@ -399,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F1F4421C6A9A1D008075D1 /* KSUsers.m in Sources */,
 				C554FA581C6A321300979CCA /* NSString+KSRandomName.m in Sources */,
 				C554FA551C6A313100979CCA /* KSUser.m in Sources */,
 				C554FA3A1C6A187300979CCA /* KSUserCell.m in Sources */,
@@ -406,6 +425,7 @@
 				C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */,
 				C554FA481C6A1A9E00979CCA /* KSWeakReference.m in Sources */,
 				C554FA351C6A166F00979CCA /* KSUserViewController.m in Sources */,
+				C5F1F4451C6AAA07008075D1 /* UINib+KSExtensions.m in Sources */,
 				C5D39F2D1C64A6430053E43C /* CGGeometry+KSExtensions.m in Sources */,
 				C554FA461C6A1A9E00979CCA /* KSObservableObject.m in Sources */,
 				C554FA331C6A166F00979CCA /* KSUserView.m in Sources */,
