@@ -14,5 +14,6 @@
 @property (nonatomic, strong) KSUsers *users;
 
 - (IBAction)onAddNewUser:(id)sender;
+- (IBAction)onEdit:(id)sender;
 
 @end

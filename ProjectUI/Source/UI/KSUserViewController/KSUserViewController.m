@@ -8,17 +8,15 @@
 
 #import "KSUserViewController.h"
 
-#import "KSUserView.h"
+#import "KSUsersView.h"
 #import "KSUserCell.h"
 #import "KSUsers.h"
 #import "KSUser.h"
 
 #import "UIViewController+KSExtensions.h"
-#import "UINib+KSExtensions.h"
+#import "UITableView+KSExtensions.h"
 
-#define reloadData [self.mainView.usersView reloadData]
-
-KSCategoryForViewProperty(KSUserViewController, KSUserView, mainView);
+KSCategoryForViewProperty(KSUserViewController, KSUsersView, mainView);
 
 @implementation KSUserViewController
 
@@ -29,7 +27,7 @@ KSCategoryForViewProperty(KSUserViewController, KSUserView, mainView);
     if (_users != users) {
         _users = users;
         
-        reloadData;
+        [self.mainView.tableView reloadData];
     }
 }
 
@@ -39,7 +37,7 @@ KSCategoryForViewProperty(KSUserViewController, KSUserView, mainView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    reloadData;
+    [self.mainView.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,9 +49,13 @@ KSCategoryForViewProperty(KSUserViewController, KSUserView, mainView);
 
 - (IBAction)onAddNewUser:(id)sender {
     [self.users addObject:[KSUser new]];
-    reloadData;
+    [self.mainView.tableView reloadData];
 }
 
+- (IBAction)onEdit:(id)sender {
+    self.mainView.tableView.editing = YES;
+    
+}
 
 #pragma mark -
 #pragma mark UITableViewDataSource
@@ -62,19 +64,22 @@ KSCategoryForViewProperty(KSUserViewController, KSUserView, mainView);
     return self.users.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Class class = [KSUserCell class];
-    NSString *classString = NSStringFromClass(class);
-    
-    KSUserCell *cell = [tableView dequeueReusableCellWithIdentifier:classString];
-    if (!cell) {
-        cell = [UINib objectWithClass:class];
-    }
-    
+    KSUserCell *cell = [tableView cellWithClass:[KSUserCell class]];
     cell.user = [self.users objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)    tableView:(UITableView *)tableView
+   moveRowAtIndexPath:(nonnull NSIndexPath *)sourceIndexPath
+          toIndexPath:(nonnull NSIndexPath *)destinationIndexPath
+{
+
 }
 
 @end
