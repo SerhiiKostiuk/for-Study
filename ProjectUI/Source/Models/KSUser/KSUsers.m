@@ -47,54 +47,9 @@ static const NSUInteger kKSUsersArraySize = 2;
 }
 
 - (NSUInteger)count {
-    return self.mutableUsers.count;
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (KSUser *)objectAtIndex:(NSUInteger)index {
-    return [self.mutableUsers objectAtIndex:index];
-}
-
-- (void)addObject:(KSUser *)object {
     NSMutableArray *mutableUsers = self.mutableUsers;
     @synchronized(mutableUsers) {
-        [mutableUsers addObject:object];
-    }
-}
-- (void)insertObjectAtIndex:(KSUser *)object index:(NSUInteger)index {
-    NSMutableArray *mutableUsers = self.mutableUsers;
-    @synchronized(mutableUsers) {
-        [mutableUsers insertObject:object atIndex:index];
-    }
-}
-
-- (void)removeLastObject {
-    NSMutableArray *mutableUsers = self.mutableUsers;
-    @synchronized(mutableUsers) {
-        [mutableUsers removeLastObject];
-    }
-}
-
-- (void)removeObjectAtIndex:(NSUInteger)index {
-    NSMutableArray *mutableUsers = self.mutableUsers;
-    @synchronized(mutableUsers) {
-        [mutableUsers removeObjectAtIndex:index];
-    }
-}
-
-- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(KSUser *)object {
-    NSMutableArray *mutableUsers = self.mutableUsers;
-    @synchronized(mutableUsers) {
-        [mutableUsers replaceObjectAtIndex:index withObject:object];
-    }
-}
-
-- (void)exchangeObjectAtIndex:(NSUInteger)firstIndex withObjectAtIndex:(NSUInteger)secondIndex {
-    NSMutableArray *mutableUsers = self.mutableUsers;
-    @synchronized(mutableUsers) {
-        [mutableUsers exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
+        return mutableUsers.count;
     }
 }
 
@@ -102,9 +57,10 @@ static const NSUInteger kKSUsersArraySize = 2;
 #pragma mark Private
 
 - (void)fillWithUsers {
-    NSMutableArray *mutableUsers = [NSMutableArray arrayWithCapacity:kKSUsersArraySize];
+    NSUInteger arraySize = kKSUsersArraySize;
+    NSMutableArray *mutableUsers = [NSMutableArray arrayWithCapacity:arraySize];
     @synchronized(mutableUsers) {
-        for (NSUInteger index = 0; index < kKSUsersArraySize; index++) {
+        for (NSUInteger index = 0; index < arraySize; index++) {
             [mutableUsers addObject:[KSUser new]];
         }
     }
