@@ -29,12 +29,36 @@
     }
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    self.accessoryType = (selected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+}
+
+
+#pragma mark -
+#pragma mark Interface Handling
+
+- (IBAction)onSwipeRight:(UISwipeGestureRecognizer *)sender {
+    UITableViewCell *tableView = self.userView;
+    if (UIGestureRecognizerStateRecognized == sender.state) {
+        [tableView setEditing:YES animated:YES];
+    }
+}
+
+- (IBAction)onSwipeLeft:(UISwipeGestureRecognizer *)sender {
+    UITableViewCell *tableView = self.userView;
+    if (UIGestureRecognizerStateEnded == sender.state) {
+        [tableView setEditing:NO animated:YES];
+    }
+}
+
 #pragma mark -
 #pragma mark Private
 
 - (void)fillWithModel:(KSUser *)user {
-    self.userLabel.text = user.name;
-    self.userImageView.image = user.image;
+    self.label.text = user.name;
+    self.contentImageView.image = user.image;
     
 }
 
