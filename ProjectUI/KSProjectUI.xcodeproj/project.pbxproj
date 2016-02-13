@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C53F00101C6E2AF400A0768F /* UITableView+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F000F1C6E2AF400A0768F /* UITableView+KSExtensions.m */; };
-		C53F00141C6E2CE500A0768F /* KSArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F00131C6E2CE500A0768F /* KSArrayModel.m */; };
+		C53F001F1C6FD65D00A0768F /* KSUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F00171C6FD65D00A0768F /* KSUsersView.m */; };
+		C53F00201C6FD65D00A0768F /* KSUsersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C53F00181C6FD65D00A0768F /* KSUsersView.xib */; };
+		C53F00211C6FD65D00A0768F /* KSUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F001A1C6FD65D00A0768F /* KSUsersViewController.m */; };
+		C53F00221C6FD65D00A0768F /* KSUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F001D1C6FD65D00A0768F /* KSUserCell.m */; };
+		C53F00231C6FD65D00A0768F /* KSUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C53F001E1C6FD65D00A0768F /* KSUserCell.xib */; };
+		C53F00271C6FDAD000A0768F /* KSArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F00261C6FDAD000A0768F /* KSArrayModel.m */; };
 		C554FA291C6898FD00979CCA /* NSString+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA1F1C6898FD00979CCA /* NSString+KSExtensions.m */; };
-		C554FA331C6A166F00979CCA /* KSUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA2F1C6A166F00979CCA /* KSUsersView.m */; };
-		C554FA341C6A166F00979CCA /* KSUsersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C554FA301C6A166F00979CCA /* KSUsersView.xib */; };
-		C554FA351C6A166F00979CCA /* KSUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA321C6A166F00979CCA /* KSUserViewController.m */; };
-		C554FA3A1C6A187300979CCA /* KSUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA381C6A187300979CCA /* KSUserCell.m */; };
-		C554FA3B1C6A187300979CCA /* KSUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C554FA391C6A187300979CCA /* KSUserCell.xib */; };
 		C554FA461C6A1A9E00979CCA /* KSObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA3F1C6A1A9E00979CCA /* KSObservableObject.m */; };
 		C554FA471C6A1A9E00979CCA /* KSReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA421C6A1A9E00979CCA /* KSReference.m */; };
 		C554FA481C6A1A9E00979CCA /* KSWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA451C6A1A9E00979CCA /* KSWeakReference.m */; };
@@ -40,18 +40,18 @@
 		C5052C1F1C5A48130002B214 /* KSProjectUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSProjectUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53F000E1C6E2AF400A0768F /* UITableView+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+KSExtensions.h"; sourceTree = "<group>"; };
 		C53F000F1C6E2AF400A0768F /* UITableView+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+KSExtensions.m"; sourceTree = "<group>"; };
-		C53F00121C6E2CE500A0768F /* KSArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArrayModel.h; sourceTree = "<group>"; };
-		C53F00131C6E2CE500A0768F /* KSArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSArrayModel.m; sourceTree = "<group>"; };
+		C53F00161C6FD65D00A0768F /* KSUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsersView.h; sourceTree = "<group>"; };
+		C53F00171C6FD65D00A0768F /* KSUsersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUsersView.m; sourceTree = "<group>"; };
+		C53F00181C6FD65D00A0768F /* KSUsersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSUsersView.xib; sourceTree = "<group>"; };
+		C53F00191C6FD65D00A0768F /* KSUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsersViewController.h; sourceTree = "<group>"; };
+		C53F001A1C6FD65D00A0768F /* KSUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUsersViewController.m; sourceTree = "<group>"; };
+		C53F001C1C6FD65D00A0768F /* KSUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUserCell.h; sourceTree = "<group>"; };
+		C53F001D1C6FD65D00A0768F /* KSUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUserCell.m; sourceTree = "<group>"; };
+		C53F001E1C6FD65D00A0768F /* KSUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSUserCell.xib; sourceTree = "<group>"; };
+		C53F00251C6FDAD000A0768F /* KSArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArrayModel.h; sourceTree = "<group>"; };
+		C53F00261C6FDAD000A0768F /* KSArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSArrayModel.m; sourceTree = "<group>"; };
 		C554FA1E1C6898FD00979CCA /* NSString+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KSExtensions.h"; sourceTree = "<group>"; };
 		C554FA1F1C6898FD00979CCA /* NSString+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KSExtensions.m"; sourceTree = "<group>"; };
-		C554FA2E1C6A166F00979CCA /* KSUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsersView.h; sourceTree = "<group>"; };
-		C554FA2F1C6A166F00979CCA /* KSUsersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUsersView.m; sourceTree = "<group>"; };
-		C554FA301C6A166F00979CCA /* KSUsersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSUsersView.xib; sourceTree = "<group>"; };
-		C554FA311C6A166F00979CCA /* KSUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUserViewController.h; sourceTree = "<group>"; };
-		C554FA321C6A166F00979CCA /* KSUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUserViewController.m; sourceTree = "<group>"; };
-		C554FA371C6A187300979CCA /* KSUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUserCell.h; sourceTree = "<group>"; };
-		C554FA381C6A187300979CCA /* KSUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUserCell.m; sourceTree = "<group>"; };
-		C554FA391C6A187300979CCA /* KSUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSUserCell.xib; sourceTree = "<group>"; };
 		C554FA3E1C6A1A9E00979CCA /* KSObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObservableObject.h; sourceTree = "<group>"; };
 		C554FA3F1C6A1A9E00979CCA /* KSObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSObservableObject.m; sourceTree = "<group>"; };
 		C554FA411C6A1A9E00979CCA /* KSReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSReference.h; sourceTree = "<group>"; };
@@ -129,13 +129,36 @@
 			path = UITableView;
 			sourceTree = "<group>";
 		};
-		C53F00111C6E2CAB00A0768F /* ArrayModel */ = {
+		C53F00151C6FD65D00A0768F /* KSUsersViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C53F00121C6E2CE500A0768F /* KSArrayModel.h */,
-				C53F00131C6E2CE500A0768F /* KSArrayModel.m */,
+				C53F00161C6FD65D00A0768F /* KSUsersView.h */,
+				C53F00171C6FD65D00A0768F /* KSUsersView.m */,
+				C53F00181C6FD65D00A0768F /* KSUsersView.xib */,
+				C53F00191C6FD65D00A0768F /* KSUsersViewController.h */,
+				C53F001A1C6FD65D00A0768F /* KSUsersViewController.m */,
+				C53F001B1C6FD65D00A0768F /* Views */,
 			);
-			path = ArrayModel;
+			path = KSUsersViewController;
+			sourceTree = "<group>";
+		};
+		C53F001B1C6FD65D00A0768F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C53F001C1C6FD65D00A0768F /* KSUserCell.h */,
+				C53F001D1C6FD65D00A0768F /* KSUserCell.m */,
+				C53F001E1C6FD65D00A0768F /* KSUserCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C53F00241C6FDAD000A0768F /* KSArrayModel */ = {
+			isa = PBXGroup;
+			children = (
+				C53F00251C6FDAD000A0768F /* KSArrayModel.h */,
+				C53F00261C6FDAD000A0768F /* KSArrayModel.m */,
+			);
+			path = KSArrayModel;
 			sourceTree = "<group>";
 		};
 		C554FA1B1C6898FD00979CCA /* NSString */ = {
@@ -147,29 +170,6 @@
 				C554FA571C6A321300979CCA /* NSString+KSRandomName.m */,
 			);
 			path = NSString;
-			sourceTree = "<group>";
-		};
-		C554FA2D1C6A166F00979CCA /* KSUserViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C554FA361C6A182700979CCA /* Views */,
-				C554FA2E1C6A166F00979CCA /* KSUsersView.h */,
-				C554FA2F1C6A166F00979CCA /* KSUsersView.m */,
-				C554FA301C6A166F00979CCA /* KSUsersView.xib */,
-				C554FA311C6A166F00979CCA /* KSUserViewController.h */,
-				C554FA321C6A166F00979CCA /* KSUserViewController.m */,
-			);
-			path = KSUserViewController;
-			sourceTree = "<group>";
-		};
-		C554FA361C6A182700979CCA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C554FA371C6A187300979CCA /* KSUserCell.h */,
-				C554FA381C6A187300979CCA /* KSUserCell.m */,
-				C554FA391C6A187300979CCA /* KSUserCell.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		C554FA3C1C6A1A5F00979CCA /* Classes */ = {
@@ -222,7 +222,7 @@
 		C554FA511C6A2F4E00979CCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C53F00111C6E2CAB00A0768F /* ArrayModel */,
+				C53F00241C6FDAD000A0768F /* KSArrayModel */,
 				C554FA521C6A311D00979CCA /* KSUser */,
 			);
 			path = Models;
@@ -292,7 +292,7 @@
 		C56A033B1C60BDA00043FE10 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C554FA2D1C6A166F00979CCA /* KSUserViewController */,
+				C53F00151C6FD65D00A0768F /* KSUsersViewController */,
 				C56A033C1C60BDA00043FE10 /* KSSquareViewController */,
 			);
 			path = UI;
@@ -428,11 +428,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C56A03461C60BDA00043FE10 /* LaunchScreen.storyboard in Resources */,
-				C554FA3B1C6A187300979CCA /* KSUserCell.xib in Resources */,
-				C554FA341C6A166F00979CCA /* KSUsersView.xib in Resources */,
 				C56A03451C60BDA00043FE10 /* Assets.xcassets in Resources */,
+				C53F00231C6FD65D00A0768F /* KSUserCell.xib in Resources */,
 				C554FA5B1C6A3B9E00979CCA /* apple.png in Resources */,
 				C56A03491C60BDA00043FE10 /* KSSquareView.xib in Resources */,
+				C53F00201C6FD65D00A0768F /* KSUsersView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,20 +443,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C53F00221C6FD65D00A0768F /* KSUserCell.m in Sources */,
+				C53F001F1C6FD65D00A0768F /* KSUsersView.m in Sources */,
 				C5F1F4421C6A9A1D008075D1 /* KSUsers.m in Sources */,
 				C554FA581C6A321300979CCA /* NSString+KSRandomName.m in Sources */,
 				C554FA551C6A313100979CCA /* KSUser.m in Sources */,
 				C53F00101C6E2AF400A0768F /* UITableView+KSExtensions.m in Sources */,
-				C554FA3A1C6A187300979CCA /* KSUserCell.m in Sources */,
 				C554FA291C6898FD00979CCA /* NSString+KSExtensions.m in Sources */,
 				C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */,
 				C554FA481C6A1A9E00979CCA /* KSWeakReference.m in Sources */,
-				C53F00141C6E2CE500A0768F /* KSArrayModel.m in Sources */,
-				C554FA351C6A166F00979CCA /* KSUserViewController.m in Sources */,
+				C53F00211C6FD65D00A0768F /* KSUsersViewController.m in Sources */,
 				C5F1F4451C6AAA07008075D1 /* UINib+KSExtensions.m in Sources */,
 				C5D39F2D1C64A6430053E43C /* CGGeometry+KSExtensions.m in Sources */,
 				C554FA461C6A1A9E00979CCA /* KSObservableObject.m in Sources */,
-				C554FA331C6A166F00979CCA /* KSUsersView.m in Sources */,
 				C5D39F2F1C64A6430053E43C /* UIWindow+KSExtensions.m in Sources */,
 				C56A03441C60BDA00043FE10 /* main.m in Sources */,
 				C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */,
@@ -464,6 +463,7 @@
 				C554FA501C6A231D00979CCA /* KSTableViewCell.m in Sources */,
 				C5D39F2E1C64A6430053E43C /* UIViewController+KSExtensions.m in Sources */,
 				C56A03481C60BDA00043FE10 /* KSSquareView.m in Sources */,
+				C53F00271C6FDAD000A0768F /* KSArrayModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

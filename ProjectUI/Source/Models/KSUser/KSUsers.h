@@ -6,13 +6,8 @@
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import "KSObservableObject.h"
+#import "KSArrayModel.h"
 
-@class KSUser;
-
-@interface KSUsers : KSObservableObject
-@property (nonatomic, readonly) NSArray     *users;
-@property (nonatomic, readonly) NSUInteger  count;
-
+@interface KSUsers : KSArrayModel
 
 @end

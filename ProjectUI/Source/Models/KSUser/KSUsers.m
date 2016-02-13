@@ -13,16 +13,12 @@
 static const NSUInteger kKSUsersArraySize = 2;
 
 @interface KSUsers ()
-@property (nonatomic, strong) NSMutableArray *mutableUsers;
 
 - (void)fillWithUsers;
 
 @end
 
 @implementation KSUsers
-
-@dynamic users;
-@dynamic count;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -37,35 +33,12 @@ static const NSUInteger kKSUsersArraySize = 2;
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (NSArray *)users {
-    NSMutableArray *mutableUsers = self.mutableUsers;
-    @synchronized(mutableUsers) {
-        return [mutableUsers copy];
-    }
-}
-
-- (NSUInteger)count {
-    NSMutableArray *mutableUsers = self.mutableUsers;
-    @synchronized(mutableUsers) {
-        return mutableUsers.count;
-    }
-}
-
-#pragma mark -
 #pragma mark Private
 
 - (void)fillWithUsers {
-    NSUInteger arraySize = kKSUsersArraySize;
-    NSMutableArray *mutableUsers = [NSMutableArray arrayWithCapacity:arraySize];
-    @synchronized(mutableUsers) {
-        for (NSUInteger index = 0; index < arraySize; index++) {
-            [mutableUsers addObject:[KSUser new]];
-        }
+    for (NSUInteger index = 0; index < kKSUsersArraySize; index++) {
+        [self addObject:[KSUser new]];
     }
-    
-    self.mutableUsers = mutableUsers;
 }
 
 @end
