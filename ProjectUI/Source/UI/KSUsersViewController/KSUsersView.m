@@ -14,16 +14,20 @@
 #pragma mark Interface Handling
 
 - (IBAction)onSwipeRight:(UISwipeGestureRecognizer *)sender {
-    UITableView *tableView = self.tableView;
-    if (UIGestureRecognizerStateRecognized == sender.state) {
-        [tableView setEditing:YES animated:YES];
-    }
+    [self swipeForShowEditingStyle:sender editing:YES];
 }
 
 - (IBAction)onSwipeLeft:(UISwipeGestureRecognizer *)sender {
+    [self swipeForShowEditingStyle:sender editing:NO];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)swipeForShowEditingStyle:(UISwipeGestureRecognizer *)sender editing:(BOOL)editing {
     UITableView *tableView = self.tableView;
-    if (UIGestureRecognizerStateEnded == sender.state) {
-        [tableView setEditing:NO animated:YES];
+    if (UIGestureRecognizerStateRecognized == sender.state) {
+        [tableView setEditing:editing animated:YES];
     }
 }
 
