@@ -6,19 +6,20 @@
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import "KSUserViewController.h"
+#import "KSUsersViewController.h"
 
 #import "KSUsersView.h"
 #import "KSUserCell.h"
+#import "KSArrayModel.h"
 #import "KSUsers.h"
 #import "KSUser.h"
 
 #import "UIViewController+KSExtensions.h"
 #import "UITableView+KSExtensions.h"
 
-KSCategoryForViewProperty(KSUserViewController, KSUsersView, mainView);
+KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 
-@implementation KSUserViewController
+@implementation KSUsersViewController
 
 #pragma mark -
 #pragma mark Accessors
@@ -52,11 +53,6 @@ KSCategoryForViewProperty(KSUserViewController, KSUsersView, mainView);
     [self.mainView.tableView reloadData];
 }
 
-- (IBAction)onEdit:(id)sender {
-    self.mainView.tableView.editing = YES;
-    
-}
-
 #pragma mark -
 #pragma mark UITableViewDataSource
 
@@ -76,10 +72,21 @@ KSCategoryForViewProperty(KSUserViewController, KSUsersView, mainView);
 }
 
 - (void)    tableView:(UITableView *)tableView
-   moveRowAtIndexPath:(nonnull NSIndexPath *)sourceIndexPath
-          toIndexPath:(nonnull NSIndexPath *)destinationIndexPath
+   moveRowAtIndexPath:(nonnull NSIndexPath *)firstIndex
+          toIndexPath:(nonnull NSIndexPath *)secondIndex
 {
+    [self.users exchangeObjectAtIndex:firstIndex.row withObjectAtIndex:secondIndex.row];
+    [tableView reloadData];
+}
 
+- (void)    tableView:(UITableView *)tableView
+   commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.users removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
+    }
 }
 
 @end
