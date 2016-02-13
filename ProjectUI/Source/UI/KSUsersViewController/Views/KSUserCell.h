@@ -14,12 +14,8 @@
 
 @interface KSUserCell : KSTableViewCell
 @property (nonatomic, strong) IBOutlet UILabel          *label;
-@property (nonatomic, strong) IBOutlet UITableViewCell  *userView;
 @property (nonatomic, strong) IBOutlet UIImageView      *contentImageView;
 
 @property (nonatomic, strong) KSUser *user;
-
-- (IBAction)onSwipeRight:(UISwipeGestureRecognizer *)sender;
-- (IBAction)onSwipeLeft:(UISwipeGestureRecognizer *)sender;
 
 @end
