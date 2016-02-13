@@ -9,6 +9,8 @@
 #import "KSObservableObject.h"
 
 @interface KSArrayModel : KSObservableObject
+@property (nonatomic, readonly) NSArray     *objects;
+@property (nonatomic, readonly) NSUInteger  count;
 
 - (id)objectAtIndex:(NSUInteger)index;
 - (void)addObject:(id)object;
