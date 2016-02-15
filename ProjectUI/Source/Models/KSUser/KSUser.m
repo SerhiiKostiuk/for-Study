@@ -29,6 +29,9 @@ static NSString * const kKSImageType = @"png";
     return self;
 }
 
+#pragma mark -
+#pragma mark Accessors
+
 - (UIImage *)image {
     static UIImage *__image = nil; 
     static dispatch_once_t onceToken;
