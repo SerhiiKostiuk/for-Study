@@ -6,8 +6,8 @@
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import "KSAdapterModel.h"
+#import "KSChangeModel.h"
 
-@implementation KSAdapterModel
+@implementation KSChangeModel
 
 @end
