@@ -23,7 +23,7 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 
 #pragma mark -
 #pragma mark Accessors
-
+ 
 - (void)setUsers:(KSUsers *)users {
     if (_users != users) {
         _users = users;
@@ -75,8 +75,7 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
    moveRowAtIndexPath:(nonnull NSIndexPath *)firstIndex
           toIndexPath:(nonnull NSIndexPath *)secondIndex
 {
-    [self.users exchangeObjectAtIndex:firstIndex.row withObjectAtIndex:secondIndex.row];
-    [tableView reloadData];
+    [self.users moveObjectAtIndex:firstIndex.row toIndex:secondIndex.row];
 }
 
 - (void)    tableView:(UITableView *)tableView
@@ -85,7 +84,6 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.users removeObjectAtIndex:indexPath.row];
-        [tableView reloadData];
     }
 }
 
