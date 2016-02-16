@@ -98,4 +98,12 @@
     }
 }
 
+- (void)moveObjectAtIndex:(NSUInteger)firstIndex toIndex:(NSUInteger)secondIndex {
+    NSMutableArray *mutableObjects = self.mutableObjects;
+    @synchronized(mutableObjects) {
+        id object = [self objectAtIndex:firstIndex];
+        [mutableObjects removeObjectAtIndex:firstIndex];
+        [mutableObjects insertObject:object atIndex:secondIndex];
+    }
+}
 @end
