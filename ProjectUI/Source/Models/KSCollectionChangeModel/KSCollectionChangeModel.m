@@ -9,15 +9,18 @@
 #import "KSCollectionChangeModel.h"
 
 @interface KSCollectionChangeModel ()
-@property (nonatomic, assign) KSChangeType changeModelType;
+@property (nonatomic, assign) NSUInteger changeType;
 
 @end
 
 @implementation KSCollectionChangeModel
 
-+ (instancetype)objectWithChangeType:(KSChangeType)changeType {
+#pragma mark -
+#pragma mark Public
+
++ (instancetype)objectWithChangeType:(NSUInteger)changeType {
     KSCollectionChangeModel *object = [self new];
-    object.changeModelType = changeType;
+    object.changeType = changeType;
     
     return object;
 }

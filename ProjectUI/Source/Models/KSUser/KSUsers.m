@@ -10,6 +10,8 @@
 
 #import "KSUser.h"
 
+#import "KSWeakifyMacro.h"
+
 static const NSUInteger kKSUsersArraySize = 2;
 
 @interface KSUsers ()
@@ -36,9 +38,14 @@ static const NSUInteger kKSUsersArraySize = 2;
 #pragma mark Private
 
 - (void)fillWithUsers {
-    for (NSUInteger index = 0; index < kKSUsersArraySize; index++) {
-        [self addObject:[KSUser new]];
-    }
+    KSWeakify(self);
+    [self performBlockWithoutNotification:^{
+        KSStrongifyAndReturnIfNil(self);
+        for (NSUInteger index = 0; index < kKSUsersArraySize; index++) {
+            [self addObject:[KSUser new]];
+        }
+    }];
+    
 }
 
 @end

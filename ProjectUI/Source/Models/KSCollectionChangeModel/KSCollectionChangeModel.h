@@ -7,11 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "KSChangeModel.h"
+
+typedef NS_ENUM(NSUInteger, KSChangeType) {
+    kKSChangeTypeObjectAdded,
+    kKSChangeTypeObjectInserted,
+    kKSChangeTypeObjectReplaced,
+    kKSChangeTypeObjectExchahged,
+    kKSChangeTypeObjectRemoved,
+    kKSChangeTypeObjectMoved
+};
 
 @interface KSCollectionChangeModel : NSObject
-@property (nonatomic, readonly) KSChangeType changeModelType;
+@property (nonatomic, readonly) NSUInteger changeType;
 
-+ (instancetype)objectWithChangeType:(KSChangeType)changeType;
++ (instancetype)objectWithChangeType:(NSUInteger)changeType;
 
 @end

@@ -44,7 +44,6 @@
 - (void)fillWithModel:(KSUser *)user {
     self.label.text = user.name;
     self.contentImageView.image = user.image;
-    
 }
 
 @end
