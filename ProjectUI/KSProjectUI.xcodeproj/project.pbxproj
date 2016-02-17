@@ -14,8 +14,9 @@
 		C53F00221C6FD65D00A0768F /* KSUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F001D1C6FD65D00A0768F /* KSUserCell.m */; };
 		C53F00231C6FD65D00A0768F /* KSUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C53F001E1C6FD65D00A0768F /* KSUserCell.xib */; };
 		C53F00271C6FDAD000A0768F /* KSArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F00261C6FDAD000A0768F /* KSArrayModel.m */; };
-		C53F002F1C73492400A0768F /* KSChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F002E1C73492400A0768F /* KSChangeModel.m */; };
 		C540D0D31C7370F10095362C /* KSCollectionChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C540D0D21C7370F10095362C /* KSCollectionChangeModel.m */; };
+		C540D0D81C73D9D90095362C /* KSArrayIndexChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C540D0D71C73D9D90095362C /* KSArrayIndexChangeModel.m */; };
+		C540D0DC1C73DA660095362C /* KSArrayDoubleIndexChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C540D0DB1C73DA660095362C /* KSArrayDoubleIndexChangeModel.m */; };
 		C554FA291C6898FD00979CCA /* NSString+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA1F1C6898FD00979CCA /* NSString+KSExtensions.m */; };
 		C554FA461C6A1A9E00979CCA /* KSObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA3F1C6A1A9E00979CCA /* KSObservableObject.m */; };
 		C554FA471C6A1A9E00979CCA /* KSReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA421C6A1A9E00979CCA /* KSReference.m */; };
@@ -31,6 +32,10 @@
 		C56A03481C60BDA00043FE10 /* KSSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A033E1C60BDA00043FE10 /* KSSquareView.m */; };
 		C56A03491C60BDA00043FE10 /* KSSquareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C56A033F1C60BDA00043FE10 /* KSSquareView.xib */; };
 		C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A03411C60BDA00043FE10 /* KSSquareViewController.m */; };
+		C5721F051C74B98900C1541D /* UITableView+KSCollectionChangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5721F041C74B98900C1541D /* UITableView+KSCollectionChangeModel.m */; };
+		C5721F091C74BD5700C1541D /* KSCollectionChangeModel+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5721F081C74BD5700C1541D /* KSCollectionChangeModel+UITableView.m */; };
+		C5721F0E1C74BE7B00C1541D /* KSArrayIndexChangeModel+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5721F0D1C74BE7B00C1541D /* KSArrayIndexChangeModel+UITableView.m */; };
+		C5721F111C74BEA900C1541D /* KSArrayDoubleIndexChangeModel+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5721F101C74BEA900C1541D /* KSArrayDoubleIndexChangeModel+UITableView.m */; };
 		C5D39F2D1C64A6430053E43C /* CGGeometry+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F261C64A6430053E43C /* CGGeometry+KSExtensions.m */; };
 		C5D39F2E1C64A6430053E43C /* UIViewController+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F291C64A6430053E43C /* UIViewController+KSExtensions.m */; };
 		C5D39F2F1C64A6430053E43C /* UIWindow+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F2C1C64A6430053E43C /* UIWindow+KSExtensions.m */; };
@@ -52,10 +57,13 @@
 		C53F001E1C6FD65D00A0768F /* KSUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSUserCell.xib; sourceTree = "<group>"; };
 		C53F00251C6FDAD000A0768F /* KSArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArrayModel.h; sourceTree = "<group>"; };
 		C53F00261C6FDAD000A0768F /* KSArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSArrayModel.m; sourceTree = "<group>"; };
-		C53F002D1C73492400A0768F /* KSChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSChangeModel.h; sourceTree = "<group>"; };
-		C53F002E1C73492400A0768F /* KSChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSChangeModel.m; sourceTree = "<group>"; };
 		C540D0D11C7370F10095362C /* KSCollectionChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCollectionChangeModel.h; sourceTree = "<group>"; };
 		C540D0D21C7370F10095362C /* KSCollectionChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCollectionChangeModel.m; sourceTree = "<group>"; };
+		C540D0D61C73D9D90095362C /* KSArrayIndexChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArrayIndexChangeModel.h; sourceTree = "<group>"; };
+		C540D0D71C73D9D90095362C /* KSArrayIndexChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSArrayIndexChangeModel.m; sourceTree = "<group>"; };
+		C540D0DA1C73DA660095362C /* KSArrayDoubleIndexChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSArrayDoubleIndexChangeModel.h; sourceTree = "<group>"; };
+		C540D0DB1C73DA660095362C /* KSArrayDoubleIndexChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSArrayDoubleIndexChangeModel.m; sourceTree = "<group>"; };
+		C540D0DE1C73DEB10095362C /* KSCollectionObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSCollectionObserver.h; sourceTree = "<group>"; };
 		C554FA1E1C6898FD00979CCA /* NSString+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KSExtensions.h"; sourceTree = "<group>"; };
 		C554FA1F1C6898FD00979CCA /* NSString+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KSExtensions.m"; sourceTree = "<group>"; };
 		C554FA3E1C6A1A9E00979CCA /* KSObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObservableObject.h; sourceTree = "<group>"; };
@@ -84,6 +92,14 @@
 		C56A03401C60BDA00043FE10 /* KSSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSquareViewController.h; sourceTree = "<group>"; };
 		C56A03411C60BDA00043FE10 /* KSSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSquareViewController.m; sourceTree = "<group>"; };
 		C56A03501C60CB7D0043FE10 /* KSMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSMacro.h; sourceTree = "<group>"; };
+		C5721F031C74B98900C1541D /* UITableView+KSCollectionChangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+KSCollectionChangeModel.h"; path = "UITableView+KSCollectionChangeModel/UITableView+KSCollectionChangeModel.h"; sourceTree = "<group>"; };
+		C5721F041C74B98900C1541D /* UITableView+KSCollectionChangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+KSCollectionChangeModel.m"; path = "UITableView+KSCollectionChangeModel/UITableView+KSCollectionChangeModel.m"; sourceTree = "<group>"; };
+		C5721F071C74BD5700C1541D /* KSCollectionChangeModel+UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KSCollectionChangeModel+UITableView.h"; path = "KSCollectionChangeModel+UITableView/KSCollectionChangeModel+UITableView.h"; sourceTree = "<group>"; };
+		C5721F081C74BD5700C1541D /* KSCollectionChangeModel+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "KSCollectionChangeModel+UITableView.m"; path = "KSCollectionChangeModel+UITableView/KSCollectionChangeModel+UITableView.m"; sourceTree = "<group>"; };
+		C5721F0C1C74BE7B00C1541D /* KSArrayIndexChangeModel+UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KSArrayIndexChangeModel+UITableView.h"; sourceTree = "<group>"; };
+		C5721F0D1C74BE7B00C1541D /* KSArrayIndexChangeModel+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KSArrayIndexChangeModel+UITableView.m"; sourceTree = "<group>"; };
+		C5721F0F1C74BEA900C1541D /* KSArrayDoubleIndexChangeModel+UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KSArrayDoubleIndexChangeModel+UITableView.h"; path = "KSArrayDoubleIndexChangeModel+UITableView/KSArrayDoubleIndexChangeModel+UITableView.h"; sourceTree = "<group>"; };
+		C5721F101C74BEA900C1541D /* KSArrayDoubleIndexChangeModel+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "KSArrayDoubleIndexChangeModel+UITableView.m"; path = "KSArrayDoubleIndexChangeModel+UITableView/KSArrayDoubleIndexChangeModel+UITableView.m"; sourceTree = "<group>"; };
 		C5A035521C63664E003BCAFD /* KSWeakifyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSWeakifyMacro.h; sourceTree = "<group>"; };
 		C5D39F251C64A6430053E43C /* CGGeometry+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+KSExtensions.h"; sourceTree = "<group>"; };
 		C5D39F261C64A6430053E43C /* CGGeometry+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+KSExtensions.m"; sourceTree = "<group>"; };
@@ -161,28 +177,52 @@
 		C53F00241C6FDAD000A0768F /* KSArrayModel */ = {
 			isa = PBXGroup;
 			children = (
+				C540D0D41C73D9250095362C /* Private */,
 				C53F00251C6FDAD000A0768F /* KSArrayModel.h */,
 				C53F00261C6FDAD000A0768F /* KSArrayModel.m */,
 			);
 			path = KSArrayModel;
 			sourceTree = "<group>";
 		};
-		C53F002C1C73492400A0768F /* KSChangeModel */ = {
-			isa = PBXGroup;
-			children = (
-				C53F002D1C73492400A0768F /* KSChangeModel.h */,
-				C53F002E1C73492400A0768F /* KSChangeModel.m */,
-			);
-			path = KSChangeModel;
-			sourceTree = "<group>";
-		};
 		C540D0D01C7370C70095362C /* KSCollectionChangeModel */ = {
 			isa = PBXGroup;
 			children = (
+				C5721F061C74BD1700C1541D /* KSCollectionChangeModel+UITableView */,
+				C5721F021C74B93100C1541D /* UITableView+KSCollectionChangeModel */,
+				C540D0DE1C73DEB10095362C /* KSCollectionObserver.h */,
 				C540D0D11C7370F10095362C /* KSCollectionChangeModel.h */,
 				C540D0D21C7370F10095362C /* KSCollectionChangeModel.m */,
 			);
 			path = KSCollectionChangeModel;
+			sourceTree = "<group>";
+		};
+		C540D0D41C73D9250095362C /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				C540D0D51C73D97B0095362C /* KSArrayIndexChangeModel */,
+				C540D0D91C73DA140095362C /* KSArrayDoubleIndexChangeModel */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		C540D0D51C73D97B0095362C /* KSArrayIndexChangeModel */ = {
+			isa = PBXGroup;
+			children = (
+				C5721F0A1C74BE3100C1541D /* KSArrayIndexChangeModel+UITableView */,
+				C540D0D61C73D9D90095362C /* KSArrayIndexChangeModel.h */,
+				C540D0D71C73D9D90095362C /* KSArrayIndexChangeModel.m */,
+			);
+			path = KSArrayIndexChangeModel;
+			sourceTree = "<group>";
+		};
+		C540D0D91C73DA140095362C /* KSArrayDoubleIndexChangeModel */ = {
+			isa = PBXGroup;
+			children = (
+				C5721F0B1C74BE3500C1541D /* KSArrayDoubleIndexChangeModel+UITableView */,
+				C540D0DA1C73DA660095362C /* KSArrayDoubleIndexChangeModel.h */,
+				C540D0DB1C73DA660095362C /* KSArrayDoubleIndexChangeModel.m */,
+			);
+			path = KSArrayDoubleIndexChangeModel;
 			sourceTree = "<group>";
 		};
 		C554FA1B1C6898FD00979CCA /* NSString */ = {
@@ -247,7 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				C540D0D01C7370C70095362C /* KSCollectionChangeModel */,
-				C53F002C1C73492400A0768F /* KSChangeModel */,
 				C53F00241C6FDAD000A0768F /* KSArrayModel */,
 				C554FA521C6A311D00979CCA /* KSUser */,
 			);
@@ -343,6 +382,42 @@
 				C5A035521C63664E003BCAFD /* KSWeakifyMacro.h */,
 			);
 			path = Macros;
+			sourceTree = "<group>";
+		};
+		C5721F021C74B93100C1541D /* UITableView+KSCollectionChangeModel */ = {
+			isa = PBXGroup;
+			children = (
+				C5721F031C74B98900C1541D /* UITableView+KSCollectionChangeModel.h */,
+				C5721F041C74B98900C1541D /* UITableView+KSCollectionChangeModel.m */,
+			);
+			name = "UITableView+KSCollectionChangeModel";
+			sourceTree = "<group>";
+		};
+		C5721F061C74BD1700C1541D /* KSCollectionChangeModel+UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				C5721F071C74BD5700C1541D /* KSCollectionChangeModel+UITableView.h */,
+				C5721F081C74BD5700C1541D /* KSCollectionChangeModel+UITableView.m */,
+			);
+			name = "KSCollectionChangeModel+UITableView";
+			sourceTree = "<group>";
+		};
+		C5721F0A1C74BE3100C1541D /* KSArrayIndexChangeModel+UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				C5721F0C1C74BE7B00C1541D /* KSArrayIndexChangeModel+UITableView.h */,
+				C5721F0D1C74BE7B00C1541D /* KSArrayIndexChangeModel+UITableView.m */,
+			);
+			name = "KSArrayIndexChangeModel+UITableView";
+			sourceTree = "<group>";
+		};
+		C5721F0B1C74BE3500C1541D /* KSArrayDoubleIndexChangeModel+UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				C5721F0F1C74BEA900C1541D /* KSArrayDoubleIndexChangeModel+UITableView.h */,
+				C5721F101C74BEA900C1541D /* KSArrayDoubleIndexChangeModel+UITableView.m */,
+			);
+			name = "KSArrayDoubleIndexChangeModel+UITableView";
 			sourceTree = "<group>";
 		};
 		C5CBBD7B1C6A920F00DD2118 /* UINib */ = {
@@ -477,16 +552,21 @@
 				C53F00101C6E2AF400A0768F /* UITableView+KSExtensions.m in Sources */,
 				C554FA291C6898FD00979CCA /* NSString+KSExtensions.m in Sources */,
 				C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */,
+				C5721F051C74B98900C1541D /* UITableView+KSCollectionChangeModel.m in Sources */,
+				C5721F111C74BEA900C1541D /* KSArrayDoubleIndexChangeModel+UITableView.m in Sources */,
 				C554FA481C6A1A9E00979CCA /* KSWeakReference.m in Sources */,
 				C53F00211C6FD65D00A0768F /* KSUsersViewController.m in Sources */,
 				C5F1F4451C6AAA07008075D1 /* UINib+KSExtensions.m in Sources */,
 				C5D39F2D1C64A6430053E43C /* CGGeometry+KSExtensions.m in Sources */,
 				C540D0D31C7370F10095362C /* KSCollectionChangeModel.m in Sources */,
 				C554FA461C6A1A9E00979CCA /* KSObservableObject.m in Sources */,
+				C5721F0E1C74BE7B00C1541D /* KSArrayIndexChangeModel+UITableView.m in Sources */,
+				C540D0DC1C73DA660095362C /* KSArrayDoubleIndexChangeModel.m in Sources */,
 				C5D39F2F1C64A6430053E43C /* UIWindow+KSExtensions.m in Sources */,
 				C56A03441C60BDA00043FE10 /* main.m in Sources */,
+				C540D0D81C73D9D90095362C /* KSArrayIndexChangeModel.m in Sources */,
+				C5721F091C74BD5700C1541D /* KSCollectionChangeModel+UITableView.m in Sources */,
 				C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */,
-				C53F002F1C73492400A0768F /* KSChangeModel.m in Sources */,
 				C554FA471C6A1A9E00979CCA /* KSReference.m in Sources */,
 				C554FA501C6A231D00979CCA /* KSTableViewCell.m in Sources */,
 				C5D39F2E1C64A6430053E43C /* UIViewController+KSExtensions.m in Sources */,

@@ -14,6 +14,10 @@
 @interface KSObservableObject ()
 @property (nonatomic, retain) NSMutableSet *mutableObservers;
 
+@property (nonatomic, assign, getter=isNotificationEnabled) BOOL notificationEnabled;
+
+- (void)notify:(BOOL)isNotified whileBlockPerforming:(void(^)(void))block;
+
 @end
 
 @implementation KSObservableObject
@@ -32,6 +36,7 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSMutableSet set];
+        self.notificationEnabled = YES;
     }
     
     return self;
@@ -103,6 +108,10 @@
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
     @synchronized(self) {
+        if (!self.notificationEnabled) {
+            return;
+        }
+        
         NSSet *observers = self.observers;
         for (id observer in observers) {
             if ([observer respondsToSelector:selector]) {
@@ -116,6 +125,29 @@
 
 - (SEL)selectorForState:(NSUInteger)state {
     return NULL;
+}
+
+- (void)performBlockWithNotification:(void(^)(void))block {
+    [self notify:YES whileBlockPerforming:block];
+}
+
+- (void)performBlockWithoutNotification:(void(^)(void))block {
+    [self notify:NO whileBlockPerforming:block];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)notify:(BOOL)isNotified whileBlockPerforming:(void(^)(void))block {
+    @synchronized(self) {
+        BOOL notificationEnabled = self.notificationEnabled;
+        self.notificationEnabled = isNotified;
+        if (block) {
+            block();
+        }
+        
+        self.notificationEnabled = notificationEnabled;
+    }
 }
 
 @end

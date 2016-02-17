@@ -14,6 +14,9 @@
 
 @implementation UITableView (KSExtensions)
 
+#pragma mark -
+#pragma mark Public
+
 - (id)cellWithClass:(Class)aClass {
     id cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(aClass)];
     if (!cell) {
@@ -22,5 +25,15 @@
     
     return cell;
 }
+
+- (void)updateTableView:(void(^)(UITableView *))block {
+    if (!block) {
+        return;
+    }
+    [self beginUpdates];
+    block(self);
+    [self endUpdates];
+}
+
 
 @end

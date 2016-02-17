@@ -25,4 +25,7 @@
 
 - (SEL)selectorForState:(NSUInteger)state;
 
+- (void)performBlockWithNotification:(void(^)(void))block;
+- (void)performBlockWithoutNotification:(void(^)(void))block;
+
 @end
