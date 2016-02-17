@@ -9,5 +9,6 @@
 #import "KSArrayIndexChangeModel.h"
 
 @interface KSArrayIndexChangeModel (UITableView)
+@property (nonatomic, readonly) NSIndexPath *indexPath;
 
 @end

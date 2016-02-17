@@ -8,6 +8,37 @@
 
 #import "KSArrayIndexChangeModel+UITableView.h"
 
+#import <UIKit/UIKit.h>
+
+#import "NSIndexPath+KSExtensions.h"
+
 @implementation KSArrayIndexChangeModel (UITableView)
+@dynamic indexPath;
+
+- (NSIndexPath *)indexPath {
+    return [NSIndexPath indexPathForRow:self.index];
+}
+
+- (void)updateTableView:(UITableView *)tableView {
+    NSIndexPath *indexPath = self.indexPath;
+    switch (self.changeType) {
+        case kKSChangeTypeObjectAdded: {
+            [tableView insertRowsAtIndexPaths:@[indexPath]
+                             withRowAnimation:UITableViewRowAnimationTop];
+            [tableView scrollToRowAtIndexPath:indexPath
+                             atScrollPosition:UITableViewScrollPositionNone
+                                     animated:YES];
+        }
+            break;
+            
+        case kKSChangeTypeObjectRemoved:
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
+                             withRowAnimation:UITableViewRowAnimationLeft];
+            break;
+            
+        default:
+            break;
+    }
+}
 
 @end

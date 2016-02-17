@@ -50,7 +50,7 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 
 - (IBAction)onAddNewUser:(id)sender {
     [self.users addObject:[KSUser new]];
-    [self.mainView.tableView reloadData];
+    [self.mainView.tableView reloadData]; 
 }
 
 #pragma mark -

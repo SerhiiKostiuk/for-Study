@@ -11,6 +11,9 @@
 #import "KSCollectionChangeModel+UITableView.h"
 @implementation UITableView (KSCollectionChangeModel)
 
+#pragma mark -
+#pragma mark Public
+
 - (void)updateWithCollectionChangeModel:(KSCollectionChangeModel *)model {
     [model updateTableView:self];
 }

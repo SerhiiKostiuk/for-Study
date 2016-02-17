@@ -106,4 +106,9 @@
         [mutableObjects insertObject:object atIndex:secondIndex];
     }
 }
+
+#pragma mark -
+#pragma mark Private
+
+
 @end

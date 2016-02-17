@@ -8,15 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, KSChangeType) {
-    kKSChangeTypeObjectAdded,
-    kKSChangeTypeObjectInserted,
-    kKSChangeTypeObjectReplaced,
-    kKSChangeTypeObjectExchahged,
-    kKSChangeTypeObjectRemoved,
-    kKSChangeTypeObjectMoved
-};
-
 @interface KSCollectionChangeModel : NSObject
 @property (nonatomic, readonly) NSUInteger changeType;
 

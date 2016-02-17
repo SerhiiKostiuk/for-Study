@@ -10,6 +10,9 @@
 
 @implementation KSCollectionChangeModel (UITableView)
 
+#pragma mark -
+#pragma mark Public
+
 - (void)updateTableView:(UITableView *)tableView {
     
 }
