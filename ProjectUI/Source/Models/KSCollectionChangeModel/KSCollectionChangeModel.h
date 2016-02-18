@@ -11,6 +11,6 @@
 @interface KSCollectionChangeModel : NSObject
 @property (nonatomic, readonly) NSUInteger changeType;
 
-+ (instancetype)objectWithChangeType:(NSUInteger)changeType;
++ (instancetype)modelWithChangeType:(NSUInteger)changeType;
 
 @end

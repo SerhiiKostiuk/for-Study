@@ -9,6 +9,7 @@
 #import "UITableView+KSCollectionChangeModel.h"
 
 #import "KSCollectionChangeModel+UITableView.h"
+
 @implementation UITableView (KSCollectionChangeModel)
 
 #pragma mark -
@@ -17,6 +18,5 @@
 - (void)updateWithCollectionChangeModel:(KSCollectionChangeModel *)model {
     [model updateTableView:self];
 }
-
 
 @end

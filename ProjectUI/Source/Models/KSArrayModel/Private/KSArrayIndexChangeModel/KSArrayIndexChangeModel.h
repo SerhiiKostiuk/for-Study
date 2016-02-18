@@ -8,18 +8,16 @@
 
 #import "KSCollectionChangeModel.h"
 
-typedef NS_ENUM(NSUInteger, KSChangeType) {
+typedef NS_ENUM(NSUInteger, KSArrayIndexChangeType) {
     kKSChangeTypeObjectAdded,
     kKSChangeTypeObjectInserted,
     kKSChangeTypeObjectReplaced,
-    kKSChangeTypeObjectExchahged,
-    kKSChangeTypeObjectRemoved,
-    kKSChangeTypeObjectMoved
+    kKSChangeTypeObjectRemoved
 };
 
 @interface KSArrayIndexChangeModel : KSCollectionChangeModel
 @property (nonatomic, readonly) NSUInteger index;
 
-+ (instancetype)objectWithChangeType:(NSUInteger)changeType index:(NSUInteger)index;
++ (instancetype)modelWithChangeType:(NSUInteger)changeType index:(NSUInteger)index;
 
 @end

@@ -8,6 +8,11 @@
 
 #import "KSArrayModel.h"
 
+#import "KSArrayIndexChangeModel.h"
+#import "KSArrayDoubleIndexChangeModel.h"
+#import "KSCollectionChangeModel+KSArrayModel.h"
+#import "KSCollectionObserver.h"
+
 @interface KSArrayModel ()
 @property (nonatomic, strong) NSMutableArray *mutableObjects;
 
@@ -61,12 +66,16 @@
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects addObject:object];
+        
+        [self notifyObserversWithChangeModel:[KSCollectionChangeModel addModelWithIndex:self.count - 1]];
     }
 }
 - (void)insertObjectAtIndex:(id)object index:(NSUInteger)index {
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects insertObject:object atIndex:index];
+
+        [self notifyObserversWithChangeModel:[KSCollectionChangeModel insertModelWithIndex:index]];
     }
 }
 
@@ -74,6 +83,8 @@
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects removeLastObject];
+        
+        [self notifyObserversWithChangeModel:[KSCollectionChangeModel removeModelWithIndex:self.count - 1]];
     }
 }
 
@@ -81,6 +92,8 @@
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects removeObjectAtIndex:index];
+        
+        [self notifyObserversWithChangeModel:[KSCollectionChangeModel removeModelWithIndex:index]];
     }
 }
 
@@ -88,6 +101,8 @@
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects replaceObjectAtIndex:index withObject:object];
+
+        [self notifyObserversWithChangeModel:[KSCollectionChangeModel replaceModelWithIndex:index]];
     }
 }
 
@@ -95,6 +110,9 @@
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         [mutableObjects exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
+
+        [self notifyObserversWithChangeModel:[KSCollectionChangeModel exchangeModelWithIndex:firstIndex
+                                                                                     toIndex:secondIndex]];
     }
 }
 
@@ -102,13 +120,19 @@
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         id object = [self objectAtIndex:firstIndex];
-        [mutableObjects removeObjectAtIndex:firstIndex];
-        [mutableObjects insertObject:object atIndex:secondIndex];
+        [mutableObjects insertObject:object atIndex:firstIndex < secondIndex ? secondIndex + 1 : secondIndex];
+        [mutableObjects removeObjectAtIndex:firstIndex > secondIndex ? firstIndex + 1 : firstIndex];
+        
+        [self notifyObserversWithChangeModel:[KSCollectionChangeModel moveModelWithIndex:firstIndex
+                                                                                 toIndex:secondIndex]];
     }
 }
 
 #pragma mark -
 #pragma mark Private
 
+- (void)notifyObserversWithChangeModel:(KSCollectionChangeModel *)model {
+    [self notifyObserversWithSelector:@selector(collection:didChangeWithModel:) withObject:model];
+}
 
 @end

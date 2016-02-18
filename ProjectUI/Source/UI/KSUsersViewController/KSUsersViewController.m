@@ -16,6 +16,7 @@
 
 #import "UIViewController+KSExtensions.h"
 #import "UITableView+KSExtensions.h"
+#import "UITableView+KSCollectionChangeModel.h"
 
 KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 
@@ -85,6 +86,14 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.users removeObjectAtIndex:indexPath.row];
     }
+}
+
+#pragma mark -
+#pragma mark KSCollectionObserver
+
+- (void)collection:(id)collection didChangeWithModel:(id)changeModel {
+    UITableView *tableView = self.mainView.tableView;
+    [tableView updateWithCollectionChangeModel:changeModel];
 }
 
 @end

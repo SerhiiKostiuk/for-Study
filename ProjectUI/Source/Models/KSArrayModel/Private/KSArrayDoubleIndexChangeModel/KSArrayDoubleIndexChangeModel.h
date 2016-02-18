@@ -8,9 +8,14 @@
 
 #import "KSArrayIndexChangeModel.h"
 
+typedef NS_ENUM(NSUInteger, KSArrayDoubleIndexChangeType) {
+    kKSChangeTypeObjectExchahged,
+    kKSChangeTypeObjectMoved
+};
+
 @interface KSArrayDoubleIndexChangeModel : KSArrayIndexChangeModel
 @property (nonatomic, readonly) NSUInteger toIndex;
 
-+ (instancetype)objectWithChangeType:(NSUInteger)changeType index:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
++ (instancetype)modelWithChangeType:(NSUInteger)changeType index:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
 @end

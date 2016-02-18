@@ -18,7 +18,7 @@
 #pragma mark -
 #pragma mark Public
 
-+ (instancetype)objectWithChangeType:(NSUInteger)changeType {
++ (instancetype)modelWithChangeType:(NSUInteger)changeType {
     KSCollectionChangeModel *object = [self new];
     object.changeType = changeType;
     

@@ -18,8 +18,8 @@
 #pragma mark -
 #pragma mark Public
 
-+ (instancetype)objectWithChangeType:(NSUInteger)changeType index:(NSUInteger)index {
-    KSArrayIndexChangeModel *object = [super objectWithChangeType:changeType];
++ (instancetype)modelWithChangeType:(NSUInteger)changeType index:(NSUInteger)index {
+    KSArrayIndexChangeModel *object = [super modelWithChangeType:changeType];
     object.index = index;
     
     return object;
