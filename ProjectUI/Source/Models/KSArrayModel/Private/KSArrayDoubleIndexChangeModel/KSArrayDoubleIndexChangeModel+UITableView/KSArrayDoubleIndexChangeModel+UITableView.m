@@ -8,33 +8,41 @@
 
 #import "KSArrayDoubleIndexChangeModel+UITableView.h"
 
-#import "NSIndexPath+KSExtensions.h"
-
 #import <UIKit/UITableView.h>
-@implementation KSArrayDoubleIndexChangeModel (UITableView)
-@dynamic indexPath;
 
-- (NSIndexPath *)indexPath {
-    return [NSIndexPath indexPathForRow:self.index];
+#import "NSIndexPath+KSExtensions.h"
+#import "UITableView+KSExtensions.h"
+#import "KSArrayIndexChangeModel+UITableView.h"
+
+@implementation KSArrayDoubleIndexChangeModel (UITableView)
+
+@dynamic toIndexPath;
+
+- (NSIndexPath *)toIndexPath {
+    return [NSIndexPath indexPathForRow:self.toIndex];
 }
 
 - (void)updateTableView:(UITableView *)tableView {
-    [tableView beginUpdates];
-    NSIndexPath *indexPath = self.indexPath;
-    NSArray *indexPathes = @[indexPath];
-    switch (self.changeType) {
-        case kKSChangeTypeObjectExchahged:
-            [tableView ex
-            break;
-            
-        case kKSChangeTypeObjectMoved:
-            [tableView moveRowAtIndexPath:<#(nonnull NSIndexPath *)#> toIndexPath:<#(nonnull NSIndexPath *)#>
-            break;
-            
-        default:
-            break;
-    }
-    [tableView endUpdates];
+    [tableView updateTableView:^(UITableView *object) {
+        NSIndexPath *indexPath = self.indexPath;
+        NSIndexPath *toIndexPath = self.toIndexPath;
+        NSArray *indexPathes = @[indexPath];
+        NSArray *toIndexPathes = @[toIndexPath];
+        
+        switch (self.changeType) {
+            case kKSChangeTypeObjectExchahged:
+                [tableView deleteRowsAtIndexPaths:indexPathes withRowAnimation:UITableViewRowAnimationRight];
+                [tableView insertRowsAtIndexPaths:toIndexPathes withRowAnimation:UITableViewRowAnimationLeft];
+                break;
+                
+            case kKSChangeTypeObjectMoved:
+                [tableView moveRowAtIndexPath:indexPath toIndexPath:toIndexPath];
+                break;
+                
+            default:
+                break;
+        }
+    }];
 }
 
 @end
