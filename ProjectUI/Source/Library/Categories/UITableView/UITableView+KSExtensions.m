@@ -11,6 +11,7 @@
 #import "KSUserCell.h"
 
 #import "UINib+KSExtensions.h"
+#import "KSMacro.h"
 
 @implementation UITableView (KSExtensions)
 
@@ -27,13 +28,11 @@
 }
 
 - (void)updateTableView:(void(^)(UITableView *))block {
-    if (!block) {
-        return;
-    }
+    KSRerurnIfNil(block);
+    
     [self beginUpdates];
     block(self);
     [self endUpdates];
 }
-
 
 @end
