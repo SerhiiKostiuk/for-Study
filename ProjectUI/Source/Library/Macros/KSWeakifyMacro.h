@@ -6,6 +6,8 @@
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
+#import "KSMacro.h"
+
 #define KSClangDiagnosticPush    _Pragma ("clang diagnostic push")
 #define KSClangDiagnosticPop     _Pragma ("clang diagnostic pop")
 
@@ -24,13 +26,8 @@
 
 #define KSStrongifyAndReturnValueIfNil(obj, value) \
     KSStrongify(obj); \
-    if (!obj) { \
-        return value; \
-    }
+    KSReturnValueIfNil(obj, value)
 
 #define KSStrongifyAndReturnNilIfNil(obj) KSStrongifyAndReturnValueIfNil(obj, nil)
 
-#define KSEmpty
-
 #define KSStrongifyAndReturnIfNil(obj) KSStrongifyAndReturnValueIfNil(obj, KSEmpty)
-

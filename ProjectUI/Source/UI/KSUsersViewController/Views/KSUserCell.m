@@ -36,9 +36,6 @@
 }
 
 #pragma mark -
-#pragma mark Interface Handling
-
-#pragma mark -
 #pragma mark Private
 
 - (void)fillWithModel:(KSUser *)user {
