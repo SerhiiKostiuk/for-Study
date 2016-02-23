@@ -11,7 +11,7 @@
 
 #import "KSObservableObject.h"
 
-@interface KSUser : KSObservableObject
+@interface KSUser : KSObservableObject <NSCoding>
 @property (nonatomic, copy)     NSString  *name;
 @property (nonatomic, readonly) UIImage   *image;
 

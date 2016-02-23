@@ -10,12 +10,19 @@
 
 #import "KSUser.h"
 
+#import "NSPathUtilities+KSExtensions.h"
+
 #import "KSWeakifyMacro.h"
 
 static const NSUInteger kKSUsersArraySize = 2;
 
+static NSString * const kKSObjectsKey = @"objects";
+static NSString * const kKSPListName  = @"users";
+static NSString * const kKSPlistType  = @"plist";
+
 @interface KSUsers ()
 
+- (NSString *)path;
 - (void)fillWithUsers;
 
 @end
@@ -35,6 +42,17 @@ static const NSUInteger kKSUsersArraySize = 2;
 }
 
 #pragma mark -
+#pragma mark Public
+
+- (void)saveUsers {
+    [NSKeyedArchiver archiveRootObject:self.objects toFile:[self path]];
+}
+
+- (id)loadUsers {
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:[self path]];
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (void)fillWithUsers {
@@ -46,6 +64,25 @@ static const NSUInteger kKSUsersArraySize = 2;
         }
     }];
     
+}
+
+- (NSString *)path {
+    NSString *path = NSSearchPathForDirectiry(NSDocumentDirectory);
+    
+    return path;
+}
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.objects forKey:kKSObjectsKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    [aDecoder decodeObjectForKey:kKSObjectsKey];
+    
+    return self;
 }
 
 @end

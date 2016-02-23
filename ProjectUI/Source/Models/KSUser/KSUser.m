@@ -13,6 +13,8 @@
 static NSString * const kKSImageName = @"apple";
 static NSString * const kKSImageType = @"png";
 
+static NSString * const kKSNameKey = @"name";
+
 @implementation KSUser
 
 @dynamic image;
@@ -42,5 +44,19 @@ static NSString * const kKSImageType = @"png";
     
     return __image;
 }
+
+#pragma mark -
+#pragma mark NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.name forKey:kKSNameKey];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self.name = [aDecoder decodeObjectForKey:kKSNameKey];
+    
+    return self;
+}
+
 
 @end

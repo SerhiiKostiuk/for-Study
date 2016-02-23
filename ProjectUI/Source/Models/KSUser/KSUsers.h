@@ -8,6 +8,9 @@
 
 #import "KSArrayModel.h"
 
-@interface KSUsers : KSArrayModel
+@interface KSUsers : KSArrayModel <NSCoding>
+
+- (void)saveUsers;
+- (id)loadUsers;
 
 @end
