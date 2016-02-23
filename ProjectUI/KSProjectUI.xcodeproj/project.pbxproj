@@ -41,6 +41,7 @@
 		C5D39F2D1C64A6430053E43C /* CGGeometry+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F261C64A6430053E43C /* CGGeometry+KSExtensions.m */; };
 		C5D39F2E1C64A6430053E43C /* UIViewController+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F291C64A6430053E43C /* UIViewController+KSExtensions.m */; };
 		C5D39F2F1C64A6430053E43C /* UIWindow+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F2C1C64A6430053E43C /* UIWindow+KSExtensions.m */; };
+		C5D44E5F1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D44E5E1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m */; };
 		C5F1F4421C6A9A1D008075D1 /* KSUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F1F4411C6A9A1D008075D1 /* KSUsers.m */; };
 		C5F1F4451C6AAA07008075D1 /* UINib+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F1F4441C6AAA07008075D1 /* UINib+KSExtensions.m */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,8 @@
 		C5D39F291C64A6430053E43C /* UIViewController+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KSExtensions.m"; sourceTree = "<group>"; };
 		C5D39F2B1C64A6430053E43C /* UIWindow+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+KSExtensions.h"; sourceTree = "<group>"; };
 		C5D39F2C1C64A6430053E43C /* UIWindow+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+KSExtensions.m"; sourceTree = "<group>"; };
+		C5D44E5D1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSPathUtilities+KSExtensions.h"; path = "NSPathUtilities/NSPathUtilities+KSExtensions.h"; sourceTree = "<group>"; };
+		C5D44E5E1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSPathUtilities+KSExtensions.m"; path = "NSPathUtilities/NSPathUtilities+KSExtensions.m"; sourceTree = "<group>"; };
 		C5F1F4401C6A9A1D008075D1 /* KSUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsers.h; sourceTree = "<group>"; };
 		C5F1F4411C6A9A1D008075D1 /* KSUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUsers.m; sourceTree = "<group>"; };
 		C5F1F4431C6AAA07008075D1 /* UINib+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+KSExtensions.h"; sourceTree = "<group>"; };
@@ -457,6 +460,7 @@
 		C5D39F231C64A6430053E43C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C5D44E5C1C7CA97D00818AEA /* NSPathUtilities */,
 				C5721F121C74C1BE00C1541D /* NSIndexPath */,
 				C53F000D1C6E2ACA00A0768F /* UITableView */,
 				C554FA1B1C6898FD00979CCA /* NSString */,
@@ -493,6 +497,15 @@
 				C5D39F2C1C64A6430053E43C /* UIWindow+KSExtensions.m */,
 			);
 			path = UIWindow;
+			sourceTree = "<group>";
+		};
+		C5D44E5C1C7CA97D00818AEA /* NSPathUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				C5D44E5D1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.h */,
+				C5D44E5E1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m */,
+			);
+			name = NSPathUtilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -600,6 +613,7 @@
 				C5D39F2E1C64A6430053E43C /* UIViewController+KSExtensions.m in Sources */,
 				C56A03481C60BDA00043FE10 /* KSSquareView.m in Sources */,
 				C53F00271C6FDAD000A0768F /* KSArrayModel.m in Sources */,
+				C5D44E5F1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

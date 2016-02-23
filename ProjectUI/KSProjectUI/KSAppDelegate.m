@@ -36,15 +36,26 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+    NSLog(@"resign");
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    KSUsers *users = [KSUsers new];
+    [users saveUsers];
+    NSLog(@"background");
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    KSUsers *users = [KSUsers new];
+    [users loadUsers];
+    NSLog(@"foreground");
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    NSLog(@"becomeActive");
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
