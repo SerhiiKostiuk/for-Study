@@ -23,11 +23,20 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 @implementation KSUsersViewController
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.users = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
  
 - (void)setUsers:(KSUsers *)users {
     if (_users != users) {
+        [_users removeObserver:self];
         _users = users;
+        [_users addObserver:self];
         
         [self.mainView.tableView reloadData];
     }

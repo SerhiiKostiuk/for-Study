@@ -22,16 +22,13 @@
 }
 
 - (void)updateTableView:(UITableView *)tableView {
+    NSIndexPath *indexPath = self.indexPath;
+    NSArray *indexPathes = @[indexPath];
     [tableView updateTableView:^(UITableView *object) {
-        NSIndexPath *indexPath = self.indexPath;
-        NSArray *indexPathes = @[indexPath];
         switch (self.changeType) {
             case kKSChangeTypeObjectAdded:
                 [tableView insertRowsAtIndexPaths:indexPathes
                                  withRowAnimation:UITableViewRowAnimationTop];
-                [tableView scrollToRowAtIndexPath:indexPath
-                                 atScrollPosition:UITableViewScrollPositionNone
-                                         animated:YES];
                 break;
                 
             case kKSChangeTypeObjectRemoved:
@@ -43,6 +40,12 @@
                 break;
         }
     }];
+    
+    if (kKSChangeTypeObjectAdded == self.changeType) {
+        [tableView scrollToRowAtIndexPath:indexPath
+                         atScrollPosition:UITableViewScrollPositionNone
+                                 animated:YES];
+    }
 }
 
 @end
