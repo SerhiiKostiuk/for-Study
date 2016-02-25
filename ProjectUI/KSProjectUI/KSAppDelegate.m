@@ -14,6 +14,7 @@
 #import "UIWindow+KSExtensions.h"
 
 @interface KSAppDelegate ()
+@property (nonatomic, strong) KSUsers *users;
 
 @end
 
@@ -26,6 +27,7 @@
     KSUsersViewController *controller = [KSUsersViewController new];
     
     KSUsers *users = [KSUsers new];
+    self.users = users;
     controller.users = users;
     
     window.rootViewController = controller;
@@ -40,22 +42,16 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    KSUsers *users = [KSUsers new];
-    [users saveUsers];
+    [self.users save];
     NSLog(@"background");
-
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    KSUsers *users = [KSUsers new];
-    [users loadUsers];
     NSLog(@"foreground");
-
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     NSLog(@"becomeActive");
-
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

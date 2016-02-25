@@ -8,6 +8,6 @@
 
 #import "NSPathUtilities+KSExtensions.h"
 
-NSString *NSSearchPathForDirectiry(NSSearchPathDirectory direcrory) {
+NSString *NSSearchPathForDirectory(NSSearchPathDirectory direcrory) {
     return [NSSearchPathForDirectoriesInDomains(direcrory, NSUserDomainMask, YES) firstObject];
 }

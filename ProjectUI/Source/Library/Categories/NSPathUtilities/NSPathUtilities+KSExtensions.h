@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-NSString *NSSearchPathForDirectiry(NSSearchPathDirectory direcrory);
+NSString *NSSearchPathForDirectory(NSSearchPathDirectory direcrory);
