@@ -8,9 +8,11 @@
 
 #import "KSArrayModel.h"
 
-@interface KSUsers : KSArrayModel <NSCoding>
+#import "KSModelObserver.h"
 
-- (void)saveUsers;
-- (id)loadUsers;
+@interface KSUsers : KSArrayModel <KSModelObserver>
+
+- (void)save;
+- (void)load;
 
 @end

@@ -38,6 +38,8 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
         _users = users;
         [_users addObserver:self];
         
+        [_users load];
+        
         [self.mainView.tableView reloadData];
     }
 }
@@ -103,6 +105,25 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 - (void)collection:(id)collection didChangeWithModel:(id)changeModel {
     UITableView *tableView = self.mainView.tableView;
     [tableView updateWithCollectionChangeModel:changeModel];
+}
+
+#pragma mark -
+#pragma mark KSModelObserver
+
+- (void)modelDidReadyToLoad:(id)model {
+    
+}
+
+- (void)modelDidLoad:(id)model {
+    [self.mainView.tableView reloadData];
+}
+
+- (void)modelDidCancelLoading:(id)model {
+    
+}
+
+- (void)modelDidFailToLoad:(id)model {
+    
 }
 
 @end

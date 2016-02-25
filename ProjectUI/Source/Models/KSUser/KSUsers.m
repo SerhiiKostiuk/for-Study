@@ -11,78 +11,73 @@
 #import "KSUser.h"
 
 #import "NSPathUtilities+KSExtensions.h"
+#import "KSDispatch.h"
 
 #import "KSWeakifyMacro.h"
 
-static const NSUInteger kKSUsersArraySize = 2;
+static const NSUInteger kKSUsersCount = 2;
 
-static NSString * const kKSObjectsKey = @"objects";
-static NSString * const kKSPListName  = @"users";
-static NSString * const kKSPlistType  = @"plist";
+static NSString * const kKSPListName  = @"users.plist";
 
 @interface KSUsers ()
+@property (nonatomic, assign, getter=isCashed) BOOL cashed;
 
+- (void)fillWithUsers:(NSArray *)objects;
+- (NSMutableArray *)usersWithCount:(NSUInteger)count;
 - (NSString *)path;
-- (void)fillWithUsers;
 
 @end
 
 @implementation KSUsers
 
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        [self fillWithUsers];
-    }
-    
-    return self;
-}
+@dynamic cashed;
 
 #pragma mark -
 #pragma mark Public
 
-- (void)saveUsers {
+- (void)save {
     [NSKeyedArchiver archiveRootObject:self.objects toFile:[self path]];
 }
 
-- (id)loadUsers {
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:[self path]];
+- (void)load {
+    KSDispatchAsyncOnBackgroundQueue(^{
+        NSArray *objects = [NSKeyedUnarchiver unarchiveObjectWithFile:[self path]];
+        if (objects) {
+            [self fillWithUsers:objects];
+        } else {
+            [self fillWithUsers:[self usersWithCount:kKSUsersCount]];
+        }
+        
+        [self notifyObserversWithSelector:@selector(modelDidLoad:)];
+    });
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)fillWithUsers {
+- (void)fillWithUsers:(NSArray *)objects {
     KSWeakify(self);
     [self performBlockWithoutNotification:^{
         KSStrongifyAndReturnIfNil(self);
-        for (NSUInteger index = 0; index < kKSUsersArraySize; index++) {
-            [self addObject:[KSUser new]];
+        for (KSUser *user in objects) {
+            [self addObject: user];
         }
     }];
+}
+
+- (NSMutableArray *)usersWithCount:(NSUInteger)count {
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSUInteger index = 0; index < kKSUsersCount; index++) {
+        [array addObject:[KSUser new]];
+    }
     
+    return array;
 }
 
 - (NSString *)path {
-    NSString *path = NSSearchPathForDirectiry(NSDocumentDirectory);
+    NSString *folderPath = NSSearchPathForDirectory(NSDocumentDirectory);
     
-    return path;
-}
-
-#pragma mark -
-#pragma mark NSCoding
-
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.objects forKey:kKSObjectsKey];
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    [aDecoder decodeObjectForKey:kKSObjectsKey];
-    
-    return self;
+    return [folderPath stringByAppendingPathComponent:kKSPListName];
 }
 
 @end
