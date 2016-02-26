@@ -13,12 +13,19 @@
 #import "KSArrayModel.h"
 #import "KSUsers.h"
 #import "KSUser.h"
+#import "KSActivityIndicator.h"
 
 #import "UIViewController+KSExtensions.h"
 #import "UITableView+KSExtensions.h"
 #import "UITableView+KSCollectionChangeModel.h"
 
 KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
+
+@interface KSUsersViewController ()
+
+- (void)updateViewWithModel;
+
+@end
 
 @implementation KSUsersViewController
 
@@ -39,8 +46,8 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
         [_users addObserver:self];
         
         [_users load];
-        
-        [self.mainView.tableView reloadData];
+
+        [self updateViewWithModel];
     }
 }
 
@@ -49,12 +56,19 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.mainView.tableView reloadData];
-}
+
+    [_users load];
+  }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)updateViewWithModel {
+    [self.mainView.tableView reloadData];
 }
 
 #pragma mark -
@@ -110,20 +124,23 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 #pragma mark -
 #pragma mark KSModelObserver
 
-- (void)modelDidReadyToLoad:(id)model {
-    
+- (void)modelDidLoading:(id)model {
+    [self.mainView showActivityIndicator];
 }
 
-- (void)modelDidLoad:(id)model {
-    [self.mainView.tableView reloadData];
+- (void)modelDidFinishLoading:(id)model {
+    [self.mainView hideActivityIndicator];
+    [self updateViewWithModel];
 }
 
 - (void)modelDidCancelLoading:(id)model {
     
 }
 
-- (void)modelDidFailToLoad:(id)model {
+- (void)modelDidFailLoading:(id)model {
     
 }
+
+
 
 @end

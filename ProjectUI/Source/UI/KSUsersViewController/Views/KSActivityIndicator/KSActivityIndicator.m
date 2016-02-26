@@ -8,6 +8,16 @@
 
 #import "KSActivityIndicator.h"
 
+#import "UINib+KSExtensions.h"
 @implementation KSActivityIndicator
+
++ (instancetype)indicatorWithSuperView:(UIView *)superView {
+    KSActivityIndicator *view = [UINib objectWithClass:[self class]];
+    view.frame = superView.bounds;
+    view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [superView addSubview:view];
+    
+    return view;
+}
 
 @end

@@ -11,4 +11,6 @@
 @interface KSActivityIndicator : UIView
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView  *activityIndicatorView;
 
++ (instancetype)indicatorWithSuperView:(UIView *)superView;
+
 @end
