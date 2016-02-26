@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KSUsersView : UIView
+#import "KSView.h"
+#import "KSActivityIndicator.h"
+
+@interface KSUsersView : KSView
 @property (nonatomic, strong) IBOutlet UITableView  *tableView;
 
 - (IBAction)onSwipeRight:(UISwipeGestureRecognizer *)sender;
 - (IBAction)onSwipeLeft:(UISwipeGestureRecognizer *)sender;
+
+- (void)showActivityIndicator;
+- (void)hideActivityIndicator;
 
 @end

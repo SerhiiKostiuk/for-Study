@@ -11,11 +11,13 @@
 #import "KSUser.h"
 
 #import "NSPathUtilities+KSExtensions.h"
+#import "NSFileManager+KSExtensions.h"
 #import "KSDispatch.h"
+//#import "KSModel.h"
 
 #import "KSWeakifyMacro.h"
 
-static const NSUInteger kKSUsersCount = 2;
+static const NSUInteger kKSUsersCount = 1;
 
 static NSString * const kKSPListName  = @"users.plist";
 
@@ -36,10 +38,26 @@ static NSString * const kKSPListName  = @"users.plist";
 #pragma mark Public
 
 - (void)save {
+    provideDirectoryAtPath:[NSFileManager applicationDataPath];
     [NSKeyedArchiver archiveRootObject:self.objects toFile:[self path]];
+    self.cashed = YES;
 }
 
 - (void)load {
+    @synchronized(self) {
+        NSUInteger state = self.state;
+        [super load];
+        
+        state = KSModelStateLoad;
+        [self performBackgroundLoading];
+    }
+
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)performBackgroundLoading {
     KSDispatchAsyncOnBackgroundQueue(^{
         NSArray *objects = [NSKeyedUnarchiver unarchiveObjectWithFile:[self path]];
         if (objects) {
@@ -47,13 +65,9 @@ static NSString * const kKSPListName  = @"users.plist";
         } else {
             [self fillWithUsers:[self usersWithCount:kKSUsersCount]];
         }
-        
-        [self notifyObserversWithSelector:@selector(modelDidLoad:)];
+        sleep(3);
     });
 }
-
-#pragma mark -
-#pragma mark Private
 
 - (void)fillWithUsers:(NSArray *)objects {
     KSWeakify(self);
@@ -75,9 +89,7 @@ static NSString * const kKSPListName  = @"users.plist";
 }
 
 - (NSString *)path {
-    NSString *folderPath = NSSearchPathForDirectory(NSDocumentDirectory);
-    
-    return [folderPath stringByAppendingPathComponent:kKSPListName];
+    return [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
 }
 
 @end
