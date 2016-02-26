@@ -14,16 +14,26 @@ static NSString * const kKSDirectoryName = @"projectFolder";
 
 @implementation NSFileManager (KSExtensions)
 
-- (NSString *)KSPathForLibraryDirectory {
++ (NSString *)libraryPath {
     return NSSearchPathForDirectory(NSLibraryDirectory);
 }
 
-- (NSString *)KSPathForDocumentDirectory {
++ (NSString *)documentPath {
     return NSSearchPathForDirectory(NSDocumentDirectory);
 }
 
-- (NSString *)KSPathForProjectFolderDirectory {
-    return [[self KSPathForLibraryDirectory] stringByAppendingPathComponent:kKSDirectoryName] ;
++ (NSString *)applicationDataPath {
+    return [[self libraryPath] stringByAppendingPathComponent:kKSDirectoryName] ;
+}
+
+- (void)provideDirectoryAtPath:(NSString *)path {
+    NSFileManager *manager = [NSFileManager  defaultManager];
+    if (![manager fileExistsAtPath:path]) {
+        [manager createDirectoryAtPath:path
+           withIntermediateDirectories:NO
+                            attributes:nil
+                                 error:nil];
+    }
 }
 
 @end

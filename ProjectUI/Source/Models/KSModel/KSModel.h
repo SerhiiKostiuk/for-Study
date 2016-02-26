@@ -9,14 +9,15 @@
 #import "KSObservableObject.h"
 
 typedef NS_ENUM(NSUInteger, KSModelState) {
-    KSModelStateReady,
-    KSModelStateLoading,
+    KSModelStateLoad,
     KSModelStateFailed,
-    KSModelStateCanceled,
+    KSModelStateUnloaded,
     KSModelStateFinished,
-    KSModelStateCount
+    KSModelStateCount 
 };
 
 @interface KSModel : KSObservableObject
+
+- (void)load;
 
 @end

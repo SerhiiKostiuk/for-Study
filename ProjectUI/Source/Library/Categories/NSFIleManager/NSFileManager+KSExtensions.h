@@ -10,8 +10,10 @@
 
 @interface NSFileManager (KSExtensions)
 
-- (NSString *)KSPathForLibraryDirectory;
-- (NSString *)KSPathForDocumentDirectory;
-- (NSString *)KSPathForProjectFolderDirectory;
++ (NSString *)libraryPath;
++ (NSString *)documentPath;
++ (NSString *)applicationDataPath;
+
+- (void)provideDirectoryAtPath:(NSString *)path;
 
 @end

@@ -13,21 +13,31 @@
 @implementation KSModel
 
 #pragma mark -
+#pragma mark Public
+
+- (void)load {
+    @synchronized(self) {
+        NSUInteger state = self.state;
+        
+        if (KSModelStateFinished == state || KSModelStateLoad == state) {
+            [self notifyObserversWithSelector:[self selectorForState:state]];
+        }
+    }
+}
+
+#pragma mark -
 #pragma mark KSObservableObject
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
-        case KSModelStateReady:
-            return @selector(modelDidReadyToLoad:);
+        case KSModelStateLoad:
+            return @selector(modelDidLoading:);
         
         case KSModelStateFinished:
-            return @selector(modelDidLoad:);
-            
-        case KSModelStateCanceled:
-            return @selector(modelDidCancelLoading:);
+            return @selector(modelDidFinishLoading:);
             
         case KSModelStateFailed:
-            return @selector(modelDidFailToLoad:);
+            return @selector(modelDidFailLoading:);
             
         default:
             return [super selectorForState:state];
