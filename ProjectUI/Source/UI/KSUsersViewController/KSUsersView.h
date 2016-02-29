@@ -17,7 +17,4 @@
 - (IBAction)onSwipeRight:(UISwipeGestureRecognizer *)sender;
 - (IBAction)onSwipeLeft:(UISwipeGestureRecognizer *)sender;
 
-- (void)showActivityIndicator;
-- (void)hideActivityIndicator;
-
 @end

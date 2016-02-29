@@ -13,7 +13,6 @@
 #import "KSArrayModel.h"
 #import "KSUsers.h"
 #import "KSUser.h"
-#import "KSActivityIndicator.h"
 
 #import "UIViewController+KSExtensions.h"
 #import "UITableView+KSExtensions.h"
@@ -47,7 +46,6 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
         
         [_users load];
 
-        [self updateViewWithModel];
     }
 }
 
@@ -57,7 +55,7 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [_users load];
+    [self.users load];
   }
 
 - (void)didReceiveMemoryWarning {
@@ -76,7 +74,7 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 
 - (IBAction)onAddNewUser:(id)sender {
     [self.users addObject:[KSUser new]];
-    [self.mainView.tableView reloadData]; 
+    [self updateViewWithModel];
 }
 
 #pragma mark -
@@ -124,21 +122,21 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 #pragma mark -
 #pragma mark KSModelObserver
 
-- (void)modelDidLoading:(id)model {
-    [self.mainView showActivityIndicator];
+- (void)modelWillLoad:(id)model {
+    self.mainView.loadingViewVisible = YES;
 }
 
 - (void)modelDidFinishLoading:(id)model {
-    [self.mainView hideActivityIndicator];
     [self updateViewWithModel];
+    self.mainView.loadingViewVisible = NO;
 }
 
 - (void)modelDidCancelLoading:(id)model {
-    
+    self.mainView.loadingViewVisible = NO;
 }
 
 - (void)modelDidFailLoading:(id)model {
-    
+    self.mainView.loadingViewVisible = NO;
 }
 
 
