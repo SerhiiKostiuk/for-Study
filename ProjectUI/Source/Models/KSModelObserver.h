@@ -11,7 +11,7 @@
 @protocol KSModelObserver <NSObject>
 
 @optional
-- (void)modelDidLoading:(id)model;
+- (void)modelWillLoad:(id)model;
 - (void)modelDidFinishLoading:(id)model;
 - (void)modelDidCancelLoading:(id)model;
 - (void)modelDidFailLoading:(id)model;

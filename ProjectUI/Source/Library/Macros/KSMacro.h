@@ -18,3 +18,11 @@
 
 #define KSRerurnNilIfNil(obj)\
     KSReturnValueIfNil(obj, 0)
+
+#define KSBlockCall(block, ...)\
+    do { \
+        typeof(block) var = block; \
+        if(var) { \
+            var(__VA_ARGS__); \
+        } \
+    } while(0);
