@@ -17,6 +17,12 @@ typedef NS_ENUM(NSUInteger, KSDispatchQueueType) {
 };
 
 extern
+void KSDispatchAsyncOnDefaultQueue(dispatch_block_t block);
+
+extern
+void KSDispatchSyncOnDefaultQueue(dispatch_block_t block);
+
+extern
 void KSDispatchAsyncOnBackgroundQueue(dispatch_block_t block);
 
 extern

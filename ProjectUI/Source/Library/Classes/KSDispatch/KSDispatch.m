@@ -11,6 +11,14 @@
 #pragma mark -
 #pragma mark Puplic
 
+void KSDispatchAsyncOnDefaultQueue(dispatch_block_t block) {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), block);
+}
+
+void KSDispatchSyncOnDefaultQueue(dispatch_block_t block) {
+    dispatch_sync(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), block);
+}
+
 void KSDispatchAsyncOnBackgroundQueue(dispatch_block_t block) {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), block);
 }
