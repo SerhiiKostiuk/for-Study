@@ -9,6 +9,7 @@
 #import "KSModel.h"
 
 #import "KSModelObserver.h"
+#import "KSDispatch.h"
 
 @implementation KSModel
 
@@ -21,8 +22,22 @@
         
         if (KSModelStateFinished == state || KSModelStateLoad == state) {
             [self notifyObserversWithSelector:[self selectorForState:state]];
+            
+            return;
         }
+        
+        KSDispatchAsyncOnBackgroundQueue(^{
+            self.state = KSModelStateLoad;
+            [self performBackgroundLoading];
+        });
     }
+}
+
+#pragma mark -
+#pragma mark Private 
+
+- (void)performBackgroundLoading {
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 #pragma mark -
@@ -31,7 +46,7 @@
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case KSModelStateLoad:
-            return @selector(modelDidLoading:);
+            return @selector(modelWillLoad:);
         
         case KSModelStateFinished:
             return @selector(modelDidFinishLoading:);
