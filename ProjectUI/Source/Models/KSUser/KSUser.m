@@ -15,9 +15,12 @@ static NSString * const kKSImageType = @"png";
 
 static NSString * const kKSNameKey = @"name";
 
-@implementation KSUser
+@interface KSUser ()
+@property (nonatomic, strong) UIImage *image;
 
-@dynamic image;
+@end
+
+@implementation KSUser
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
