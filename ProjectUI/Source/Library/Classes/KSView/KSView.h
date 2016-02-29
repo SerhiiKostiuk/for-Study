@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^KSVoidBlock)(void);
+
 @interface KSView : UIView
 @property (nonatomic, assign, getter=isLoadingViewVisible) BOOL loadingViewVisible;
 
 - (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated;
-- (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated completion:(id)completion;
+- (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated completion:(KSVoidBlock)completion;
 
-- (UIView *)loadingView;
+- (UIView *)indicatorView;
+
 @end
