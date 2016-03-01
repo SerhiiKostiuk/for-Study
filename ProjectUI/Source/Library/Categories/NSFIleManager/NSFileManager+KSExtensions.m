@@ -30,7 +30,7 @@ static NSString * const kKSDirectoryName = @"projectFolder";
     NSFileManager *manager = [NSFileManager  defaultManager];
     if (![manager fileExistsAtPath:path]) {
         [manager createDirectoryAtPath:path
-           withIntermediateDirectories:NO
+           withIntermediateDirectories:YES
                             attributes:nil
                                  error:nil];
     }

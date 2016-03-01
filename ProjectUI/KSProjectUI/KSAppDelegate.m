@@ -51,10 +51,12 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    NSLog(@"becomeActive");
+    NSLog(@"become active");
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    [self.users save];
+    NSLog(@"terminate");
 }
 
 @end

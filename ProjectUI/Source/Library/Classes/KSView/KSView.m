@@ -11,11 +11,11 @@
 
 #import "KSMacro.h"
 
-static const NSTimeInterval KSDuration = 2.0;
+static const NSTimeInterval KSDuration = 0.5;
+static const CGFloat KSVisibleAlpha    = 1.0;
 
 @interface KSView ()
-@property (nonatomic, strong) KSActivityIndicator *activityIndicator;
-@property (nonatomic, strong) UIView              *loadingView;
+@property (nonatomic, strong) UIView  *loadingView;
 
 @end
 
@@ -58,24 +58,30 @@ static const NSTimeInterval KSDuration = 2.0;
 
 - (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated completion:(KSVoidBlock)completion {
     if (_loadingViewVisible != loadingViewVisible) {
+        UIView *loadingView = self.loadingView;
+        
+        if (!_loadingViewVisible) {
+            _loadingViewVisible = loadingViewVisible;
+        }
+        
         [self bringSubviewToFront:self.loadingView];
-        [UIView animateWithDuration:animated ? KSDuration : 0.0
+        [UIView animateWithDuration:animated ? KSDuration : 0
                          animations:^{
-                             self.alpha = _loadingViewVisible ? 1.0 : 0.0;
+                             loadingView.alpha = loadingViewVisible ? KSVisibleAlpha : 0;
                          }
                          completion:^(BOOL finished) {
-                             _loadingViewVisible = loadingViewVisible;
                              
-                             if (completion) {
-                                 completion();
+                             if (_loadingViewVisible) {
+                                 _loadingViewVisible = loadingViewVisible;
+                                 
                              }
-//                             KSBlockCall(completion);
+                             
+                             KSBlockCall(completion);
                          }];
     }
 }
 
 - (UIView *)indicatorView {
-//  return [[self.activityIndicator class] indicatorWithSuperView:self];
     return [KSActivityIndicator indicatorWithSuperView:self];
 }
 

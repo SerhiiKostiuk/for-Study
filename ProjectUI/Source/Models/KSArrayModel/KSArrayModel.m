@@ -38,7 +38,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)users {
+- (NSArray *)objects {
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
         return [mutableObjects copy];
