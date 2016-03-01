@@ -13,6 +13,7 @@
 #import "KSArrayModel.h"
 #import "KSUsers.h"
 #import "KSUser.h"
+#import "KSDispatch.h"
 
 #import "UIViewController+KSExtensions.h"
 #import "UITableView+KSExtensions.h"
@@ -123,16 +124,16 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 #pragma mark KSModelObserver
 
 - (void)modelWillLoad:(id)model {
-    self.mainView.loadingViewVisible = YES;
+    KSDispatchAsyncOnMainQueue(^{
+        self.mainView.loadingViewVisible = YES;
+    });
 }
 
 - (void)modelDidFinishLoading:(id)model {
-    [self updateViewWithModel];
-    self.mainView.loadingViewVisible = NO;
-}
-
-- (void)modelDidCancelLoading:(id)model {
-    self.mainView.loadingViewVisible = NO;
+    KSDispatchAsyncOnMainQueue(^{
+        [self updateViewWithModel];
+        self.mainView.loadingViewVisible = NO;
+    });
 }
 
 - (void)modelDidFailLoading:(id)model {
