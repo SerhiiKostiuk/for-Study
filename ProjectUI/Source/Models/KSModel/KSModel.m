@@ -20,14 +20,15 @@
     @synchronized(self) {
         NSUInteger state = self.state;
         
-        if (KSModelStateFinished == state || KSModelStateLoad == state) {
+        if (KSModelStateFinishedLoading == state || KSModelStateLoading == state) {
             [self notifyObserversWithSelector:[self selectorForState:state]];
             
             return;
         }
         
+        self.state = KSModelStateLoading;
+
         KSDispatchAsyncOnBackgroundQueue(^{
-            self.state = KSModelStateLoad;
             [self performBackgroundLoading];
         });
     }
@@ -45,10 +46,10 @@
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
-        case KSModelStateLoad:
+        case KSModelStateLoading:
             return @selector(modelWillLoad:);
         
-        case KSModelStateFinished:
+        case KSModelStateFinishedLoading:
             return @selector(modelDidFinishLoading:);
             
         case KSModelStateFailed:
