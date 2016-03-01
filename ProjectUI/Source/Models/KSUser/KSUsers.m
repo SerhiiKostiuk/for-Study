@@ -12,8 +12,7 @@
 
 #import "NSPathUtilities+KSExtensions.h"
 #import "NSFileManager+KSExtensions.h"
-#import "KSDispatch.h"
-//#import "KSModel.h"
+#import "NSObject+KSExtensions.h"
 
 #import "KSWeakifyMacro.h"
 
@@ -24,8 +23,9 @@ static NSString * const kKSPListName  = @"users.plist";
 @interface KSUsers ()
 @property (nonatomic, assign, getter=isCashed) BOOL cashed;
 
+@property (nonatomic, copy) NSString  *path;
+
 - (void)fillWithUsers:(NSArray *)objects;
-- (NSMutableArray *)usersWithCount:(NSUInteger)count;
 - (NSString *)path;
 
 @end
@@ -35,33 +35,40 @@ static NSString * const kKSPListName  = @"users.plist";
 @dynamic cashed;
 
 #pragma mark -
+#pragma mark Accessors
+
+- (NSString *)path {
+    return [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
+}
+
+- (BOOL)isCashed {
+    NSFileManager *manager = [NSFileManager  defaultManager];
+    
+    return [manager fileExistsAtPath:self.path];
+}
+
+#pragma mark -
 #pragma mark Public
 
 - (void)save {
-    provideDirectoryAtPath:[NSFileManager applicationDataPath];
-    [NSKeyedArchiver archiveRootObject:self.objects toFile:[self path]];
-    self.cashed = YES;
-}
-
-- (void)load {
-    [super load];
+    [NSKeyedArchiver archiveRootObject:self.objects toFile:self.path];
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (void)performBackgroundLoading {
-    @synchronized(self) {
-        NSArray *objects = [NSKeyedUnarchiver unarchiveObjectWithFile:[self path]];
-        if (objects) {
-            [self fillWithUsers:objects];
-        } else {
-            [self fillWithUsers:[self usersWithCount:kKSUsersCount]];
-        }
-        
-        self.state = KSModelStateFinished;
+    NSArray *objects = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
+    if (objects) {
+        [self fillWithUsers:objects];
+    } else {
+        [self fillWithUsers:[KSUser objectsWithCount:kKSUsersCount]];
     }
-//    sleep(3);
+    
+    sleep(2);
+    @synchronized(self) {
+        self.state = KSModelStateFinishedLoading;
+    }
 }
 
 - (void)fillWithUsers:(NSArray *)objects {
@@ -72,19 +79,6 @@ static NSString * const kKSPListName  = @"users.plist";
             [self addObject: user];
         }
     }];
-}
-
-- (NSMutableArray *)usersWithCount:(NSUInteger)count {
-    NSMutableArray *array = [NSMutableArray array];
-    for (NSUInteger index = 0; index < kKSUsersCount; index++) {
-        [array addObject:[KSUser new]];
-    }
-    
-    return array;
-}
-
-- (NSString *)path {
-    return [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
 }
 
 @end

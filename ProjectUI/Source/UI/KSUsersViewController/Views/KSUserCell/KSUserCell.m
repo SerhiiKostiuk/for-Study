@@ -27,6 +27,7 @@
         _user = user;
         [_user addObserver:self];
         
+        [_user load];
         [self fillWithModel:user];
     }
 }
@@ -44,5 +45,25 @@
     self.label.text = user.name;
     self.contentImageView.image = user.image;
 }
+
+#pragma mark -
+#pragma mark KSModelObserver
+
+//- (void)modelWillLoad:(id)model {
+//    KSDispatchAsyncOnMainQueue(^{
+//        self.contentImageView.loadingViewVisible = YES;
+//    });
+//}
+//
+//- (void)modelDidFinishLoading:(id)model {
+//    KSDispatchAsyncOnMainQueue(^{
+//        [self updateViewWithModel];
+//        self.mainView.loadingViewVisible = NO;
+//    });
+//}
+//
+//- (void)modelDidFailLoading:(id)model {
+//    self.mainView.loadingViewVisible = NO;
+//}
 
 @end

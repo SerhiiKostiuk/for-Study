@@ -140,6 +140,4 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
     self.mainView.loadingViewVisible = NO;
 }
 
-
-
 @end

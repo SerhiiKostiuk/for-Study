@@ -10,9 +10,8 @@
 
 #import "KSModelObserver.h"
 
-@interface KSUsers : KSArrayModel <KSModelObserver>
+@interface KSUsers : KSArrayModel
 
 - (void)save;
-- (void)load;
 
 @end

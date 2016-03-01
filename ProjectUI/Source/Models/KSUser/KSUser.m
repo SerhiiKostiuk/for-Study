@@ -38,14 +38,19 @@ static NSString * const kKSNameKey = @"name";
 #pragma mark Accessors
 
 - (UIImage *)image {
-    static UIImage *__image = nil; 
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSString *path = [[NSBundle mainBundle] pathForResource:kKSImageName ofType:kKSImageType];
-        __image = [UIImage imageWithContentsOfFile:path];
-    });
+    return self.image = [UIImage imageNamed:kKSImageName]; // need to delete from here 
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)performBackgroundLoading {
     
-    return __image;
+    self.image = [UIImage imageNamed:kKSImageName];
+    
+    @synchronized(self) {
+        self.state = KSModelStateFinishedLoading;
+    }
 }
 
 #pragma mark -
