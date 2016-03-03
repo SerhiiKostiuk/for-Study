@@ -42,7 +42,8 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self.users save];
+    [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationDidEnterBackgroundNotification
+                                                        object:nil];
     NSLog(@"background");
 }
 

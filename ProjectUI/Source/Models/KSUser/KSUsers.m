@@ -21,18 +21,37 @@ static const NSUInteger kKSUsersCount = 100;
 static NSString * const kKSPListName  = @"users.plist";
 
 @interface KSUsers ()
-@property (nonatomic, assign, getter=isCashed) BOOL cashed;
+@property (nonatomic, assign, getter=isCached) BOOL cached;
 
 @property (nonatomic, copy) NSString  *path;
 
+- (void)usersSaveNotification:(NSNotification *)notification;
+- (void)performBackgroundLoading;
 - (void)fillWithUsers:(NSArray *)objects;
-- (NSString *)path;
 
 @end
 
 @implementation KSUsers
 
-@dynamic cashed;
+@dynamic cached;
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(usersSaveNotification:)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
+    }
+    return self;
+}
 
 #pragma mark -
 #pragma mark Accessors
@@ -41,7 +60,7 @@ static NSString * const kKSPListName  = @"users.plist";
     return [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
 }
 
-- (BOOL)isCashed {
+- (BOOL)isCached {
     NSFileManager *manager = [NSFileManager  defaultManager];
     
     return [manager fileExistsAtPath:self.path];
@@ -57,15 +76,24 @@ static NSString * const kKSPListName  = @"users.plist";
 #pragma mark -
 #pragma mark Private
 
+- (void)usersSaveNotification:(NSNotification *)notification {
+    [self save];
+}
+
 - (void)performBackgroundLoading {
-    NSArray *objects = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
-    if (objects) {
-        [self fillWithUsers:objects];
-    } else {
-        [self fillWithUsers:[KSUser objectsWithCount:kKSUsersCount]];
+    sleep(2);
+    
+    NSArray *objects = nil;
+    if (self.cached) {
+        objects = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
     }
     
-    sleep(2);
+    if (!objects) {
+        objects = [KSUser objectsWithCount:kKSUsersCount];
+    }
+    
+    [self fillWithUsers:objects];
+    
     @synchronized(self) {
         self.state = KSModelStateFinishedLoading;
     }
