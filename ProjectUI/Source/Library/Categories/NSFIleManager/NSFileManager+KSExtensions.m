@@ -23,7 +23,7 @@ static NSString * const kKSDirectoryName = @"projectFolder";
 }
 
 + (NSString *)applicationDataPath {
-    return [[self libraryPath] stringByAppendingPathComponent:kKSDirectoryName] ;
+    return [[self libraryPath] stringByAppendingPathComponent:kKSDirectoryName];
 }
 
 - (void)provideDirectoryAtPath:(NSString *)path {

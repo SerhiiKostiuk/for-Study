@@ -9,7 +9,7 @@
 #import "KSObservableObject.h"
 
 typedef NS_ENUM(NSUInteger, KSModelState) {
-    KSModelStateFailed,
+    KSModelStateFailedLoading,
     KSModelStateUnloaded,
     KSModelStateFinishedLoading,
     KSModelStateLoading,

@@ -57,7 +57,7 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
     [super viewDidLoad];
 
     [self.users load];
-  }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -75,7 +75,6 @@ KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
 
 - (IBAction)onAddNewUser:(id)sender {
     [self.users addObject:[KSUser new]];
-    [self updateViewWithModel];
 }
 
 #pragma mark -

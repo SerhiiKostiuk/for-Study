@@ -22,7 +22,7 @@ static const CGFloat KSVisibleAlpha    = 1.0;
 @implementation KSView
 
 #pragma mark -
-#pragma mark Initiazations and Deallocations
+#pragma mark Initializations and Deallocations
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
