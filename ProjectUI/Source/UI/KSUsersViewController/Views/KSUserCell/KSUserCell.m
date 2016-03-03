@@ -10,6 +10,8 @@
 
 #import "KSUser.h"
 
+#import "KSDispatch.h"
+
 @interface KSUserCell ()
 
 - (void)fillWithModel:(KSUser *)user;
@@ -27,8 +29,8 @@
         _user = user;
         [_user addObserver:self];
         
-        [_user load];
         [self fillWithModel:user];
+        [_user load];
     }
 }
 
@@ -49,21 +51,21 @@
 #pragma mark -
 #pragma mark KSModelObserver
 
-//- (void)modelWillLoad:(id)model {
-//    KSDispatchAsyncOnMainQueue(^{
-//        self.contentImageView.loadingViewVisible = YES;
-//    });
-//}
-//
-//- (void)modelDidFinishLoading:(id)model {
-//    KSDispatchAsyncOnMainQueue(^{
-//        [self updateViewWithModel];
-//        self.mainView.loadingViewVisible = NO;
-//    });
-//}
-//
-//- (void)modelDidFailLoading:(id)model {
-//    self.mainView.loadingViewVisible = NO;
-//}
+- (void)modelWillLoad:(id)model {
+    KSDispatchAsyncOnMainQueue(^{
+        self.loadingView.loadingViewVisible = YES;
+    });
+}
+
+- (void)modelDidFinishLoading:(id)model {
+    KSDispatchAsyncOnMainQueue(^{
+        [self fillWithModel:model];
+        self.loadingView.loadingViewVisible = NO;
+    });
+}
+
+- (void)modelDidFailLoading:(id)model {
+    self.loadingView.loadingViewVisible = NO;
+}
 
 @end

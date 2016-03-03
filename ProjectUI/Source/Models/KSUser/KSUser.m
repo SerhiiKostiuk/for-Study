@@ -35,18 +35,18 @@ static NSString * const kKSNameKey = @"name";
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (UIImage *)image {
-    return self.image = [UIImage imageNamed:kKSImageName]; // need to delete from here 
-}
-
-#pragma mark -
 #pragma mark Private
 
 - (void)performBackgroundLoading {
+    sleep(2);
     
-    self.image = [UIImage imageNamed:kKSImageName];
+    static UIImage *__image = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __image = [UIImage imageNamed:kKSImageName];
+    });
+    
+    self.image = __image;
     
     @synchronized(self) {
         self.state = KSModelStateFinishedLoading;
@@ -65,6 +65,5 @@ static NSString * const kKSNameKey = @"name";
     
     return self;
 }
-
 
 @end
