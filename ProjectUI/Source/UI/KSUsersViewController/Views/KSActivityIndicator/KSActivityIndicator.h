@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KSActivityIndicator : UIView
+#import "KSLoadingView.h"
+
+@interface KSActivityIndicator : UIView <KSLoadingView>
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView  *activityIndicatorView;
 
 + (instancetype)indicatorWithSuperView:(UIView *)superView;

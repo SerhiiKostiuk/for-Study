@@ -11,11 +11,8 @@
 
 #import "KSMacro.h"
 
-static const NSTimeInterval KSDuration = 0.5;
-static const CGFloat KSVisibleAlpha    = 1.0;
-
 @interface KSView ()
-@property (nonatomic, strong) UIView  *loadingView;
+@property (nonatomic, strong) UIView <KSLoadingView>  *loadingView;
 
 @end
 
@@ -40,7 +37,7 @@ static const CGFloat KSVisibleAlpha    = 1.0;
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setLoadingView:(UIView *)loadingView {
+- (void)setLoadingView:(UIView <KSLoadingView> *)loadingView {
     if (_loadingView != loadingView) {
         [_loadingView removeFromSuperview];
         _loadingView = loadingView;
@@ -58,30 +55,17 @@ static const CGFloat KSVisibleAlpha    = 1.0;
 
 - (void)setLoadingViewVisible:(BOOL)loadingViewVisible animated:(BOOL)animated completion:(KSVoidBlock)completion {
     if (_loadingViewVisible != loadingViewVisible) {
-        UIView *loadingView = self.loadingView;
-        
-        if (!_loadingViewVisible) {
-            _loadingViewVisible = loadingViewVisible;
-        }
-        
+        _loadingViewVisible = loadingViewVisible;
         [self bringSubviewToFront:self.loadingView];
-        [UIView animateWithDuration:animated ? KSDuration : 0
-                         animations:^{
-                             loadingView.alpha = loadingViewVisible ? KSVisibleAlpha : 0;
-                         }
-                         completion:^(BOOL finished) {
-                             
-                             if (_loadingViewVisible) {
-                                 _loadingViewVisible = loadingViewVisible;
-                                 
-                             }
-                             
-                             KSBlockCall(completion);
-                         }];
+        
+        [self.loadingView setVisible:loadingViewVisible animated:animated completion:completion];
     }
 }
 
-- (UIView *)indicatorView {
+#pragma mark -
+#pragma mark Public
+
+- (UIView <KSLoadingView> *)indicatorView {
     return [KSActivityIndicator indicatorWithSuperView:self];
 }
 

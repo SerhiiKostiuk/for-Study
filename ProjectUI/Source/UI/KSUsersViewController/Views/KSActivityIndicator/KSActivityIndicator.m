@@ -9,8 +9,19 @@
 #import "KSActivityIndicator.h"
 
 #import "UINib+KSExtensions.h"
+#import "KSMacro.h"
+
+typedef void(^KSVoidBlock)(void);
+
+static const NSTimeInterval KSDuration = 0.5;
+static const CGFloat KSVisibleAlpha    = 1.0;
 
 @implementation KSActivityIndicator
+
+@synthesize visible = _visible;
+
+#pragma mark -
+#pragma mark Class Methods
 
 + (instancetype)indicatorWithSuperView:(UIView *)superView {
     KSActivityIndicator *view = [UINib objectWithClass:[self class]];
@@ -19,6 +30,33 @@
     [superView addSubview:view];
     
     return view;
+}
+
+#pragma mark -
+#pragma mark KSLoadingView
+
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated {
+    [self setVisible:visible animated:animated completion:nil];
+}
+
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated completion:(KSVoidBlock)completion {
+    if (_visible != visible) {
+        if (!_visible) {
+            _visible = visible;
+        }
+        [UIView animateWithDuration:animated ? KSDuration : 0
+                         animations:^{
+                             self.alpha = visible ? KSVisibleAlpha : 0;
+                         }
+                         completion:^(BOOL finished) {
+                             if (_visible) {
+                                 [self.activityIndicatorView startAnimating];
+                                 _visible = visible;
+                             }
+                             
+                             KSBlockCall(completion);
+                         }];
+    }
 }
 
 @end
