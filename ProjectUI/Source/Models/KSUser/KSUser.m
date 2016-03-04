@@ -9,9 +9,9 @@
 #import "KSUser.h"
 
 #import "NSString+KSRandomName.h"
+#import "NSFileManager+KSExtensions.h"
 
-static NSString * const kKSImageName = @"apple";
-static NSString * const kKSImageType = @"png";
+static NSString * const kKSImageName = @"apple.png";
 
 static NSString * const kKSNameKey = @"name";
 
@@ -40,17 +40,16 @@ static NSString * const kKSNameKey = @"name";
 - (void)performBackgroundLoading {
     sleep(2);
     
-    static UIImage *__image = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        __image = [UIImage imageNamed:kKSImageName];
-    });
-    
-    self.image = __image;
+    self.image = [UIImage imageNamed:kKSImageName];
+//    self.image = [UIImage imageWithContentsOfFile:[self path]];
     
     @synchronized(self) {
         self.state = KSModelStateFinishedLoading;
     }
+}
+
+- (NSString *)path {
+    return [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSImageName];
 }
 
 #pragma mark -

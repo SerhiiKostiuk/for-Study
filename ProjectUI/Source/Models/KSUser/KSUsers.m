@@ -25,7 +25,8 @@ static NSString * const kKSPListName  = @"users.plist";
 
 @property (nonatomic, copy) NSString  *path;
 
-- (void)usersSaveNotification:(NSNotification *)notification;
+- (void)startObserve;
+- (void)endObserve;
 - (void)performBackgroundLoading;
 - (void)fillWithUsers:(NSArray *)objects;
 
@@ -39,16 +40,13 @@ static NSString * const kKSPListName  = @"users.plist";
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self endObserve];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(usersSaveNotification:)
-                                                     name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];
+        [self startObserve];
     }
     return self;
 }
@@ -67,17 +65,30 @@ static NSString * const kKSPListName  = @"users.plist";
 }
 
 #pragma mark -
-#pragma mark Public
-
-- (void)save {
-    [NSKeyedArchiver archiveRootObject:self.objects toFile:self.path];
-}
-
-#pragma mark -
 #pragma mark Private
 
-- (void)usersSaveNotification:(NSNotification *)notification {
-    [self save];
+- (void)startObserve {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    NSArray *array = @[UIApplicationWillResignActiveNotification, UIApplicationWillTerminateNotification];
+    
+    for (NSString *notification in array) {
+        [center addObserverForName:notification
+                            object:nil
+                             queue:nil
+                        usingBlock:^(NSNotification * _Nonnull note)
+         {
+             [NSKeyedArchiver archiveRootObject:self.objects toFile:self.path];
+         }];
+    }
+}
+
+- (void)endObserve {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    NSArray *array = @[UIApplicationWillResignActiveNotification, UIApplicationWillTerminateNotification];
+    
+    for (NSString *notification in array) {
+        [center removeObserver:self name:notification object:nil];
+    }
 }
 
 - (void)performBackgroundLoading {

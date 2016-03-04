@@ -12,6 +12,4 @@
 
 @interface KSUsers : KSArrayModel
 
-- (void)save;
-
 @end
