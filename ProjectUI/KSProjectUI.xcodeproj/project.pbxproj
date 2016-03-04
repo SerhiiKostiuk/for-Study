@@ -46,6 +46,7 @@
 		C5CD8FD61C835A380022D60B /* KSView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8FD51C835A380022D60B /* KSView.m */; };
 		C5CD8FDA1C84F9DF0022D60B /* NSObject+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8FD91C84F9DF0022D60B /* NSObject+KSExtensions.m */; };
 		C5CD8FDE1C8875FC0022D60B /* KSImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8FDD1C8875FC0022D60B /* KSImageModel.m */; };
+		C5CD8FE31C89D0EF0022D60B /* KSImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8FE21C89D0EF0022D60B /* KSImageView.m */; };
 		C5D39F2D1C64A6430053E43C /* CGGeometry+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F261C64A6430053E43C /* CGGeometry+KSExtensions.m */; };
 		C5D39F2E1C64A6430053E43C /* UIViewController+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F291C64A6430053E43C /* UIViewController+KSExtensions.m */; };
 		C5D39F2F1C64A6430053E43C /* UIWindow+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F2C1C64A6430053E43C /* UIWindow+KSExtensions.m */; };
@@ -132,6 +133,9 @@
 		C5CD8FD91C84F9DF0022D60B /* NSObject+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KSExtensions.m"; sourceTree = "<group>"; };
 		C5CD8FDC1C8875FC0022D60B /* KSImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSImageModel.h; path = KSImageModel/KSImageModel.h; sourceTree = "<group>"; };
 		C5CD8FDD1C8875FC0022D60B /* KSImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSImageModel.m; path = KSImageModel/KSImageModel.m; sourceTree = "<group>"; };
+		C5CD8FDF1C89C61D0022D60B /* KSLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLoadingView.h; sourceTree = "<group>"; };
+		C5CD8FE11C89D0EF0022D60B /* KSImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSImageView.h; path = KSImageView/KSImageView.h; sourceTree = "<group>"; };
+		C5CD8FE21C89D0EF0022D60B /* KSImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSImageView.m; path = KSImageView/KSImageView.m; sourceTree = "<group>"; };
 		C5D39F251C64A6430053E43C /* CGGeometry+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+KSExtensions.h"; sourceTree = "<group>"; };
 		C5D39F261C64A6430053E43C /* CGGeometry+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+KSExtensions.m"; sourceTree = "<group>"; };
 		C5D39F281C64A6430053E43C /* UIViewController+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KSExtensions.h"; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 		C53F001B1C6FD65D00A0768F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C5CD8FE01C89CF220022D60B /* KSImageView */,
 				C55186A31C7F2A9800BFBDBC /* KSUserCell */,
 				C55186AF1C7F504800BFBDBC /* KSActivityIndicator */,
 			);
@@ -539,6 +544,7 @@
 			children = (
 				C5CD8FD41C835A380022D60B /* KSView.h */,
 				C5CD8FD51C835A380022D60B /* KSView.m */,
+				C5CD8FDF1C89C61D0022D60B /* KSLoadingView.h */,
 			);
 			path = KSView;
 			sourceTree = "<group>";
@@ -559,6 +565,15 @@
 				C5CD8FDD1C8875FC0022D60B /* KSImageModel.m */,
 			);
 			name = KSImageModel;
+			sourceTree = "<group>";
+		};
+		C5CD8FE01C89CF220022D60B /* KSImageView */ = {
+			isa = PBXGroup;
+			children = (
+				C5CD8FE11C89D0EF0022D60B /* KSImageView.h */,
+				C5CD8FE21C89D0EF0022D60B /* KSImageView.m */,
+			);
+			name = KSImageView;
 			sourceTree = "<group>";
 		};
 		C5D39F231C64A6430053E43C /* Categories */ = {
@@ -713,6 +728,7 @@
 				C5D39F2D1C64A6430053E43C /* CGGeometry+KSExtensions.m in Sources */,
 				C540D0D31C7370F10095362C /* KSCollectionChangeModel.m in Sources */,
 				C554FA461C6A1A9E00979CCA /* KSObservableObject.m in Sources */,
+				C5CD8FE31C89D0EF0022D60B /* KSImageView.m in Sources */,
 				C5721F0E1C74BE7B00C1541D /* KSArrayIndexChangeModel+UITableView.m in Sources */,
 				C55186921C7E442F00BFBDBC /* KSModel.m in Sources */,
 				C5CD8FD61C835A380022D60B /* KSView.m in Sources */,

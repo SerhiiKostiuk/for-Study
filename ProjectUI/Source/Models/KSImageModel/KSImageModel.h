@@ -21,6 +21,6 @@
 - (instancetype)initWithUrl:(NSURL *)url;
 
 - (void)load;
-- (void)cancelLoading;
+- (void)cancel;
 
 @end 

@@ -42,8 +42,6 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationDidEnterBackgroundNotification
-                                                        object:nil];
     NSLog(@"background");
 }
 
@@ -56,7 +54,6 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self.users save];
     NSLog(@"terminate");
 }
 

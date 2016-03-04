@@ -52,7 +52,7 @@
     
 }
 
-- (void)cancelLoading {
+- (void)cancel {
     self.image = nil;
     self.state = KSModelStateUnloaded;
 }
