@@ -57,7 +57,7 @@
     });
 }
 
-- (void)modelDidFinishLoading:(id)model {
+- (void)modelDidFinishLoading:(id)model { 
     KSDispatchAsyncOnMainQueue(^{
         [self fillWithModel:model];
         self.loadingView.loadingViewVisible = NO;

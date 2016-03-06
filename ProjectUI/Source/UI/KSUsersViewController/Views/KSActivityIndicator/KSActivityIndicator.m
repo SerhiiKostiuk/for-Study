@@ -44,13 +44,15 @@ static const CGFloat KSVisibleAlpha    = 1.0;
         if (!_visible) {
             _visible = visible;
         }
+        
+        [self.activityIndicatorView startAnimating];
+        
         [UIView animateWithDuration:animated ? KSDuration : 0
                          animations:^{
                              self.alpha = visible ? KSVisibleAlpha : 0;
                          }
                          completion:^(BOOL finished) {
                              if (_visible) {
-                                 [self.activityIndicatorView startAnimating];
                                  _visible = visible;
                              }
                              

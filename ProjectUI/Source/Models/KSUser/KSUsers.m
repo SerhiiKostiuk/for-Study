@@ -21,12 +21,13 @@ static const NSUInteger kKSUsersCount = 100;
 static NSString * const kKSPListName  = @"users.plist";
 
 @interface KSUsers ()
+@property (nonatomic, strong) NSMutableArray        *notificationObservers;
 @property (nonatomic, assign, getter=isCached) BOOL cached;
 
-@property (nonatomic, copy) NSString  *path;
+@property(nonatomic, copy) NSString  *path;
 
-- (void)startObserve;
-- (void)endObserve;
+- (void)startObservingNotification;
+- (void)endObservingNotification;
 - (void)performBackgroundLoading;
 - (void)fillWithUsers:(NSArray *)objects;
 
@@ -40,13 +41,14 @@ static NSString * const kKSPListName  = @"users.plist";
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [self endObserve];
+    [self endObservingNotification];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self startObserve];
+        self.notificationObservers = [NSMutableArray new];
+        [self startObservingNotification];
     }
     return self;
 }
@@ -65,29 +67,39 @@ static NSString * const kKSPListName  = @"users.plist";
 }
 
 #pragma mark -
+#pragma mark Public
+
+- (void)save {
+    [self.objects writeToFile:self.path atomically:YES];
+}
+
+#pragma mark -
 #pragma mark Private
 
-- (void)startObserve {
+- (void)startObservingNotification {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     NSArray *array = @[UIApplicationWillResignActiveNotification, UIApplicationWillTerminateNotification];
+    NSMutableArray *observers = self.notificationObservers;
+    
+    KSWeakify(self);
+    id block = ^(NSNotification *note){
+        KSStrongifyAndReturnIfNil(self);
+        [self save];
+    };
     
     for (NSString *notification in array) {
-        [center addObserverForName:notification
-                            object:nil
-                             queue:nil
-                        usingBlock:^(NSNotification * _Nonnull note)
-         {
-             [NSKeyedArchiver archiveRootObject:self.objects toFile:self.path];
-         }];
+        [observers addObject:[center addObserverForName:notification object:nil queue:nil usingBlock:block]];
     }
 }
 
-- (void)endObserve {
+- (void)endObservingNotification {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    NSArray *array = @[UIApplicationWillResignActiveNotification, UIApplicationWillTerminateNotification];
+    NSArray *observers = [self.notificationObservers copy];
     
-    for (NSString *notification in array) {
-        [center removeObserver:self name:notification object:nil];
+    for (id observer in observers) {
+        [center removeObserver:observer name:nil object:nil];
+        [self.notificationObservers removeObject:observer];
+        
     }
 }
 
