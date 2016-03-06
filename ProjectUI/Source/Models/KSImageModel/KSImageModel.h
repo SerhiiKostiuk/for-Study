@@ -14,13 +14,10 @@
 @property (nonatomic, readonly) UIImage  *image;
 @property (nonatomic, readonly) NSURL    *url;
 
-@property (nonatomic, readonly, getter=isLoaded) BOOL loaded;
-
 + (instancetype)imageWithUrl:(NSURL *)url;
 
 - (instancetype)initWithUrl:(NSURL *)url;
 
-- (void)load;
 - (void)cancel;
 
 @end 

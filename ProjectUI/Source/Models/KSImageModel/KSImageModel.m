@@ -8,15 +8,23 @@
 
 #import "KSImageModel.h"
 
-@interface KSImageModel ()
-@property (nonatomic, strong) UIImage  *image;
-@property (nonatomic, strong) NSURL    *url;
+#import <Foundation/NSURLSession.h>
 
-@property (nonatomic, assign, getter=isLoaded) BOOL loaded;
+#include "NSFileManager+KSExtensions.h"
+
+@interface KSImageModel ()
+@property (nonatomic, strong) UIImage   *image;
+@property (nonatomic, strong) NSString  *name;
+@property (nonatomic, strong) NSURL     *url;
+@property (nonatomic, copy) NSString    *path;
+
+@property (nonatomic, assign, getter=isCached) BOOL cached;
 
 @end
 
 @implementation KSImageModel
+
+@dynamic cached;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -37,19 +45,44 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (BOOL)isLoaded {
-    return nil != self.image;
+- (BOOL)isCached {
+    NSFileManager *manager = [NSFileManager  defaultManager];
+    
+    return [manager fileExistsAtPath:self.path];
+}
+
+- (NSString *)path {
+    return [[NSFileManager applicationDataPath] stringByAppendingPathComponent:self.name];
+}
+
+- (NSURL *)url {
+    return [NSURL URLWithString:@"http://geographyofrussia.com/wp-content/uploads/2010/07/3_large1.png"];
+};
+
+- (NSString *)name {
+//    - (NSString *)stringByAddingPercentEncodingWithAllowedCharacters:(NSCharacterSet *)allowedCharacters;
+    
+//    - (BOOL)getFileSystemRepresentation:(char *)buffer maxLength:(NSUInteger)maxBufferLength;
+
+    return nil;
 }
 
 #pragma mark -
-#pragma mark Public
-
-- (void)load {
-    
-}
+#pragma mark Private
 
 - (void)performBackgroundLoading {
+    UIImage *image = self.image;
     
+    if (!self.cached) {
+        NSData *imageData = [NSData dataWithContentsOfURL:self.url];
+        image = [UIImage imageWithData:imageData];
+    } else {
+        image = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
+    }
+    
+    @synchronized(self) {
+        self.state = KSModelStateFinishedLoading;
+    }
 }
 
 - (void)cancel {
