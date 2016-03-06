@@ -11,7 +11,8 @@
 #import "NSString+KSRandomName.h"
 #import "NSFileManager+KSExtensions.h"
 
-static NSString * const kKSImageName = @"apple.png";
+static NSString * const kKSImageName = @"apple";
+static NSString * const kKSImageType = @"png";
 
 static NSString * const kKSNameKey = @"name";
 
@@ -40,16 +41,12 @@ static NSString * const kKSNameKey = @"name";
 - (void)performBackgroundLoading {
     sleep(2);
     
-    self.image = [UIImage imageNamed:kKSImageName];
-//    self.image = [UIImage imageWithContentsOfFile:[self path]];
+    NSString *path = [[NSBundle mainBundle] pathForResource:kKSImageName ofType:kKSImageType];
+    self.image = [UIImage imageWithContentsOfFile:path];
     
     @synchronized(self) {
         self.state = KSModelStateFinishedLoading;
     }
-}
-
-- (NSString *)path {
-    return [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSImageName];
 }
 
 #pragma mark -
