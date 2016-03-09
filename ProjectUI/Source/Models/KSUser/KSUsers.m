@@ -61,7 +61,7 @@ static NSString * const kKSPListName  = @"users.plist";
 }
 
 - (BOOL)isCached {
-    NSFileManager *manager = [NSFileManager  defaultManager];
+    NSFileManager *manager = [NSFileManager defaultManager];
     
     return [manager fileExistsAtPath:self.path];
 }

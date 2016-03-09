@@ -8,8 +8,11 @@
 
 #import "KSUser.h"
 
+#import "KSImageModel.h"
 #import "NSString+KSRandomName.h"
 #import "NSFileManager+KSExtensions.h"
+
+static NSString * const kKSStringURL = @"http://geographyofrussia.com/wp-content/uploads/2010/07/3_large1.png";
 
 static NSString * const kKSImageName = @"apple";
 static NSString * const kKSImageType = @"png";
@@ -41,8 +44,12 @@ static NSString * const kKSNameKey = @"name";
 - (void)performBackgroundLoading {
     sleep(2);
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:kKSImageName ofType:kKSImageType];
-    self.image = [UIImage imageWithContentsOfFile:path];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:kKSImageName ofType:kKSImageType];
+//    self.image = [UIImage imageWithContentsOfFile:path];
+    
+    KSImageModel *imageModel = [KSImageModel imageWithUrl:[NSURL URLWithString:kKSStringURL]];
+    
+    self.image = imageModel.image;
     
     @synchronized(self) {
         self.state = KSModelStateFinishedLoading;
