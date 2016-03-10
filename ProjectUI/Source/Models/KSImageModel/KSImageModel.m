@@ -10,7 +10,8 @@
 
 #import <Foundation/NSURLSession.h>
 
-#include "NSFileManager+KSExtensions.h"
+#import "NSFileManager+KSExtensions.h"
+#import "NSString+KSExtensions.h"
 
 typedef void(^KSVoidBlock)(void);
 
@@ -43,6 +44,13 @@ static NSString * const kKSDirectoryName = @"images";
     return [[self alloc] initWithUrl:url];
 }
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    [self.downloadTask cancel];
+}
+
 - (instancetype)initWithUrl:(NSURL *)url {
     self = [super init];
     if (self) {
@@ -54,6 +62,13 @@ static NSString * const kKSDirectoryName = @"images";
 
 #pragma mark -
 #pragma mark Accessors
+
+- (void)setDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
+    if (_downloadTask != downloadTask) {
+        [downloadTask cancel];
+        _downloadTask = downloadTask;
+    }
+}
 
 - (BOOL)isCached {
     NSFileManager *manager = [NSFileManager  defaultManager];
@@ -70,22 +85,20 @@ static NSString * const kKSDirectoryName = @"images";
 };
 
 - (NSString *)name {
-    [self.url.path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLUserAllowedCharacterSet]];
+    NSString *string = nil;
     
-    return nil;
+    return [string nameFromUrl:self.url];
 }
+
 
 #pragma mark -
 #pragma mark Private
 
 - (void)performBackgroundLoading {
-
     if (!self.cached) {
-        NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
-        [self downloadTaskWithDecidedRequest:request completionHandler:nil];
-        
+        [self loadFromInternet];
     } else {
-        self.image = [UIImage imageWithContentsOfFile:self.path];
+        [self loadFromFile];
     }
  
     @synchronized(self) {
@@ -94,39 +107,53 @@ static NSString * const kKSDirectoryName = @"images";
 }
 
 - (NSString *)imageFolderPath {
-    return [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSDirectoryName];
+    NSString *imageFolderName = [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSDirectoryName];
+    [[NSFileManager defaultManager] provideDirectoryAtPath:imageFolderName];
+    
+    return imageFolderName;
 }
 
-- (NSURLSession *)sessionWithDecidedConfiguration:(NSURLSessionConfiguration *)decidedConfiguration {
-    return [NSURLSession sessionWithConfiguration:decidedConfiguration];
+- (void)loadFromInternet {
+    NSURLRequest *request = [self request];
+    [self startDowloading:request];
 }
 
-- (NSURLSessionDownloadTask *)downloadTaskWithDecidedRequest:(NSURLRequest *)request
-                                           completionHandler:(KSVoidBlock)completionHandler
-{
-    NSURLSessionDownloadTask *downloadTask = self.downloadTask;
+
+- (void)loadFromFile {
+    self.image = [UIImage imageWithContentsOfFile:self.path];
+
+}
+
+- (NSURLRequest *)request {
+    return [NSURLRequest requestWithURL:self.url];
+}
+
+- (NSURLSession *)session {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-    NSURLSession *session = [self sessionWithDecidedConfiguration:configuration];
     
+    return [NSURLSession sessionWithConfiguration:configuration];
+}
+
+- (void)startDowloading:(NSURLRequest *)request {
+    NSURLSessionDownloadTask *downloadTask = nil;
+    NSURLSession *session = [self session];
     
-    self.downloadTask = [session downloadTaskWithRequest:request
-                                       completionHandler:^(NSURL *location,
-                                                           NSURLResponse *response,
-                                                           NSError *error)
-                         {
-                             NSFileManager *manager = [NSFileManager defaultManager];
-                             [manager moveItemAtURL:location
-                                              toURL:[NSURL fileURLWithPath:self.path]
-                                              error:nil];
-                         }];
+    downloadTask = [session downloadTaskWithRequest:request
+                                  completionHandler:^(NSURL *location,
+                                                      NSURLResponse *response,
+                                                      NSError *error)
+                    {
+                        NSFileManager *manager = [NSFileManager defaultManager];
+                        [manager moveItemAtURL:location
+                                         toURL:[NSURL fileURLWithPath:self.path]
+                                         error:nil];
+                        
+                        [self loadFromFile];
+                    }];
     
     [downloadTask resume];
     
-    return downloadTask;
+    self.downloadTask = downloadTask;
 }
-
-//- (NSURLSessionConfiguration *)sessionConfiguration:(NSURLSessionConfiguration *)decidedConfiguration {
-//    return [NSURLSessionConfiguration decidedConfiguration];
-//}
 
 @end
