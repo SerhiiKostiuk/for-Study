@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "KSImageModel.h"
 #import "KSView.h"
+
+@class KSImageModel;
 
 @interface KSImageView : KSView
 @property (nonatomic, strong) KSImageModel  *imageModel;
