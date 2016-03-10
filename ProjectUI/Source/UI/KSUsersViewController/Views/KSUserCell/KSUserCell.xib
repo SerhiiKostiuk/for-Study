@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dzB-Lk-dtw">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dzB-Lk-dtw">
                         <rect key="frame" x="51" y="11" width="269" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -35,7 +35,6 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="contentImageView" destination="VZV-jS-wDM" id="Xxm-YT-QJf"/>
                 <outlet property="label" destination="dzB-Lk-dtw" id="XX7-UN-nwl"/>
                 <outlet property="loadingView" destination="cbm-zE-4ho" id="3VB-go-cB6"/>
             </connections>
