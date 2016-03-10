@@ -14,6 +14,11 @@
 
 static const NSUInteger kKSStringDefaultRandomStringWithLength = 32;
 
+static NSString * const kKSQuestionSymbol = @"?";
+static NSString * const kKSSlashSymbol = @"/";
+static NSString * const kKSUnderscoreSymbol = @"_";
+static NSString * const kKSMinusSymbol = @"-";
+
 @implementation NSString (KSStringCategory)
 
 #pragma mark -
@@ -80,6 +85,9 @@ static const NSUInteger kKSStringDefaultRandomStringWithLength = 32;
     return [self stringWithString:string];
 }
 
+#pragma mark -
+#pragma mark Public
+
 - (NSArray *)symbols {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self length]];
     NSUInteger length = [self length];
@@ -92,5 +100,20 @@ static const NSUInteger kKSStringDefaultRandomStringWithLength = 32;
     return [result copy];
 }
 
- 
+- (NSString *)nameFromUrl:(NSURL *)url {
+    NSString *string = [url absoluteString];
+    
+    string = [string stringByReplacingOccurrencesOfString:kKSQuestionSymbol withString:kKSMinusSymbol];
+    string = [string stringByReplacingOccurrencesOfString:kKSSlashSymbol    withString:kKSMinusSymbol];
+    
+    return string;
+}
+
+- (NSString *)stringByReplacingSymbolOfString:(NSString *)target withString:(NSString *)replacement {
+    NSString *string = nil;
+    [string stringByReplacingOccurrencesOfString:target withString:replacement];
+    
+    return string;
+}
+
 @end

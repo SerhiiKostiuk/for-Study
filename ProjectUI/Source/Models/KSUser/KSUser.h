@@ -11,8 +11,10 @@
 
 #import "KSModel.h"
 
+@class KSImageModel;
+
 @interface KSUser : KSModel <NSCoding>
 @property (nonatomic, copy)     NSString  *name;
-@property (nonatomic, readonly) UIImage   *image;
+@property (nonatomic, readonly) KSImageModel *imageModel;
 
 @end

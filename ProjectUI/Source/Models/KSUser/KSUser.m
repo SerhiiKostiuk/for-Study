@@ -9,22 +9,22 @@
 #import "KSUser.h"
 
 #import "KSImageModel.h"
+
 #import "NSString+KSRandomName.h"
 #import "NSFileManager+KSExtensions.h"
 
 static NSString * const kKSStringURL = @"http://geographyofrussia.com/wp-content/uploads/2010/07/3_large1.png";
 
-static NSString * const kKSImageName = @"apple";
-static NSString * const kKSImageType = @"png";
-
 static NSString * const kKSNameKey = @"name";
 
 @interface KSUser ()
-@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong)   NSURL        *url;
 
 @end
 
 @implementation KSUser
+
+@dynamic imageModel;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -39,21 +39,23 @@ static NSString * const kKSNameKey = @"name";
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (KSImageModel *)imageModel {
+    KSImageModel *imageModel = [KSImageModel imageWithUrl:[NSURL URLWithString:kKSStringURL]];
+
+    return imageModel;
+}
+
+- (NSURL *)url {
+    return [NSURL URLWithString:kKSStringURL];
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (void)performBackgroundLoading {
-    sleep(2);
     
-//    NSString *path = [[NSBundle mainBundle] pathForResource:kKSImageName ofType:kKSImageType];
-//    self.image = [UIImage imageWithContentsOfFile:path];
-    
-    KSImageModel *imageModel = [KSImageModel imageWithUrl:[NSURL URLWithString:kKSStringURL]];
-    
-    self.image = imageModel.image;
-    
-    @synchronized(self) {
-        self.state = KSModelStateFinishedLoading;
-    }
 }
 
 #pragma mark -

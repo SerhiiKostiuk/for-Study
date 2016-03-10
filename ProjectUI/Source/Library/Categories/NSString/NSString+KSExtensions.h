@@ -24,4 +24,6 @@
 
 - (NSArray *)symbols;
 
+- (NSString *)nameFromUrl:(NSURL *)url;
+
 @end
