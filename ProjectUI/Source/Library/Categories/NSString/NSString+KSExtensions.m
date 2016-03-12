@@ -100,20 +100,16 @@ static NSString * const kKSMinusSymbol = @"-";
     return [result copy];
 }
 
-- (NSString *)nameFromUrl:(NSURL *)url {
-    NSString *string = [url absoluteString];
+- (NSString *)stringByReplacingOccurrencesOfKeysWithValuesInDictionary:(NSDictionary *)dictionary {
+    NSMutableString *result = [NSMutableString stringWithString:self];
+    for (id key in dictionary.allKeys) {
+        [result replaceOccurrencesOfString:key
+                                withString:dictionary[key]
+                                   options:NSLiteralSearch
+                                     range:NSMakeRange(0, self.length)];
+    }
     
-    string = [string stringByReplacingOccurrencesOfString:kKSQuestionSymbol withString:kKSMinusSymbol];
-    string = [string stringByReplacingOccurrencesOfString:kKSSlashSymbol    withString:kKSMinusSymbol];
-    
-    return string;
-}
-
-- (NSString *)stringByReplacingSymbolOfString:(NSString *)target withString:(NSString *)replacement {
-    NSString *string = nil;
-    [string stringByReplacingOccurrencesOfString:target withString:replacement];
-    
-    return string;
+    return [[NSString class] stringWithString:result];
 }
 
 @end

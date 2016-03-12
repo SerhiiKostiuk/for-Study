@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C511C2041C94510F00EEF114 /* NSURL+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C2031C94510F00EEF114 /* NSURL+KSExtensions.m */; };
 		C53F00101C6E2AF400A0768F /* UITableView+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F000F1C6E2AF400A0768F /* UITableView+KSExtensions.m */; };
 		C53F001F1C6FD65D00A0768F /* KSUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F00171C6FD65D00A0768F /* KSUsersView.m */; };
 		C53F00201C6FD65D00A0768F /* KSUsersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C53F00181C6FD65D00A0768F /* KSUsersView.xib */; };
@@ -57,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		C5052C1F1C5A48130002B214 /* KSProjectUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSProjectUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C511C2021C94510F00EEF114 /* NSURL+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+KSExtensions.h"; path = "NSURL/NSURL+KSExtensions.h"; sourceTree = "<group>"; };
+		C511C2031C94510F00EEF114 /* NSURL+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+KSExtensions.m"; path = "NSURL/NSURL+KSExtensions.m"; sourceTree = "<group>"; };
 		C53F000E1C6E2AF400A0768F /* UITableView+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+KSExtensions.h"; sourceTree = "<group>"; };
 		C53F000F1C6E2AF400A0768F /* UITableView+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+KSExtensions.m"; sourceTree = "<group>"; };
 		C53F00161C6FD65D00A0768F /* KSUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsersView.h; sourceTree = "<group>"; };
@@ -177,6 +180,15 @@
 				C5052C1F1C5A48130002B214 /* KSProjectUI.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C511C2011C944E5A00EEF114 /* NSURL */ = {
+			isa = PBXGroup;
+			children = (
+				C511C2021C94510F00EEF114 /* NSURL+KSExtensions.h */,
+				C511C2031C94510F00EEF114 /* NSURL+KSExtensions.m */,
+			);
+			name = NSURL;
 			sourceTree = "<group>";
 		};
 		C53F000D1C6E2ACA00A0768F /* UITableView */ = {
@@ -579,6 +591,7 @@
 		C5D39F231C64A6430053E43C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C511C2011C944E5A00EEF114 /* NSURL */,
 				C5CD8FD71C84F9DF0022D60B /* NSObject */,
 				C55186941C7E4CAE00BFBDBC /* NSFIleManager */,
 				C5D44E5C1C7CA97D00818AEA /* NSPathUtilities */,
@@ -741,6 +754,7 @@
 				C554FA471C6A1A9E00979CCA /* KSReference.m in Sources */,
 				C554FA501C6A231D00979CCA /* KSTableViewCell.m in Sources */,
 				C5D39F2E1C64A6430053E43C /* UIViewController+KSExtensions.m in Sources */,
+				C511C2041C94510F00EEF114 /* NSURL+KSExtensions.m in Sources */,
 				C56A03481C60BDA00043FE10 /* KSSquareView.m in Sources */,
 				C53F00271C6FDAD000A0768F /* KSArrayModel.m in Sources */,
 				C5D44E5F1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m in Sources */,

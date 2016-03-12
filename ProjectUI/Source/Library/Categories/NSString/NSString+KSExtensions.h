@@ -24,6 +24,6 @@
 
 - (NSArray *)symbols;
 
-- (NSString *)nameFromUrl:(NSURL *)url;
+- (NSString *)stringByReplacingOccurrencesOfKeysWithValuesInDictionary:(NSDictionary *)dictionary;
 
 @end
