@@ -12,10 +12,9 @@
 
 #import "NSFileManager+KSExtensions.h"
 #import "NSString+KSExtensions.h"
+#import "NSURL+KSExtensions.h"
 
-typedef void(^KSVoidBlock)(void);
-
-static NSString * const kKSStringURL = @"http://geographyofrussia.com/wp-content/uploads/2010/07/3_large1.png";
+#import "KSWeakifyMacro.h"
 
 static NSString * const kKSDirectoryName = @"images";
 
@@ -30,6 +29,14 @@ static NSString * const kKSDirectoryName = @"images";
 @property (nonatomic, assign, getter=isCached) BOOL cached;
 
 - (NSString *)imageFolderPath;
+- (void)loadFromInternet;
+- (void)loadFromFile;
+- (NSURLRequest *)request;
+- (NSURLSession *)session;
+- (void)startDowloading:(NSURLRequest *)request;
+- (id)taskCompletion;
+- (void)setSynchronizedState:(NSUInteger)state;
+- (void)setImageWithNotification:(UIImage *)image;
 
 @end
 
@@ -48,7 +55,7 @@ static NSString * const kKSDirectoryName = @"images";
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    [self.downloadTask cancel];
+    self.downloadTask = nil;
 }
 
 - (instancetype)initWithUrl:(NSURL *)url {
@@ -66,30 +73,22 @@ static NSString * const kKSDirectoryName = @"images";
 - (void)setDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
     if (_downloadTask != downloadTask) {
         [downloadTask cancel];
+        
         _downloadTask = downloadTask;
     }
 }
 
 - (BOOL)isCached {
-    NSFileManager *manager = [NSFileManager  defaultManager];
-    
-    return [manager fileExistsAtPath:self.path];
+    return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
 }
 
 - (NSString *)path {
-    return [[self imageFolderPath] stringByAppendingPathComponent:self.name];
+    return [[self imageFolderPath] stringByAppendingPathComponent:[self.url fileSystemStringRepresentation]];
 }
 
-- (NSURL *)url {
-    return [NSURL URLWithString:kKSStringURL];
-};
-
-- (NSString *)name {
-    NSString *string = nil;
-    
-    return [string nameFromUrl:self.url];
-}
-
+//- (NSString *)name {
+//    return [self.url fileSystemStringRepresentation];
+//}
 
 #pragma mark -
 #pragma mark Private
@@ -99,10 +98,6 @@ static NSString * const kKSDirectoryName = @"images";
         [self loadFromInternet];
     } else {
         [self loadFromFile];
-    }
- 
-    @synchronized(self) {
-        self.state = KSModelStateFinishedLoading;
     }
 }
 
@@ -114,13 +109,19 @@ static NSString * const kKSDirectoryName = @"images";
 }
 
 - (void)loadFromInternet {
+    [[NSFileManager defaultManager] removeItemAtPath:self.path error:nil];
+    
     NSURLRequest *request = [self request];
     [self startDowloading:request];
 }
 
-
 - (void)loadFromFile {
-    self.image = [UIImage imageWithContentsOfFile:self.path];
+    UIImage  *image = [UIImage imageWithContentsOfFile:self.path];
+    if (image) {
+        [self setImageWithNotification:image];
+    } else {
+        [self loadFromInternet];
+    }
 
 }
 
@@ -128,32 +129,58 @@ static NSString * const kKSDirectoryName = @"images";
     return [NSURLRequest requestWithURL:self.url];
 }
 
-- (NSURLSession *)session {
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+- (NSURLSession *)session { 
+    static NSURLSession *session = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    });
     
-    return [NSURLSession sessionWithConfiguration:configuration];
+    return session;
 }
 
 - (void)startDowloading:(NSURLRequest *)request {
-    NSURLSessionDownloadTask *downloadTask = nil;
+//    NSURLSessionDownloadTask *downloadTask = nil;
     NSURLSession *session = [self session];
     
-    downloadTask = [session downloadTaskWithRequest:request
-                                  completionHandler:^(NSURL *location,
-                                                      NSURLResponse *response,
-                                                      NSError *error)
-                    {
-                        NSFileManager *manager = [NSFileManager defaultManager];
-                        [manager moveItemAtURL:location
-                                         toURL:[NSURL fileURLWithPath:self.path]
-                                         error:nil];
-                        
-                        [self loadFromFile];
-                    }];
-    
-    [downloadTask resume];
+    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:request
+                                  completionHandler:[self taskCompletion]];
     
     self.downloadTask = downloadTask;
+
+    [downloadTask resume];
+}
+
+- (id)taskCompletion {
+    KSWeakify(self);
+    
+    return ^(NSURL *location, NSURLResponse *response, NSError *error) {
+        KSStrongifyAndReturnIfNil(self);
+        if (error) {
+            [self setSynchronizedState:KSModelStateFailedLoading];
+            return;
+        }
+        
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
+        if (image) {
+            [[NSFileManager defaultManager] moveItemAtURL:location
+                                                    toURL:[NSURL fileURLWithPath:self.path]
+                                                    error:nil];
+        }
+        
+        [self setImageWithNotification:image];
+    };
+}
+
+- (void)setSynchronizedState:(NSUInteger)state {
+    @synchronized(self) {
+        self.state = state;
+    }
+}
+
+- (void)setImageWithNotification:(UIImage *)image {
+    self.image = image;
+    [self setSynchronizedState:image ? KSModelStateFinishedLoading : KSModelStateFailedLoading];
 }
 
 @end
