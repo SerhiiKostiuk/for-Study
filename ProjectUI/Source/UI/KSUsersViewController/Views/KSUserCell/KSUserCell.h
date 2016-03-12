@@ -9,15 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import "KSTableViewCell.h"
-#import "KSView.h"
-#import "KSImageView.h"
 
 @class KSUser;
+@class KSImageView;
 
 @interface KSUserCell : KSTableViewCell
 @property (nonatomic, strong) IBOutlet UILabel       *label;
 @property (nonatomic, strong) IBOutlet KSImageView   *contentImageView;
-@property (nonatomic, strong) IBOutlet KSView        *loadingView;
 
 @property (nonatomic, strong) KSUser *user;
 

@@ -21,22 +21,16 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" id="cbm-zE-4ho" customClass="KSView">
+                    <view contentMode="scaleToFill" id="OJK-kj-YEU" customClass="KSImageView">
                         <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="VZV-jS-wDM">
-                                <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="contentImageView" destination="OJK-kj-YEU" id="sPq-NF-xOo"/>
                 <outlet property="label" destination="dzB-Lk-dtw" id="XX7-UN-nwl"/>
-                <outlet property="loadingView" destination="cbm-zE-4ho" id="3VB-go-cB6"/>
             </connections>
             <point key="canvasLocation" x="312" y="191"/>
         </tableViewCell>
