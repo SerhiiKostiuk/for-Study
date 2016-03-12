@@ -13,14 +13,9 @@
 #import "NSString+KSRandomName.h"
 #import "NSFileManager+KSExtensions.h"
 
-static NSString * const kKSStringURL = @"http://geographyofrussia.com/wp-content/uploads/2010/07/3_large1.png";
+static NSString * const kKSStringURL = @"http://vignette3.wikia.nocookie.net/tannericus/images/c/cd/Famous-characters-Troll-face-Bad-Poker-Face-564817.png";
 
 static NSString * const kKSNameKey = @"name";
-
-@interface KSUser ()
-@property (nonatomic, strong)   NSURL        *url;
-
-@end
 
 @implementation KSUser
 
@@ -42,21 +37,15 @@ static NSString * const kKSNameKey = @"name";
 #pragma mark Accessors
 
 - (KSImageModel *)imageModel {
-    KSImageModel *imageModel = [KSImageModel imageWithUrl:[NSURL URLWithString:kKSStringURL]];
-
-    return imageModel;
-}
-
-- (NSURL *)url {
-    return [NSURL URLWithString:kKSStringURL];
+    return [KSImageModel imageWithUrl:[NSURL URLWithString:kKSStringURL]];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)performBackgroundLoading {
-    
-}
+//- (void)performBackgroundLoading {
+//    
+//}
 
 #pragma mark -
 #pragma mark NSCoding
