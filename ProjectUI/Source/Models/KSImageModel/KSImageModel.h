@@ -16,6 +16,6 @@
 
 + (instancetype)imageWithUrl:(NSURL *)url;
 
-- (instancetype)initWithUrl:(NSURL *)url;
+- (instancetype)initWithUrl:(NSURL *)url NS_DESIGNATED_INITIALIZER;
 
 @end 
