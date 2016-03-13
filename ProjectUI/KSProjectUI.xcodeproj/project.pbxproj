@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C511C2041C94510F00EEF114 /* NSURL+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C2031C94510F00EEF114 /* NSURL+KSExtensions.m */; };
+		C511C2081C94A99400EEF114 /* KSObjectsCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C2071C94A99400EEF114 /* KSObjectsCache.m */; };
 		C53F00101C6E2AF400A0768F /* UITableView+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F000F1C6E2AF400A0768F /* UITableView+KSExtensions.m */; };
 		C53F001F1C6FD65D00A0768F /* KSUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F00171C6FD65D00A0768F /* KSUsersView.m */; };
 		C53F00201C6FD65D00A0768F /* KSUsersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C53F00181C6FD65D00A0768F /* KSUsersView.xib */; };
@@ -60,6 +61,8 @@
 		C5052C1F1C5A48130002B214 /* KSProjectUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSProjectUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C511C2021C94510F00EEF114 /* NSURL+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+KSExtensions.h"; path = "NSURL/NSURL+KSExtensions.h"; sourceTree = "<group>"; };
 		C511C2031C94510F00EEF114 /* NSURL+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+KSExtensions.m"; path = "NSURL/NSURL+KSExtensions.m"; sourceTree = "<group>"; };
+		C511C2061C94A99400EEF114 /* KSObjectsCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSObjectsCache.h; path = KSObjectsCache/KSObjectsCache.h; sourceTree = "<group>"; };
+		C511C2071C94A99400EEF114 /* KSObjectsCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSObjectsCache.m; path = KSObjectsCache/KSObjectsCache.m; sourceTree = "<group>"; };
 		C53F000E1C6E2AF400A0768F /* UITableView+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+KSExtensions.h"; sourceTree = "<group>"; };
 		C53F000F1C6E2AF400A0768F /* UITableView+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+KSExtensions.m"; sourceTree = "<group>"; };
 		C53F00161C6FD65D00A0768F /* KSUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsersView.h; sourceTree = "<group>"; };
@@ -189,6 +192,15 @@
 				C511C2031C94510F00EEF114 /* NSURL+KSExtensions.m */,
 			);
 			name = NSURL;
+			sourceTree = "<group>";
+		};
+		C511C2051C94A96F00EEF114 /* KSObjectsCache */ = {
+			isa = PBXGroup;
+			children = (
+				C511C2061C94A99400EEF114 /* KSObjectsCache.h */,
+				C511C2071C94A99400EEF114 /* KSObjectsCache.m */,
+			);
+			name = KSObjectsCache;
 			sourceTree = "<group>";
 		};
 		C53F000D1C6E2ACA00A0768F /* UITableView */ = {
@@ -339,6 +351,7 @@
 		C554FA3C1C6A1A5F00979CCA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C511C2051C94A96F00EEF114 /* KSObjectsCache */,
 				C5CD8FD31C835A380022D60B /* KSView */,
 				C554FA4D1C6A231D00979CCA /* KSTableViewCell */,
 				C551869E1C7F299000BFBDBC /* KSDispatch */,
@@ -728,6 +741,7 @@
 				C554FA551C6A313100979CCA /* KSUser.m in Sources */,
 				C53F00101C6E2AF400A0768F /* UITableView+KSExtensions.m in Sources */,
 				C554FA291C6898FD00979CCA /* NSString+KSExtensions.m in Sources */,
+				C511C2081C94A99400EEF114 /* KSObjectsCache.m in Sources */,
 				C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */,
 				C5721F051C74B98900C1541D /* UITableView+KSCollectionChangeModel.m in Sources */,
 				C5721F111C74BEA900C1541D /* KSArrayDoubleIndexChangeModel+UITableView.m in Sources */,

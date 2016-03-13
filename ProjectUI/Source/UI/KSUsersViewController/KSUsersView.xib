@@ -26,10 +26,10 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="1pI-fC-mkq">
-                    <rect key="frame" x="290" y="22" width="22" height="22"/>
+                    <rect key="frame" x="283" y="19" width="22" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal">
-                        <color key="titleColor" red="0.97656430806910888" green="1" blue="0.42236377580234785" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.67429498795847365" green="1" blue="0.33220592820312445" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" red="1" green="0.32691562013015218" blue="0.1210126542910408" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -37,7 +37,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.7142937890204526" green="0.98873307482485928" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="tableView" destination="6B4-or-fO7" id="Hj6-UO-2oZ"/>
                 <outletCollection property="gestureRecognizers" destination="vhW-hE-yg8" appends="YES" id="OmX-QF-oko"/>

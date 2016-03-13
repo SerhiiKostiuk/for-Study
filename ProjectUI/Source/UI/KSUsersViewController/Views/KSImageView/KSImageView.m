@@ -41,6 +41,18 @@
 }
 
 #pragma mark -
+#pragma mark NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    
+    self.contentImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    [self addSubview:self.contentImageView];
+    
+    return self;
+}
+
+#pragma mark -
 #pragma mark KSModelObserver
 
 - (void)modelWillLoad:(id)model {

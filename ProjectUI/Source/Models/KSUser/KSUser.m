@@ -13,7 +13,7 @@
 #import "NSString+KSRandomName.h"
 #import "NSFileManager+KSExtensions.h"
 
-static NSString * const kKSStringURL = @"http://vignette3.wikia.nocookie.net/tannericus/images/c/cd/Famous-characters-Troll-face-Bad-Poker-Face-564817.png";
+static NSString * const kKSStringURL = @"http://bitemybark.com/wp-content/uploads/2014/09/what-the-fuck-is-this.jpg";
 
 static NSString * const kKSNameKey = @"name";
 
