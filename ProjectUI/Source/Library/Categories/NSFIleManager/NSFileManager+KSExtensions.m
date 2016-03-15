@@ -27,13 +27,16 @@ static NSString * const kKSDirectoryName = @"projectFolder";
 }
 
 - (void)provideDirectoryAtPath:(NSString *)path {
-    NSFileManager *manager = [NSFileManager  defaultManager];
-    if (![manager fileExistsAtPath:path]) {
-        [manager createDirectoryAtPath:path
-           withIntermediateDirectories:YES
-                            attributes:nil
-                                 error:nil];
-    }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSFileManager *manager = [NSFileManager  defaultManager];
+        if (![manager fileExistsAtPath:path]) {
+            [manager createDirectoryAtPath:path
+               withIntermediateDirectories:YES
+                                attributes:nil
+                                     error:nil];
+        }
+    });
 }
 
 @end
