@@ -12,7 +12,7 @@
 
 @interface KSImageModel : KSModel
 @property (nonatomic, readonly) UIImage  *image;
-@property (nonatomic, readonly) NSURL    *url;
+@property (nonatomic, copy)     NSURL    *url;
 
 + (instancetype)imageWithUrl:(NSURL *)url;
 

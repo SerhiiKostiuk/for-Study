@@ -22,15 +22,14 @@
 static NSString * const kKSDirectoryName = @"images";
 
 @interface KSImageModel ()
-@property (nonatomic, strong) UIImage     *image;
-@property (nonatomic, strong) NSURL       *url;
-@property (nonatomic, copy)   NSString    *path;
+@property (nonatomic, strong)   UIImage     *image;
+@property (nonatomic, readonly) NSString    *path;
+@property (nonatomic, readonly) NSString    *imageFolderPath;
 
 @property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 
 @property (nonatomic, assign, getter=isCached) BOOL cached;
 
-- (NSString *)imageFolderPath;
 - (void)loadFromInternet;
 - (void)loadFromFile;
 - (NSURLRequest *)request;
@@ -45,6 +44,8 @@ static NSString * const kKSDirectoryName = @"images";
 @implementation KSImageModel
 
 @dynamic cached;
+@dynamic path;
+@dynamic imageFolderPath;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -75,10 +76,9 @@ static NSString * const kKSDirectoryName = @"images";
 }
 
 - (instancetype)initWithUrl:(NSURL *)url {
-    KSReturnValueIfNil(url, nil);
-    
+    KSRerurnNilIfNil(self);
     KSObjectsCache *cache = [[self class] cache];
-    id result = [cache objectForKey:url];
+    id result = cache[url];
     if (result) {
         return result;
     }
@@ -111,15 +111,15 @@ static NSString * const kKSDirectoryName = @"images";
     return [[self imageFolderPath] stringByAppendingPathComponent:[self.url fileSystemStringRepresentation]];
 }
 
-#pragma mark -
-#pragma mark Private
-
 - (NSString *)imageFolderPath {
     NSString *imageFolderName = [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSDirectoryName];
     [[NSFileManager defaultManager] provideDirectoryAtPath:imageFolderName];
     
     return imageFolderName;
 }
+
+#pragma mark -
+#pragma mark Private
 
 - (void)performBackgroundLoading {
     if (!self.cached) {
@@ -134,8 +134,6 @@ static NSString * const kKSDirectoryName = @"images";
 }
 
 - (void)loadFromInternet {
-    [[NSFileManager defaultManager] removeItemAtPath:self.path error:nil];
-    
     [self startDownloading:[self request]];
 }
 
@@ -145,6 +143,7 @@ static NSString * const kKSDirectoryName = @"images";
     if (image) {
         [self setImageWithNotification:image];
     } else {
+        [[NSFileManager defaultManager] removeItemAtPath:self.path error:nil];
         [self loadFromInternet];
     }
 }
