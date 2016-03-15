@@ -27,6 +27,7 @@ static const CGFloat KSVisibleAlpha    = 1.0;
     KSActivityIndicator *view = [UINib objectWithClass:[self class]];
     view.frame = superView.bounds;
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    view.alpha = 0;
     [superView addSubview:view];
     
     return view;
