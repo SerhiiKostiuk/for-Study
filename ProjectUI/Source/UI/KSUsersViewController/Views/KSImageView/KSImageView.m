@@ -15,9 +15,29 @@
 @interface KSImageView ()
 @property (nonatomic, strong) UIImageView *contentImageView;
 
+- (void)fillWithModel:(KSImageModel *)imageModel;
+- (void)prepareSubView;
+
 @end
 
 @implementation KSImageView
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    [self prepareSubView];
+    
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    [self prepareSubView];
+
+    return self;
+}
 
 #pragma mark -
 #pragma mark Accessors
@@ -40,17 +60,16 @@
     self.contentImageView.image = imageModel.image;
 }
 
-#pragma mark -
-#pragma mark NSCoding
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
+- (void)prepareSubView {
+    UIImageView *imageView = self.contentImageView;
+    imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.contentImageView = imageView;
     
-    self.contentImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-    [self addSubview:self.contentImageView];
-    
-    return self;
+    [self addSubview:imageView];
 }
+
 
 #pragma mark -
 #pragma mark KSModelObserver
