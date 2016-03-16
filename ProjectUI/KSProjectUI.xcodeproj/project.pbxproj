@@ -9,15 +9,6 @@
 /* Begin PBXBuildFile section */
 		C511C2041C94510F00EEF114 /* NSURL+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C2031C94510F00EEF114 /* NSURL+KSExtensions.m */; };
 		C511C2081C94A99400EEF114 /* KSObjectsCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C2071C94A99400EEF114 /* KSObjectsCache.m */; };
-		C511C3071C9847AC00EEF114 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C511C20C1C9847AC00EEF114 /* Bolts.framework */; };
-		C511C3101C9847AC00EEF114 /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C511C2161C9847AC00EEF114 /* FacebookSDKStrings.bundle */; };
-		C511C3111C9847AC00EEF114 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C511C2171C9847AC00EEF114 /* FBAudienceNetwork.framework */; };
-		C511C3121C9847AC00EEF114 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C511C2181C9847AC00EEF114 /* FBSDKCoreKit.framework */; };
-		C511C3131C9847AC00EEF114 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C511C2191C9847AC00EEF114 /* FBSDKLoginKit.framework */; };
-		C511C3141C9847AC00EEF114 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C511C21A1C9847AC00EEF114 /* FBSDKMessengerShareKit.framework */; };
-		C511C3151C9847AC00EEF114 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C511C21B1C9847AC00EEF114 /* FBSDKShareKit.framework */; };
-		C511C3161C9847AC00EEF114 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C511C21C1C9847AC00EEF114 /* LICENSE.txt */; };
-		C511C3171C9847AC00EEF114 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = C511C21D1C9847AC00EEF114 /* README.txt */; };
 		C511C3B51C984F8100EEF114 /* KSContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3B41C984F8100EEF114 /* KSContext.m */; };
 		C511C3BD1C98530300EEF114 /* KSFacebookLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3BC1C98530300EEF114 /* KSFacebookLoginContext.m */; };
 		C511C3C41C9859AB00EEF114 /* KSFacebookFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3C31C9859AB00EEF114 /* KSFacebookFriendsContext.m */; };
@@ -75,15 +66,6 @@
 		C511C2031C94510F00EEF114 /* NSURL+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+KSExtensions.m"; path = "NSURL/NSURL+KSExtensions.m"; sourceTree = "<group>"; };
 		C511C2061C94A99400EEF114 /* KSObjectsCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSObjectsCache.h; path = KSObjectsCache/KSObjectsCache.h; sourceTree = "<group>"; };
 		C511C2071C94A99400EEF114 /* KSObjectsCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSObjectsCache.m; path = KSObjectsCache/KSObjectsCache.m; sourceTree = "<group>"; };
-		C511C20C1C9847AC00EEF114 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		C511C2161C9847AC00EEF114 /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
-		C511C2171C9847AC00EEF114 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBAudienceNetwork.framework; sourceTree = "<group>"; };
-		C511C2181C9847AC00EEF114 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		C511C2191C9847AC00EEF114 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		C511C21A1C9847AC00EEF114 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
-		C511C21B1C9847AC00EEF114 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		C511C21C1C9847AC00EEF114 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		C511C21D1C9847AC00EEF114 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		C511C3B31C984F8100EEF114 /* KSContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSContext.h; path = DCI/KSContext.h; sourceTree = "<group>"; };
 		C511C3B41C984F8100EEF114 /* KSContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSContext.m; path = DCI/KSContext.m; sourceTree = "<group>"; };
 		C511C3BB1C98530300EEF114 /* KSFacebookLoginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSFacebookLoginContext.h; sourceTree = "<group>"; };
@@ -188,12 +170,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C511C3071C9847AC00EEF114 /* Bolts.framework in Frameworks */,
-				C511C3121C9847AC00EEF114 /* FBSDKCoreKit.framework in Frameworks */,
-				C511C3151C9847AC00EEF114 /* FBSDKShareKit.framework in Frameworks */,
-				C511C3141C9847AC00EEF114 /* FBSDKMessengerShareKit.framework in Frameworks */,
-				C511C3131C9847AC00EEF114 /* FBSDKLoginKit.framework in Frameworks */,
-				C511C3111C9847AC00EEF114 /* FBAudienceNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +182,6 @@
 				C56A03351C60BDA00043FE10 /* Source */,
 				C56A032B1C60BDA00043FE10 /* KSProjectUI */,
 				C5052C201C5A48130002B214 /* Products */,
-				C511C20A1C98477300EEF114 /* Frameworks */,
 				C56A03311C60BDA00043FE10 /* Resources */,
 			);
 			sourceTree = "<group>";
@@ -235,30 +210,6 @@
 				C511C2071C94A99400EEF114 /* KSObjectsCache.m */,
 			);
 			name = KSObjectsCache;
-			sourceTree = "<group>";
-		};
-		C511C20A1C98477300EEF114 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C511C20B1C9847AC00EEF114 /* FacebookSDK */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		C511C20B1C9847AC00EEF114 /* FacebookSDK */ = {
-			isa = PBXGroup;
-			children = (
-				C511C20C1C9847AC00EEF114 /* Bolts.framework */,
-				C511C2161C9847AC00EEF114 /* FacebookSDKStrings.bundle */,
-				C511C2171C9847AC00EEF114 /* FBAudienceNetwork.framework */,
-				C511C2181C9847AC00EEF114 /* FBSDKCoreKit.framework */,
-				C511C2191C9847AC00EEF114 /* FBSDKLoginKit.framework */,
-				C511C21A1C9847AC00EEF114 /* FBSDKMessengerShareKit.framework */,
-				C511C21B1C9847AC00EEF114 /* FBSDKShareKit.framework */,
-				C511C21C1C9847AC00EEF114 /* LICENSE.txt */,
-				C511C21D1C9847AC00EEF114 /* README.txt */,
-			);
-			path = FacebookSDK;
 			sourceTree = "<group>";
 		};
 		C511C3B21C984F5100EEF114 /* DCI */ = {
@@ -295,6 +246,13 @@
 				C511C3C31C9859AB00EEF114 /* KSFacebookFriendsContext.m */,
 			);
 			path = KSFacebookFriendsContext;
+			sourceTree = "<group>";
+		};
+		C511C3DA1C99C2ED00EEF114 /* KSFacebookLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = KSFacebookLoginViewController;
 			sourceTree = "<group>";
 		};
 		C53F000D1C6E2ACA00A0768F /* UITableView */ = {
@@ -570,6 +528,7 @@
 		C56A033B1C60BDA00043FE10 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C511C3DA1C99C2ED00EEF114 /* KSFacebookLoginViewController */,
 				C53F00151C6FD65D00A0768F /* KSUsersViewController */,
 				C56A033C1C60BDA00043FE10 /* KSSquareViewController */,
 			);
@@ -810,12 +769,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C511C3161C9847AC00EEF114 /* LICENSE.txt in Resources */,
 				C55186B41C7F504800BFBDBC /* KSActivityIndicator.xib in Resources */,
 				C56A03461C60BDA00043FE10 /* LaunchScreen.storyboard in Resources */,
 				C56A03451C60BDA00043FE10 /* Assets.xcassets in Resources */,
-				C511C3101C9847AC00EEF114 /* FacebookSDKStrings.bundle in Resources */,
-				C511C3171C9847AC00EEF114 /* README.txt in Resources */,
 				C55186AC1C7F2A9800BFBDBC /* KSUserCell.xib in Resources */,
 				C554FA5B1C6A3B9E00979CCA /* apple.png in Resources */,
 				C56A03491C60BDA00043FE10 /* KSSquareView.xib in Resources */,
