@@ -10,4 +10,12 @@
 
 @implementation KSContext
 
+- (void)execute {
+    
+}
+
+- (void)cancel {
+    
+}
+
 @end

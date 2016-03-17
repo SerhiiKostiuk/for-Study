@@ -8,12 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^KSVoidBlock)(void);
-
-
 @interface KSContext : NSObject
 
-- (void)execute:(KSVoidBlock)block;
+- (void)execute;
 - (void)cancel;
 
 @end

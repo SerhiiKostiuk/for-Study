@@ -41,5 +41,22 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb1710738722499421</string>
+            </array>
+        </dict>
+    </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbauth2</string>
+    </array>
+    <key>FacebookAppID</key>
+    <string>1710738722499421</string>
+    <key>FacebookDisplayName</key>
+    <string>KSProjectUI</string>
 </dict>
 </plist>

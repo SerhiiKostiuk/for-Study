@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 @interface KSFacebookLoginViewController : UIViewController
+
+@property (nonatomic, weak) IBOutlet FBSDKLoginButton *loginButton;
 
 @end

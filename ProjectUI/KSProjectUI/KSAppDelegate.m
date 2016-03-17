@@ -7,7 +7,10 @@
 // 
 
 #import "KSAppDelegate.h"
-//#import "KSSquareViewController.h"
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+#import "KSFacebookLoginViewController.h"
 #import "KSUsersViewController.h"
 #import "KSUsers.h"
 
@@ -24,15 +27,19 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
     
-    KSUsersViewController *controller = [KSUsersViewController new];
+    KSFacebookLoginViewController *controller = [KSFacebookLoginViewController new];
     
-    KSUsers *users = [KSUsers new];
-    self.users = users;
-    controller.users = users;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+//    KSUsers *users = [KSUsers new];
+//    self.users = users;
+//    controller.users = users;
     
-    window.rootViewController = controller;
+    window.rootViewController = navigationController;
     
     [window makeKeyAndVisible];
+    
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
     
     return YES;
 }
@@ -51,10 +58,21 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     NSLog(@"become active");
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     NSLog(@"terminate");
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 @end

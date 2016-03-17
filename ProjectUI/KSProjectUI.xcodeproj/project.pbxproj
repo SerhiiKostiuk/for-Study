@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52A6CCF5829B3C6E1EDDE081 /* libPods-KSProjectUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B28F3105C3AE23363C3522 /* libPods-KSProjectUI.a */; };
 		C511C2041C94510F00EEF114 /* NSURL+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C2031C94510F00EEF114 /* NSURL+KSExtensions.m */; };
 		C511C2081C94A99400EEF114 /* KSObjectsCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C2071C94A99400EEF114 /* KSObjectsCache.m */; };
 		C511C3B51C984F8100EEF114 /* KSContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3B41C984F8100EEF114 /* KSContext.m */; };
 		C511C3BD1C98530300EEF114 /* KSFacebookLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3BC1C98530300EEF114 /* KSFacebookLoginContext.m */; };
 		C511C3C41C9859AB00EEF114 /* KSFacebookFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3C31C9859AB00EEF114 /* KSFacebookFriendsContext.m */; };
+		C511C3DF1C99C69300EEF114 /* KSFacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3DD1C99C69300EEF114 /* KSFacebookLoginViewController.m */; };
+		C511C3E01C99C69300EEF114 /* KSFacebookLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C511C3DE1C99C69300EEF114 /* KSFacebookLoginViewController.xib */; };
+		C511C3E51C99EB3F00EEF114 /* KSFacebookFriendDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3E41C99EB3F00EEF114 /* KSFacebookFriendDetail.m */; };
 		C53F00101C6E2AF400A0768F /* UITableView+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F000F1C6E2AF400A0768F /* UITableView+KSExtensions.m */; };
 		C53F001F1C6FD65D00A0768F /* KSUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F00171C6FD65D00A0768F /* KSUsersView.m */; };
 		C53F00201C6FD65D00A0768F /* KSUsersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C53F00181C6FD65D00A0768F /* KSUsersView.xib */; };
@@ -61,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F2F85084AA38778246E05AE /* Pods-KSProjectUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSProjectUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-KSProjectUI/Pods-KSProjectUI.release.xcconfig"; sourceTree = "<group>"; };
 		C5052C1F1C5A48130002B214 /* KSProjectUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSProjectUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C511C2021C94510F00EEF114 /* NSURL+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+KSExtensions.h"; path = "NSURL/NSURL+KSExtensions.h"; sourceTree = "<group>"; };
 		C511C2031C94510F00EEF114 /* NSURL+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+KSExtensions.m"; path = "NSURL/NSURL+KSExtensions.m"; sourceTree = "<group>"; };
@@ -72,6 +77,11 @@
 		C511C3BC1C98530300EEF114 /* KSFacebookLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFacebookLoginContext.m; sourceTree = "<group>"; };
 		C511C3C21C9859AB00EEF114 /* KSFacebookFriendsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSFacebookFriendsContext.h; sourceTree = "<group>"; };
 		C511C3C31C9859AB00EEF114 /* KSFacebookFriendsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFacebookFriendsContext.m; sourceTree = "<group>"; };
+		C511C3DC1C99C69300EEF114 /* KSFacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSFacebookLoginViewController.h; sourceTree = "<group>"; };
+		C511C3DD1C99C69300EEF114 /* KSFacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFacebookLoginViewController.m; sourceTree = "<group>"; };
+		C511C3DE1C99C69300EEF114 /* KSFacebookLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSFacebookLoginViewController.xib; sourceTree = "<group>"; };
+		C511C3E31C99EB3F00EEF114 /* KSFacebookFriendDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSFacebookFriendDetail.h; sourceTree = "<group>"; };
+		C511C3E41C99EB3F00EEF114 /* KSFacebookFriendDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFacebookFriendDetail.m; sourceTree = "<group>"; };
 		C53F000E1C6E2AF400A0768F /* UITableView+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+KSExtensions.h"; sourceTree = "<group>"; };
 		C53F000F1C6E2AF400A0768F /* UITableView+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+KSExtensions.m"; sourceTree = "<group>"; };
 		C53F00161C6FD65D00A0768F /* KSUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsersView.h; sourceTree = "<group>"; };
@@ -163,6 +173,8 @@
 		C5F1F4411C6A9A1D008075D1 /* KSUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUsers.m; sourceTree = "<group>"; };
 		C5F1F4431C6AAA07008075D1 /* UINib+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+KSExtensions.h"; sourceTree = "<group>"; };
 		C5F1F4441C6AAA07008075D1 /* UINib+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+KSExtensions.m"; sourceTree = "<group>"; };
+		C7B28F3105C3AE23363C3522 /* libPods-KSProjectUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KSProjectUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F95FDB3ACCA92DC7E609DACD /* Pods-KSProjectUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSProjectUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KSProjectUI/Pods-KSProjectUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,12 +182,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A6CCF5829B3C6E1EDDE081 /* libPods-KSProjectUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17F7230E27D14486093D06D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F95FDB3ACCA92DC7E609DACD /* Pods-KSProjectUI.debug.xcconfig */,
+				8F2F85084AA38778246E05AE /* Pods-KSProjectUI.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		19F8B7FF78E4D866547BB597 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7B28F3105C3AE23363C3522 /* libPods-KSProjectUI.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C5052C161C5A48130002B214 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +213,8 @@
 				C56A032B1C60BDA00043FE10 /* KSProjectUI */,
 				C5052C201C5A48130002B214 /* Products */,
 				C56A03311C60BDA00043FE10 /* Resources */,
+				17F7230E27D14486093D06D6 /* Pods */,
+				19F8B7FF78E4D866547BB597 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,8 +283,36 @@
 		C511C3DA1C99C2ED00EEF114 /* KSFacebookLoginViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C511C3DB1C99C69300EEF114 /* KSFacebookLoginViewController */,
 			);
 			name = KSFacebookLoginViewController;
+			path = KSFacebookViewController;
+			sourceTree = "<group>";
+		};
+		C511C3DB1C99C69300EEF114 /* KSFacebookLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C511C3DC1C99C69300EEF114 /* KSFacebookLoginViewController.h */,
+				C511C3DD1C99C69300EEF114 /* KSFacebookLoginViewController.m */,
+				C511C3DE1C99C69300EEF114 /* KSFacebookLoginViewController.xib */,
+			);
+			path = KSFacebookLoginViewController;
+			sourceTree = "<group>";
+		};
+		C511C3E11C99DB0300EEF114 /* KSFacebookFriendDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C511C3E31C99EB3F00EEF114 /* KSFacebookFriendDetail.h */,
+				C511C3E41C99EB3F00EEF114 /* KSFacebookFriendDetail.m */,
+			);
+			name = KSFacebookFriendDetail;
+			sourceTree = "<group>";
+		};
+		C511C3E21C99DB1E00EEF114 /* KSFacebookFriends */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = KSFacebookFriends;
 			sourceTree = "<group>";
 		};
 		C53F000D1C6E2ACA00A0768F /* UITableView */ = {
@@ -453,6 +513,8 @@
 		C554FA511C6A2F4E00979CCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C511C3E21C99DB1E00EEF114 /* KSFacebookFriends */,
+				C511C3E11C99DB0300EEF114 /* KSFacebookFriendDetail */,
 				C5CD8FDB1C8875580022D60B /* KSImageModel */,
 				C551868F1C7E43FC00BFBDBC /* KSModel */,
 				C540D0D01C7370C70095362C /* KSCollectionChangeModel */,
@@ -717,9 +779,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5052C361C5A48130002B214 /* Build configuration list for PBXNativeTarget "KSProjectUI" */;
 			buildPhases = (
+				6F01173DE8EB38F60D598EB6 /* Check Pods Manifest.lock */,
 				C5052C1B1C5A48130002B214 /* Sources */,
 				C5052C1C1C5A48130002B214 /* Frameworks */,
 				C5052C1D1C5A48130002B214 /* Resources */,
+				63752483BA0A85BCA1A4A5D5 /* Embed Pods Frameworks */,
+				F2013B31DDB6FC422C680E00 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -775,11 +840,60 @@
 				C55186AC1C7F2A9800BFBDBC /* KSUserCell.xib in Resources */,
 				C554FA5B1C6A3B9E00979CCA /* apple.png in Resources */,
 				C56A03491C60BDA00043FE10 /* KSSquareView.xib in Resources */,
+				C511C3E01C99C69300EEF114 /* KSFacebookLoginViewController.xib in Resources */,
 				C53F00201C6FD65D00A0768F /* KSUsersView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63752483BA0A85BCA1A4A5D5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSProjectUI/Pods-KSProjectUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F01173DE8EB38F60D598EB6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F2013B31DDB6FC422C680E00 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KSProjectUI/Pods-KSProjectUI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C5052C1B1C5A48130002B214 /* Sources */ = {
@@ -799,6 +913,7 @@
 				C554FA291C6898FD00979CCA /* NSString+KSExtensions.m in Sources */,
 				C511C2081C94A99400EEF114 /* KSObjectsCache.m in Sources */,
 				C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */,
+				C511C3DF1C99C69300EEF114 /* KSFacebookLoginViewController.m in Sources */,
 				C5721F051C74B98900C1541D /* UITableView+KSCollectionChangeModel.m in Sources */,
 				C5721F111C74BEA900C1541D /* KSArrayDoubleIndexChangeModel+UITableView.m in Sources */,
 				C5721F151C74C1E100C1541D /* NSIndexPath+KSExtensions.m in Sources */,
@@ -829,6 +944,7 @@
 				C511C2041C94510F00EEF114 /* NSURL+KSExtensions.m in Sources */,
 				C56A03481C60BDA00043FE10 /* KSSquareView.m in Sources */,
 				C53F00271C6FDAD000A0768F /* KSArrayModel.m in Sources */,
+				C511C3E51C99EB3F00EEF114 /* KSFacebookFriendDetail.m in Sources */,
 				C5D44E5F1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -933,13 +1049,11 @@
 		};
 		C5052C371C5A48130002B214 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F95FDB3ACCA92DC7E609DACD /* Pods-KSProjectUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/FacebookSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/Serhii/for-Study/ProjectUI/Pods";
 				INFOPLIST_FILE = KSProjectUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -950,13 +1064,11 @@
 		};
 		C5052C381C5A48130002B214 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F2F85084AA38778246E05AE /* Pods-KSProjectUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks/FacebookSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/Serhii/for-Study/ProjectUI/Pods";
 				INFOPLIST_FILE = KSProjectUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

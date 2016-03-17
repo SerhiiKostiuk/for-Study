@@ -105,8 +105,6 @@
 
 #pragma mark - UIActionSheetDelegate
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
   if (buttonIndex == 0) {
@@ -115,7 +113,6 @@
     [self.delegate loginButtonDidLogOut:self];
   }
 }
-#pragma clang diagnostic pop
 
 #pragma mark - FBSDKButtonImpressionTracking
 
@@ -173,6 +170,12 @@
 
 - (void)_buttonPressed:(id)sender
 {
+  if ([self.delegate respondsToSelector:@selector(loginButtonWillLogin:)]) {
+    if (![self.delegate loginButtonWillLogin:self]) {
+      return;
+    }
+  }
+
   [self logTapEventWithEventName:FBSDKAppEventNameFBSDKLoginButtonDidTap parameters:[self analyticsParameters]];
   if ([FBSDKAccessToken currentAccessToken]) {
     NSString *title = nil;
@@ -208,12 +211,6 @@
     [sheet showInView:self];
 #pragma clang diagnostic pop
   } else {
-    if ([self.delegate respondsToSelector:@selector(loginButtonWillLogin:)]) {
-      if (![self.delegate loginButtonWillLogin:self]) {
-        return;
-      }
-    }
-
     FBSDKLoginManagerRequestTokenHandler handler = ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
       if ([self.delegate respondsToSelector:@selector(loginButton:didCompleteWithResult:error:)]) {
         [self.delegate loginButton:self didCompleteWithResult:result error:error];
