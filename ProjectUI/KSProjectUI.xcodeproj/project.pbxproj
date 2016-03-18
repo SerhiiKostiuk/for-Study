@@ -15,7 +15,9 @@
 		C511C3C41C9859AB00EEF114 /* KSFacebookFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3C31C9859AB00EEF114 /* KSFacebookFriendsContext.m */; };
 		C511C3DF1C99C69300EEF114 /* KSFacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3DD1C99C69300EEF114 /* KSFacebookLoginViewController.m */; };
 		C511C3E01C99C69300EEF114 /* KSFacebookLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C511C3DE1C99C69300EEF114 /* KSFacebookLoginViewController.xib */; };
-		C511C3E51C99EB3F00EEF114 /* KSFacebookFriendDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3E41C99EB3F00EEF114 /* KSFacebookFriendDetail.m */; };
+		C511C3E91C9C3FCC00EEF114 /* KSFacebookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3E81C9C3FCC00EEF114 /* KSFacebookUser.m */; };
+		C511C3EC1C9C400700EEF114 /* KSFacebookUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3EB1C9C400700EEF114 /* KSFacebookUsers.m */; };
+		C511C3EF1C9C4E6D00EEF114 /* KSFacebookLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C511C3EE1C9C4E6D00EEF114 /* KSFacebookLoginView.m */; };
 		C53F00101C6E2AF400A0768F /* UITableView+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F000F1C6E2AF400A0768F /* UITableView+KSExtensions.m */; };
 		C53F001F1C6FD65D00A0768F /* KSUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F00171C6FD65D00A0768F /* KSUsersView.m */; };
 		C53F00201C6FD65D00A0768F /* KSUsersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C53F00181C6FD65D00A0768F /* KSUsersView.xib */; };
@@ -80,8 +82,13 @@
 		C511C3DC1C99C69300EEF114 /* KSFacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSFacebookLoginViewController.h; sourceTree = "<group>"; };
 		C511C3DD1C99C69300EEF114 /* KSFacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFacebookLoginViewController.m; sourceTree = "<group>"; };
 		C511C3DE1C99C69300EEF114 /* KSFacebookLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSFacebookLoginViewController.xib; sourceTree = "<group>"; };
-		C511C3E31C99EB3F00EEF114 /* KSFacebookFriendDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSFacebookFriendDetail.h; sourceTree = "<group>"; };
-		C511C3E41C99EB3F00EEF114 /* KSFacebookFriendDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFacebookFriendDetail.m; sourceTree = "<group>"; };
+		C511C3E61C9C3F6600EEF114 /* KSModelObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KSModelObserver.h; path = KSModel/KSModelObserver.h; sourceTree = "<group>"; };
+		C511C3E71C9C3FCC00EEF114 /* KSFacebookUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSFacebookUser.h; path = KSFacebookUser/KSFacebookUser.h; sourceTree = "<group>"; };
+		C511C3E81C9C3FCC00EEF114 /* KSFacebookUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSFacebookUser.m; path = KSFacebookUser/KSFacebookUser.m; sourceTree = "<group>"; };
+		C511C3EA1C9C400700EEF114 /* KSFacebookUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSFacebookUsers.h; path = KSFacebookUser/KSFacebookUsers.h; sourceTree = "<group>"; };
+		C511C3EB1C9C400700EEF114 /* KSFacebookUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSFacebookUsers.m; path = KSFacebookUser/KSFacebookUsers.m; sourceTree = "<group>"; };
+		C511C3ED1C9C4E6D00EEF114 /* KSFacebookLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSFacebookLoginView.h; sourceTree = "<group>"; };
+		C511C3EE1C9C4E6D00EEF114 /* KSFacebookLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFacebookLoginView.m; sourceTree = "<group>"; };
 		C53F000E1C6E2AF400A0768F /* UITableView+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+KSExtensions.h"; sourceTree = "<group>"; };
 		C53F000F1C6E2AF400A0768F /* UITableView+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+KSExtensions.m"; sourceTree = "<group>"; };
 		C53F00161C6FD65D00A0768F /* KSUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsersView.h; sourceTree = "<group>"; };
@@ -100,7 +107,6 @@
 		C540D0DE1C73DEB10095362C /* KSCollectionObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSCollectionObserver.h; sourceTree = "<group>"; };
 		C55186901C7E442F00BFBDBC /* KSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSModel.h; path = KSModel/KSModel.h; sourceTree = "<group>"; };
 		C55186911C7E442F00BFBDBC /* KSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSModel.m; path = KSModel/KSModel.m; sourceTree = "<group>"; };
-		C55186931C7E46D700BFBDBC /* KSModelObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSModelObserver.h; sourceTree = "<group>"; };
 		C55186951C7E4CDB00BFBDBC /* NSFileManager+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+KSExtensions.h"; path = "NSFIleManager/NSFileManager+KSExtensions.h"; sourceTree = "<group>"; };
 		C55186961C7E4CDB00BFBDBC /* NSFileManager+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+KSExtensions.m"; path = "NSFIleManager/NSFileManager+KSExtensions.m"; sourceTree = "<group>"; };
 		C551869F1C7F299000BFBDBC /* KSDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDispatch.h; sourceTree = "<group>"; };
@@ -295,17 +301,21 @@
 				C511C3DC1C99C69300EEF114 /* KSFacebookLoginViewController.h */,
 				C511C3DD1C99C69300EEF114 /* KSFacebookLoginViewController.m */,
 				C511C3DE1C99C69300EEF114 /* KSFacebookLoginViewController.xib */,
+				C511C3ED1C9C4E6D00EEF114 /* KSFacebookLoginView.h */,
+				C511C3EE1C9C4E6D00EEF114 /* KSFacebookLoginView.m */,
 			);
 			path = KSFacebookLoginViewController;
 			sourceTree = "<group>";
 		};
-		C511C3E11C99DB0300EEF114 /* KSFacebookFriendDetail */ = {
+		C511C3E11C99DB0300EEF114 /* KSFacebookUser */ = {
 			isa = PBXGroup;
 			children = (
-				C511C3E31C99EB3F00EEF114 /* KSFacebookFriendDetail.h */,
-				C511C3E41C99EB3F00EEF114 /* KSFacebookFriendDetail.m */,
+				C511C3E71C9C3FCC00EEF114 /* KSFacebookUser.h */,
+				C511C3E81C9C3FCC00EEF114 /* KSFacebookUser.m */,
+				C511C3EA1C9C400700EEF114 /* KSFacebookUsers.h */,
+				C511C3EB1C9C400700EEF114 /* KSFacebookUsers.m */,
 			);
-			name = KSFacebookFriendDetail;
+			name = KSFacebookUser;
 			sourceTree = "<group>";
 		};
 		C511C3E21C99DB1E00EEF114 /* KSFacebookFriends */ = {
@@ -404,7 +414,7 @@
 			children = (
 				C55186901C7E442F00BFBDBC /* KSModel.h */,
 				C55186911C7E442F00BFBDBC /* KSModel.m */,
-				C55186931C7E46D700BFBDBC /* KSModelObserver.h */,
+				C511C3E61C9C3F6600EEF114 /* KSModelObserver.h */,
 			);
 			name = KSModel;
 			sourceTree = "<group>";
@@ -514,7 +524,7 @@
 			isa = PBXGroup;
 			children = (
 				C511C3E21C99DB1E00EEF114 /* KSFacebookFriends */,
-				C511C3E11C99DB0300EEF114 /* KSFacebookFriendDetail */,
+				C511C3E11C99DB0300EEF114 /* KSFacebookUser */,
 				C5CD8FDB1C8875580022D60B /* KSImageModel */,
 				C551868F1C7E43FC00BFBDBC /* KSModel */,
 				C540D0D01C7370C70095362C /* KSCollectionChangeModel */,
@@ -912,6 +922,7 @@
 				C53F00101C6E2AF400A0768F /* UITableView+KSExtensions.m in Sources */,
 				C554FA291C6898FD00979CCA /* NSString+KSExtensions.m in Sources */,
 				C511C2081C94A99400EEF114 /* KSObjectsCache.m in Sources */,
+				C511C3EF1C9C4E6D00EEF114 /* KSFacebookLoginView.m in Sources */,
 				C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */,
 				C511C3DF1C99C69300EEF114 /* KSFacebookLoginViewController.m in Sources */,
 				C5721F051C74B98900C1541D /* UITableView+KSCollectionChangeModel.m in Sources */,
@@ -928,6 +939,7 @@
 				C511C3BD1C98530300EEF114 /* KSFacebookLoginContext.m in Sources */,
 				C554FA461C6A1A9E00979CCA /* KSObservableObject.m in Sources */,
 				C5CD8FE31C89D0EF0022D60B /* KSImageView.m in Sources */,
+				C511C3E91C9C3FCC00EEF114 /* KSFacebookUser.m in Sources */,
 				C5721F0E1C74BE7B00C1541D /* KSArrayIndexChangeModel+UITableView.m in Sources */,
 				C55186921C7E442F00BFBDBC /* KSModel.m in Sources */,
 				C5CD8FD61C835A380022D60B /* KSView.m in Sources */,
@@ -944,8 +956,8 @@
 				C511C2041C94510F00EEF114 /* NSURL+KSExtensions.m in Sources */,
 				C56A03481C60BDA00043FE10 /* KSSquareView.m in Sources */,
 				C53F00271C6FDAD000A0768F /* KSArrayModel.m in Sources */,
-				C511C3E51C99EB3F00EEF114 /* KSFacebookFriendDetail.m in Sources */,
 				C5D44E5F1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m in Sources */,
+				C511C3EC1C9C400700EEF114 /* KSFacebookUsers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
