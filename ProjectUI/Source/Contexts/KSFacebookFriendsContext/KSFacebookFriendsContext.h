@@ -8,6 +8,10 @@
 
 #import "KSContext.h"
 
+@class KSUser;
+
 @interface KSFacebookFriendsContext : KSContext
+@property (nonatomic, strong) KSUser                      *user;
+
 
 @end
