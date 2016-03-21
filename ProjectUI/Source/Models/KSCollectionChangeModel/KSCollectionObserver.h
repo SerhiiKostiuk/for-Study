@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol KSArrayModelObserver <NSObject>
+@protocol KSCollectionObserver <NSObject>
 
 @optional
 - (void)collection:(id)collection didChangeWithModel:(id)changeModel;

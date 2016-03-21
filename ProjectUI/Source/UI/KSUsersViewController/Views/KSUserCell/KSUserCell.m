@@ -40,7 +40,7 @@
 }
 
 - (void)fillWithModel:(KSUser *)user {
-    self.label.text = user.name;
+    self.label.text = user.firstName;
     self.contentImageView.imageModel = user.imageModel;
 }
 

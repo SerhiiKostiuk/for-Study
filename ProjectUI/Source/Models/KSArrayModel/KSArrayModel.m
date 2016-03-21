@@ -62,6 +62,10 @@
     }
 }
 
+- (id)objectAtIndexedSubscript:(NSUInteger) index {
+    return [self objectAtIndex:index];
+}
+
 - (void)addObject:(id)object {
     NSMutableArray *mutableObjects = self.mutableObjects;
     @synchronized(mutableObjects) {
