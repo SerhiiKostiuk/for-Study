@@ -12,9 +12,15 @@
 #import "KSModel.h"
 
 @class KSImageModel;
+@class KSUsers;
 
 @interface KSUser : KSModel <NSCoding>
-@property (nonatomic, copy)     NSString  *name;
+@property (nonatomic, copy)     NSString     *firstName;
+@property (nonatomic, copy)     NSString     *lastName;
 @property (nonatomic, readonly) KSImageModel *imageModel;
+@property (nonatomic, strong)   KSUsers      *friends;
+@property (nonatomic, copy)     NSURL        *previewImageURL;
+@property (nonatomic, copy)     NSURL        *largeImageURL;
+
 
 @end

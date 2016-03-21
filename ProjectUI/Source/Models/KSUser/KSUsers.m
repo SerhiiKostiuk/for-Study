@@ -9,14 +9,8 @@
 #import "KSUsers.h"
 
 #import "KSUser.h"
-
-#import "NSPathUtilities+KSExtensions.h"
 #import "NSFileManager+KSExtensions.h"
-#import "NSObject+KSExtensions.h"
-
 #import "KSWeakifyMacro.h"
-
-static const NSUInteger kKSUsersCount = 100;
 
 static NSString * const kKSPListName  = @"users.plist";
 
@@ -26,6 +20,7 @@ static NSString * const kKSPListName  = @"users.plist";
 
 @property(nonatomic, copy) NSString  *path;
 
+- (NSString *)usersFolderPath;
 - (void)startObservingNotification;
 - (void)endObservingNotification;
 - (void)performBackgroundLoading;
@@ -34,6 +29,7 @@ static NSString * const kKSPListName  = @"users.plist";
 @end
 
 @implementation KSUsers
+
 
 @dynamic cached;
 
@@ -53,17 +49,16 @@ static NSString * const kKSPListName  = @"users.plist";
     return self;
 }
 
+
 #pragma mark -
 #pragma mark Accessors
 
 - (NSString *)path {
-    return [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
+    return [self usersFolderPath];
 }
 
 - (BOOL)isCached {
-    NSFileManager *manager = [NSFileManager defaultManager];
-    
-    return [manager fileExistsAtPath:self.path];
+    return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
 }
 
 #pragma mark -
@@ -75,6 +70,13 @@ static NSString * const kKSPListName  = @"users.plist";
 
 #pragma mark -
 #pragma mark Private
+
+- (NSString *)usersFolderPath {
+    NSString *usersFolderName = [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
+    [[NSFileManager defaultManager] provideDirectoryAtPath:usersFolderName];
+    
+    return usersFolderName;
+}
 
 - (void)startObservingNotification {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -109,16 +111,11 @@ static NSString * const kKSPListName  = @"users.plist";
     NSArray *objects = nil;
     if (self.cached) {
         objects = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
-    }
-    
-    if (!objects) {
-        objects = [KSUser objectsWithCount:kKSUsersCount];
-    }
-    
-    [self fillWithUsers:objects];
-    
-    @synchronized(self) {
-        self.state = KSModelStateFinishedLoading;
+        [self fillWithUsers:objects];
+        
+        @synchronized(self) {
+            self.state = KSModelStateFinishedLoading;
+        }
     }
 }
 

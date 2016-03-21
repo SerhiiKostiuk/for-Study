@@ -9,13 +9,14 @@
 #import "KSUser.h"
 
 #import "KSImageModel.h"
+#import "KSUsers.h"
 
-#import "NSString+KSRandomName.h"
-#import "NSFileManager+KSExtensions.h"
+static NSString * const kKSFirstNameKey        = @"firstName";
+static NSString * const kKSLastNameKey         = @"lastName";
+static NSString * const kKSFriendsKey          = @"friends";
+static NSString * const kKSPreviewImageURLKey  = @"imageURL";
+static NSString * const kKSLargeImageURLKey    = @"imageURL";
 
-static NSString * const kKSStringURL = @"http://bitemybark.com/wp-content/uploads/2014/09/what-the-fuck-is-this.jpg";
-
-static NSString * const kKSNameKey = @"name";
 
 @implementation KSUser
 
@@ -25,11 +26,10 @@ static NSString * const kKSNameKey = @"name";
 #pragma mark Initializations and Deallocations
 
 - (instancetype)init {
-    self = [super init];    
+    self = [super init];
     if (self) {
-        self.name = [NSString randomName];
+        self.friends = [KSUsers new];
     }
-    
     return self;
 }
 
@@ -37,25 +37,31 @@ static NSString * const kKSNameKey = @"name";
 #pragma mark Accessors
 
 - (KSImageModel *)imageModel {
-    return [KSImageModel imageWithUrl:[NSURL URLWithString:kKSStringURL]];
+    return [KSImageModel imageWithUrl:self.previewImageURL];
 }
-
-#pragma mark -
-#pragma mark Private
-
-//- (void)performBackgroundLoading {
-//    
-//}
 
 #pragma mark -
 #pragma mark NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.name forKey:kKSNameKey];
+    NSDictionary *encodingDictionary = @{kKSFirstNameKey : self.firstName,
+                                         kKSLastNameKey : self.lastName,
+                                         kKSFriendsKey : self.friends,
+                                         kKSPreviewImageURLKey : self.previewImageURL,
+                                         kKSLargeImageURLKey : self.largeImageURL};
+    
+    for (NSString *key in encodingDictionary.allKeys) {
+        [aCoder encodeObject:[encodingDictionary objectForKey:key] forKey:key];
+    }
 }
 
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self.name = [aDecoder decodeObjectForKey:kKSNameKey];
+    self.firstName = [aDecoder decodeObjectForKey:kKSFirstNameKey];
+    self.lastName = [aDecoder decodeObjectForKey:kKSLastNameKey];
+    self.friends = [aDecoder decodeObjectForKey:kKSFriendsKey];
+    self.previewImageURL = [aDecoder decodeObjectForKey:kKSPreviewImageURLKey];
+    self.largeImageURL = [aDecoder decodeObjectForKey:kKSLargeImageURLKey];
     
     return self;
 }
