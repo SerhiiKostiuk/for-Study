@@ -1,13 +1,14 @@
 //
-//  KSFacebookLoginView.h
+//  KSFacebookLoginView.m
 //  KSProjectUI
 //
 //  Created by Serg Bla on 18.03.16.
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "KSFacebookLoginView.h"
 
-@interface KSFacebookLoginView : UIView
+@implementation KSFacebookLoginView
 
 @end
+   

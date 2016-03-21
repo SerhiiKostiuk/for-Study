@@ -10,8 +10,12 @@
 
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface KSFacebookLoginViewController : UIViewController
+@class KSUser;
 
-@property (nonatomic, weak) IBOutlet FBSDKLoginButton *loginButton;
+@interface KSFacebookLoginViewController : UIViewController
+@property (nonatomic, strong) KSUser *user;
+
+
+- (IBAction)onLogin:(id)sender;
 
 @end
