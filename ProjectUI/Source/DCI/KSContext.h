@@ -18,6 +18,4 @@
 - (void)execute;
 - (void)cancel;
 
-- (FBSDKGraphRequest *)graphRequest:(NSString *)grathPath;
-
 @end

@@ -11,6 +11,7 @@
 #import "KSUserCell.h"
 #import "KSFriendsView.h"
 #import "KSDispatch.h"
+#import "KSUser.h"
 
 #import "UIViewController+KSExtensions.h"
 
@@ -22,9 +23,18 @@ KSCategoryForViewProperty(KSFriendsViewController, KSFriendsView, mainView);
 
 @implementation KSFriendsViewController
 
-
 #pragma mark -
 #pragma mark Accessors
+
+- (void)setUser:(KSUser *)user {
+    if (_user != user) {
+        [_user removeObserver:self];
+//        [_user setItems:user.friends];
+        _user = user;
+        [_user addObserver:self];
+        
+    }
+}
 
 - (UITableView *)tableView {
     return self.mainView.tableView;
@@ -37,20 +47,8 @@ KSCategoryForViewProperty(KSFriendsViewController, KSFriendsView, mainView);
     return [KSUserCell class];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark -
 #pragma mark Private
-
-- (id)cellClass {
-    return [[self class] cellClass];
-}
 
 - (void)updateViewWithModel {
     [self.mainView.tableView reloadData];

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KSViewController : UIViewController
+#import "KSModelObserver.h"
+
+@class KSFacebookLoginContext;
+
+@interface KSViewController : UIViewController <KSModelObserver>
+@property (nonatomic, strong) KSFacebookLoginContext *context;
+
 
 @end

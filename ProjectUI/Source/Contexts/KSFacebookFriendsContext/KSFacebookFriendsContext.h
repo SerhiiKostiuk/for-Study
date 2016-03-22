@@ -11,7 +11,7 @@
 @class KSUser;
 
 @interface KSFacebookFriendsContext : KSContext
-@property (nonatomic, strong) KSUser                      *user;
+@property (nonatomic, strong) KSUser  *user;
 
 
 @end

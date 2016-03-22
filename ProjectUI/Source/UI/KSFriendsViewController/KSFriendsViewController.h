@@ -8,6 +8,9 @@
 
 #import "KSArrayViewController.h"
 
+@class KSUser;
+
 @interface KSFriendsViewController : KSArrayViewController
+@property (nonatomic,strong) KSUser *user;
 
 @end

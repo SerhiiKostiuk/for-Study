@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "KSViewController.h"
 
 @class KSUser;
 
-@interface KSFacebookLoginViewController : UIViewController
+@interface KSFacebookLoginViewController : KSViewController
 @property (nonatomic, strong) KSUser *user;
-
 
 - (IBAction)onLogin:(id)sender;
 

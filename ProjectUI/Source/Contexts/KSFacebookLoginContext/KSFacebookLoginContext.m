@@ -10,16 +10,35 @@
 
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "KSFacebookLoginViewController.h"
+#import "KSModel.h"
+#import "KSUser.h"
+#import "KSParsingKeys.h"
 
-static NSString * const  kKSPublicPermission = @"public_profile";
+static NSString * const  kKSPublicPermission      = @"public_profile";
 static NSString * const  kKSUserFriendsPermission = @"user_friends";
+static NSString * const  kKSUserPath              = @"me";
+
 
 @interface KSFacebookLoginContext ()
 @property (nonatomic, strong) KSFacebookLoginViewController *viewController;
+@property (nonatomic, copy) NSString *path;
 
 @end
 
 @implementation KSFacebookLoginContext
+
+#pragma mark -
+#pragma mark Public
+
+- (NSString *)path {
+    return self.path = kKSUserPath;
+}
+
+- (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result {
+    KSUser *user = [KSUser new];
+    user.firstName = result[kFBFirstNameKey];
+    user.lastName = result[kFBLastNameKey];
+}
 
 #pragma mark -
 #pragma mark Private
@@ -32,11 +51,11 @@ static NSString * const  kKSUserFriendsPermission = @"user_friends";
                                handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                    if (error) {
                                        NSLog(@"Process error");
-                                   } else if (result.isCancelled) {
-                                       NSLog(@"Cancelled");
-                                   } else {
-                                       NSLog(@"Logged in");
+                                       self.model.state = KSModelStateFailedLoading;
+                                       return;
                                    }
+                                   
+                                   [super performBackgroundLoading];
                                }];
 
 }

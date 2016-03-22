@@ -61,9 +61,9 @@
 
 - (IBAction)onLogin:(id)sender {
     KSFacebookLoginContext *context = [KSFacebookLoginContext new];
+    
+    self.context = context;
     [context execute];
 };
-
-
 
 @end

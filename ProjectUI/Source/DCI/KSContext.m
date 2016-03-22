@@ -9,8 +9,6 @@
 #import "KSContext.h"
 
 #import "KSModel.h"
-
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "KSDispatch.h"
 
 @implementation KSContext
@@ -21,7 +19,13 @@
 - (void)execute {
     KSModel *model = self.model;
     @synchronized(model) {
-        [self notifyWithState];
+        NSUInteger state = model.state;
+        
+        if (KSModelStateFinishedLoading == state || KSModelStateLoading == state) {
+            [model notifyObserversWithSelector:[model selectorForState:state]];
+            
+            return;
+        }
         
         model.state = KSModelStateLoading;
         
@@ -36,27 +40,11 @@
     
 }
 
-- (FBSDKGraphRequest *)graphRequest:(NSString *)grathPath {
-    return [[FBSDKGraphRequest alloc] initWithGraphPath:grathPath parameters:nil];
-}
-
-
 #pragma mark -
 #pragma mark Private
 
 - (void)performBackgroundLoading {
     [self doesNotRecognizeSelector:_cmd];
-}
-
-- (void)notifyWithState {
-    KSModel *model = self.model;
-    NSUInteger state = model.state;
-    
-    if (KSModelStateFinishedLoading == state || KSModelStateLoading == state) {
-        [model notifyObserversWithSelector:[model selectorForState:state]];
-        
-        return;
-    }
 }
 
 @end

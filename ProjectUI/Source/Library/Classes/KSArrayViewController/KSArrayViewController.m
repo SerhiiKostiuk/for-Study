@@ -17,7 +17,6 @@
 
 @interface KSArrayViewController () <UITableViewDelegate, UITableViewDataSource, KSCollectionObserver>
 
-+ (Class)cellClass;
 - (id)cellClass;
 
 @end
@@ -94,6 +93,26 @@
 - (void)collection:(id)collection didChangeWithModel:(id)changeModel {
     UITableView *tableView = self.tableView;
     [tableView updateWithCollectionChangeModel:changeModel];
+}
+
+#pragma mark -
+#pragma mark KSModelObserver
+
+- (void)modelWillLoad:(id)model {
+    KSDispatchAsyncOnMainQueue(^{
+        self.mainView.loadingViewVisible = YES;
+    });
+}
+
+- (void)modelDidFinishLoading:(id)model {
+    KSDispatchAsyncOnMainQueue(^{
+        [self updateViewWithModel];
+        self.mainView.loadingViewVisible = NO;
+    });
+}
+
+- (void)modelDidFailLoading:(id)model {
+    self.mainView.loadingViewVisible = NO;
 }
 
 @end

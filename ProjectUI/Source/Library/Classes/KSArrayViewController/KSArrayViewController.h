@@ -13,5 +13,8 @@
 @interface KSArrayViewController : KSViewController
 @property (nonatomic, strong) KSArrayModel *items;
 
++ (Class)cellClass;
+
+- (UITableView *)tableView;
 
 @end

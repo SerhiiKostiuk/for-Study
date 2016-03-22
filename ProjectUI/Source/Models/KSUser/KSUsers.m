@@ -9,29 +9,17 @@
 #import "KSUsers.h"
 
 #import "KSUser.h"
-#import "NSFileManager+KSExtensions.h"
 #import "KSWeakifyMacro.h"
-
-static NSString * const kKSPListName  = @"users.plist";
 
 @interface KSUsers ()
 @property (nonatomic, strong) NSMutableArray        *notificationObservers;
-@property (nonatomic, assign, getter=isCached) BOOL cached;
 
-@property(nonatomic, copy) NSString  *path;
-
-- (NSString *)usersFolderPath;
 - (void)startObservingNotification;
 - (void)endObservingNotification;
-- (void)performBackgroundLoading;
-- (void)fillWithUsers:(NSArray *)objects;
 
 @end
 
 @implementation KSUsers
-
-
-@dynamic cached;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -49,18 +37,6 @@ static NSString * const kKSPListName  = @"users.plist";
     return self;
 }
 
-
-#pragma mark -
-#pragma mark Accessors
-
-- (NSString *)path {
-    return [self usersFolderPath];
-}
-
-- (BOOL)isCached {
-    return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
-}
-
 #pragma mark -
 #pragma mark Public
 
@@ -70,13 +46,6 @@ static NSString * const kKSPListName  = @"users.plist";
 
 #pragma mark -
 #pragma mark Private
-
-- (NSString *)usersFolderPath {
-    NSString *usersFolderName = [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
-    [[NSFileManager defaultManager] provideDirectoryAtPath:usersFolderName];
-    
-    return usersFolderName;
-}
 
 - (void)startObservingNotification {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -103,30 +72,6 @@ static NSString * const kKSPListName  = @"users.plist";
         [self.notificationObservers removeObject:observer];
         
     }
-}
-
-- (void)performBackgroundLoading {
-    sleep(2);
-    
-    NSArray *objects = nil;
-    if (self.cached) {
-        objects = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
-        [self fillWithUsers:objects];
-        
-        @synchronized(self) {
-            self.state = KSModelStateFinishedLoading;
-        }
-    }
-}
-
-- (void)fillWithUsers:(NSArray *)objects {
-    KSWeakify(self);
-    [self performBlockWithoutNotification:^{
-        KSStrongifyAndReturnIfNil(self);
-        for (KSUser *user in objects) {
-            [self addObject: user];
-        }
-    }];
 }
 
 @end

@@ -6,9 +6,8 @@
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import "KSContext.h"
+#import "KSFacebookContext.h"
 
-@interface KSFacebookLoginContext : KSContext
-
+@interface KSFacebookLoginContext : KSFacebookContext
 
 @end
