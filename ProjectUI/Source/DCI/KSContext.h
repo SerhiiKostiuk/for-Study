@@ -8,12 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class KSModel;
-@class FBSDKGraphRequest;
-
 @interface KSContext : NSObject
 
-@property (nonatomic, strong) KSModel *model;
+@property (nonatomic, strong) id model;
 
 - (void)execute;
 - (void)cancel;

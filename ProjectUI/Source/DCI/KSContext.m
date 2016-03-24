@@ -30,10 +30,9 @@
         model.state = KSModelStateLoading;
         
         KSDispatchAsyncOnBackgroundQueue(^{
-            [self performBackgroundLoading];
+            [self load];
         });
     }
-    
 }
 
 - (void)cancel {
@@ -43,7 +42,7 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)performBackgroundLoading {
+- (void)load {
     [self doesNotRecognizeSelector:_cmd];
 }
 
