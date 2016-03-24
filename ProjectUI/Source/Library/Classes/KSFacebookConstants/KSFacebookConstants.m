@@ -6,8 +6,4 @@
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import "KSParsingKeys.h"
-
-@implementation KSParsingKeys
-
-@end
+#import "KSFacebookConstants.h"
