@@ -10,6 +10,8 @@
 
 #import "KSUser.h"
 #import "KSFacebookLoginContext.h"
+#import "KSFriendsViewController.h"
+#import "KSDispatch.h"
 
 @interface KSFacebookLoginViewController ()
 
@@ -61,9 +63,17 @@
 
 - (IBAction)onLogin:(id)sender {
     KSFacebookLoginContext *context = [KSFacebookLoginContext new];
-    
     self.context = context;
-    [context execute];
 };
+
+#pragma mark -
+#pragma mark KSModelObserver
+
+- (void)modelDidFinishLoading:(id)model {
+    KSDispatchAsyncOnMainQueue(^{
+        KSFriendsViewController *controller = [KSFriendsViewController new];
+        [self.navigationController pushViewController:controller animated:YES];
+    });
+}
 
 @end
