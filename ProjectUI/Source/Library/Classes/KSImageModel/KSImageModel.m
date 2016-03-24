@@ -113,7 +113,7 @@ static NSString * const kKSDirectoryName = @"images";
 
 - (NSString *)imageFolderPath {
     NSString *imageFolderName = [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSDirectoryName];
-    [[NSFileManager defaultManager] provideDirectoryAtPath:imageFolderName];
+    [NSFileManager createDirectoryAtPath:imageFolderName];
     
     return imageFolderName;
 }
