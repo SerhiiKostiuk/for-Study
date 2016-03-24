@@ -8,11 +8,13 @@
 
 #import "KSContext.h"
 
-@interface KSFacebookContext : KSContext
+@class FBSDKGraphRequest;
 
-- (FBSDKGraphRequest *)graphRequestWithPath;
-- (NSString *)path;
+@interface KSFacebookContext : KSContext
+@property (nonatomic, readonly) NSString           *path;
+@property (nonatomic, readonly) FBSDKGraphRequest  *graphRequest;
+
 - (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result;
-- (void)performBackgroundLoading;
+- (void)load;
 
 @end

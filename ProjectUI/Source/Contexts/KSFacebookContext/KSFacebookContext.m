@@ -11,17 +11,21 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import "KSModel.h"
-#import "KSParsingKeys.h"
+#import "KSFacebookConstants.h"
 
 #import "KSWeakifyMacro.h"
 
+//KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, model);
+
 @interface KSFacebookContext ()
-@property (nonatomic, readonly) NSString                    *path;
 @property (nonatomic, strong)   FBSDKGraphRequestConnection *connection;
+@property (nonatomic, readonly) KSModel  *userModel;
 
 @end
 
 @implementation KSFacebookContext
+
+@dynamic userModel;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -31,7 +35,11 @@
 }
 
 #pragma mark -
-#pragma mark Accessors 
+#pragma mark Accessors
+
+- (KSModel *)userModel { \
+    return [self.model isKindOfClass:[KSModel class]] ? (KSModel *)self.model : nil; \
+}
 
 - (void)setConnection:(FBSDKGraphRequestConnection *)connection {
     if (_connection != connection) {
@@ -53,7 +61,7 @@
     self.connection = nil;
 }
 
-- (FBSDKGraphRequest *)graphRequestWithPath {
+- (FBSDKGraphRequest *)graphRequest {
     return [[FBSDKGraphRequest alloc] initWithGraphPath:self.path parameters:nil];
 }
 
@@ -61,9 +69,9 @@
     
 }
 
-- (void)performBackgroundLoading {
+- (void)load {
     FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
-    [connection addRequest:[self graphRequestWithPath] completionHandler:[self complitionHandler]];
+    [connection addRequest:[self graphRequest] completionHandler:[self complitionHandler]];
 }
 
 #pragma mark -
@@ -74,7 +82,7 @@
     return ^(FBSDKGraphRequestConnection *connection, NSDictionary *result, NSError *error) {
         KSStrongifyAndReturnIfNil(self);
         if (error || result[kFBError]) {
-            self.model.state = KSModelStateFailedLoading;
+            self.userModel.state = KSModelStateFailedLoading;
             return;
         }
         
