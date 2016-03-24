@@ -9,11 +9,16 @@
 #import "KSUsers.h"
 
 #import "KSUser.h"
+#import "NSFileManager+KSExtensions.h"
 #import "KSWeakifyMacro.h"
+
+static NSString * const kKSPListName  = @"users.plist";
+
 
 @interface KSUsers ()
 @property (nonatomic, strong) NSMutableArray        *notificationObservers;
 
+- (NSString *)usersFolderPath;
 - (void)startObservingNotification;
 - (void)endObservingNotification;
 
@@ -38,6 +43,13 @@
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (NSString *)path {
+    return [self usersFolderPath];
+}
+
+#pragma mark -
 #pragma mark Public
 
 - (void)save {
@@ -46,6 +58,13 @@
 
 #pragma mark -
 #pragma mark Private
+
+- (NSString *)usersFolderPath {
+    NSString *usersFolderName = [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
+    [NSFileManager createDirectoryAtPath:usersFolderName];
+    
+    return usersFolderName;
+}
 
 - (void)startObservingNotification {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
