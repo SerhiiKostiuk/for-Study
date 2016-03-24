@@ -10,10 +10,15 @@
 
 #import "KSArrayModel.h"
 #import "KSUserCell.h"
+#import "KSView.h"
+#import "KSDispatch.h"
 #import "KSCollectionObserver.h"
 
 #import "UITableView+KSExtensions.h"
 #import "UITableView+KSCollectionChangeModel.h"
+#import "UIViewController+KSExtensions.h"
+
+KSViewControllerForViewPropertySyntesize(KSArrayViewController, KSView, mainView);
 
 @interface KSArrayViewController () <UITableViewDelegate, UITableViewDataSource, KSCollectionObserver>
 
@@ -106,13 +111,15 @@
 
 - (void)modelDidFinishLoading:(id)model {
     KSDispatchAsyncOnMainQueue(^{
-        [self updateViewWithModel];
+        [self.tableView reloadData];
         self.mainView.loadingViewVisible = NO;
     });
 }
 
 - (void)modelDidFailLoading:(id)model {
-    self.mainView.loadingViewVisible = NO;
+    KSDispatchAsyncOnMainQueue(^{
+        self.mainView.loadingViewVisible = NO;
+    });
 }
 
 @end

@@ -28,20 +28,14 @@
     self.window = window;
     
     KSFacebookLoginViewController *controller = [KSFacebookLoginViewController new];
-    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-//    KSUsers *users = [KSUsers new];
-//    self.users = users;
-//    controller.users = users;
     
     window.rootViewController = navigationController;
     
     [window makeKeyAndVisible];
     
-    [[FBSDKApplicationDelegate sharedInstance] application:application
-                             didFinishLaunchingWithOptions:launchOptions];
-    
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
