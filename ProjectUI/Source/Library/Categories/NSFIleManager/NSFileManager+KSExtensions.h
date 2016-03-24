@@ -13,7 +13,6 @@
 + (NSString *)libraryPath;
 + (NSString *)documentPath;
 + (NSString *)applicationDataPath;
-
-- (void)provideDirectoryAtPath:(NSString *)path;
++ (void)createDirectoryAtPath:(NSString *)path;
 
 @end

@@ -14,29 +14,36 @@ static NSString * const kKSDirectoryName = @"projectFolder";
 
 @implementation NSFileManager (KSExtensions)
 
+#define KSReturnDirectoryAtPath(path)\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{ [self createDirectoryAtPath:path]; });\
+return path;
+
+#define KSReturnDirectoryAtSearchPath(searchPath) KSReturnDirectoryAtPath(NSSearchPathForDirectory(searchPath));
+
 + (NSString *)libraryPath {
-    return NSSearchPathForDirectory(NSLibraryDirectory);
+    KSReturnDirectoryAtSearchPath(NSLibraryDirectory);
 }
 
 + (NSString *)documentPath {
-    return NSSearchPathForDirectory(NSDocumentDirectory);
+    KSReturnDirectoryAtSearchPath(NSDocumentDirectory);
 }
 
 + (NSString *)applicationDataPath {
-    return [[self libraryPath] stringByAppendingPathComponent:kKSDirectoryName];
+   KSReturnDirectoryAtPath([[self libraryPath] stringByAppendingPathComponent:kKSDirectoryName]);
 }
 
-- (void)provideDirectoryAtPath:(NSString *)path {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSFileManager *manager = [NSFileManager  defaultManager];
-        if (![manager fileExistsAtPath:path]) {
-            [manager createDirectoryAtPath:path
-               withIntermediateDirectories:YES
-                                attributes:nil
-                                     error:nil];
-        }
-    });
++ (void)createDirectoryAtPath:(NSString *)path {
+    NSFileManager *manager = [NSFileManager  defaultManager];
+    if (![manager fileExistsAtPath:path]) {
+        [manager createDirectoryAtPath:path
+           withIntermediateDirectories:YES
+                            attributes:nil
+                                 error:nil];
+    }
 }
+
+#undef KSReturnDirectoryAtPath
+#undef KSReturnDirectoryAtSearchPath
 
 @end
