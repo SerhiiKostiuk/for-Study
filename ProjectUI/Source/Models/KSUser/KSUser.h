@@ -15,12 +15,13 @@
 @class KSUsers;
 
 @interface KSUser : KSModel <NSCoding>
-@property (nonatomic, copy)     NSString     *firstName;
-@property (nonatomic, copy)     NSString     *lastName;
-@property (nonatomic, readonly) KSImageModel *imageModel;
-@property (nonatomic, strong)   KSUsers      *friends;
-@property (nonatomic, copy)     NSURL        *previewImageURL;
-@property (nonatomic, copy)     NSURL        *largeImageURL;
+@property (nonatomic, copy)   NSString     *personalId;
+@property (nonatomic, copy)   NSString     *firstName;
+@property (nonatomic, copy)   NSString     *lastName;
+@property (nonatomic, strong) KSImageModel *imageModel;
+@property (nonatomic, strong) KSUsers      *friends;
+@property (nonatomic, copy)   NSURL        *previewImageURL;
+@property (nonatomic, copy)   NSURL        *largeImageURL;
 
 
 @end
