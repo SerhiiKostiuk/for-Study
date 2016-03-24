@@ -12,10 +12,11 @@
 #import "KSFriendsView.h"
 #import "KSDispatch.h"
 #import "KSUser.h"
+#import "KSUsers.h"
 
 #import "UIViewController+KSExtensions.h"
 
-KSCategoryForViewProperty(KSFriendsViewController, KSFriendsView, mainView);
+KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView, friendsView);
 
 @interface KSFriendsViewController ()
 
@@ -29,15 +30,14 @@ KSCategoryForViewProperty(KSFriendsViewController, KSFriendsView, mainView);
 - (void)setUser:(KSUser *)user {
     if (_user != user) {
         [_user removeObserver:self];
-//        [_user setItems:user.friends];
         _user = user;
         [_user addObserver:self];
-        
+        self.items = user.friends;
     }
 }
 
 - (UITableView *)tableView {
-    return self.mainView.tableView;
+    return self.friendsView.tableView;
 }
 
 #pragma mark -
@@ -51,27 +51,8 @@ KSCategoryForViewProperty(KSFriendsViewController, KSFriendsView, mainView);
 #pragma mark Private
 
 - (void)updateViewWithModel {
-    [self.mainView.tableView reloadData];
+    [self.friendsView.tableView reloadData];
 }
-
-#pragma mark -
-#pragma mark KSModelObserver
-
-- (void)modelWillLoad:(id)model {
-    KSDispatchAsyncOnMainQueue(^{
-        self.mainView.loadingViewVisible = YES;
-    });
-}
-
-- (void)modelDidFinishLoading:(id)model {
-    KSDispatchAsyncOnMainQueue(^{
-        [self updateViewWithModel];
-        self.mainView.loadingViewVisible = NO;
-    });
-}
-
-- (void)modelDidFailLoading:(id)model {
-    self.mainView.loadingViewVisible = NO;
-}
+ 
 
 @end

@@ -19,7 +19,7 @@
 #import "UITableView+KSExtensions.h"
 #import "UITableView+KSCollectionChangeModel.h"
 
-KSCategoryForViewProperty(KSUsersViewController, KSUsersView, mainView);
+KSViewControllerForViewPropertySyntesize(KSUsersViewController, KSUsersView, mainView);
 
 @interface KSUsersViewController ()
 

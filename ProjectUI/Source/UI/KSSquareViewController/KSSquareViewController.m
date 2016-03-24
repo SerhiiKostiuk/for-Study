@@ -11,7 +11,7 @@
 
 #import "UIViewController+KSExtensions.h"
 
-KSCategoryForViewProperty(KSSquareViewController, KSSquareView, squareView);
+KSViewControllerForViewPropertySyntesize(KSSquareViewController, KSSquareView, squareView);
 
 @implementation KSSquareViewController
 

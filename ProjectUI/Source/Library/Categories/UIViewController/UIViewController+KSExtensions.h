@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#define KSViewControllerViewPropertySyntesize(viewClass, propertyName) \
+#define KSViewControllerViewPropertyDefine(viewClass, propertyName) \
 @property (nonatomic, strong) viewClass *propertyName;
 
-#define KSViewControllerViewGetterSynthesize(viewClass, propertyName) \
+#define KSViewControllerViewGetterDefine(viewClass, propertyName) \
     - (viewClass *)propertyName { \
         if ([self isViewLoaded] && [self.view isKindOfClass:[viewClass class]]) { \
             return (viewClass *)self.view; \
@@ -20,10 +20,10 @@
         return nil; \
     }
 
-#define KSCategoryForViewProperty(controllerName, viewClass, propertyName) \
+#define KSViewControllerForViewPropertySyntesize(controllerName, viewClass, propertyName) \
     \
     @interface controllerName (_KSViewControllerProperty__##controllerName##__##viewClass##__##propertyName) \
-    KSViewControllerViewPropertySyntesize(viewClass, propertyName) \
+    KSViewControllerViewPropertyDefine(viewClass, propertyName) \
     \
     @end \
     \
@@ -31,7 +31,7 @@
     \
     @dynamic propertyName; \
     \
-    KSViewControllerViewGetterSynthesize(viewClass, propertyName) \
+    KSViewControllerViewGetterDefine(viewClass, propertyName) \
     \
     @end
 
