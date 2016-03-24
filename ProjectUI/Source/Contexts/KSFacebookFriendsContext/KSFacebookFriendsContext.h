@@ -6,11 +6,11 @@
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import "KSContext.h"
+#import "KSFacebookContext.h"
 
 @class KSUser;
 
-@interface KSFacebookFriendsContext : KSContext
+@interface KSFacebookFriendsContext : KSFacebookContext
 @property (nonatomic, strong) KSUser  *user;
 
 

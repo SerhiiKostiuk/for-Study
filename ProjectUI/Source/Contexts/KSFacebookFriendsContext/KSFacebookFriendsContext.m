@@ -11,25 +11,20 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "KSUser.h"
 #import "KSUsers.h"
-#import "KSObservableObject.h"
-#import "KSContext.h"
+#import "KSFacebookConstants.h"
 
 #import "NSFileManager+KSExtensions.h"
 
 #import "KSWeakifyMacro.h"
 
-static NSString * const kKSPListName            = @"users.plist";
-static NSString * const kKSUserFriendsGraphPath = @"me/friends";
-static NSString * const kKSUserFriendsDataKey   = @"data";
+KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 
 @interface KSFacebookFriendsContext ()
-@property (nonatomic, strong)  FBSDKGraphRequest     *request;
-@property (nonatomic, strong)  KSUsers               *userFriends;
-@property(nonatomic, readonly) NSString              *path;
+@property (nonatomic, readonly) NSString  *folderPath;
+@property (nonatomic, readonly) NSString  *graphPath;
 
 @property (nonatomic, assign, getter=isCached) BOOL cached;
 
-- (NSString *)usersFolderPath;
 - (void)fillWithUsers:(NSArray *)objects;
 
 @end
@@ -42,49 +37,50 @@ static NSString * const kKSUserFriendsDataKey   = @"data";
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)path {
-    return [self usersFolderPath];
+- (NSString *)folderPath {
+    return self.user.friends.path;
+}
+
+- (NSString *)graphPath {
+    return kKSUserFriendsGraphPath;
 }
 
 - (BOOL)isCached {
-    return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
+    return [[NSFileManager defaultManager] fileExistsAtPath:self.folderPath];
+}
+
+- (FBSDKGraphRequest *)graphRequest {
+    return [[FBSDKGraphRequest alloc] initWithGraphPath:self.graphPath parameters:nil];
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result {
+    NSArray *friendList = result[kFBUserFriendsKey][kFBDataKey];
+    KSWeakify(self);
+    
+    for (id friend in friendList) {
+        KSUser *user = [KSUser new];
+        user.personalId = friend[kFBIdKey];
+        user.firstName = friend[kFBFirstNameKey];
+        user.lastName = friend[kFBLastNameKey];
+        NSString *url = friend[kFBPictureKey][kFBDataKey][kFBURLKey];
+        user.previewImageURL = [NSURL URLWithString:url];
+        
+        [self.model performBlockWithoutNotification:^{
+            KSStrongifyAndReturnIfNil(self);
+            [self.user.friends addObject:user];
+        }];
+    }
+
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)performBackgroundLoading {
-    FBSDKGraphRequest *request = self.request;
-    request = [self graphRequest:kKSUserFriendsGraphPath];
-    
-    FBSDKGraphRequestConnection *connection = self.connection;
-    [connection addRequest:request
-         completionHandler:^(FBSDKGraphRequestConnection *aConnection, id result, NSError *error)
-     {
-         if (error) {
-             NSLog(@"Error connecting");
-//             @synchronized(<#token#>) {
-//                 state = KSModelStateFailedLoading;
-//             }
-         } else if (!error) {
-             NSArray *friendList = [result objectForKey:kKSUserFriendsDataKey];
-             KSUser *user = self.user;
-             NSMutableArray *downloadFriends = [NSMutableArray new];
-             
-             [downloadFriends addObjectsFromArray:friendList];
-             user.friends = downloadFriends;
-         }
-         
-     }];
-    
-    [connection start];
-}
-
-- (NSString *)usersFolderPath {
-    NSString *usersFolderName = [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
-    [[NSFileManager defaultManager] provideDirectoryAtPath:usersFolderName];
-    
-    return usersFolderName;
+- (void)load {
+    [super load];
 }
 
 - (void)loadFromFile {    
@@ -94,7 +90,7 @@ static NSString * const kKSUserFriendsDataKey   = @"data";
         [self fillWithUsers:objects];
         
         @synchronized(self) {
-            self.model.state = KSModelStateFinishedLoading;
+            self.usersModel.state = KSModelStateFinishedLoading;
         }
     }
 }
@@ -104,7 +100,7 @@ static NSString * const kKSUserFriendsDataKey   = @"data";
     [self.model performBlockWithoutNotification:^{
         KSStrongifyAndReturnIfNil(self);
         for (KSUser *user in objects) {
-            [self.model addObject:user];
+            [self.user.friends addObject:user];
         }
     }];
 }
