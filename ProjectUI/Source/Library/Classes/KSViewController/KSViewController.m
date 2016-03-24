@@ -19,7 +19,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setContext:(KSFacebookLoginContext *)context {
+- (void)setContext:(KSContext *)context {
     if (_context != context) {
         [_context cancel];
         _context = context;
