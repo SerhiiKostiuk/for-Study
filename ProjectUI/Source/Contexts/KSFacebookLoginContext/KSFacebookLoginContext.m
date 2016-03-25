@@ -21,7 +21,6 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
 @interface KSFacebookLoginContext ()
 @property (nonatomic, strong) KSFacebookLoginViewController *viewController;
 @property (nonatomic, readonly) NSString *path;
-@property (nonatomic, readonly) KSUser *userModel;
 
 @end
 
@@ -51,6 +50,10 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
     user.firstName = result[kFBFirstNameKey];
     user.lastName = result[kFBLastNameKey];
     user.imageModel = result[kFBPictureKey];
+    
+    @synchronized(self.userModel) {
+        self.userModel.state = KSModelStateFinishedLoading;
+    }
 }
 
 #pragma mark -
@@ -59,21 +62,20 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
 - (void)load {
     KSWeakify(self);
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc]init];
-    KSFacebookLoginViewController *controller = self.viewController;
     [login logInWithReadPermissions:@[kKSPublicPermission, kKSUserFriendsPermission]
-                 fromViewController:controller
+                 fromViewController:self.viewController
                             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                 if (error) {
                                     NSLog(@"Process error");
                                     KSStrongifyAndReturnIfNil(self);
-                                    self.userModel.state = KSModelStateFailedLoading;
-                                    return;
+                                    @synchronized(self.userModel) {
+                                         self.userModel.state = KSModelStateFailedLoading;
+                                        
+                                        return;
+                                    }
                                 }
                                 
                                 [super load];
-                                
-                                KSStrongifyAndReturnIfNil(self);
-                                self.userModel.state = KSModelStateFinishedLoading;
                             }];
 }
 
