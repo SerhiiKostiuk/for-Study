@@ -8,11 +8,38 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KSContext : NSObject
+#define KSModelPropertyDefine(modelClass, propertyName) \
+@property (nonatomic, strong) modelClass *propertyName;
 
+#define KSModelGetterDefine(modelClass, propertyName) \
+- (modelClass *)propertyName { \
+return [self.model isKindOfClass:[modelClass class]] ? (modelClass *)self.propertyName : nil; \
+}
+
+#define KSModelForModelPropertySyntesize(contextName, modelClass, propertyName) \
+\
+@interface contextName (_KSModelProperty__##contextName##__##modelClass##__##propertyName) \
+KSModelPropertyDefine(modelClass, propertyName) \
+\
+@end \
+\
+@implementation contextName (_KSModelProperty__##contextName##__##modelClass##__##propertyName) \
+\
+@dynamic propertyName; \
+\
+KSModelGetterDefine(modelClass, propertyName) \
+\
+@end
+
+@interface KSContext : NSObject
 @property (nonatomic, strong) id model;
+
++ (instancetype)contextWithModel:(id)model;
+
+- (instancetype)initWithModel:(id)model;
 
 - (void)execute;
 - (void)cancel;
+- (void)load;
 
 @end

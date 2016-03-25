@@ -14,6 +14,23 @@
 @implementation KSContext
 
 #pragma mark -
+#pragma mark Initializations and deallocations
+
+- (instancetype)initWithModel:(id)model {
+    self = [super init];
+    self.model = model;
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)contextWithModel:(id)model {
+    return [[self alloc] initWithModel:model];
+}
+
+#pragma mark -
 #pragma mark Public
 
 - (void)execute {
@@ -43,7 +60,7 @@
 #pragma mark Private
 
 - (void)load {
-    [self doesNotRecognizeSelector:_cmd];
+
 }
 
 @end
