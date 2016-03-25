@@ -13,6 +13,7 @@
 #import "KSDispatch.h"
 #import "KSUser.h"
 #import "KSUsers.h"
+#import "KSFacebookFriendsContext.h"
 
 #import "UIViewController+KSExtensions.h"
 
@@ -47,10 +48,18 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
     return [KSUserCell class];
 }
 
-#pragma mark -
-#pragma mark Private
+#pragma mark-
+#pragma mark View Lifecycle
 
-- (void)updateViewWithModel {
+- (void)viewWillAppear:(BOOL)animated {
+    KSFacebookFriendsContext *context = [KSFacebookFriendsContext contextWithModel:self.items];
+    self.context = context;    
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)updateViewController {
     [self.friendsView.tableView reloadData];
 }
  

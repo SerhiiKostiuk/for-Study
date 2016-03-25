@@ -62,18 +62,16 @@
 #pragma mark Interface Handling
 
 - (IBAction)onLogin:(id)sender {
-    KSFacebookLoginContext *context = [KSFacebookLoginContext new];
+    KSFacebookLoginContext *context = [KSFacebookLoginContext contextWithModel:self.user];
     self.context = context;
 };
 
 #pragma mark -
-#pragma mark KSModelObserver
+#pragma mark Public
 
-- (void)modelDidFinishLoading:(id)model {
-    KSDispatchAsyncOnMainQueue(^{
-        KSFriendsViewController *controller = [KSFriendsViewController new];
-        [self.navigationController pushViewController:controller animated:YES];
-    });
+- (void)updateViewController {
+    KSFriendsViewController *controller = [KSFriendsViewController new];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
