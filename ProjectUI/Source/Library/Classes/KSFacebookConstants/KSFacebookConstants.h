@@ -22,7 +22,6 @@ KSConstString(kFBUserFriendsKey, @"friends");
 KSConstString(kFBIdKey, @"id");
 KSConstString(kFBURLKey, @"url");
 
-
 #pragma mark -
 #pragma mark Path
 
@@ -34,3 +33,5 @@ KSConstString(kKSUserFriendsGraphPath, @"me/friends");
 
 KSConstString(kKSPublicPermission, @"public_profile");
 KSConstString(kKSUserFriendsPermission, @"user_friends");
+
+#undef KSConstString
