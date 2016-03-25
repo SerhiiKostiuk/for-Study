@@ -60,20 +60,20 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
     NSArray *friendList = result[kFBUserFriendsKey][kFBDataKey];
     KSWeakify(self);
     
-    for (id friend in friendList) {
-        KSUser *user = [KSUser new];
-        user.personalId = friend[kFBIdKey];
-        user.firstName = friend[kFBFirstNameKey];
-        user.lastName = friend[kFBLastNameKey];
-        NSString *url = friend[kFBPictureKey][kFBDataKey][kFBURLKey];
-        user.previewImageURL = [NSURL URLWithString:url];
-        
-        [self.model performBlockWithoutNotification:^{
-            KSStrongifyAndReturnIfNil(self);
-            [self.user.friends addObject:user];
-        }];
-    }
-
+    [self.usersModel performBlockWithoutNotification:^{
+        KSStrongifyAndReturnIfNil(self);
+        for (id friend in friendList) {
+            KSUser *user = [KSUser new];
+            user.personalId = friend[kFBIdKey];
+            user.firstName = friend[kFBFirstNameKey];
+            user.lastName = friend[kFBLastNameKey];
+            NSString *url = friend[kFBPictureKey][kFBDataKey][kFBURLKey];
+            user.previewImageURL = [NSURL URLWithString:url];
+            
+            KSUsers *friends = self.user.friends;
+            [friends addObject:user];
+        }
+    }];
 }
 
 #pragma mark -
@@ -100,7 +100,8 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
     [self.model performBlockWithoutNotification:^{
         KSStrongifyAndReturnIfNil(self);
         for (KSUser *user in objects) {
-            [self.user.friends addObject:user];
+            KSUsers *friends = self.user.friends;
+            [friends addObject:user];
         }
     }];
 }
