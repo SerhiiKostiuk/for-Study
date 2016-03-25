@@ -15,5 +15,6 @@
 @interface KSViewController : UIViewController <KSModelObserver>
 @property (nonatomic, strong) KSContext *context;
 
+- (void)updateViewController;
 
 @end
