@@ -15,17 +15,14 @@
 
 #import "KSWeakifyMacro.h"
 
-//KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, model);
+KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, model);
 
 @interface KSFacebookContext ()
 @property (nonatomic, strong)   FBSDKGraphRequestConnection *connection;
-@property (nonatomic, readonly) KSModel  *userModel;
 
 @end
 
 @implementation KSFacebookContext
-
-@dynamic userModel;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -37,10 +34,6 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (KSModel *)userModel { \
-    return [self.model isKindOfClass:[KSModel class]] ? (KSModel *)self.model : nil; \
-}
-
 - (void)setConnection:(FBSDKGraphRequestConnection *)connection {
     if (_connection != connection) {
         [_connection cancel];
@@ -50,6 +43,10 @@
 }
 
 - (NSString *)path {
+    return nil;
+}
+
+- (NSDictionary *)parameters {
     return nil;
 }
 
@@ -71,22 +68,31 @@
 
 - (void)load {
     FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
-    [connection addRequest:[self graphRequest] completionHandler:[self complitionHandler]];
+    [connection addRequest:[self graphRequest] completionHandler:[self completionHandler]];
 }
 
 #pragma mark -
 #pragma mark Private 
 
-- (id)complitionHandler {
+- (FBSDKGraphRequestHandler)completionHandler {
+    KSModel *model = self.model;
     KSWeakify(self);
     return ^(FBSDKGraphRequestConnection *connection, NSDictionary *result, NSError *error) {
         KSStrongifyAndReturnIfNil(self);
         if (error || result[kFBError]) {
-            self.userModel.state = KSModelStateFailedLoading;
-            return;
+            @synchronized(model) {
+                model.state = KSModelStateFailedLoading;
+                return;
+            }
+            
         }
         
         [self handleResponse:connection.URLResponse withResult:result];
+        
+        @synchronized(model) {
+            model.state = KSModelStateFinishedLoading;
+            return;
+        }
     };
 }
 

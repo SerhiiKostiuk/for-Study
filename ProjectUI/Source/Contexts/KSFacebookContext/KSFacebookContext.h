@@ -12,6 +12,7 @@
 
 @interface KSFacebookContext : KSContext
 @property (nonatomic, readonly) NSString           *path;
+@property (nonatomic, readonly) NSDictionary       *parameters;
 @property (nonatomic, readonly) FBSDKGraphRequest  *graphRequest;
 
 - (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result;
