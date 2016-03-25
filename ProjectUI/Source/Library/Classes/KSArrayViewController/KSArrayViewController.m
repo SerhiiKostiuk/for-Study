@@ -18,8 +18,6 @@
 #import "UITableView+KSCollectionChangeModel.h"
 #import "UIViewController+KSExtensions.h"
 
-KSViewControllerForViewPropertySyntesize(KSArrayViewController, KSView, mainView);
-
 @interface KSArrayViewController () <UITableViewDelegate, UITableViewDataSource, KSCollectionObserver>
 
 - (id)cellClass;
@@ -98,28 +96,6 @@ KSViewControllerForViewPropertySyntesize(KSArrayViewController, KSView, mainView
 - (void)collection:(id)collection didChangeWithModel:(id)changeModel {
     UITableView *tableView = self.tableView;
     [tableView updateWithCollectionChangeModel:changeModel];
-}
-
-#pragma mark -
-#pragma mark KSModelObserver
-
-- (void)modelWillLoad:(id)model {
-    KSDispatchAsyncOnMainQueue(^{
-        self.mainView.loadingViewVisible = YES;
-    });
-}
-
-- (void)modelDidFinishLoading:(id)model {
-    KSDispatchAsyncOnMainQueue(^{
-        [self.tableView reloadData];
-        self.mainView.loadingViewVisible = NO;
-    });
-}
-
-- (void)modelDidFailLoading:(id)model {
-    KSDispatchAsyncOnMainQueue(^{
-        self.mainView.loadingViewVisible = NO;
-    });
 }
 
 @end
