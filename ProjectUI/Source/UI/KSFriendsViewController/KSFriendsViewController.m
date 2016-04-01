@@ -52,8 +52,7 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 #pragma mark View Lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
-    KSFacebookFriendsContext *context = [KSFacebookFriendsContext contextWithModel:self.items];
-    self.context = context;    
+    [self itemsLoadingContext];
 }
 
 #pragma mark -
@@ -62,6 +61,12 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 - (void)updateViewController {
     [self.friendsView.tableView reloadData];
 }
- 
+
+- (id)itemsLoadingContext {
+    KSFacebookFriendsContext *context = [KSFacebookFriendsContext contextWithModel:self.items];
+    self.context = context;
+    
+    return context;
+}
 
 @end
