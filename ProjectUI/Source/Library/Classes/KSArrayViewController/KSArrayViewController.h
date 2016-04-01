@@ -16,5 +16,6 @@
 + (Class)cellClass;
 
 - (UITableView *)tableView;
+- (id)itemsLoadingContext;
 
 @end

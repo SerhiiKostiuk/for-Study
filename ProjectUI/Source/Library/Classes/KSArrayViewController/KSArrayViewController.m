@@ -49,8 +49,7 @@
         _items = items;
         [_items addObserver:self];
         
-        [_items load];
-        
+        self.context = [self itemsLoadingContext];
     }
 }
 
@@ -63,6 +62,13 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (id)itemsLoadingContext {
+    return nil;
 }
 
 #pragma mark -
