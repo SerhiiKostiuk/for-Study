@@ -13,6 +13,8 @@
 #import "KSFriendsViewController.h"
 #import "KSDispatch.h"
 
+#import <FBSDKCoreKit/FBSDKAccessToken.h>
+
 @interface KSFacebookLoginViewController ()
 
 @end
@@ -62,8 +64,12 @@
 #pragma mark Interface Handling
 
 - (IBAction)onLogin:(id)sender {
-    KSFacebookLoginContext *context = [KSFacebookLoginContext contextWithModel:self.user];
-    self.context = context;
+    FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
+    KSUser *user = self.user;
+    if (token) {
+        user.personalId = token.userID;
+        [self itemsLoadingContext];
+    }
 };
 
 #pragma mark -
@@ -71,7 +77,15 @@
 
 - (void)updateViewController {
     KSFriendsViewController *controller = [KSFriendsViewController new];
+    controller.user = self.user;
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (id)itemsLoadingContext {
+    KSFacebookLoginContext *context = [KSFacebookLoginContext contextWithModel:self.user];
+    self.context = context;
+    
+    return context;
 }
 
 @end
