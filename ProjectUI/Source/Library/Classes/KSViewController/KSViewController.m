@@ -22,6 +22,13 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
 @implementation KSViewController
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.context = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setContext:(KSContext *)context {
@@ -50,6 +57,7 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
 
 - (void)modelDidFinishLoading:(id)model {
     KSDispatchAsyncOnMainQueue(^{
+        [self updateViewController];
         self.mainView.loadingViewVisible = NO;
     });
 }

@@ -15,6 +15,7 @@
 @interface KSViewController : UIViewController <KSModelObserver>
 @property (nonatomic, strong) KSContext *context;
 
+// this method should be overload in subclass
 - (void)updateViewController;
 
 @end
