@@ -15,7 +15,7 @@
 
 #import "KSWeakifyMacro.h"
 
-KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, model);
+KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
 
 @interface KSFacebookContext ()
 @property (nonatomic, strong)   FBSDKGraphRequestConnection *connection;
@@ -59,7 +59,7 @@ KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, model);
 }
 
 - (FBSDKGraphRequest *)graphRequest {
-    return [[FBSDKGraphRequest alloc] initWithGraphPath:self.path parameters:nil];
+    return [[FBSDKGraphRequest alloc] initWithGraphPath:self.path parameters:self.parameters];
 }
 
 - (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result {
@@ -69,13 +69,15 @@ KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, model);
 - (void)load {
     FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
     [connection addRequest:[self graphRequest] completionHandler:[self completionHandler]];
+
+    self.connection = connection;
 }
 
 #pragma mark -
 #pragma mark Private 
 
 - (FBSDKGraphRequestHandler)completionHandler {
-    KSModel *model = self.model;
+    KSModel *model = self.facebookModel;
     KSWeakify(self);
     return ^(FBSDKGraphRequestConnection *connection, NSDictionary *result, NSError *error) {
         KSStrongifyAndReturnIfNil(self);
@@ -91,7 +93,6 @@ KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, model);
         
         @synchronized(model) {
             model.state = KSModelStateFinishedLoading;
-            return;
         }
     };
 }
