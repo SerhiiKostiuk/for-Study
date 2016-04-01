@@ -62,6 +62,7 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
     
     [self.usersModel performBlockWithoutNotification:^{
         KSStrongifyAndReturnIfNil(self);
+        KSUsers *friends = self.user.friends;
         for (id friend in friendList) {
             KSUser *user = [KSUser new];
             user.personalId = friend[kFBIdKey];
@@ -70,7 +71,6 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
             NSString *url = friend[kFBPictureKey][kFBDataKey][kFBURLKey];
             user.previewImageURL = [NSURL URLWithString:url];
             
-            KSUsers *friends = self.user.friends;
             [friends addObject:user];
         }
     }];
