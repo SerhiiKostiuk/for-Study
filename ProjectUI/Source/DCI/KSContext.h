@@ -13,7 +13,7 @@
 
 #define KSModelGetterDefine(modelClass, propertyName) \
 - (modelClass *)propertyName { \
-return [self.model isKindOfClass:[modelClass class]] ? (modelClass *)self.propertyName : nil; \
+return [self.model isKindOfClass:[modelClass class]] ? (modelClass *)self.model : nil; \
 }
 
 #define KSModelForModelPropertySyntesize(contextName, modelClass, propertyName) \
