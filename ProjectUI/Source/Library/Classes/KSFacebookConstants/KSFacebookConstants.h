@@ -21,6 +21,7 @@ KSConstString(kFBDataKey, @"data");
 KSConstString(kFBUserFriendsKey, @"friends");
 KSConstString(kFBIdKey, @"id");
 KSConstString(kFBURLKey, @"url");
+KSConstString(kFBFieldsKey, @"fields");
 
 #pragma mark -
 #pragma mark Path
@@ -31,6 +32,7 @@ KSConstString(kKSUserFriendsGraphPath, @"me/friends");
 #pragma mark -
 #pragma mark Permission
 
+KSConstString(kKSUserEmailPermission, @"email");
 KSConstString(kKSPublicPermission, @"public_profile");
 KSConstString(kKSUserFriendsPermission, @"user_friends");
 
