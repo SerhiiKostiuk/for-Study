@@ -13,6 +13,7 @@
 #import "KSModel.h"
 #import "KSUser.h"
 #import "KSFacebookConstants.h"
+#import "KSDispatch.h"
 
 #import "KSWeakifyMacro.h"
 
@@ -26,18 +27,6 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
 
 @implementation KSFacebookLoginContext
 
-//#pragma mark -
-//#pragma mark Initializations and Deallocations
-//
-//- (instancetype)init {
-//    self = [super init];
-//    if (self) {
-//        self.viewController = [KSFacebookLoginViewController new];
-//    }
-//    
-//    return self;
-//}
-
 #pragma mark -
 #pragma mark Public
 
@@ -45,15 +34,19 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
     return kKSUserPath;
 }
 
+- (NSDictionary *)parameters {
+    NSString *fields = [NSString stringWithFormat:@"%@,%@,%@", kFBFirstNameKey, kFBLastNameKey, kFBPictureKey];
+    
+    return @{kFBFieldsKey :fields};
+}
+
 - (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result {
-    KSUser *user = [KSUser new];
+    KSUser *user = self.userModel;
+    user.personalId = result[kFBIdKey];
     user.firstName = result[kFBFirstNameKey];
     user.lastName = result[kFBLastNameKey];
-    user.imageModel = result[kFBPictureKey];
-    
-    @synchronized(self.userModel) {
-        self.userModel.state = KSModelStateFinishedLoading;
-    }
+    NSString *url = result [kFBPictureKey][kFBDataKey][kFBURLKey];
+    user.previewImageURL = [NSURL URLWithString:url];
 }
 
 #pragma mark -
@@ -61,22 +54,24 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
 
 - (void)load {
     KSWeakify(self);
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc]init];
-    [login logInWithReadPermissions:@[kKSPublicPermission, kKSUserFriendsPermission]
-                 fromViewController:self.viewController
-                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-                                if (error) {
-                                    NSLog(@"Process error");
+    KSDispatchAsyncOnMainQueue(^{
+        KSStrongifyAndReturnIfNil(self);
+        FBSDKLoginManager *login = [[FBSDKLoginManager alloc]init];
+        [login logOut];
+        [login logInWithReadPermissions:@[kKSUserEmailPermission, kKSPublicPermission, kKSUserFriendsPermission]
+                     fromViewController:self.viewController
+                                handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                     KSStrongifyAndReturnIfNil(self);
-                                    @synchronized(self.userModel) {
-                                         self.userModel.state = KSModelStateFailedLoading;
-                                        
-                                        return;
+                                    if (error) {
+                                        NSLog(@"Process error");
+                                        @synchronized(self.userModel) {
+                                            self.userModel.state = KSModelStateFailedLoading;
+                                            }
+                                    } else {
+                                        [super load];
                                     }
-                                }
-                                
-                                [super load];
-                            }];
+                                }];
+    });
 }
 
 @end
