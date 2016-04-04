@@ -56,8 +56,10 @@
 #pragma mark -
 #pragma mark View Lifecycle
 
-- (void)viewWillAppear:(BOOL)animated {
-    [self.items load];
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self updateViewController];
 }
 
 - (void)didReceiveMemoryWarning {
