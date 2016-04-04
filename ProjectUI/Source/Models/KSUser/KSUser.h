@@ -15,7 +15,7 @@
 @class KSUsers;
 
 @interface KSUser : KSModel <NSCoding>
-@property (nonatomic, copy)   NSString     *personalId;
+@property (nonatomic, copy)   NSString     *ID;
 @property (nonatomic, copy)   NSString     *firstName;
 @property (nonatomic, copy)   NSString     *lastName;
 @property (nonatomic, strong) KSImageModel *imageModel;
