@@ -7,7 +7,7 @@
 //
 
 #import "KSFacebookLoginViewController.h"
-
+#import "FBSDKCoreKit/FBSDKAccessToken.h"
 #import "KSUser.h"
 #import "KSFacebookLoginContext.h"
 #import "KSFriendsViewController.h"
@@ -51,6 +51,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [self updateViewController];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +66,7 @@
 
 - (IBAction)onLogin:(id)sender {
     self.context = [self itemsLoadingContext];
+    
 };
 
 #pragma mark -
