@@ -8,7 +8,8 @@
 
 #import "KSFacebookLoginContext.h"
 
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "FBSDKLoginKit/FBSDKLoginKit.h"
+#import "FBSDKCoreKit/FBSDKAccessToken.h"
 #import "KSFacebookLoginViewController.h"
 #import "KSModel.h"
 #import "KSUser.h"
@@ -19,19 +20,13 @@
 
 KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
 
-@interface KSFacebookLoginContext ()
-@property (nonatomic, strong) KSFacebookLoginViewController *viewController;
-@property (nonatomic, readonly) NSString *path;
-
-@end
-
 @implementation KSFacebookLoginContext
 
 #pragma mark -
 #pragma mark Public
 
 - (NSString *)path {
-    return kKSUserPath;
+    return kKSUserFieldsPath;
 }
 
 - (NSDictionary *)parameters {
@@ -42,7 +37,7 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
 
 - (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result {
     KSUser *user = self.userModel;
-    user.personalId = result[kFBIdKey];
+    user.ID = result[kFBIdKey];
     user.firstName = result[kFBFirstNameKey];
     user.lastName = result[kFBLastNameKey];
     NSString *url = result [kFBPictureKey][kFBDataKey][kFBURLKey];
@@ -57,17 +52,20 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
     KSDispatchAsyncOnMainQueue(^{
         KSStrongifyAndReturnIfNil(self);
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc]init];
-        [login logOut];
+        KSUser *user = self.userModel;
         [login logInWithReadPermissions:@[kKSUserEmailPermission, kKSPublicPermission, kKSUserFriendsPermission]
                      fromViewController:self.viewController
                                 handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                     KSStrongifyAndReturnIfNil(self);
                                     if (error) {
                                         NSLog(@"Process error");
-                                        @synchronized(self.userModel) {
-                                            self.userModel.state = KSModelStateFailedLoading;
+                                        @synchronized(user) {
+                                            user.state = KSModelStateFailedLoading;
                                             }
                                     } else {
+                                        FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
+                                        user.ID = token.userID;
+                                        
                                         [super load];
                                     }
                                 }];

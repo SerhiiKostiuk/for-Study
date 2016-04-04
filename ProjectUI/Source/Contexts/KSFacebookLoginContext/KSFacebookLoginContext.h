@@ -6,8 +6,11 @@
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
+#import <UIKit/UIViewController.h>
+
 #import "KSFacebookContext.h"
 
 @interface KSFacebookLoginContext : KSFacebookContext
+@property (nonatomic, weak) UIViewController *viewController;
 
 @end
