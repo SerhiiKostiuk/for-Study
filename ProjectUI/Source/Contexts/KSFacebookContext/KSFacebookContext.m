@@ -64,6 +64,10 @@ KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
 }
 
 - (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result {
+    [self fillModelWithResult:result];
+}
+
+- (void)fillModelWithResult:(NSDictionary *)result {
     
 }
 
