@@ -35,15 +35,6 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
     return @{kFBFieldsKey :fields};
 }
 
-- (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result {
-    KSUser *user = self.userModel;
-    user.ID = result[kFBIdKey];
-    user.firstName = result[kFBFirstNameKey];
-    user.lastName = result[kFBLastNameKey];
-    NSString *url = result [kFBPictureKey][kFBDataKey][kFBURLKey];
-    user.previewImageURL = [NSURL URLWithString:url];
-}
-
 #pragma mark -
 #pragma mark Private
 
