@@ -21,7 +21,6 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 
 @interface KSFacebookFriendsContext ()
 @property (nonatomic, readonly) NSString  *folderPath;
-@property (nonatomic, readonly) NSString  *graphPath;
 
 @property (nonatomic, assign, getter=isCached) BOOL cached;
 
@@ -37,20 +36,34 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 #pragma mark -
 #pragma mark Accessors
 
+- (void)setUser:(KSUser *)user {
+    if (_user != user) {
+        _user = user;
+        
+        self.model = user.friends;
+    }
+}
+
 - (NSString *)folderPath {
     return self.user.friends.path;
 }
 
-- (NSString *)graphPath {
-    return kKSUserFriendsGraphPath;
+- (NSString *)path {
+    return kKSUserFieldsPath;
 }
 
 - (BOOL)isCached {
     return [[NSFileManager defaultManager] fileExistsAtPath:self.folderPath];
 }
 
-- (FBSDKGraphRequest *)graphRequest {
-    return [[FBSDKGraphRequest alloc] initWithGraphPath:self.graphPath parameters:nil];
+- (NSDictionary *)parameters {
+    NSString *fields = [NSString stringWithFormat:@"%@{%@,%@,%@}",
+                        kFBUserFriendsKey,
+                        kFBFirstNameKey,
+                        kFBLastNameKey,
+                        kFBPictureKey];
+    
+    return @{kFBFieldsKey :fields};
 }
 
 #pragma mark -
@@ -62,10 +75,10 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
     
     [self.usersModel performBlockWithoutNotification:^{
         KSStrongifyAndReturnIfNil(self);
-        KSUsers *friends = self.user.friends;
+        KSUsers *friends = self.usersModel;
         for (id friend in friendList) {
             KSUser *user = [KSUser new];
-            user.personalId = friend[kFBIdKey];
+            user.ID = friend[kFBIdKey];
             user.firstName = friend[kFBFirstNameKey];
             user.lastName = friend[kFBLastNameKey];
             NSString *url = friend[kFBPictureKey][kFBDataKey][kFBURLKey];
