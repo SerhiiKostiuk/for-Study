@@ -27,6 +27,7 @@ KSConstString(kFBFieldsKey, @"fields");
 #pragma mark Path
 
 KSConstString(kKSUserPath, @"me");
+KSConstString(kKSUserFieldsPath, @"me?fields");
 KSConstString(kKSUserFriendsGraphPath, @"me/friends");
 
 #pragma mark -
