@@ -12,6 +12,7 @@
 
 #import "KSModel.h"
 #import "KSFacebookConstants.h"
+#import "KSDispatch.h"
 
 #import "KSWeakifyMacro.h"
 
@@ -67,10 +68,14 @@ KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
 }
 
 - (void)load {
-    FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
-    [connection addRequest:[self graphRequest] completionHandler:[self completionHandler]];
-
-    self.connection = connection;
+    KSWeakify(self);
+    KSDispatchAsyncOnMainQueue(^{
+        KSStrongifyAndReturnIfNil(self);
+        FBSDKGraphRequestConnection *connection = [[FBSDKGraphRequestConnection alloc] init];
+        [connection addRequest:[self graphRequest] completionHandler:[self completionHandler]];
+        
+        self.connection = connection;
+    });
 }
 
 #pragma mark -
