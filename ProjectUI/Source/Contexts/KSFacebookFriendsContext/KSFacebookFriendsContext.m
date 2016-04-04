@@ -28,7 +28,6 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 
 @end
 
-
 @implementation KSFacebookFriendsContext
 
 @dynamic cached;
@@ -57,11 +56,12 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 }
 
 - (NSDictionary *)parameters {
-    NSString *fields = [NSString stringWithFormat:@"%@{%@,%@,%@}",
+    NSString *fields = [NSString stringWithFormat:@"%@{%@,%@,%@{%@}}",
                         kFBUserFriendsKey,
                         kFBFirstNameKey,
                         kFBLastNameKey,
-                        kFBPictureKey];
+                        kFBPictureKey,
+                        kFBURLKey];
     
     return @{kFBFieldsKey :fields};
 }
