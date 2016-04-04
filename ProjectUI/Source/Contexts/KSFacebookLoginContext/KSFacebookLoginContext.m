@@ -10,8 +10,6 @@
 
 #import "FBSDKLoginKit/FBSDKLoginKit.h"
 #import "FBSDKCoreKit/FBSDKAccessToken.h"
-#import "KSFacebookLoginViewController.h"
-#import "KSModel.h"
 #import "KSUser.h"
 #import "KSFacebookConstants.h"
 #import "KSDispatch.h"
@@ -26,13 +24,7 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
 #pragma mark Public
 
 - (NSString *)path {
-    return kKSUserFieldsPath;
-}
-
-- (NSDictionary *)parameters {
-    NSString *fields = [NSString stringWithFormat:@"%@,%@,%@", kFBFirstNameKey, kFBLastNameKey, kFBPictureKey];
-    
-    return @{kFBFieldsKey :fields};
+    return kKSUserPath;
 }
 
 #pragma mark -

@@ -12,6 +12,15 @@
 
 @implementation KSUserContext
 
+- (NSDictionary *)parameters {
+    NSString *fields = [NSString stringWithFormat:@"%@,%@,%@{%@}",
+                        kFBFirstNameKey,
+                        kFBLastNameKey,
+                        kFBPictureKey,
+                        kFBURLKey];
+    
+    return @{kFBFieldsKey :fields};
+}
 
 - (void)fillModelWithResult:(NSDictionary *)result {
     KSUser *user = self.model;
@@ -21,5 +30,6 @@
     NSString *url = result [kFBPictureKey][kFBDataKey][kFBURLKey];
     user.previewImageURL = [NSURL URLWithString:url];
 }
+
 
 @end
