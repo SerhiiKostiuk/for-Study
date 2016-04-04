@@ -33,15 +33,15 @@
     self.user = nil;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    self.accessoryType = (selected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-}
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+//    [super setSelected:selected animated:animated];
+//    
+//    self.accessoryType = (selected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+//}
 
 - (void)fillWithModel:(KSUser *)user {
-    self.label.text = user.firstName;
-    self.contentImageView.imageModel = user.imageModel;
+    self.label.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
+//    self.contentImageView.imageModel = user.imageModel;
 }
 
 @end
