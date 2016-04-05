@@ -8,12 +8,12 @@
 
 #import "KSFacebookContext.h"
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-
+#import "FBSDKCoreKit/FBSDKCoreKit.h"
 #import "KSModel.h"
 #import "KSFacebookConstants.h"
 #import "KSDispatch.h"
 
+#import "NSDictionary+KSJSONRepresentation.h"
 #import "KSWeakifyMacro.h"
 
 KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
@@ -98,6 +98,7 @@ KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
             
         }
         
+        result = result.JSONRepresentation;
         [self handleResponse:connection.URLResponse withResult:result];
         
         @synchronized(model) {
