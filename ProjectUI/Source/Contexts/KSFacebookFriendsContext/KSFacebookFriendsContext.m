@@ -44,7 +44,7 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 }
 
 - (NSString *)folderPath {
-    return self.user.friends.path;
+    return self.usersModel.usersPath;
 }
 
 - (NSString *)path {
@@ -69,7 +69,7 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 #pragma mark -
 #pragma mark Public
 
-- (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result {
+- (void)fillModelWithResult:(NSDictionary *)result {
     NSArray *friendList = result[kFBUserFriendsKey][kFBDataKey];
     KSWeakify(self);
     
@@ -93,13 +93,17 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 #pragma mark Private
 
 - (void)load {
-    [super load];
+    if (!self.cached) {
+        [super load];
+    } else {
+        [self loadFromFile];
+    }
 }
 
 - (void)loadFromFile {    
-    NSArray *objects = nil;
+//    NSArray *objects = nil;
     if (self.cached) {
-        objects = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
+       NSArray *objects = [NSKeyedUnarchiver unarchiveObjectWithFile:self.folderPath];
         [self fillWithUsers:objects];
         
         @synchronized(self) {
@@ -113,7 +117,7 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
     [self.model performBlockWithoutNotification:^{
         KSStrongifyAndReturnIfNil(self);
         for (KSUser *user in objects) {
-            KSUsers *friends = self.user.friends;
+            KSUsers *friends = self.usersModel;
             [friends addObject:user];
         }
     }];
