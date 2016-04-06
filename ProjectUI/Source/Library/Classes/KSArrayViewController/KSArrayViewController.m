@@ -69,6 +69,10 @@
 #pragma mark -
 #pragma mark Public
 
+- (UITableView *)tableView {
+    return nil;
+}
+
 - (id)itemsLoadingContext {
     return nil;
 }
@@ -78,10 +82,6 @@
 
 - (id)cellClass {
     return [[self class] cellClass];
-}
-
-- (UITableView *)tableView {
-    return nil;
 }
 
 #pragma mark -

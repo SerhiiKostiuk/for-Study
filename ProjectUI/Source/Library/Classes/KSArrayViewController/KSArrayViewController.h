@@ -15,6 +15,7 @@
 
 + (Class)cellClass;
 
+// this methods should be overload in subclass
 - (UITableView *)tableView;
 - (id)itemsLoadingContext;
 
