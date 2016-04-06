@@ -13,15 +13,17 @@
 #pragma mark -
 #pragma mark Keys
 
-KSConstString(kFBError, @"error");
-KSConstString(kFBFirstNameKey, @"first_name");
-KSConstString(kFBLastNameKey, @"last_name");
-KSConstString(kFBPictureKey, @"picture");
-KSConstString(kFBDataKey, @"data");
-KSConstString(kFBUserFriendsKey, @"friends");
 KSConstString(kFBIdKey, @"id");
 KSConstString(kFBURLKey, @"url");
+KSConstString(kFBError, @"error");
+KSConstString(kFBDataKey, @"data");
+KSConstString(kFBGenderKey, @"gender");
 KSConstString(kFBFieldsKey, @"fields");
+KSConstString(kFBPictureKey, @"picture");
+KSConstString(kFBLastNameKey, @"last_name");
+KSConstString(kFBUserFriendsKey, @"friends");
+KSConstString(kFBFirstNameKey, @"first_name");
+KSConstString(kFBLargePictureKey, @"picture.type(large)");
 
 #pragma mark -
 #pragma mark Path

@@ -14,6 +14,7 @@
 #import "KSUser.h"
 #import "KSUsers.h"
 #import "KSFacebookFriendsContext.h"
+#import "KSFriendDetailViewController.h"
 
 #import "UIViewController+KSExtensions.h"
 
@@ -53,6 +54,16 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+}
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    KSUser *friend = self.items[indexPath.row];
+    KSFriendDetailViewController *controller = [KSFriendDetailViewController new];
+    controller.user = friend;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark -
