@@ -7,7 +7,35 @@
 //
 
 #import "KSUserDetailContext.h"
+#import "KSFacebookConstants.h"
+
+#import "KSUser.h"
 
 @implementation KSUserDetailContext
+
+#pragma mark -
+#pragma mark Public
+
+- (NSString *)path {
+    KSUser *user = self.model;
+    
+    return user.ID;
+}
+
+- (NSDictionary *)parameters {
+    NSString *fields = [NSString stringWithFormat:@"%@,%@{%@}",
+                        kFBGenderKey,
+                        kFBLargePictureKey,
+                        kFBURLKey];
+    
+    return @{kFBFieldsKey :fields};
+}
+
+- (void)fillModelWithResult:(NSDictionary *)result {
+    KSUser *user = self.model;
+    user.gender = result[kFBGenderKey];
+    NSString *url = result [kFBPictureKey][kFBDataKey][kFBURLKey];
+    user.largeImageURL = [NSURL URLWithString:url];
+}
 
 @end
