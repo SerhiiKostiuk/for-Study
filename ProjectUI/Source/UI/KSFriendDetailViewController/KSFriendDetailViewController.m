@@ -7,6 +7,13 @@
 //
 
 #import "KSFriendDetailViewController.h"
+#import "KSUserDetailContext.h"
+#import "KSFriendDetailView.h"
+#import "KSUser.h"
+
+#import "UIViewController+KSExtensions.h"
+
+KSViewControllerForViewPropertySyntesize(KSFriendDetailViewController, KSFriendDetailView, friendDetailView);
 
 @interface KSFriendDetailViewController ()
 
@@ -14,24 +21,43 @@
 
 @implementation KSFriendDetailViewController
 
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setUser:(KSUser *)user {
+    if (_user != user) {
+        [_user removeObserver:self];
+        _user = user;
+        [_user addObserver:self];
+        
+        self.context = [self itemsLoadingContext];
+        
+    }
+}
+
+#pragma mark-
+#pragma mark View Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
+    
+//    [self updateViewController];
+  }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   }
+
+
+#pragma mark -
+#pragma mark Public
+
+- (void)updateViewController {
+    self.friendDetailView.user = self.user;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (id)itemsLoadingContext {
+    return [KSUserDetailContext contextWithModel:self.user];
 }
-*/
 
 @end

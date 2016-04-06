@@ -8,14 +8,30 @@
 
 #import "KSFriendDetailView.h"
 
+#import "KSImageView.h"
+#import "KSUser.h"
+
 @implementation KSFriendDetailView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setUser:(KSUser *)user {
+    if (_user != user) {
+        _user = user;
+        
+        [self fillWithModel:user];
+    }
 }
-*/
+
+#pragma mark -
+#pragma mark Private
+
+- (void)fillWithModel:(KSUser *)user {
+    self.firstNameLabel.text = user.firstName;
+    self.lastNameLabel.text = user.lastName;
+    self.genderLabel.text = user.gender;
+    self.imageView.imageModel = user.largeImageModel;
+}
 
 @end
