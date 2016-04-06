@@ -15,7 +15,7 @@
 @property (nonatomic, readonly) NSDictionary       *parameters;
 @property (nonatomic, readonly) FBSDKGraphRequest  *graphRequest;
 
-- (void)handleResponse:(NSURLResponse *)response withResult:(NSDictionary *)result;
+- (void)fillModelWithResult:(NSDictionary *)result;
 - (void)load;
 
 @end

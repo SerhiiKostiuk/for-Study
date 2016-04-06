@@ -98,7 +98,7 @@ KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
             
         }
         
-        result = result.JSONRepresentation;
+//        result = result.JSONRepresentation;
         [self handleResponse:connection.URLResponse withResult:result];
         
         @synchronized(model) {
