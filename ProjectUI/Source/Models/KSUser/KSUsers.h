@@ -11,7 +11,7 @@
 #import "KSModelObserver.h"
 
 @interface KSUsers : KSArrayModel
-@property(nonatomic, readonly) NSString  *path;
+@property(nonatomic, readonly) NSString  *usersPath;
 
 - (void)save;
 

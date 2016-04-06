@@ -45,7 +45,7 @@ static NSString * const kKSPListName  = @"users.plist";
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)path {
+- (NSString *)usersPath {
     return [self usersFolderPath];
 }
 
@@ -53,7 +53,7 @@ static NSString * const kKSPListName  = @"users.plist";
 #pragma mark Public
 
 - (void)save {
-    [self.objects writeToFile:self.path atomically:YES];
+    [self.objects writeToFile:self.usersPath atomically:YES];
 }
 
 #pragma mark -
