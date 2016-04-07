@@ -15,6 +15,7 @@
 @property (nonatomic, readonly) NSDictionary       *parameters;
 @property (nonatomic, readonly) FBSDKGraphRequest  *graphRequest;
 
+// this methods should be overload in subclass
 - (void)fillModelWithResult:(NSDictionary *)result;
 - (void)load;
 
