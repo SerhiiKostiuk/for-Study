@@ -22,6 +22,13 @@ KSViewControllerForViewPropertySyntesize(KSFriendDetailViewController, KSFriendD
 @implementation KSFriendDetailViewController
 
 #pragma mark -
+#pragma mark Initializations and Deallocation
+
+- (void)dealloc {
+    self.user = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setUser:(KSUser *)user {
@@ -40,13 +47,11 @@ KSViewControllerForViewPropertySyntesize(KSFriendDetailViewController, KSFriendD
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [self updateViewController];
-  }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-   }
+}
 
 
 #pragma mark -
