@@ -8,7 +8,15 @@
 
 #import "KSView.h"
 
+@class KSUser;
+@class KSImageView;
+
 @interface KSFriendsView : KSView
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet KSImageView *imageView;
+@property (nonatomic, strong) IBOutlet UILabel     *nameLabel;
+
+@property (nonatomic, strong) KSUser *user;
+
 
 @end
