@@ -11,6 +11,10 @@
 @implementation NSArray (KSJSONRepresentation)
 
 - (instancetype)JSONRepresentation {
+    return [NSArray arrayWithArray:[self mutableJSONRepresentation]];
+}
+
+- (NSMutableArray *)mutableJSONRepresentation {
     NSMutableArray *array = [NSMutableArray new];
     for (id object in self) {
         id result = [object JSONRepresentation];
@@ -19,8 +23,15 @@
         }
     }
     
-    return [[self class] arrayWithArray:array];
+    return array;
 }
 
+@end
+
+@implementation NSMutableArray (KSJSONRepresentation)
+
+- (instancetype)JSONRepresentation {
+    return [NSMutableArray arrayWithArray:[self mutableJSONRepresentation]];
+}
 
 @end

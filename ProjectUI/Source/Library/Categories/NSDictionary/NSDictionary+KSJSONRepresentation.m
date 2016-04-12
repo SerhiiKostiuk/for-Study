@@ -22,5 +22,4 @@
     return [[self class] dictionaryWithDictionary:dictionary];
 }
 
-
 @end
