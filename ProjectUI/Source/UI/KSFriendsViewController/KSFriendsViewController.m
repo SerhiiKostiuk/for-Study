@@ -13,6 +13,7 @@
 #import "KSDispatch.h"
 #import "KSUser.h"
 #import "KSUsers.h"
+#import "KSUserContext.h"
 #import "KSFacebookFriendsContext.h"
 #import "KSFriendDetailViewController.h"
 
@@ -27,6 +28,20 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 @implementation KSFriendsViewController
 
 #pragma mark -
+#pragma mark Class Methods
+
++ (Class)cellClass {
+    return [KSUserCell class];
+}
+
+#pragma mark -
+#pragma mark Initializations and Deallocation
+
+- (void)dealloc {
+    self.user = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setUser:(KSUser *)user {
@@ -34,26 +49,13 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
         [_user removeObserver:self];
         _user = user;
         [_user addObserver:self];
+        
         self.items = user.friends;
     }
 }
 
 - (UITableView *)tableView {
     return self.friendsView.tableView;
-}
-
-#pragma mark -
-#pragma mark Class Methods
-
-+ (Class)cellClass {
-    return [KSUserCell class];
-}
-
-#pragma mark-
-#pragma mark View Lifecycle
-
--(void)viewDidLoad {
-    [super viewDidLoad];
 }
 
 #pragma mark -
@@ -71,6 +73,7 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 
 - (void)updateViewController {
     [self.tableView reloadData];
+    self.friendsView.user = self.user;
 }
 
 - (id)itemsLoadingContext {
