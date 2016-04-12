@@ -14,22 +14,28 @@
 @implementation KSFriendDetailView
 
 #pragma mark -
+#pragma mark Initializations and Deallocation
+
+- (void)dealloc {
+    self.user = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setUser:(KSUser *)user {
     if (_user != user) {
         _user = user;
-        
-        [self fillWithModel:user];
     }
+     
+    [self fillWithModel:user];
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (void)fillWithModel:(KSUser *)user {
-    self.firstNameLabel.text = user.firstName;
-    self.lastNameLabel.text = user.lastName;
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
     self.genderLabel.text = user.gender;
     self.imageView.imageModel = user.largeImageModel;
 }
