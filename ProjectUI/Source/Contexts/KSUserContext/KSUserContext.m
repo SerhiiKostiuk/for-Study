@@ -12,6 +12,13 @@
 
 @implementation KSUserContext
 
+#pragma mark -
+#pragma mark Public
+
+- (NSString *)path {
+    return kKSUserPath;
+}
+
 - (NSDictionary *)parameters {
     NSString *fields = [NSString stringWithFormat:@"%@,%@,%@{%@}",
                         kFBFirstNameKey,
