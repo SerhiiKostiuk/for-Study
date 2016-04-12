@@ -93,7 +93,7 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 #pragma mark Private
 
 - (void)load {
-    if (!self.cached) {
+    if (self.cached) {
         [super load];
     } else {
         [self loadFromFile];
@@ -101,7 +101,6 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 }
 
 - (void)loadFromFile {    
-//    NSArray *objects = nil;
     if (self.cached) {
        NSArray *objects = [NSKeyedUnarchiver unarchiveObjectWithFile:self.folderPath];
         [self fillWithUsers:objects];
