@@ -14,9 +14,8 @@
 
 static NSString * const kKSPListName  = @"users.plist";
 
-
 @interface KSUsers ()
-@property (nonatomic, strong) NSMutableArray        *notificationObservers;
+@property (nonatomic, strong) NSMutableArray  *notificationObservers;
 
 - (NSString *)usersFolderPath;
 - (void)startObservingNotification;
@@ -61,7 +60,6 @@ static NSString * const kKSPListName  = @"users.plist";
 
 - (NSString *)usersFolderPath {
     NSString *usersFolderName = [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
-    [NSFileManager createDirectoryAtPath:usersFolderName];
     
     return usersFolderName;
 }

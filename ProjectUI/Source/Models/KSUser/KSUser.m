@@ -22,6 +22,7 @@ static NSString * const kKSGenderKey           = @"gender";
 @implementation KSUser
 
 @dynamic imageModel;
+@dynamic largeImageModel;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
