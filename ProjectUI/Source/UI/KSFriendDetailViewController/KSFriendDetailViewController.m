@@ -42,18 +42,6 @@ KSViewControllerForViewPropertySyntesize(KSFriendDetailViewController, KSFriendD
     }
 }
 
-#pragma mark-
-#pragma mark View Lifecycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-
 #pragma mark -
 #pragma mark Public
 
