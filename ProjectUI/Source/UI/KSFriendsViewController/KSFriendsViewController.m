@@ -14,6 +14,7 @@
 #import "KSUser.h"
 #import "KSUsers.h"
 #import "KSUserContext.h"
+#import "KSUserCompositeContext.h"
 #import "KSFacebookFriendsContext.h"
 #import "KSFriendDetailViewController.h"
 
@@ -77,7 +78,7 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 }
 
 - (id)itemsLoadingContext {
-    return [KSFacebookFriendsContext contextWithModel:self.items];
+    return [KSUserCompositeContext contextWithModel:self.user];
 }
 
 @end
