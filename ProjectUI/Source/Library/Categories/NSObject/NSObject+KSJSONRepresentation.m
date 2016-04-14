@@ -11,7 +11,7 @@
 @implementation NSObject (KSJSONRepresentation)
 
 - (instancetype)JSONRepresentation {
-    return nil;
+    return self;
 }
 
 @end
