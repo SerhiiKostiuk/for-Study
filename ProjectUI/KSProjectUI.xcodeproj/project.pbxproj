@@ -71,6 +71,7 @@
 		C57E4F351CB41E5F00E9118E /* NSObject+KSJSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C57E4F341CB41E5F00E9118E /* NSObject+KSJSONRepresentation.m */; };
 		C57E4F3C1CB41EEB00E9118E /* NSNull+KSJSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C57E4F3B1CB41EEB00E9118E /* NSNull+KSJSONRepresentation.m */; };
 		C5C7246B1CBD63E20097F1A2 /* KSUserCompositeContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C7246A1CBD63E20097F1A2 /* KSUserCompositeContext.m */; };
+		C5C7247B1CC026950097F1A2 /* UIAlertView+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C7247A1CC026950097F1A2 /* UIAlertView+KSExtensions.m */; };
 		C5CD8FD61C835A380022D60B /* KSView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8FD51C835A380022D60B /* KSView.m */; };
 		C5CD8FDA1C84F9DF0022D60B /* NSObject+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8FD91C84F9DF0022D60B /* NSObject+KSExtensions.m */; };
 		C5CE4C7A1CA40E3A00BCAD36 /* KSFacebookConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CE4C791CA40E3A00BCAD36 /* KSFacebookConstants.m */; };
@@ -205,6 +206,8 @@
 		C5A035521C63664E003BCAFD /* KSWeakifyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSWeakifyMacro.h; sourceTree = "<group>"; };
 		C5C724691CBD63E20097F1A2 /* KSUserCompositeContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUserCompositeContext.h; sourceTree = "<group>"; };
 		C5C7246A1CBD63E20097F1A2 /* KSUserCompositeContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUserCompositeContext.m; sourceTree = "<group>"; };
+		C5C724791CC026950097F1A2 /* UIAlertView+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+KSExtensions.h"; sourceTree = "<group>"; };
+		C5C7247A1CC026950097F1A2 /* UIAlertView+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+KSExtensions.m"; sourceTree = "<group>"; };
 		C5CD8FD41C835A380022D60B /* KSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSView.h; sourceTree = "<group>"; };
 		C5CD8FD51C835A380022D60B /* KSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSView.m; sourceTree = "<group>"; };
 		C5CD8FD81C84F9DF0022D60B /* NSObject+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtensions.h"; sourceTree = "<group>"; };
@@ -831,6 +834,15 @@
 			path = KSUserCompositeContext;
 			sourceTree = "<group>";
 		};
+		C5C724781CC026950097F1A2 /* UIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				C5C724791CC026950097F1A2 /* UIAlertView+KSExtensions.h */,
+				C5C7247A1CC026950097F1A2 /* UIAlertView+KSExtensions.m */,
+			);
+			path = UIAlertView;
+			sourceTree = "<group>";
+		};
 		C5CBBD7B1C6A920F00DD2118 /* UINib */ = {
 			isa = PBXGroup;
 			children = (
@@ -873,6 +885,7 @@
 		C5D39F231C64A6430053E43C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C5C724781CC026950097F1A2 /* UIAlertView */,
 				C57E4F361CB41E9100E9118E /* NSNull */,
 				C57E4F291CB41C6C00E9118E /* NSArray */,
 				C57E4F251CB41A0600E9118E /* NSDictionary */,
@@ -1119,6 +1132,7 @@
 				C511C4531CA16CD600EEF114 /* KSCollectionChangeModel+UITableView.m in Sources */,
 				C5D44E5F1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m in Sources */,
 				C511C4501CA16CD600EEF114 /* KSArrayDoubleIndexChangeModel.m in Sources */,
+				C5C7247B1CC026950097F1A2 /* UIAlertView+KSExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

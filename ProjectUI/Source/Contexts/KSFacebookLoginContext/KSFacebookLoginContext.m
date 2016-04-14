@@ -38,11 +38,9 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
                                         @synchronized(user) {
                                             user.state = KSModelStateFailedLoading;
                                         }
-                                    } else {
-                                        FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
-                                        user.ID = token.userID;
-                                        
-                                        [super load];
+                                    } else {                                        
+//                                        [super load];
+                                        user.state = KSModelStateFinishedLoading;
                                     }
                                 }];
     });
