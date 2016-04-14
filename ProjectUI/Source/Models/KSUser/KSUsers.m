@@ -58,7 +58,7 @@ static NSString * const kKSPListName  = @"users.plist";
 #pragma mark -
 #pragma mark Private
 
-- (NSString *)usersFolderPath {
+- (NSString *)usersFolderPath { // rename method 
     NSString *usersFolderName = [[NSFileManager applicationDataPath] stringByAppendingPathComponent:kKSPListName];
     
     return usersFolderName;

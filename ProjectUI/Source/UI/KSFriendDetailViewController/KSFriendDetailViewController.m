@@ -32,7 +32,7 @@ KSViewControllerForViewPropertySyntesize(KSFriendDetailViewController, KSFriendD
 #pragma mark Accessors
 
 - (void)setUser:(KSUser *)user {
-    if (_user != user) {
+    if (_user != user) {  // move to ksviewcontroller 
         [_user removeObserver:self];
         _user = user;
         [_user addObserver:self];

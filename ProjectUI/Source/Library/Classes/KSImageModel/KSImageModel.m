@@ -138,7 +138,7 @@ static NSString * const kKSDirectoryName = @"images";
 }
 
 - (void)loadFromFile {
-    sleep(2);
+//    sleep(2);
     UIImage *image = [UIImage imageWithContentsOfFile:self.path];
     if (image) {
         [self setImageWithNotification:image];

@@ -18,7 +18,7 @@
 @property (nonatomic, copy)   NSString     *ID;
 @property (nonatomic, copy)   NSString     *firstName;
 @property (nonatomic, copy)   NSString     *lastName;
-@property (nonatomic, strong) KSImageModel *imageModel;
+@property (nonatomic, strong) KSImageModel *imageModel; // readonly 
 @property (nonatomic, strong) KSImageModel *largeImageModel;
 @property (nonatomic, strong) KSUsers      *friends;
 @property (nonatomic, copy)   NSString     *gender;

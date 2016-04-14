@@ -27,14 +27,14 @@
     self.user = nil;
 }
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.user = [KSUser new];
-    }
-    
-    return self;
-}
+//- (instancetype)init {
+//    self = [super init];
+//    if (self) {
+//        self.user = [KSUser new];
+//    }
+//    
+//    return self;
+//}
 
 #pragma mark -
 #pragma mark Accessors
@@ -53,9 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([FBSDKAccessToken currentAccessToken]) {
-        [self presentFriendsViewController];
-    }
+    [self presentFriendsViewController];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,8 +64,9 @@
 #pragma mark Interface Handling
 
 - (IBAction)onLogin:(id)sender {
+    self.user = [KSUser new];
     self.context = [self itemsLoadingContext];
-};
+}
 
 #pragma mark -
 #pragma mark Public
@@ -87,9 +86,16 @@
 #pragma mark Private 
 
 - (void)presentFriendsViewController {
-    KSFriendsViewController *controller = [KSFriendsViewController new];
-    controller.user = self.user;
-    [self.navigationController pushViewController:controller animated:YES];
+    FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
+    if (token) {
+        KSUser *user = [KSUser new];
+        user.ID = token.userID;
+        KSFriendsViewController *controller = [KSFriendsViewController new];
+        controller.user = user;
+                
+        [self.navigationController pushViewController:controller animated:NO];
+    }
+   
 }
 
 @end
