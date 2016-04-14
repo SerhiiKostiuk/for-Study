@@ -33,7 +33,9 @@
 
 - (void)fillModelWithResult:(NSDictionary *)result {
     KSUser *user = self.model;
+    
     user.gender = result[kFBGenderKey];
+    
     NSString *url = result [kFBPictureKey][kFBDataKey][kFBURLKey];
     user.largeImageURL = [NSURL URLWithString:url];
 }

@@ -66,6 +66,7 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
     KSUser *friend = self.items[indexPath.row];
     KSFriendDetailViewController *controller = [KSFriendDetailViewController new];
     controller.user = friend;
+    
     [self.navigationController pushViewController:controller animated:YES];
 }
 

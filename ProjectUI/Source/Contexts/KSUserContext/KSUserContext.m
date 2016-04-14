@@ -31,9 +31,11 @@
 
 - (void)fillModelWithResult:(NSDictionary *)result {
     KSUser *user = self.model;
+    
     user.ID = result[kFBIdKey];
     user.firstName = result[kFBFirstNameKey];
     user.lastName = result[kFBLastNameKey];
+    
     NSString *url = result [kFBPictureKey][kFBDataKey][kFBURLKey];
     user.previewImageURL = [NSURL URLWithString:url];
 }
