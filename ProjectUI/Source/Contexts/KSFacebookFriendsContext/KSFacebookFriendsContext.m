@@ -78,9 +78,11 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
         KSUsers *friends = self.usersModel;
         for (id friend in friendList) {
             KSUser *user = [KSUser new];
+            
             user.ID = friend[kFBIdKey];
             user.firstName = friend[kFBFirstNameKey];
             user.lastName = friend[kFBLastNameKey];
+            
             NSString *url = friend[kFBPictureKey][kFBDataKey][kFBURLKey];
             user.previewImageURL = [NSURL URLWithString:url];
             
