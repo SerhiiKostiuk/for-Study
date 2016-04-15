@@ -35,7 +35,7 @@
 
 - (void)fillWithModel:(KSUser *)user {
     self.label.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
-    self.contentImageView.imageModel = user.imageModel;
+    self.contentImageView.imageModel = user.previewImageModel;
 }
 
 @end

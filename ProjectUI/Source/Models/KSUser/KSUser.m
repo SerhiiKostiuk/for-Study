@@ -21,7 +21,7 @@ static NSString * const kKSGenderKey           = @"gender";
 
 @implementation KSUser
 
-@dynamic imageModel;
+@dynamic previewImageModel;
 @dynamic largeImageModel;
 
 #pragma mark -
@@ -38,7 +38,7 @@ static NSString * const kKSGenderKey           = @"gender";
 #pragma mark -
 #pragma mark Accessors
 
-- (KSImageModel *)imageModel {
+- (KSImageModel *)previewImageModel {
     return [KSImageModel imageWithUrl:self.previewImageURL];
 }
 
