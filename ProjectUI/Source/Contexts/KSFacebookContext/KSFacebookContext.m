@@ -92,7 +92,8 @@ KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
         KSStrongifyAndReturnIfNil(self);
         if (error || result[kFBError]) {
             @synchronized(model) {
-                model.state = KSModelStateFailedLoading;
+                [model setState:KSModelStateFailedLoading withObject:error];
+
                 return;
             }
             

@@ -36,10 +36,9 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
                                     if (error) {
                                         NSLog(@"Process error");
                                         @synchronized(user) {
-                                            user.state = KSModelStateFailedLoading;
+                                            [user setState:KSModelStateFailedLoading withObject:error];
                                         }
-                                    } else {                                        
-//                                        [super load];
+                                    } else {
                                         user.state = KSModelStateFinishedLoading;
                                     }
                                 }];

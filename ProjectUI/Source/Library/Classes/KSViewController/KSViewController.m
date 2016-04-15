@@ -12,6 +12,7 @@
 #import "KSUser.h"
 #import "KSDispatch.h"
 #import "KSFacebookLoginContext.h"
+#import "UIAlertView+KSExtensions.h"
 #import "UIViewController+KSExtensions.h"
 
 KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
@@ -71,9 +72,12 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
     });
 }
 
-- (void)modelDidFailLoading:(id)model {
+- (void)modelDidFailLoading:(id)model withError:(NSError *)error {
     KSDispatchAsyncOnMainQueue(^{
         self.mainView.loadingViewVisible = NO;
+        if (error) {
+            [UIAlertView presentWithError:error];
+        }
     });
 }
 

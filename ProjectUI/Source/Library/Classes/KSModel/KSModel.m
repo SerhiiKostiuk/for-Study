@@ -53,7 +53,7 @@
             return @selector(modelDidFinishLoading:);
             
         case KSModelStateFailedLoading:
-            return @selector(modelDidFailLoading:);
+            return @selector(modelDidFailLoading: withError:);
             
         default:
             return [super selectorForState:state];
