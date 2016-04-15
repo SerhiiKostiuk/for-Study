@@ -9,6 +9,7 @@
 #import "KSViewController.h"
 
 #import "KSView.h"
+#import "KSUser.h"
 #import "KSDispatch.h"
 #import "KSFacebookLoginContext.h"
 #import "UIViewController+KSExtensions.h"
@@ -36,6 +37,14 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
         [_context cancel];
         _context = context;
         [_context execute];
+    }
+}
+
+- (void)setUser:(KSUser *)user {
+    if (_user != user) {
+        [_user removeObserver:self];
+        _user = user;
+        [_user addObserver:self];
     }
 }
 

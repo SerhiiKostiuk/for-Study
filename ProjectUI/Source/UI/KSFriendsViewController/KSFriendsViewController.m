@@ -46,13 +46,9 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 #pragma mark Accessors
 
 - (void)setUser:(KSUser *)user {
-    if (_user != user) {
-        [_user removeObserver:self];
-        _user = user;
-        [_user addObserver:self];
-        
-        self.items = user.friends;
-    }
+    [super setUser:user];
+    
+    self.items = user.friends;
 }
 
 - (UITableView *)tableView {

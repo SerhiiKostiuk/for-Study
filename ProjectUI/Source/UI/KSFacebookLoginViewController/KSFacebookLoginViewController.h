@@ -10,10 +10,7 @@
 
 #import "KSViewController.h"
 
-@class KSUser;
-
 @interface KSFacebookLoginViewController : KSViewController
-@property (nonatomic, strong) KSUser *user;
 
 - (IBAction)onLogin:(id)sender;
 
