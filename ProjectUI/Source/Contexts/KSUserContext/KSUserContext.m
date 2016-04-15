@@ -16,7 +16,9 @@
 #pragma mark Public
 
 - (NSString *)path {
-    return kKSUserPath;
+    KSUser *user = self.model;
+    
+    return user.ID;
 }
 
 - (NSDictionary *)parameters {
