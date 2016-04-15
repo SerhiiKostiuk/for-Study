@@ -25,28 +25,24 @@
     self.friendsContext = nil;
 }
 
-- (void)setUserContext:(KSUserContext *)userContext { // make macros from this setters
-    if (_userContext != userContext) {
-        [_userContext cancel];
-        _userContext = userContext;
-        [_userContext execute];
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setContext:(KSContext *__strong*)context value:(id)value {
+    if (*context != value) {
+        [*context cancel];
+        *context = value;
+        [*context execute];
     }
 }
 
-//- (void)setContext:(KSContext **)context value:(id)value {
-//    if (*context != value) {
-//        [*context cancel];
-//        *context = value;
-//        [*context execute];
-//    }
-//}
+- (void)setUserContext:(KSUserContext *)userContext {
+    [self setContext:&_userContext value:userContext];
+
+}
 
 - (void)setFriendsContext:(KSFacebookFriendsContext *)friendsContext {
-    if (_friendsContext != friendsContext) {
-        [_friendsContext cancel];
-        _friendsContext = friendsContext;
-        [_friendsContext execute];
-    }
+    [self setContext:&_friendsContext value:friendsContext];
 }
 
 #pragma mark -
@@ -55,7 +51,7 @@
 - (void)execute {
     KSUser *user = self.model;
     self.userContext = [KSUserContext contextWithModel:user];
-    self.friendsContext = [KSFacebookFriendsContext contextWithModel:user.friends]; // not right
+    self.friendsContext = [KSFacebookFriendsContext contextWithUser:user];
 }
 
 @end
