@@ -13,7 +13,7 @@
 #import "KSFacebookConstants.h"
 #import "KSDispatch.h"
 
-#import "NSDictionary+KSJSONRepresentation.h"
+#import "KSJSONHeaders.h"
 #import "KSWeakifyMacro.h"
 
 KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
