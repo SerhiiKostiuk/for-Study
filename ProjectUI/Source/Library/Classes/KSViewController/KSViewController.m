@@ -28,6 +28,7 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
 
 - (void)dealloc {
     self.context = nil;
+    self.user = nil;
 }
 
 #pragma mark -
