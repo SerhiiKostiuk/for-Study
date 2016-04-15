@@ -27,15 +27,6 @@
     self.user = nil;
 }
 
-//- (instancetype)init {
-//    self = [super init];
-//    if (self) {
-//        self.user = [KSUser new];
-//    }
-//    
-//    return self;
-//}
-
 #pragma mark -
 #pragma mark Accessors
 
