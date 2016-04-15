@@ -6,8 +6,8 @@
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "KSJSONRepresentation.h"
 
-@interface NSNull (KSJSONRepresentation)
+@interface NSNull (KSJSONRepresentation) <KSJSONRepresentation>
 
 @end

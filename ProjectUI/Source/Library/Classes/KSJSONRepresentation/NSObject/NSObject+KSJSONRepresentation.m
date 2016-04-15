@@ -1,5 +1,5 @@
 //
-//  NSArray+KSJSONRepresentation.h
+//  NSObject+KSJSONRepresentation.m
 //  KSProjectUI
 //
 //  Created by Serg Bla on 05.04.16.
@@ -8,6 +8,10 @@
 
 #import "NSObject+KSJSONRepresentation.h"
 
-@interface NSArray (KSJSONRepresentation)
+@implementation NSObject (KSJSONRepresentation)
+
+- (instancetype)JSONRepresentation {
+    return nil;
+}
 
 @end
