@@ -33,6 +33,27 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 @dynamic cached;
 
 #pragma mark -
+#pragma mark Initializations And Deallocations
+
+- (void)dealloc {
+    self.user = nil;
+}
+
+- (instancetype)initWithUser:(KSUser *)user {
+    self = [super init];
+    self.user = user;
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)contextWithUser:(KSUser *)user {
+    return [[self alloc] initWithUser:user];
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (void)setUser:(KSUser *)user {
@@ -72,10 +93,10 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 - (void)fillModelWithResult:(NSDictionary *)result {
     NSArray *friendList = result[kFBUserFriendsKey][kFBDataKey];
     KSWeakify(self);
-    
-    [self.usersModel performBlockWithoutNotification:^{
+   
+    KSUsers *friends = self.usersModel;
+    [friends performBlockWithoutNotification:^{
         KSStrongifyAndReturnIfNil(self);
-        KSUsers *friends = self.usersModel;
         for (id friend in friendList) {
             KSUser *user = [KSUser new];
             

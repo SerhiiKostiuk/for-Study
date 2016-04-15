@@ -13,5 +13,6 @@
 @interface KSFacebookFriendsContext : KSFacebookContext
 @property (nonatomic, strong) KSUser  *user;
 
++ (instancetype)contextWithUser:(KSUser *)user;
 
 @end
