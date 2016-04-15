@@ -50,17 +50,20 @@ static NSString * const kKSGenderKey           = @"gender";
 #pragma mark NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    NSDictionary *encodingDictionary = @{kKSUserIdKey : self.ID,
-                                         kKSFirstNameKey : self.firstName,
-                                         kKSLastNameKey : self.lastName,
-                                         kKSFriendsKey : self.friends,
-                                         kKSGenderKey : self.gender,
-                                         kKSPreviewImageURLKey : self.previewImageURL,
-                                         kKSLargeImageURLKey : self.largeImageURL};
+    NSDictionary *encodingDictionary = [self encodingDictionary];
     
     for (NSString *key in encodingDictionary.allKeys) {
         [aCoder encodeObject:[encodingDictionary objectForKey:key] forKey:key];
     }
+    
+    KSUsers *friends = self.friends;
+    
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:friends.count];
+    for (KSUser *friend in friends.objects) {
+        [array addObject:friend.ID];
+    }
+    
+    [aCoder encodeObject:array forKey:kKSFriendsKey];
 }
 
 
@@ -74,6 +77,23 @@ static NSString * const kKSGenderKey           = @"gender";
     self.largeImageURL = [aDecoder decodeObjectForKey:kKSLargeImageURLKey];
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Private 
+
+- (NSDictionary *)encodingDictionary {
+    return @{kKSUserIdKey : self.ID,
+             kKSFirstNameKey : self.firstName,
+             kKSLastNameKey : self.lastName,
+             kKSFriendsKey : self.friends,
+             kKSGenderKey : self.gender,
+             kKSPreviewImageURLKey : self.previewImageURL,
+             kKSLargeImageURLKey : self.largeImageURL};
+}
+
+- (void)decodeFriendsWithCoder:(NSCoder *)aCoder {
+    
 }
 
 @end
