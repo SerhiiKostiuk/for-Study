@@ -8,17 +8,21 @@
 
 #import "KSFriendsViewController.h"
 
+#import "FBSDKLoginKit/FBSDKLoginKit.h"
+
 #import "KSUserCell.h"
 #import "KSFriendsView.h"
 #import "KSDispatch.h"
 #import "KSUser.h"
 #import "KSUsers.h"
 #import "KSUserContext.h"
-#import "KSUserCompositeContext.h"
+#import "KSUserAndUserFriendsContext.h"
 #import "KSFacebookFriendsContext.h"
 #import "KSFriendDetailViewController.h"
 
 #import "UIViewController+KSExtensions.h"
+
+static NSString * const kKSLogoutButtonStyle = @"Log out";
 
 KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView, friendsView);
 
@@ -40,6 +44,13 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 
 - (void)dealloc {
     self.user = nil;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    [self customizeBackBarButton];
+    
+    return self;
 }
 
 #pragma mark -
@@ -75,7 +86,25 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 }
 
 - (id)itemsLoadingContext {
-    return [KSUserCompositeContext contextWithModel:self.user];
+    return [KSUserAndUserFriendsContext contextWithModel:self.user];
+}
+
+#pragma mark -
+#pragma mark Private 
+
+- (void)customizeBackBarButton {
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:kKSLogoutButtonStyle
+                                                               style:UIBarButtonItemStylePlain
+                                                              target:self
+                                                              action:@selector(onLogout)];
+    [self.navigationItem setLeftBarButtonItem:button];
+}
+
+- (void)onLogout {
+    FBSDKLoginManager *manager = [[FBSDKLoginManager alloc] init];
+    [manager logOut];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
