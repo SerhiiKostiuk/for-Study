@@ -54,19 +54,6 @@
 }
 
 #pragma mark -
-#pragma mark View Lifecycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self updateViewController];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-#pragma mark -
 #pragma mark Public
 
 - (UITableView *)tableView {
