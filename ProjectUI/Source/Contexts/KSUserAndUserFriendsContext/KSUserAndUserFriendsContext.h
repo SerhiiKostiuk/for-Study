@@ -1,5 +1,5 @@
 //
-//  KSUserCompositeContext.h
+//  KSUserAndUserFriendsContext.h
 //  KSProjectUI
 //
 //  Created by Serg Bla on 12.04.16.
@@ -8,6 +8,6 @@
 
 #import "KSContext.h"
 
-@interface KSUserCompositeContext : KSContext
+@interface KSUserAndUserFriendsContext : KSContext
 
 @end

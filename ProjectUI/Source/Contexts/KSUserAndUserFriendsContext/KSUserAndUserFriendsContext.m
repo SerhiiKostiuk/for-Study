@@ -1,24 +1,24 @@
 //
-//  KSUserCompositeContext.m
+//  KSUserAndUserFriendsContext.m
 //  KSProjectUI
 //
 //  Created by Serg Bla on 12.04.16.
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import "KSUserCompositeContext.h"
+#import "KSUserAndUserFriendsContext.h"
 
 #import "KSUser.h"
 #import "KSUserContext.h"
 #import "KSFacebookFriendsContext.h"
 
-@interface KSUserCompositeContext ()
+@interface KSUserAndUserFriendsContext ()
 @property (nonatomic, strong) KSUserContext             *userContext;
 @property (nonatomic, strong) KSFacebookFriendsContext  *friendsContext;
 
 @end
 
-@implementation KSUserCompositeContext
+@implementation KSUserAndUserFriendsContext
 
 - (void)dealloc {
     self.userContext = nil;
