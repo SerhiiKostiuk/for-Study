@@ -66,7 +66,6 @@
 		C5721F151C74C1E100C1541D /* NSIndexPath+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5721F141C74C1E100C1541D /* NSIndexPath+KSExtensions.m */; };
 		C57E4F201CB2D4C300E9118E /* KSUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C57E4F1F1CB2D4C300E9118E /* KSUserContext.m */; };
 		C57E4F241CB2E48100E9118E /* KSUserDetailContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C57E4F231CB2E48100E9118E /* KSUserDetailContext.m */; };
-		C5C7246B1CBD63E20097F1A2 /* KSUserCompositeContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C7246A1CBD63E20097F1A2 /* KSUserCompositeContext.m */; };
 		C5C7247B1CC026950097F1A2 /* UIAlertView+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C7247A1CC026950097F1A2 /* UIAlertView+KSExtensions.m */; };
 		C5C7248C1CC11F8B0097F1A2 /* NSArray+KSJSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C724801CC11F8B0097F1A2 /* NSArray+KSJSONRepresentation.m */; };
 		C5C7248D1CC11F8B0097F1A2 /* NSDictionary+KSJSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C724831CC11F8B0097F1A2 /* NSDictionary+KSJSONRepresentation.m */; };
@@ -74,6 +73,7 @@
 		C5C7248F1CC11F8B0097F1A2 /* NSObject+KSJSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C7248A1CC11F8B0097F1A2 /* NSObject+KSJSONRepresentation.m */; };
 		C5C724921CC11FDE0097F1A2 /* NSString+KSJSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C724911CC11FDE0097F1A2 /* NSString+KSJSONRepresentation.m */; };
 		C5C724951CC11FEF0097F1A2 /* NSNumber+KSJSONRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C724941CC11FEF0097F1A2 /* NSNumber+KSJSONRepresentation.m */; };
+		C5C7249B1CC211C40097F1A2 /* KSUserAndUserFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C7249A1CC211C40097F1A2 /* KSUserAndUserFriendsContext.m */; };
 		C5CD8FD61C835A380022D60B /* KSView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8FD51C835A380022D60B /* KSView.m */; };
 		C5CD8FDA1C84F9DF0022D60B /* NSObject+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8FD91C84F9DF0022D60B /* NSObject+KSExtensions.m */; };
 		C5CE4C7A1CA40E3A00BCAD36 /* KSFacebookConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CE4C791CA40E3A00BCAD36 /* KSFacebookConstants.m */; };
@@ -198,8 +198,6 @@
 		C57E4F221CB2E48100E9118E /* KSUserDetailContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUserDetailContext.h; sourceTree = "<group>"; };
 		C57E4F231CB2E48100E9118E /* KSUserDetailContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUserDetailContext.m; sourceTree = "<group>"; };
 		C5A035521C63664E003BCAFD /* KSWeakifyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSWeakifyMacro.h; sourceTree = "<group>"; };
-		C5C724691CBD63E20097F1A2 /* KSUserCompositeContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUserCompositeContext.h; sourceTree = "<group>"; };
-		C5C7246A1CBD63E20097F1A2 /* KSUserCompositeContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUserCompositeContext.m; sourceTree = "<group>"; };
 		C5C724791CC026950097F1A2 /* UIAlertView+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+KSExtensions.h"; sourceTree = "<group>"; };
 		C5C7247A1CC026950097F1A2 /* UIAlertView+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+KSExtensions.m"; sourceTree = "<group>"; };
 		C5C7247F1CC11F8B0097F1A2 /* NSArray+KSJSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+KSJSONRepresentation.h"; sourceTree = "<group>"; };
@@ -216,6 +214,8 @@
 		C5C724941CC11FEF0097F1A2 /* NSNumber+KSJSONRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+KSJSONRepresentation.m"; sourceTree = "<group>"; };
 		C5C724961CC120110097F1A2 /* KSJSONRepresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSJSONRepresentation.h; sourceTree = "<group>"; };
 		C5C724971CC124200097F1A2 /* KSJSONHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSJSONHeaders.h; sourceTree = "<group>"; };
+		C5C724991CC211C40097F1A2 /* KSUserAndUserFriendsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUserAndUserFriendsContext.h; sourceTree = "<group>"; };
+		C5C7249A1CC211C40097F1A2 /* KSUserAndUserFriendsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUserAndUserFriendsContext.m; sourceTree = "<group>"; };
 		C5CD8FD41C835A380022D60B /* KSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSView.h; sourceTree = "<group>"; };
 		C5CD8FD51C835A380022D60B /* KSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSView.m; sourceTree = "<group>"; };
 		C5CD8FD81C84F9DF0022D60B /* NSObject+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KSExtensions.h"; sourceTree = "<group>"; };
@@ -318,7 +318,7 @@
 		C511C3B61C98528D00EEF114 /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
-				C5C724681CBD63620097F1A2 /* KSUserCompositeContext */,
+				C5C724981CC211C40097F1A2 /* KSUserAndUserFriendsContext */,
 				C57E4F211CB2E44700E9118E /* KSUserDetailContext */,
 				C57E4F1D1CB2D4B000E9118E /* KSUserContext */,
 				C511C3C11C9859AB00EEF114 /* KSFacebookFriendsContext */,
@@ -807,15 +807,6 @@
 			path = KSUserDetailContext;
 			sourceTree = "<group>";
 		};
-		C5C724681CBD63620097F1A2 /* KSUserCompositeContext */ = {
-			isa = PBXGroup;
-			children = (
-				C5C724691CBD63E20097F1A2 /* KSUserCompositeContext.h */,
-				C5C7246A1CBD63E20097F1A2 /* KSUserCompositeContext.m */,
-			);
-			path = KSUserCompositeContext;
-			sourceTree = "<group>";
-		};
 		C5C724781CC026950097F1A2 /* UIAlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -892,6 +883,15 @@
 				C5C724911CC11FDE0097F1A2 /* NSString+KSJSONRepresentation.m */,
 			);
 			path = NSString;
+			sourceTree = "<group>";
+		};
+		C5C724981CC211C40097F1A2 /* KSUserAndUserFriendsContext */ = {
+			isa = PBXGroup;
+			children = (
+				C5C724991CC211C40097F1A2 /* KSUserAndUserFriendsContext.h */,
+				C5C7249A1CC211C40097F1A2 /* KSUserAndUserFriendsContext.m */,
+			);
+			path = KSUserAndUserFriendsContext;
 			sourceTree = "<group>";
 		};
 		C5CBBD7B1C6A920F00DD2118 /* UINib */ = {
@@ -1146,7 +1146,6 @@
 				C511C4101C9EC7E900EEF114 /* KSFriendsViewController.m in Sources */,
 				C55186AB1C7F2A9800BFBDBC /* KSUserCell.m in Sources */,
 				C511C4221C9ED4FE00EEF114 /* KSFriendDetailView.m in Sources */,
-				C5C7246B1CBD63E20097F1A2 /* KSUserCompositeContext.m in Sources */,
 				C55186A11C7F299000BFBDBC /* KSDispatch.m in Sources */,
 				C5C7248E1CC11F8B0097F1A2 /* NSNull+KSJSONRepresentation.m in Sources */,
 				C5F1F4451C6AAA07008075D1 /* UINib+KSExtensions.m in Sources */,
@@ -1154,6 +1153,7 @@
 				C511C3BD1C98530300EEF114 /* KSFacebookLoginContext.m in Sources */,
 				C511C4051C9EC76200EEF114 /* KSFacebookLoginViewController.m in Sources */,
 				C5C7248D1CC11F8B0097F1A2 /* NSDictionary+KSJSONRepresentation.m in Sources */,
+				C5C7249B1CC211C40097F1A2 /* KSUserAndUserFriendsContext.m in Sources */,
 				C554FA461C6A1A9E00979CCA /* KSObservableObject.m in Sources */,
 				C511C4561CA16CD600EEF114 /* KSImageModel.m in Sources */,
 				C5C7248C1CC11F8B0097F1A2 /* NSArray+KSJSONRepresentation.m in Sources */,

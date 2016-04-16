@@ -51,6 +51,15 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
 }
 
 #pragma mark -
+#pragma mark View Lifecycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self updateViewController];
+}
+
+#pragma mark -
 #pragma mark Public
 
 - (void)updateViewController {
