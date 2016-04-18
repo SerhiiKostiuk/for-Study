@@ -28,7 +28,7 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setContext:(KSContext *__strong*)context value:(id)value {
+- (void)setContext:(KSContext * __strong *)context value:(id)value {
     if (*context != value) {
         [*context cancel];
         *context = value;
