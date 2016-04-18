@@ -39,7 +39,9 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
                                             [user setState:KSModelStateFailedLoading withObject:error];
                                         }
                                     } else {
-                                        user.state = KSModelStateFinishedLoading;
+                                        @synchronized(user) {
+                                             user.state = KSModelStateFinishedLoading;
+                                        }
                                     }
                                 }];
     });
