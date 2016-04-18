@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, KSModelState) {
     KSModelStateUnloaded,
     KSModelStateFailedLoading,
     KSModelStateFinishedLoading,
+    KSModelDetailStateFinishedLoading,
     KSModelStateLoading,
     KSModelStateCount
 };

@@ -52,6 +52,9 @@
         case KSModelStateFinishedLoading:
             return @selector(modelDidFinishLoading:);
             
+        case KSModelDetailStateFinishedLoading:
+            return @selector(modelDidFinishLoading:);
+            
         case KSModelStateFailedLoading:
             return @selector(modelDidFailLoading: withError:);
             
