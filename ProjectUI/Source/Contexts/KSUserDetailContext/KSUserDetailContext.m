@@ -16,18 +16,12 @@
 #pragma mark -
 #pragma mark Public
 
-- (NSString *)path {
-    KSUser *user = self.model;
-    
-    return user.ID;
-}
-
 - (NSDictionary *)parameters {
+    [super parameters];
     NSString *fields = [NSString stringWithFormat:@"%@,%@{%@}",
                         kFBGenderKey,
                         kFBLargePictureKey,
                         kFBURLKey];
-    
     return @{kFBFieldsKey :fields};
 }
 
