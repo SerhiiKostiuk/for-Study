@@ -8,11 +8,29 @@
 
 #import "NSArray+KSJSONRepresentation.h"
 
+@interface NSArray (KSJSONRepresentationPrivate)
+
+- (NSMutableArray *)mutableJSONRepresentation;
+
+@end
+
 @implementation NSArray (KSJSONRepresentation)
 
 - (instancetype)JSONRepresentation {
     return [NSArray arrayWithArray:[self mutableJSONRepresentation]];
 }
+
+@end
+
+@implementation NSMutableArray (KSJSONRepresentation)
+
+- (instancetype)JSONRepresentation {
+    return [NSMutableArray arrayWithArray:[self mutableJSONRepresentation]];
+}
+
+@end
+
+@implementation NSArray (KSJSONRepresentationPrivate)
 
 - (NSMutableArray *)mutableJSONRepresentation {
     NSMutableArray *array = [NSMutableArray new];
@@ -24,14 +42,6 @@
     }
     
     return array;
-}
-
-@end
-
-@implementation NSMutableArray (KSJSONRepresentation)
-
-- (instancetype)JSONRepresentation {
-    return [NSMutableArray arrayWithArray:[self mutableJSONRepresentation]];
 }
 
 @end
