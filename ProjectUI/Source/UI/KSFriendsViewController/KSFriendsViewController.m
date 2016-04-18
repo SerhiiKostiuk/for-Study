@@ -70,9 +70,8 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 #pragma mark UITableViewDataSource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    KSUser *friend = self.items[indexPath.row];
     KSFriendDetailViewController *controller = [KSFriendDetailViewController new];
-    controller.user = friend;
+    controller.user = self.items[indexPath.row];
     
     [self.navigationController pushViewController:controller animated:YES];
 }
