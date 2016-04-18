@@ -41,5 +41,6 @@
 - (void)execute;
 - (void)cancel;
 - (void)load;
+- (NSUInteger)shouldLoadState:(NSUInteger)state;
 
 @end

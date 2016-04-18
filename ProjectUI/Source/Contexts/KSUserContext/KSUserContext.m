@@ -31,6 +31,16 @@
     return @{kFBFieldsKey :fields};
 }
 
+- (NSUInteger)shouldLoadState:(NSUInteger)state {
+    if (KSModelStateFinishedLoading == state ||
+        KSModelDetailStateFinishedLoading == state ||
+        KSModelStateLoading == state) {
+        
+        return state;
+    }
+    return 0;
+}
+
 - (void)fillModelWithResult:(NSDictionary *)result {
     KSUser *user = self.model;
     

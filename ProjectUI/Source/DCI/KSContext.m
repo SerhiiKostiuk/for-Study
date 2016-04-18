@@ -38,7 +38,7 @@
     @synchronized(model) {
         NSUInteger state = model.state;
         
-        if (KSModelStateFinishedLoading == state || KSModelStateLoading == state) {
+        if ([self shouldLoadState:state]) {
             [model notifyObserversWithSelector:[model selectorForState:state]];
             
             return;
@@ -56,11 +56,12 @@
     
 }
 
-#pragma mark -
-#pragma mark Private
-
 - (void)load {
 
+}
+
+- (NSUInteger)shouldLoadState:(NSUInteger)state {
+    return 0;
 }
 
 @end
