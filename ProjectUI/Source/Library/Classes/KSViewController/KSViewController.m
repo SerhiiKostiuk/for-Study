@@ -28,7 +28,7 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
 
 - (void)dealloc {
     self.context = nil;
-    self.user = nil;
+    self.model = nil;
 }
 
 #pragma mark -
@@ -42,11 +42,13 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
     }
 }
 
-- (void)setUser:(KSUser *)user {
-    if (_user != user) {
-        [_user removeObserver:self];
-        _user = user;
-        [_user addObserver:self];
+- (void)setModel:(id)model {
+    if (_model != model) {
+        [_model removeObserver:self];
+        _model = model;
+        [_model addObserver:self];
+        
+        [self updateModelAdjustment];
     }
 }
 
@@ -63,6 +65,10 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
 #pragma mark Public
 
 - (void)updateViewController {
+    
+}
+
+- (void)updateModelAdjustment {
     
 }
 
