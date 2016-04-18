@@ -9,7 +9,7 @@
 #import "UIAlertView+KSExtensions.h"
 
 static NSString * const kKSCancelButtonTitle = @"Ok";
-static NSString * const kKSErrorTitle = @"Error";
+static NSString * const kKSErrorTitle        = @"Error";
 
 @implementation UIAlertView (KSExtensions)
 
