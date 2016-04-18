@@ -10,8 +10,8 @@
 
 @implementation NSNumber (KSJSONRepresentation)
 
-- (NSString *)JSONRepresentation {
-    return self.stringValue;
+- (instancetype)JSONRepresentation {
+    return self;
 }
 
 @end
