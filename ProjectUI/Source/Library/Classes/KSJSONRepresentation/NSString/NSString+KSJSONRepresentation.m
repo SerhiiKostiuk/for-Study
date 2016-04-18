@@ -10,7 +10,7 @@
 
 @implementation NSString (KSJSONRepresentation)
 
--(instancetype)JSONRepresentation {
+- (instancetype)JSONRepresentation {
     return self;
 }
 
