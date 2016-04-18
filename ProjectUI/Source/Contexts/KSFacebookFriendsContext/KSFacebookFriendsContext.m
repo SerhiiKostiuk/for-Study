@@ -137,9 +137,9 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 - (void)fillWithUsers:(NSArray *)objects {
     KSWeakify(self);
     [self.model performBlockWithoutNotification:^{
+        KSUsers *friends = self.usersModel;
         KSStrongifyAndReturnIfNil(self);
         for (KSUser *user in objects) {
-            KSUsers *friends = self.usersModel;
             [friends addObject:user];
         }
     }];
