@@ -15,36 +15,21 @@
 
 KSViewControllerForViewPropertySyntesize(KSFriendDetailViewController, KSFriendDetailView, friendDetailView);
 
-@interface KSFriendDetailViewController ()
-
-@end
-
 @implementation KSFriendDetailViewController
-
-#pragma mark -
-#pragma mark Initializations and Deallocation
-
-- (void)dealloc {
-    self.user = nil;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setUser:(KSUser *)user {
-    [super setUser:user];
-    self.context = [self itemsLoadingContext];
-}
 
 #pragma mark -
 #pragma mark Public
 
 - (void)updateViewController {
-    self.friendDetailView.user = self.user;
+    self.friendDetailView.user = self.model;
 }
 
 - (id)itemsLoadingContext {
-    return [KSUserDetailContext contextWithModel:self.user];
+    return [KSUserDetailContext contextWithModel:self.model];
+}
+
+- (void)updateModelAdjustment {
+    self.context = [self itemsLoadingContext];
 }
 
 @end

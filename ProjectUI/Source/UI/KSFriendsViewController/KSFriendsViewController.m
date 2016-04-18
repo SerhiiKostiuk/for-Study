@@ -26,10 +26,6 @@ static NSString * const kKSLogoutButtonStyle = @"Log out";
 
 KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView, friendsView);
 
-@interface KSFriendsViewController ()
-
-@end
-
 @implementation KSFriendsViewController
 
 #pragma mark -
@@ -42,10 +38,6 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 #pragma mark -
 #pragma mark Initializations and Deallocation
 
-- (void)dealloc {
-    self.user = nil;
-}
-
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     [self customizeBackBarButton];
@@ -56,12 +48,6 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setUser:(KSUser *)user {
-    [super setUser:user];
-    
-    self.items = user.friends;
-}
-
 - (UITableView *)tableView {
     return self.friendsView.tableView;
 }
@@ -71,7 +57,7 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     KSFriendDetailViewController *controller = [KSFriendDetailViewController new];
-    controller.user = self.items[indexPath.row];
+    controller.model = self.items[indexPath.row];
     
     [self.navigationController pushViewController:controller animated:YES];
 }
@@ -81,11 +67,16 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 
 - (void)updateViewController {
     [self.tableView reloadData];
-    self.friendsView.user = self.user;
+    self.friendsView.user = self.model;
 }
 
 - (id)itemsLoadingContext {
-    return [KSUserAndUserFriendsContext contextWithModel:self.user];
+    return [KSUserAndUserFriendsContext contextWithModel:self.model];
+}
+
+- (void)updateModelAdjustment {
+    KSUser *user = self.model;
+    self.items = user.friends;
 }
 
 #pragma mark -

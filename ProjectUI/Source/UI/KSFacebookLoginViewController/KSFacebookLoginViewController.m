@@ -14,24 +14,13 @@
 #import "KSDispatch.h"
 #import "KSUserContext.h"
 
-@interface KSFacebookLoginViewController ()
-
-@end
-
 @implementation KSFacebookLoginViewController
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setUser:(KSUser *)user {
-    [super setUser:user];
-}
 
 #pragma mark -
 #pragma mark Interface Handling
 
 - (IBAction)onLogin:(id)sender {
-    self.user = [KSUser new];
+    self.model = [KSUser new];
     self.context = [self itemsLoadingContext];
 }
 
@@ -43,7 +32,7 @@
 }
 
 - (id)itemsLoadingContext {
-    KSFacebookLoginContext *context = [KSFacebookLoginContext contextWithModel:self.user];
+    KSFacebookLoginContext *context = [KSFacebookLoginContext contextWithModel:self.model];
     context.viewController = self;
     
     return context;
@@ -58,7 +47,7 @@
         KSUser *user = [KSUser new];
         user.ID = token.userID;
         KSFriendsViewController *controller = [KSFriendsViewController new];
-        controller.user = user;
+        controller.model = user;
         
         user = nil;
         
