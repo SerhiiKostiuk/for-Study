@@ -90,6 +90,13 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 #pragma mark -
 #pragma mark Public
 
+- (NSUInteger)shouldLoadState:(NSUInteger)state {
+    if (KSModelStateFinishedLoading == state || KSModelStateLoading == state) {
+        return state;
+    }
+    return 0;
+}
+
 - (void)fillModelWithResult:(NSDictionary *)result {
     NSArray *friendList = result[kFBUserFriendsKey][kFBDataKey];
     KSWeakify(self);
