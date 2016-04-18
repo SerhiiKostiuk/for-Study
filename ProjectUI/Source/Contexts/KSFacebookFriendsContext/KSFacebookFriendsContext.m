@@ -94,6 +94,7 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
     if (KSModelStateFinishedLoading == state || KSModelStateLoading == state) {
         return state;
     }
+    
     return 0;
 }
 
