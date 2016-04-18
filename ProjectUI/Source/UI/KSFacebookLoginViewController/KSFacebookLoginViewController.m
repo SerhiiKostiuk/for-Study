@@ -21,30 +21,10 @@
 @implementation KSFacebookLoginViewController
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (void)dealloc {
-    self.user = nil;
-}
-
-#pragma mark -
 #pragma mark Accessors
 
 - (void)setUser:(KSUser *)user {
     [super setUser:user];
-}
-
-#pragma mark -
-#pragma mark View Lifecycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self presentFriendsViewController];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark -
@@ -79,7 +59,9 @@
         user.ID = token.userID;
         KSFriendsViewController *controller = [KSFriendsViewController new];
         controller.user = user;
-                
+        
+        user = nil;
+        
         [self.navigationController pushViewController:controller animated:NO];
     }
    
