@@ -33,11 +33,14 @@
 }
 
 - (instancetype)init {
+    return [self initWithTarget:nil];
+}
+
+- (instancetype)initWithTarget:(id)target {
     self = [super init];
-    if (self) {
-        self.mutableObservers = [NSMutableSet set];
-        self.notificationEnabled = YES;
-    }
+    
+    self.mutableObservers = [NSMutableSet set];
+    self.notificationEnabled = YES;
     
     return self;
 }
@@ -55,6 +58,10 @@
         
         return [result copy];
     }
+}
+
+- (id)target {
+    return _target ? _target : self;
 }
 
 - (void)setState:(NSUInteger)state {
@@ -116,7 +123,7 @@
         for (id observer in observers) {
             if ([observer respondsToSelector:selector]) {
                 KSClangDiagnosticPushOption("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
-                [observer performSelector:selector withObject:self withObject:object];
+                [observer performSelector:selector withObject:self.target withObject:object];
                 KSClangDiagnosticPopOption
             }
         }

@@ -11,6 +11,9 @@
 @interface KSObservableObject : NSObject
 @property (nonatomic, readonly) NSSet      *observers;
 @property (nonatomic, assign)   NSUInteger state;
+@property (nonatomic, strong)   id         target;
+
+- (instancetype)initWithTarget:(id)target;
 
 - (void)setState:(NSUInteger)state withObject:(id)object;
 
