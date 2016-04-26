@@ -56,9 +56,11 @@
 		C554FA551C6A313100979CCA /* KSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA541C6A313100979CCA /* KSUser.m */; };
 		C554FA581C6A321300979CCA /* NSString+KSRandomName.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA571C6A321300979CCA /* NSString+KSRandomName.m */; };
 		C554FA5B1C6A3B9E00979CCA /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = C554FA5A1C6A3B9E00979CCA /* apple.png */; };
-		C56229A11CC626AF00C12622 /* KSDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C562299F1CC626AF00C12622 /* KSDataModel.xcdatamodeld */; };
 		C56229A61CC89A1B00C12622 /* NSManagedObject+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C56229A51CC89A1B00C12622 /* NSManagedObject+KSExtensions.m */; };
 		C56229A91CC8A4CD00C12622 /* KSManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C56229A81CC8A4CD00C12622 /* KSManagedObject.m */; };
+		C56229B21CCD1F1200C12622 /* KSCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56229B11CCD1F1200C12622 /* KSCoreDataController.m */; };
+		C56229B51CCD3B0F00C12622 /* KSDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C56229B31CCD3B0F00C12622 /* KSDataModel.xcdatamodeld */; };
+		C56229C11CCD3BE600C12622 /* KSDBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C56229BF1CCD3BE600C12622 /* KSDBUser.m */; };
 		C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A032E1C60BDA00043FE10 /* KSAppDelegate.m */; };
 		C56A03441C60BDA00043FE10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A03301C60BDA00043FE10 /* main.m */; };
 		C56A03451C60BDA00043FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C56A03321C60BDA00043FE10 /* Assets.xcassets */; };
@@ -181,11 +183,15 @@
 		C554FA561C6A321300979CCA /* NSString+KSRandomName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KSRandomName.h"; sourceTree = "<group>"; };
 		C554FA571C6A321300979CCA /* NSString+KSRandomName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KSRandomName.m"; sourceTree = "<group>"; };
 		C554FA5A1C6A3B9E00979CCA /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
-		C56229A01CC626AF00C12622 /* KSDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KSDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C56229A41CC89A1B00C12622 /* NSManagedObject+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+KSExtensions.h"; path = "Source/Library/Categories/NSManagedObject/NSManagedObject+KSExtensions.h"; sourceTree = SOURCE_ROOT; };
 		C56229A51CC89A1B00C12622 /* NSManagedObject+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+KSExtensions.m"; path = "Source/Library/Categories/NSManagedObject/NSManagedObject+KSExtensions.m"; sourceTree = SOURCE_ROOT; };
 		C56229A71CC8A4CD00C12622 /* KSManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSManagedObject.h; sourceTree = "<group>"; };
 		C56229A81CC8A4CD00C12622 /* KSManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSManagedObject.m; sourceTree = "<group>"; };
+		C56229B01CCD1F1200C12622 /* KSCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCoreDataController.h; sourceTree = "<group>"; };
+		C56229B11CCD1F1200C12622 /* KSCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCoreDataController.m; sourceTree = "<group>"; };
+		C56229B41CCD3B0F00C12622 /* KSDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KSDataModel.xcdatamodel; sourceTree = "<group>"; };
+		C56229BE1CCD3BE600C12622 /* KSDBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDBUser.h; sourceTree = "<group>"; };
+		C56229BF1CCD3BE600C12622 /* KSDBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDBUser.m; sourceTree = "<group>"; };
 		C56A032C1C60BDA00043FE10 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C56A032D1C60BDA00043FE10 /* KSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
 		C56A032E1C60BDA00043FE10 /* KSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -627,6 +633,7 @@
 		C554FA3C1C6A1A5F00979CCA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C56229AE1CCD1F1200C12622 /* Core Data */,
 				C5C7247D1CC11F8B0097F1A2 /* KSJSONRepresentation */,
 				C511C4291CA16CD600EEF114 /* KSArrayModel */,
 				C511C43C1CA16CD600EEF114 /* KSCollectionChangeModel */,
@@ -714,7 +721,9 @@
 		C562299E1CC6268800C12622 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				C562299F1CC626AF00C12622 /* KSDataModel.xcdatamodeld */,
+				C56229BE1CCD3BE600C12622 /* KSDBUser.h */,
+				C56229BF1CCD3BE600C12622 /* KSDBUser.m */,
+				C56229B31CCD3B0F00C12622 /* KSDataModel.xcdatamodeld */,
 				C56229A71CC8A4CD00C12622 /* KSManagedObject.h */,
 				C56229A81CC8A4CD00C12622 /* KSManagedObject.m */,
 			);
@@ -729,6 +738,23 @@
 			);
 			name = NSManagedObject;
 			path = NSMagageredObject;
+			sourceTree = "<group>";
+		};
+		C56229AE1CCD1F1200C12622 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				C56229AF1CCD1F1200C12622 /* KSCoreDataController */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		C56229AF1CCD1F1200C12622 /* KSCoreDataController */ = {
+			isa = PBXGroup;
+			children = (
+				C56229B01CCD1F1200C12622 /* KSCoreDataController.h */,
+				C56229B11CCD1F1200C12622 /* KSCoreDataController.m */,
+			);
+			path = KSCoreDataController;
 			sourceTree = "<group>";
 		};
 		C56A032B1C60BDA00043FE10 /* KSProjectUI */ = {
@@ -1162,6 +1188,7 @@
 				C55186971C7E4CDB00BFBDBC /* NSFileManager+KSExtensions.m in Sources */,
 				C511C3B51C984F8100EEF114 /* KSContext.m in Sources */,
 				C53F001F1C6FD65D00A0768F /* KSUsersView.m in Sources */,
+				C56229B21CCD1F1200C12622 /* KSCoreDataController.m in Sources */,
 				C5C724921CC11FDE0097F1A2 /* NSString+KSJSONRepresentation.m in Sources */,
 				C57E4F241CB2E48100E9118E /* KSUserDetailContext.m in Sources */,
 				C5CD8FDA1C84F9DF0022D60B /* NSObject+KSExtensions.m in Sources */,
@@ -1179,6 +1206,7 @@
 				C5C7248F1CC11F8B0097F1A2 /* NSObject+KSJSONRepresentation.m in Sources */,
 				C5C724951CC11FEF0097F1A2 /* NSNumber+KSJSONRepresentation.m in Sources */,
 				C56A034A1C60BDA00043FE10 /* KSSquareViewController.m in Sources */,
+				C56229B51CCD3B0F00C12622 /* KSDataModel.xcdatamodeld in Sources */,
 				C511C4141C9ECAAB00EEF114 /* KSFriendsView.m in Sources */,
 				C5721F151C74C1E100C1541D /* NSIndexPath+KSExtensions.m in Sources */,
 				C554FA481C6A1A9E00979CCA /* KSWeakReference.m in Sources */,
@@ -1193,7 +1221,6 @@
 				C511C3BD1C98530300EEF114 /* KSFacebookLoginContext.m in Sources */,
 				C511C4051C9EC76200EEF114 /* KSFacebookLoginViewController.m in Sources */,
 				C5C7248D1CC11F8B0097F1A2 /* NSDictionary+KSJSONRepresentation.m in Sources */,
-				C56229A11CC626AF00C12622 /* KSDataModel.xcdatamodeld in Sources */,
 				C5C7249B1CC211C40097F1A2 /* KSUserAndUserFriendsContext.m in Sources */,
 				C554FA461C6A1A9E00979CCA /* KSObservableObject.m in Sources */,
 				C511C4561CA16CD600EEF114 /* KSImageModel.m in Sources */,
@@ -1205,6 +1232,7 @@
 				C511C44D1CA16CD600EEF114 /* KSArrayModel.m in Sources */,
 				C5D39F2F1C64A6430053E43C /* UIWindow+KSExtensions.m in Sources */,
 				C511C4551CA16CD600EEF114 /* UITableView+KSCollectionChangeModel.m in Sources */,
+				C56229C11CCD3BE600C12622 /* KSDBUser.m in Sources */,
 				C56A03441C60BDA00043FE10 /* main.m in Sources */,
 				C511C44E1CA16CD600EEF114 /* KSCollectionChangeModel+KSArrayModel.m in Sources */,
 				C511C41E1C9ED4D800EEF114 /* KSFriendDetailViewController.m in Sources */,
@@ -1377,12 +1405,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C562299F1CC626AF00C12622 /* KSDataModel.xcdatamodeld */ = {
+		C56229B31CCD3B0F00C12622 /* KSDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C56229A01CC626AF00C12622 /* KSDataModel.xcdatamodel */,
+				C56229B41CCD3B0F00C12622 /* KSDataModel.xcdatamodel */,
 			);
-			currentVersion = C56229A01CC626AF00C12622 /* KSDataModel.xcdatamodel */;
+			currentVersion = C56229B41CCD3B0F00C12622 /* KSDataModel.xcdatamodel */;
 			path = KSDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
