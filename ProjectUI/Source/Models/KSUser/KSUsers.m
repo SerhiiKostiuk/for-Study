@@ -8,11 +8,14 @@
 
 #import "KSUsers.h"
 
+#import <CoreData/NSEntityDescription.h>
+
 #import "KSUser.h"
 #import "NSFileManager+KSExtensions.h"
 #import "KSWeakifyMacro.h"
 
 static NSString * const kKSPListName  = @"users.plist";
+static NSString * const kKSDescriptorKey = @"lastName";
 
 @interface KSUsers ()
 @property (nonatomic, strong) NSMutableArray  *notificationObservers;
@@ -38,6 +41,22 @@ static NSString * const kKSPListName  = @"users.plist";
         self.notificationObservers = [NSMutableArray new];
         [self startObservingNotification];
     }
+    return self;
+}
+
+- (instancetype)initializeFetchedResultsControllerForEntity:(NSEntityDescription *)entity
+                                   withManagedObjectContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity.managedObjectClassName];
+    NSSortDescriptor *lastNameSort = [NSSortDescriptor sortDescriptorWithKey:kKSDescriptorKey ascending:YES];
+    
+    [request setSortDescriptors:@[lastNameSort]];
+    [self setFetchedResultsController:[[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                          managedObjectContext:context
+                                                                            sectionNameKeyPath:nil
+                                                                                     cacheName:nil]];
+    [[self fetchedResultsController] setDelegate:self];
+
     return self;
 }
 
@@ -88,6 +107,22 @@ static NSString * const kKSPListName  = @"users.plist";
         [center removeObserver:observer name:nil object:nil];
         [self.notificationObservers removeObject:observer];
         
+    }
+}
+
+#pragma mark -
+#pragma mark NSFetchedResultsControllerDelegate
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)object
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+    if (NSFetchedResultsChangeInsert == type) {
+        [self performBlockWithoutNotification:^{
+            [self addObject:object];
+        }];
     }
 }
 
