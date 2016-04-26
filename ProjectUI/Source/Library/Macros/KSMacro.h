@@ -26,3 +26,6 @@
             var(__VA_ARGS__); \
         } \
     } while(0);
+
+#define  NSStringFromSelector(SEL) NSStringFromSelector(@selector(SEL))
+
