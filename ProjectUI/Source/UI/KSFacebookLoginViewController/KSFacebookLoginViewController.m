@@ -41,19 +41,26 @@
 #pragma mark -
 #pragma mark Private 
 
-- (void)presentFriendsViewController {
+- (KSUser *)currentTokenUser {
     FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
     if (token) {
         KSUser *user = [KSUser new];
         user.ID = token.userID;
+        
+        return user;
+    }
+    
+    return nil;
+}
+
+- (void)presentFriendsViewController {
+    KSUser *user = [self currentTokenUser];
         KSFriendsViewController *controller = [KSFriendsViewController new];
         controller.model = user;
         
         user = nil;
         
         [self.navigationController pushViewController:controller animated:NO];
-    }
-   
 }
 
 @end
