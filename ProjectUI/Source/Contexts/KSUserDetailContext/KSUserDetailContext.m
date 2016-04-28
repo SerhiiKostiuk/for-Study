@@ -25,20 +25,13 @@
     return @{kFBFieldsKey :fields};
 }
 
-- (NSUInteger)shouldLoadState:(NSUInteger)state {
-    if (KSModelDetailStateFinishedLoading == state || KSModelStateLoading == state) {
-        return state;
-    }
-    return 0;
-}
-
 - (void)fillModelWithResult:(NSDictionary *)result {
     KSUser *user = self.model;
     
     user.gender = result[kFBGenderKey];
     
     NSString *url = result [kFBPictureKey][kFBDataKey][kFBURLKey];
-    user.largeImageURL = [NSURL URLWithString:url];
+//    user.largeImageURL = [NSURL URLWithString:url];
 }
 
 @end

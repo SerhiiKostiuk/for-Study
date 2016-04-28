@@ -37,7 +37,7 @@
 - (void)fillWithModel:(KSUser *)user {
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
     self.genderLabel.text = user.gender;
-    self.imageView.imageModel = user.largeImageModel;
+//    self.imageView.imageModel = user.largeImageModel;
 }
 
 @end

@@ -113,7 +113,7 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
             user.lastName = friend[kFBLastNameKey];
             
             NSString *url = friend[kFBPictureKey][kFBDataKey][kFBURLKey];
-            user.previewImageURL = [NSURL URLWithString:url];
+//            user.previewImageURL = [NSURL URLWithString:url];
             
             [friends addObject:user];
         }
