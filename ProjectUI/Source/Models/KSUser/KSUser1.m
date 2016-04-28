@@ -6,7 +6,7 @@
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import "KSUser.h"
+#import "KSUser1.h"
 
 #import "KSImageModel.h"
 #import "KSUsers.h"
@@ -19,7 +19,7 @@ static NSString * const kKSPreviewImageURLKey  = @"previewImageURL";
 static NSString * const kKSLargeImageURLKey    = @"largeImageURL";
 static NSString * const kKSGenderKey           = @"gender";
 
-@implementation KSUser
+@implementation KSUser1
 
 @dynamic previewImageModel;
 @dynamic largeImageModel;
@@ -59,7 +59,7 @@ static NSString * const kKSGenderKey           = @"gender";
     KSUsers *friends = self.friends;
     
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:friends.count];
-    for (KSUser *friend in friends.objects) {
+    for (KSUser1 *friend in friends.objects) {
         [array addObject:friend.ID];
     }
     
