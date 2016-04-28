@@ -11,6 +11,13 @@
 #pragma mark -
 #pragma mark Puplic
 
+void KSDispatchOnce(dispatch_block_t block) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        block();
+    });
+}
+
 void KSDispatchAsyncOnDefaultQueue(dispatch_block_t block) {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), block);
 }
