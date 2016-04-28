@@ -53,14 +53,10 @@
 		C554FA471C6A1A9E00979CCA /* KSReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA421C6A1A9E00979CCA /* KSReference.m */; };
 		C554FA481C6A1A9E00979CCA /* KSWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA451C6A1A9E00979CCA /* KSWeakReference.m */; };
 		C554FA501C6A231D00979CCA /* KSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA4F1C6A231D00979CCA /* KSTableViewCell.m */; };
-		C554FA551C6A313100979CCA /* KSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA541C6A313100979CCA /* KSUser.m */; };
 		C554FA581C6A321300979CCA /* NSString+KSRandomName.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FA571C6A321300979CCA /* NSString+KSRandomName.m */; };
 		C554FA5B1C6A3B9E00979CCA /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = C554FA5A1C6A3B9E00979CCA /* apple.png */; };
-		C56229A61CC89A1B00C12622 /* NSManagedObject+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C56229A51CC89A1B00C12622 /* NSManagedObject+KSExtensions.m */; };
 		C56229A91CC8A4CD00C12622 /* KSManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C56229A81CC8A4CD00C12622 /* KSManagedObject.m */; };
-		C56229B21CCD1F1200C12622 /* KSCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56229B11CCD1F1200C12622 /* KSCoreDataController.m */; };
 		C56229B51CCD3B0F00C12622 /* KSDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C56229B31CCD3B0F00C12622 /* KSDataModel.xcdatamodeld */; };
-		C56229C11CCD3BE600C12622 /* KSDBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C56229BF1CCD3BE600C12622 /* KSDBUser.m */; };
 		C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A032E1C60BDA00043FE10 /* KSAppDelegate.m */; };
 		C56A03441C60BDA00043FE10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C56A03301C60BDA00043FE10 /* main.m */; };
 		C56A03451C60BDA00043FE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C56A03321C60BDA00043FE10 /* Assets.xcassets */; };
@@ -85,6 +81,11 @@
 		C5D39F2E1C64A6430053E43C /* UIViewController+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F291C64A6430053E43C /* UIViewController+KSExtensions.m */; };
 		C5D39F2F1C64A6430053E43C /* UIWindow+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D39F2C1C64A6430053E43C /* UIWindow+KSExtensions.m */; };
 		C5D44E5F1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D44E5E1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m */; };
+		C5E221921CCF661300B11B76 /* KSUser1.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E221911CCF661300B11B76 /* KSUser1.m */; };
+		C5E221951CCF662A00B11B76 /* KSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E221941CCF662A00B11B76 /* KSUser.m */; };
+		C5E221991CCFB05100B11B76 /* KSCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E221981CCFB05100B11B76 /* KSCoreDataManager.m */; };
+		C5E2219F1CCFBB4E00B11B76 /* NSManagedObject+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E2219D1CCFBB4E00B11B76 /* NSManagedObject+KSExtensions.m */; };
+		C5E221A21CCFBB9C00B11B76 /* NSManagedObjectContext+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E221A11CCFBB9C00B11B76 /* NSManagedObjectContext+KSExtensions.m */; };
 		C5F1F4421C6A9A1D008075D1 /* KSUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F1F4411C6A9A1D008075D1 /* KSUsers.m */; };
 		C5F1F4451C6AAA07008075D1 /* UINib+KSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F1F4441C6AAA07008075D1 /* UINib+KSExtensions.m */; };
 		C5F496DC1CC51628003D8427 /* KSFacebookConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F496DB1CC51628003D8427 /* KSFacebookConstants.m */; };
@@ -178,20 +179,12 @@
 		C554FA451C6A1A9E00979CCA /* KSWeakReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWeakReference.m; sourceTree = "<group>"; };
 		C554FA4E1C6A231D00979CCA /* KSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTableViewCell.h; sourceTree = "<group>"; };
 		C554FA4F1C6A231D00979CCA /* KSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTableViewCell.m; sourceTree = "<group>"; };
-		C554FA531C6A313100979CCA /* KSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUser.h; sourceTree = "<group>"; };
-		C554FA541C6A313100979CCA /* KSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUser.m; sourceTree = "<group>"; };
 		C554FA561C6A321300979CCA /* NSString+KSRandomName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KSRandomName.h"; sourceTree = "<group>"; };
 		C554FA571C6A321300979CCA /* NSString+KSRandomName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KSRandomName.m"; sourceTree = "<group>"; };
 		C554FA5A1C6A3B9E00979CCA /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
-		C56229A41CC89A1B00C12622 /* NSManagedObject+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+KSExtensions.h"; path = "Source/Library/Categories/NSManagedObject/NSManagedObject+KSExtensions.h"; sourceTree = SOURCE_ROOT; };
-		C56229A51CC89A1B00C12622 /* NSManagedObject+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+KSExtensions.m"; path = "Source/Library/Categories/NSManagedObject/NSManagedObject+KSExtensions.m"; sourceTree = SOURCE_ROOT; };
 		C56229A71CC8A4CD00C12622 /* KSManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSManagedObject.h; sourceTree = "<group>"; };
 		C56229A81CC8A4CD00C12622 /* KSManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSManagedObject.m; sourceTree = "<group>"; };
-		C56229B01CCD1F1200C12622 /* KSCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCoreDataController.h; sourceTree = "<group>"; };
-		C56229B11CCD1F1200C12622 /* KSCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCoreDataController.m; sourceTree = "<group>"; };
 		C56229B41CCD3B0F00C12622 /* KSDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KSDataModel.xcdatamodel; sourceTree = "<group>"; };
-		C56229BE1CCD3BE600C12622 /* KSDBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDBUser.h; sourceTree = "<group>"; };
-		C56229BF1CCD3BE600C12622 /* KSDBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDBUser.m; sourceTree = "<group>"; };
 		C56A032C1C60BDA00043FE10 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C56A032D1C60BDA00043FE10 /* KSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
 		C56A032E1C60BDA00043FE10 /* KSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = KSAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -243,6 +236,16 @@
 		C5D39F2C1C64A6430053E43C /* UIWindow+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+KSExtensions.m"; sourceTree = "<group>"; };
 		C5D44E5D1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSPathUtilities+KSExtensions.h"; path = "NSPathUtilities/NSPathUtilities+KSExtensions.h"; sourceTree = "<group>"; };
 		C5D44E5E1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSPathUtilities+KSExtensions.m"; path = "NSPathUtilities/NSPathUtilities+KSExtensions.m"; sourceTree = "<group>"; };
+		C5E221901CCF661300B11B76 /* KSUser1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUser1.h; sourceTree = "<group>"; };
+		C5E221911CCF661300B11B76 /* KSUser1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUser1.m; sourceTree = "<group>"; };
+		C5E221931CCF662A00B11B76 /* KSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUser.h; sourceTree = "<group>"; };
+		C5E221941CCF662A00B11B76 /* KSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUser.m; sourceTree = "<group>"; };
+		C5E221971CCFB05100B11B76 /* KSCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCoreDataManager.h; sourceTree = "<group>"; };
+		C5E221981CCFB05100B11B76 /* KSCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSCoreDataManager.m; sourceTree = "<group>"; };
+		C5E2219C1CCFBB4E00B11B76 /* NSManagedObject+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+KSExtensions.h"; sourceTree = "<group>"; };
+		C5E2219D1CCFBB4E00B11B76 /* NSManagedObject+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+KSExtensions.m"; sourceTree = "<group>"; };
+		C5E221A01CCFBB9C00B11B76 /* NSManagedObjectContext+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+KSExtensions.h"; sourceTree = "<group>"; };
+		C5E221A11CCFBB9C00B11B76 /* NSManagedObjectContext+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+KSExtensions.m"; sourceTree = "<group>"; };
 		C5F1F4401C6A9A1D008075D1 /* KSUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsers.h; sourceTree = "<group>"; };
 		C5F1F4411C6A9A1D008075D1 /* KSUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUsers.m; sourceTree = "<group>"; };
 		C5F1F4431C6AAA07008075D1 /* UINib+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+KSExtensions.h"; sourceTree = "<group>"; };
@@ -701,8 +704,8 @@
 		C554FA521C6A311D00979CCA /* KSUser */ = {
 			isa = PBXGroup;
 			children = (
-				C554FA531C6A313100979CCA /* KSUser.h */,
-				C554FA541C6A313100979CCA /* KSUser.m */,
+				C5E221901CCF661300B11B76 /* KSUser1.h */,
+				C5E221911CCF661300B11B76 /* KSUser1.m */,
 				C5F1F4401C6A9A1D008075D1 /* KSUsers.h */,
 				C5F1F4411C6A9A1D008075D1 /* KSUsers.m */,
 			);
@@ -721,8 +724,8 @@
 		C562299E1CC6268800C12622 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				C56229BE1CCD3BE600C12622 /* KSDBUser.h */,
-				C56229BF1CCD3BE600C12622 /* KSDBUser.m */,
+				C5E221931CCF662A00B11B76 /* KSUser.h */,
+				C5E221941CCF662A00B11B76 /* KSUser.m */,
 				C56229B31CCD3B0F00C12622 /* KSDataModel.xcdatamodeld */,
 				C56229A71CC8A4CD00C12622 /* KSManagedObject.h */,
 				C56229A81CC8A4CD00C12622 /* KSManagedObject.m */,
@@ -730,31 +733,12 @@
 			path = "Core Data";
 			sourceTree = "<group>";
 		};
-		C56229A21CC899B200C12622 /* NSManagedObject */ = {
-			isa = PBXGroup;
-			children = (
-				C56229A41CC89A1B00C12622 /* NSManagedObject+KSExtensions.h */,
-				C56229A51CC89A1B00C12622 /* NSManagedObject+KSExtensions.m */,
-			);
-			name = NSManagedObject;
-			path = NSMagageredObject;
-			sourceTree = "<group>";
-		};
 		C56229AE1CCD1F1200C12622 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				C56229AF1CCD1F1200C12622 /* KSCoreDataController */,
+				C5E221961CCFB05100B11B76 /* KSCoreDataManager */,
 			);
 			path = "Core Data";
-			sourceTree = "<group>";
-		};
-		C56229AF1CCD1F1200C12622 /* KSCoreDataController */ = {
-			isa = PBXGroup;
-			children = (
-				C56229B01CCD1F1200C12622 /* KSCoreDataController.h */,
-				C56229B11CCD1F1200C12622 /* KSCoreDataController.m */,
-			);
-			path = KSCoreDataController;
 			sourceTree = "<group>";
 		};
 		C56A032B1C60BDA00043FE10 /* KSProjectUI */ = {
@@ -980,7 +964,7 @@
 		C5D39F231C64A6430053E43C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				C56229A21CC899B200C12622 /* NSManagedObject */,
+				C5E2219A1CCFBB4E00B11B76 /* CoreData */,
 				C5C724781CC026950097F1A2 /* UIAlertView */,
 				C511C2011C944E5A00EEF114 /* NSURL */,
 				C5CD8FD71C84F9DF0022D60B /* NSObject */,
@@ -1031,6 +1015,42 @@
 				C5D44E5E1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m */,
 			);
 			name = NSPathUtilities;
+			sourceTree = "<group>";
+		};
+		C5E221961CCFB05100B11B76 /* KSCoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				C5E221971CCFB05100B11B76 /* KSCoreDataManager.h */,
+				C5E221981CCFB05100B11B76 /* KSCoreDataManager.m */,
+			);
+			path = KSCoreDataManager;
+			sourceTree = "<group>";
+		};
+		C5E2219A1CCFBB4E00B11B76 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C5E2219B1CCFBB4E00B11B76 /* NSManagedObject */,
+				C5E2219E1CCFBB4E00B11B76 /* NSManagedObjectContext */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C5E2219B1CCFBB4E00B11B76 /* NSManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				C5E2219C1CCFBB4E00B11B76 /* NSManagedObject+KSExtensions.h */,
+				C5E2219D1CCFBB4E00B11B76 /* NSManagedObject+KSExtensions.m */,
+			);
+			path = NSManagedObject;
+			sourceTree = "<group>";
+		};
+		C5E2219E1CCFBB4E00B11B76 /* NSManagedObjectContext */ = {
+			isa = PBXGroup;
+			children = (
+				C5E221A01CCFBB9C00B11B76 /* NSManagedObjectContext+KSExtensions.h */,
+				C5E221A11CCFBB9C00B11B76 /* NSManagedObjectContext+KSExtensions.m */,
+			);
+			path = NSManagedObjectContext;
 			sourceTree = "<group>";
 		};
 		C5F496D81CC51628003D8427 /* Utilities */ = {
@@ -1181,6 +1201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E221991CCFB05100B11B76 /* KSCoreDataManager.m in Sources */,
 				C57E4F201CB2D4C300E9118E /* KSUserContext.m in Sources */,
 				C55186B31C7F504800BFBDBC /* KSActivityIndicator.m in Sources */,
 				C56229A91CC8A4CD00C12622 /* KSManagedObject.m in Sources */,
@@ -1188,16 +1209,13 @@
 				C55186971C7E4CDB00BFBDBC /* NSFileManager+KSExtensions.m in Sources */,
 				C511C3B51C984F8100EEF114 /* KSContext.m in Sources */,
 				C53F001F1C6FD65D00A0768F /* KSUsersView.m in Sources */,
-				C56229B21CCD1F1200C12622 /* KSCoreDataController.m in Sources */,
 				C5C724921CC11FDE0097F1A2 /* NSString+KSJSONRepresentation.m in Sources */,
 				C57E4F241CB2E48100E9118E /* KSUserDetailContext.m in Sources */,
 				C5CD8FDA1C84F9DF0022D60B /* NSObject+KSExtensions.m in Sources */,
-				C56229A61CC89A1B00C12622 /* NSManagedObject+KSExtensions.m in Sources */,
 				C5F1F4421C6A9A1D008075D1 /* KSUsers.m in Sources */,
 				C554FA581C6A321300979CCA /* NSString+KSRandomName.m in Sources */,
 				C511C45B1CA1788B00EEF114 /* KSFacebookContext.m in Sources */,
 				C511C4571CA16CD600EEF114 /* KSModel.m in Sources */,
-				C554FA551C6A313100979CCA /* KSUser.m in Sources */,
 				C53F00101C6E2AF400A0768F /* UITableView+KSExtensions.m in Sources */,
 				C511C4521CA16CD600EEF114 /* KSArrayIndexChangeModel.m in Sources */,
 				C511C3FD1C9EB4F200EEF114 /* KSArrayViewController.m in Sources */,
@@ -1216,6 +1234,7 @@
 				C511C4221C9ED4FE00EEF114 /* KSFriendDetailView.m in Sources */,
 				C55186A11C7F299000BFBDBC /* KSDispatch.m in Sources */,
 				C5C7248E1CC11F8B0097F1A2 /* NSNull+KSJSONRepresentation.m in Sources */,
+				C5E221A21CCFBB9C00B11B76 /* NSManagedObjectContext+KSExtensions.m in Sources */,
 				C5F1F4451C6AAA07008075D1 /* UINib+KSExtensions.m in Sources */,
 				C5D39F2D1C64A6430053E43C /* CGGeometry+KSExtensions.m in Sources */,
 				C511C3BD1C98530300EEF114 /* KSFacebookLoginContext.m in Sources */,
@@ -1227,14 +1246,15 @@
 				C5C7248C1CC11F8B0097F1A2 /* NSArray+KSJSONRepresentation.m in Sources */,
 				C5CD8FD61C835A380022D60B /* KSView.m in Sources */,
 				C511C3F61C9EB4B800EEF114 /* KSViewController.m in Sources */,
+				C5E221921CCF661300B11B76 /* KSUser1.m in Sources */,
 				C511C4511CA16CD600EEF114 /* KSArrayIndexChangeModel+UITableView.m in Sources */,
 				C511C4261C9ED64500EEF114 /* KSImageView.m in Sources */,
 				C511C44D1CA16CD600EEF114 /* KSArrayModel.m in Sources */,
 				C5D39F2F1C64A6430053E43C /* UIWindow+KSExtensions.m in Sources */,
 				C511C4551CA16CD600EEF114 /* UITableView+KSCollectionChangeModel.m in Sources */,
-				C56229C11CCD3BE600C12622 /* KSDBUser.m in Sources */,
 				C56A03441C60BDA00043FE10 /* main.m in Sources */,
 				C511C44E1CA16CD600EEF114 /* KSCollectionChangeModel+KSArrayModel.m in Sources */,
+				C5E221951CCF662A00B11B76 /* KSUser.m in Sources */,
 				C511C41E1C9ED4D800EEF114 /* KSFriendDetailViewController.m in Sources */,
 				C56A03431C60BDA00043FE10 /* KSAppDelegate.m in Sources */,
 				C554FA471C6A1A9E00979CCA /* KSReference.m in Sources */,
@@ -1248,6 +1268,7 @@
 				C511C4541CA16CD600EEF114 /* KSCollectionChangeModel.m in Sources */,
 				C511C4531CA16CD600EEF114 /* KSCollectionChangeModel+UITableView.m in Sources */,
 				C5D44E5F1C7CA9CC00818AEA /* NSPathUtilities+KSExtensions.m in Sources */,
+				C5E2219F1CCFBB4E00B11B76 /* NSManagedObject+KSExtensions.m in Sources */,
 				C511C4501CA16CD600EEF114 /* KSArrayDoubleIndexChangeModel.m in Sources */,
 				C5C7247B1CC026950097F1A2 /* UIAlertView+KSExtensions.m in Sources */,
 			);

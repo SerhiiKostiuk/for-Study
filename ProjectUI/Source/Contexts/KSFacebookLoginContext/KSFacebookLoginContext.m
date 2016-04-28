@@ -11,12 +11,13 @@
 #import "FBSDKLoginKit/FBSDKLoginKit.h"
 #import "FBSDKCoreKit/FBSDKAccessToken.h"
 #import "KSUser.h"
+#import "KSModel.h"
 #import "KSFacebookConstants.h"
 #import "KSDispatch.h"
 
 #import "KSWeakifyMacro.h"
 
-KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
+//KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
 
 @implementation KSFacebookLoginContext
 
@@ -28,7 +29,7 @@ KSModelForModelPropertySyntesize(KSFacebookLoginContext, KSUser, userModel);
     KSDispatchAsyncOnMainQueue(^{
         KSStrongifyAndReturnIfNil(self);
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc]   init];
-        KSUser *user = self.userModel;
+        KSModel *user = self.model;
         [login logInWithReadPermissions:@[kKSUserEmailPermission, kKSPublicPermission, kKSUserFriendsPermission]
                      fromViewController:self.viewController
                                 handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
