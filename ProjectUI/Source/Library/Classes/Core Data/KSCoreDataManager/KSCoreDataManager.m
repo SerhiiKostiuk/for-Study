@@ -1,22 +1,35 @@
 //
-//  KSCoreDataController.m
+//  KSCoreDataManager.m
 //  KSProjectUI
 //
 //  Created by Serg Bla on 24.04.16.
 //  Copyright © 2016 Serg Kostiuk. All rights reserved.
 //
 
-#import "KSCoreDataController.h"
+#import "KSCoreDataManager.h"
 
 #import "UIAlertView+KSExtensions.h"
 #import "KSDispatch.h"
+
+static KSCoreDataManager *sharedCoreDataManager = nil;
 
 static NSString * const kKSMomResorce   = @"KSProjectUI";
 static NSString * const kKSMomExtension = @"momd";
 static NSString * const kKSMomErrorDescription = @"Error initializing Managed Object Model";
 static NSString * const kKSDataBaseName = @"facebookUsers.sqlite";
 
-@implementation KSCoreDataController
+@implementation KSCoreDataManager
+
+#pragma mark -
+#pragma Singleton
+
++ (instancetype)sharedCoreDataManager {
+    KSDispatchOnce(^{
+        sharedCoreDataManager = [self new];
+    });
+    
+    return sharedCoreDataManager;
+}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -70,15 +83,6 @@ static NSString * const kKSDataBaseName = @"facebookUsers.sqlite";
             [UIAlertView presentWithError:error];
         }
     });
-}
-
-- (void)saveManagedObjectContext {
-    NSError *error = nil;
-    [self.managedObjectContext save:&error];
-    
-    if (error) {
-        [UIAlertView presentWithError:error];
-    }
 }
 
 @end

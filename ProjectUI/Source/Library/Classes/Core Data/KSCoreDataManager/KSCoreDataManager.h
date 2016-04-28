@@ -1,5 +1,5 @@
 //
-//  KSCoreDataController.h
+//  KSCoreDataManager.h
 //  KSProjectUI
 //
 //  Created by Serg Bla on 24.04.16.
@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@interface KSCoreDataController : NSObject
+@interface KSCoreDataManager : NSObject
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
++ (instancetype)sharedCoreDataManager;
+
 - (void)initializeCoreData;
-- (void)saveManagedObjectContext;
 
 @end
