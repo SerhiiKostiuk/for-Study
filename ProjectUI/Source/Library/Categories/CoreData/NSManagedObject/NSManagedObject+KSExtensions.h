@@ -10,8 +10,10 @@
 
 @interface NSManagedObject (KSExtensions)
 
-- (void)addCustomValue:(id)value inMutableSetForKey:(NSString *)key;
+- (void)setCustomValue:(id)value forKey:(NSString *)key;
+- (id)customValueForKey:(NSString *)key;
 
+- (void)addCustomValue:(id)value inMutableSetForKey:(NSString *)key;
 - (void)removeCustomValue:(id)value inMutableSetForKey:(NSString *)key;
 
 @end
