@@ -46,7 +46,7 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
     if (_model != model) {
         [_model removeObserver:self];
         _model = model;
-        [_model addObserver:self];
+//        [_model addObserver:self];
         
         [self updateModelAdjustment];
     }
