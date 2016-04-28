@@ -8,6 +8,7 @@
 
 #import "KSUsers.h"
 
+#import <UIKit/UIKit.h>
 #import <CoreData/NSEntityDescription.h>
 
 #import "KSUser.h"

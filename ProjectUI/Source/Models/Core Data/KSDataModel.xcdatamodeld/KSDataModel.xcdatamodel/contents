@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
-    <entity name="KSDBUser" representedClassName="KSDBUser" syncable="YES">
+    <entity name="KSUser" representedClassName="KSDBUser" syncable="YES">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="dbFriends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KSDBUser" inverseName="dbFriends" inverseEntity="KSDBUser" syncable="YES"/>
+        <relationship name="dbFriends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KSUser" inverseName="dbFriends" inverseEntity="KSUser" syncable="YES"/>
     </entity>
     <elements>
-        <element name="KSDBUser" positionX="-297" positionY="-18" width="128" height="120"/>
+        <element name="KSUser" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
