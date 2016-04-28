@@ -11,8 +11,10 @@
 #import "KSUser.h"
 #import "KSFacebookLoginContext.h"
 #import "KSFriendsViewController.h"
-#import "KSDispatch.h"
-#import "KSUserContext.h"
+#import "KSCoreDataManager.h"
+#import "UIAlertView+KSExtensions.h"
+//#import "KSDispatch.h"
+//#import "KSUserContext.h"
 
 @implementation KSFacebookLoginViewController
 
@@ -61,6 +63,39 @@
         user = nil;
         
         [self.navigationController pushViewController:controller animated:NO];
+}
+
+- (KSUser *)dataBaseSearchUser {
+    KSUser *user = nil;
+    NSString *entityName = NSStringFromClass([KSUser class]);
+    NSString *tokenUserId = [FBSDKAccessToken currentAccessToken].userID;
+    
+    KSCoreDataManager *controller = [[KSCoreDataManager alloc] init];
+    NSManagedObjectContext *context = controller.managedObjectContext;
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"userId = %@",tokenUserId]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if (!fetchedObjects) {
+        [UIAlertView presentWithError:error];
+    }
+    
+    if (fetchedObjects.count == 0) {
+        user = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
+        user.ID = tokenUserId;
+        
+        if (![context save:&error]) {
+            [UIAlertView presentWithError:error];
+        }
+    } else {
+        user = fetchedObjects.firstObject;
+    }
+    
+    return user;
 }
 
 @end
