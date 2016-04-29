@@ -13,15 +13,14 @@
 
 static KSCoreDataManager *sharedCoreDataManager = nil;
 
-static NSString * const kKSMomResorce   = @"KSProjectUI";
-static NSString * const kKSMomExtension = @"momd";
+static NSString * const kKSMomResorce          = @"KSDataModel";
+static NSString * const kKSMomExtension        = @"momd";
 static NSString * const kKSMomErrorDescription = @"Error initializing Managed Object Model";
-static NSString * const kKSDataBaseName = @"facebookUsers.sqlite";
+static NSString * const kKSDataBaseName        = @"facebookUsers.sqlite";
 
 @implementation KSCoreDataManager
 
-#pragma mark -
-#pragma Singleton
+#pragma mark - Singleton
 
 + (instancetype)sharedCoreDataManager {
     KSDispatchOnce(^{
@@ -31,8 +30,7 @@ static NSString * const kKSDataBaseName = @"facebookUsers.sqlite";
     return sharedCoreDataManager;
 }
 
-#pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark - Initializations and Deallocations
 
 - (instancetype)init {
     self = [super init];
@@ -42,8 +40,7 @@ static NSString * const kKSDataBaseName = @"facebookUsers.sqlite";
     return self;
 }
 
-#pragma mark -
-#pragma mark Public
+#pragma mark - Public
 
 - (void)initializeCoreData {
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:kKSMomResorce withExtension:kKSMomExtension];
@@ -70,19 +67,15 @@ static NSString * const kKSDataBaseName = @"facebookUsers.sqlite";
     NSURL *documentsURL = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *storeURL = [documentsURL URLByAppendingPathComponent:kKSDataBaseName];
     
-    KSDispatchAsyncOnBackgroundQueue(^{
-        NSError *error = nil;
-        
-        [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
-                                                 configuration:nil
-                                                           URL:storeURL
-                                                       options:nil
-                                                         error:&error];
-        
-        if (error) {
-            [UIAlertView presentWithError:error];
-        }
-    });
+    NSError *error = nil;
+    [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                             configuration:nil
+                                                       URL:storeURL
+                                                   options:nil
+                                                     error:&error];
+    if (error) {
+        [UIAlertView presentWithError:error];
+    }
 }
 
 @end
