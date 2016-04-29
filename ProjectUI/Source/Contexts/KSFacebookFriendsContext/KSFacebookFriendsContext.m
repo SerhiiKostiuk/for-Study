@@ -99,6 +99,8 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
 }
 
 - (void)fillModelWithResult:(NSDictionary *)result {
+    KSUser *user = self.user;
+
     NSArray *friendList = result[kFBUserFriendsKey][kFBDataKey];
     KSWeakify(self);
    
@@ -106,9 +108,8 @@ KSModelForModelPropertySyntesize(KSFacebookFriendsContext, KSUsers, usersModel);
     [friends performBlockWithoutNotification:^{
         KSStrongifyAndReturnIfNil(self);
         for (id friend in friendList) {
-            KSUser *user = [KSUser new];
             
-            user.ID = friend[kFBIdKey];
+            user.userId = friend[kFBIdKey];
             user.firstName = friend[kFBFirstNameKey];
             user.lastName = friend[kFBLastNameKey];
             
