@@ -13,8 +13,7 @@
 #import "KSFriendsViewController.h"
 #import "KSCoreDataManager.h"
 #import "UIAlertView+KSExtensions.h"
-//#import "KSDispatch.h"
-//#import "KSUserContext.h"
+#import "KSModel.h"
 
 @implementation KSFacebookLoginViewController
 
@@ -22,7 +21,7 @@
 #pragma mark Interface Handling
 
 - (IBAction)onLogin:(id)sender {
-    self.model = [KSUser new];
+    self.model = [KSModel new];
     self.context = [self itemsLoadingContext];
 }
 
@@ -46,9 +45,8 @@
 - (KSUser *)currentTokenUser {
     FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
     if (token) {
-        KSUser *user = [KSUser new];
-        user.ID = token.userID;
-        
+        KSUser *user = [self dataBaseSearchUser];
+
         return user;
     }
     
@@ -70,8 +68,8 @@
     NSString *entityName = NSStringFromClass([KSUser class]);
     NSString *tokenUserId = [FBSDKAccessToken currentAccessToken].userID;
     
-    KSCoreDataManager *controller = [[KSCoreDataManager alloc] init];
-    NSManagedObjectContext *context = controller.managedObjectContext;
+    KSCoreDataManager *manager = [KSCoreDataManager sharedCoreDataManager];
+    NSManagedObjectContext *context = manager.managedObjectContext;
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
     
@@ -86,7 +84,7 @@
     
     if (fetchedObjects.count == 0) {
         user = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
-        user.ID = tokenUserId;
+        user.userId = tokenUserId;
         
         if (![context save:&error]) {
             [UIAlertView presentWithError:error];
