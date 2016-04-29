@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "KSManagedObject.h"
+
 @class KSUsers;
 
-@interface KSUser : NSManagedObject
+@interface KSUser : KSManagedObject
 @property (nonatomic, strong) NSString *gender;
-@property (nonatomic, strong) NSString *ID;
+@property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSSet    *dbFriends;

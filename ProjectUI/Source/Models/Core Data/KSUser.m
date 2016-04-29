@@ -24,6 +24,7 @@ static NSString * const kKSUserIdkey = @"id";
 
 @synthesize friends = _friends;
 
+@dynamic userId;
 @dynamic gender;
 @dynamic lastName;
 @dynamic firstName;
@@ -45,13 +46,13 @@ insertIntoManagedObjectContext:(NSManagedObjectContext *)context
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)ID {
-    return [self customValueForKey:kKSUserIdkey];
-}
-
-- (void)setID:(NSString *)ID {
-    [self setCustomValue:ID forKey:kKSUserIdkey];
-}
+//- (NSString *)ID {
+//    return [self customValueForKey:kKSUserIdkey];
+//}
+//
+//- (void)setID:(NSString *)ID {
+//    [self setCustomValue:ID forKey:kKSUserIdkey];
+//}
 
 - (void)addFriend:(KSUser *)value {
     [self addCustomValue:value inMutableSetForKey:NSStringFromSelector(dbFriends)];
