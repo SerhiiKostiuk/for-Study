@@ -55,7 +55,7 @@ KSViewControllerForViewPropertySyntesize(KSFriendsViewController, KSFriendsView,
 #pragma mark -
 #pragma mark UITableViewDataSource
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     KSFriendDetailViewController *controller = [KSFriendDetailViewController new];
     controller.model = self.items[indexPath.row];
     
