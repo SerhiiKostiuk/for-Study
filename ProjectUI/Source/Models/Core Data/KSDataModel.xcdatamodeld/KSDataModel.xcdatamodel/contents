@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
-    <entity name="KSUser" representedClassName="KSDBUser" syncable="YES">
+    <entity name="KSUser" representedClassName="KSUser" syncable="YES">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
@@ -8,6 +8,6 @@
         <relationship name="dbFriends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KSUser" inverseName="dbFriends" inverseEntity="KSUser" syncable="YES"/>
     </entity>
     <elements>
-        <element name="KSUser" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="KSUser" positionX="0" positionY="0" width="128" height="120"/>
     </elements>
 </model>

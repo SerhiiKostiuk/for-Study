@@ -47,7 +47,7 @@
     if (_items != items) {
         [_items removeObserver:self];
         _items = items;
-        [_items addObserver:self];
+        [_items addObserverObject:self];
         
         self.context = [self itemsLoadingContext];
     }

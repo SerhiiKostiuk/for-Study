@@ -46,7 +46,7 @@
     if (_imageModel != imageModel) {
         [_imageModel removeObserver:self];
         _imageModel = imageModel;
-        [_imageModel addObserver:self];
+        [_imageModel addObserverObject:self];
         
         [self fillWithModel:imageModel];
         [_imageModel load];

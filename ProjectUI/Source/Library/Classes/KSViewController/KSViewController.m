@@ -14,6 +14,7 @@
 #import "KSFacebookLoginContext.h"
 #import "UIAlertView+KSExtensions.h"
 #import "UIViewController+KSExtensions.h"
+#import "KSObservableObject.h"
 
 KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
 
@@ -46,7 +47,7 @@ KSViewControllerForViewPropertySyntesize(KSViewController, KSView, mainView);
     if (_model != model) {
         [_model removeObserver:self];
         _model = model;
-//        [_model addObserver:self];
+        [_model addObserverObject:self];
         
         [self updateModelAdjustment];
     }

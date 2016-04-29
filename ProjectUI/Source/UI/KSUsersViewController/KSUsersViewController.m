@@ -43,7 +43,7 @@ KSViewControllerForViewPropertySyntesize(KSUsersViewController, KSUsersView, mai
     if (_users != users) {
         [_users removeObserver:self];
         _users = users;
-        [_users addObserver:self];
+        [_users addObserverObject:self];
         
         [_users load];
 

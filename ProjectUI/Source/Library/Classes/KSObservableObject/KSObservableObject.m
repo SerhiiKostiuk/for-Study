@@ -79,25 +79,23 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addObserver:(id)observer {
+- (void)addObserverObject:(id)observer {
     @synchronized(self) {
-        KSWeakReference *reference = [[KSWeakReference alloc] initWithTarget:observer];
-        [self.mutableObservers addObject:reference];
+        [self.mutableObservers addObject:[[KSWeakReference alloc] initWithTarget:observer]];
     }
 }
 
 - (void)addObserversFromArray:(NSArray *)observers {
     @synchronized(self) {
         for (id observer in observers) {
-            [self addObserver:observer];
+            [self addObserverObject:observer];
         }
     }
 }
 
 - (void)removeObserver:(id)observer {
     @synchronized(self) {
-        KSWeakReference *reference = [[KSWeakReference alloc] initWithTarget:observer];
-        [self.mutableObservers removeObject:reference];        
+        [self.mutableObservers removeObject:[[KSWeakReference alloc] initWithTarget:observer]];
     }
 }
 
