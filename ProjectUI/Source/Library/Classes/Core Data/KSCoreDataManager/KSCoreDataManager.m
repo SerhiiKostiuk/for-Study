@@ -13,7 +13,7 @@
 
 static KSCoreDataManager *sharedCoreDataManager = nil;
 
-static NSString * const kKSMomResorce          = @"KSDataModel";
+static NSString * const kKSMomResource         = @"KSDataModel";
 static NSString * const kKSMomExtension        = @"momd";
 static NSString * const kKSMomErrorDescription = @"Error initializing Managed Object Model";
 static NSString * const kKSDataBaseName        = @"facebookUsers.sqlite";
@@ -43,7 +43,7 @@ static NSString * const kKSDataBaseName        = @"facebookUsers.sqlite";
 #pragma mark - Public
 
 - (void)initializeCoreData {
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:kKSMomResorce withExtension:kKSMomExtension];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:kKSMomResource withExtension:kKSMomExtension];
     
     NSManagedObjectModel *mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
