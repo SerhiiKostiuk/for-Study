@@ -18,7 +18,7 @@
 - (NSString *)path {
     KSUser *user = self.model;
     
-    return user.ID;
+    return user.userId;
 }
 
 - (NSDictionary *)parameters {
@@ -34,7 +34,7 @@
 - (void)fillModelWithResult:(NSDictionary *)result {
     KSUser *user = self.model;
     
-    user.ID = result[kFBIdKey];
+    user.userId = result[kFBIdKey];
     user.firstName = result[kFBFirstNameKey];
     user.lastName = result[kFBLastNameKey];
     
