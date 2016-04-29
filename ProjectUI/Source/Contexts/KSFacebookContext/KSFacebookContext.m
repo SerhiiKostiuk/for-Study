@@ -16,7 +16,7 @@
 #import "KSJSONHeaders.h"
 #import "KSWeakifyMacro.h"
 
-KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
+//KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
 
 @interface KSFacebookContext ()
 @property (nonatomic, strong)   FBSDKGraphRequestConnection *connection;
@@ -86,7 +86,7 @@ KSModelForModelPropertySyntesize(KSFacebookContext, KSModel, facebookModel);
 #pragma mark Private 
 
 - (FBSDKGraphRequestHandler)completionHandler {
-    KSModel *model = self.facebookModel;
+    KSModel *model = self.model;
     KSWeakify(self);
     return ^(FBSDKGraphRequestConnection *connection, NSDictionary *result, NSError *error) {
         KSStrongifyAndReturnIfNil(self);
