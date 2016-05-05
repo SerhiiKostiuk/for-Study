@@ -8,6 +8,11 @@
 
 #import <CoreData/CoreData.h>
 
-@interface KSManagedObject : NSManagedObject
+#import "KSObservableObjectMixin.h"
+
+@interface KSManagedObject : NSManagedObject <KSObservableObjectMixin>
+@property (nonatomic, strong) NSString *ID;
+
++ (id)managedObjectWithID:(NSString *)ID AndEntityName:(NSString *)entityName;
 
 @end
