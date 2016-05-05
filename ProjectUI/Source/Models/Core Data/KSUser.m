@@ -46,14 +46,6 @@ insertIntoManagedObjectContext:(NSManagedObjectContext *)context
 #pragma mark -
 #pragma mark Accessors
 
-//- (NSString *)ID {
-//    return [self customValueForKey:kKSUserIdkey];
-//}
-//
-//- (void)setID:(NSString *)ID {
-//    [self setCustomValue:ID forKey:kKSUserIdkey];
-//}
-
 - (void)addFriend:(KSUser *)value {
     [self addCustomValue:value inMutableSetForKey:NSStringFromSelector(dbFriends)];
     [self.friends addObject:value];
