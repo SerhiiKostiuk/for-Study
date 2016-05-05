@@ -14,19 +14,18 @@
 #import "KSCoreDataManager.h"
 #import "UIAlertView+KSExtensions.h"
 #import "KSModel.h"
+#import "KSManagedObject.h"
 
 @implementation KSFacebookLoginViewController
 
-#pragma mark -
-#pragma mark Interface Handling
+#pragma mark - Interface Handling
 
 - (IBAction)onLogin:(id)sender {
     self.model = [KSModel new];
     self.context = [self itemsLoadingContext];
 }
 
-#pragma mark -
-#pragma mark Public
+#pragma mark - Public
 
 - (void)updateViewController {
     [self presentFriendsViewController];
@@ -39,15 +38,14 @@
     return context;
 }
 
-#pragma mark -
-#pragma mark Private 
+#pragma mark - Private
 
 - (KSUser *)currentTokenUser {
     FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
     if (token) {
-        KSUser *user = [self dataBaseSearchUser];
-
-        return user;
+        NSString *entityName = NSStringFromClass([KSUser class]);
+        
+        return [KSManagedObject managedObjectWithID:token.userID AndEntityName:entityName];
     }
     
     return nil;
@@ -61,39 +59,6 @@
         user = nil;
         
         [self.navigationController pushViewController:controller animated:NO];
-}
-
-- (KSUser *)dataBaseSearchUser {
-    KSUser *user = nil;
-    NSString *entityName = NSStringFromClass([KSUser class]);
-    NSString *tokenUserId = [FBSDKAccessToken currentAccessToken].userID;
-    
-    KSCoreDataManager *manager = [KSCoreDataManager sharedCoreDataManager];
-    NSManagedObjectContext *context = manager.managedObjectContext;
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
-    
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"userId = %@",tokenUserId]];
-    
-    NSError *error = nil;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    if (!fetchedObjects) {
-        [UIAlertView presentWithError:error];
-    }
-    
-    if (fetchedObjects.count == 0) {
-        user = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
-        user.userId = tokenUserId;
-        
-        if (![context save:&error]) {
-            [UIAlertView presentWithError:error];
-        }
-    } else {
-        user = fetchedObjects.firstObject;
-    }
-    
-    return user;
 }
 
 @end
