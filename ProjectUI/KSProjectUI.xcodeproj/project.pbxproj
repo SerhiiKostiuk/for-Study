@@ -246,6 +246,7 @@
 		C5E2219D1CCFBB4E00B11B76 /* NSManagedObject+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+KSExtensions.m"; sourceTree = "<group>"; };
 		C5E221A01CCFBB9C00B11B76 /* NSManagedObjectContext+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+KSExtensions.h"; sourceTree = "<group>"; };
 		C5E221A11CCFBB9C00B11B76 /* NSManagedObjectContext+KSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+KSExtensions.m"; sourceTree = "<group>"; };
+		C5E221B31CDA449700B11B76 /* KSObservableObjectMixin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSObservableObjectMixin.h; sourceTree = "<group>"; };
 		C5F1F4401C6A9A1D008075D1 /* KSUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUsers.h; sourceTree = "<group>"; };
 		C5F1F4411C6A9A1D008075D1 /* KSUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSUsers.m; sourceTree = "<group>"; };
 		C5F1F4431C6AAA07008075D1 /* UINib+KSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+KSExtensions.h"; sourceTree = "<group>"; };
@@ -659,6 +660,7 @@
 			children = (
 				C554FA3E1C6A1A9E00979CCA /* KSObservableObject.h */,
 				C554FA3F1C6A1A9E00979CCA /* KSObservableObject.m */,
+				C5E221B31CDA449700B11B76 /* KSObservableObjectMixin.h */,
 				C554FA401C6A1A9E00979CCA /* KSReference */,
 			);
 			path = KSObservableObject;

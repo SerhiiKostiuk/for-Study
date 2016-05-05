@@ -7,9 +7,15 @@
 //
 
 #import "KSCoreDataManager.h"
+#import <UIKit/UIKit.h>
+
+#import "KSDispatch.h"
 
 #import "UIAlertView+KSExtensions.h"
-#import "KSDispatch.h"
+#import "NSManagedObjectContext+KSExtensions.h"
+
+
+#import "KSWeakifyMacro.h"
 
 static KSCoreDataManager *sharedCoreDataManager = nil;
 
@@ -17,6 +23,12 @@ static NSString * const kKSMomResource         = @"KSDataModel";
 static NSString * const kKSMomExtension        = @"momd";
 static NSString * const kKSMomErrorDescription = @"Error initializing Managed Object Model";
 static NSString * const kKSDataBaseName        = @"facebookUsers.sqlite";
+
+@interface KSCoreDataManager ()
+@property (nonatomic, strong) NSMutableArray  *notificationObservers;
+
+
+@end
 
 @implementation KSCoreDataManager
 
@@ -75,6 +87,35 @@ static NSString * const kKSDataBaseName        = @"facebookUsers.sqlite";
                                                      error:&error];
     if (error) {
         [UIAlertView presentWithError:error];
+    }
+}
+
+#pragma mark - Private 
+
+- (void)startObservingNotification {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    NSArray *array = @[UIApplicationWillResignActiveNotification, UIApplicationWillTerminateNotification];
+    NSMutableArray *observers = self.notificationObservers;
+    
+    KSWeakify(self);
+    id block = ^(NSNotification *note){
+        KSStrongifyAndReturnIfNil(self);
+        [[self.managedObjectContext class] saveManagedObjectContext];
+    };
+    
+    for (NSString *notification in array) {
+        [observers addObject:[center addObserverForName:notification object:nil queue:nil usingBlock:block]];
+    }
+}
+
+- (void)endObservingNotification {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    NSArray *observers = [self.notificationObservers copy];
+    
+    for (id observer in observers) {
+        [center removeObserver:observer name:nil object:nil];
+        [self.notificationObservers removeObject:observer];
+        
     }
 }
 
